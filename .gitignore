@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+**/bin/
+**/obj/
+**/dist/
+**/node_modules/
+
+# .NET local settings
+**/appsettings.Development.json
+**/appsettings.Local.json
+
