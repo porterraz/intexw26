@@ -625,6 +625,8 @@ export function LoginPage() {
           <p className="mt-8 text-center text-[12px] text-slate-600">
             Access is restricted to authorised Nova Path personnel.
             <br />
+            Demo login: <span className="text-slate-400">admin@novapath.org / demo123</span>
+            <br />
             Contact{" "}
             <a
               href="mailto:admin@novapath.org.br"

@@ -71,7 +71,7 @@ export function DonorsPage() {
         render: (s) => (
           <Link
             to={`/admin/donors/${s.supporterId}`}
-            className="text-sm font-semibold text-slate-900 hover:underline"
+            className="text-sm font-semibold text-emerald-300 hover:underline"
           >
             View
           </Link>
@@ -82,20 +82,20 @@ export function DonorsPage() {
   )
 
   return (
-    <div className="min-h-full bg-slate-50">
+    <div className="min-h-full bg-[#060e09] text-white">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold text-slate-900">Donors &amp; Contributions</h1>
+          <h1 className="text-2xl font-bold text-white">Donors &amp; Contributions</h1>
           <button
             onClick={() => navigate('/admin/donors')}
-            className="rounded-md border px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-white"
+            className="rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-white/10"
           >
             Add Supporter
           </button>
         </div>
 
-        <section className="mt-6 rounded-2xl border bg-white p-4 shadow-sm">
+        <section className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 shadow-sm">
           <div className="grid gap-3 md:grid-cols-3">
             <input
               value={supporterType}
@@ -104,7 +104,7 @@ export function DonorsPage() {
                 setSupporterType(e.target.value)
               }}
               placeholder="Supporter type"
-              className="rounded-md border px-3 py-2 text-sm"
+              className="rounded-md border border-white/20 bg-transparent px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500"
             />
             <input
               value={status}
@@ -113,7 +113,7 @@ export function DonorsPage() {
                 setStatus(e.target.value)
               }}
               placeholder="Status"
-              className="rounded-md border px-3 py-2 text-sm"
+              className="rounded-md border border-white/20 bg-transparent px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500"
             />
             <input
               value={search}
@@ -122,7 +122,7 @@ export function DonorsPage() {
                 setSearch(e.target.value)
               }}
               placeholder="Search"
-              className="rounded-md border px-3 py-2 text-sm"
+              className="rounded-md border border-white/20 bg-transparent px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500"
             />
           </div>
         </section>

@@ -3,6 +3,7 @@ import CookieBanner from './components/CookieBanner'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import HomePage from './pages/HomePage'
 import { ImpactDashboardPage } from './pages/ImpactDashboardPage'
+import { ForgotPasswordPage } from './pages/ForgotPasswordPage'
 import { LoginPage } from './pages/LoginPage'
 import PrivacyPage from './pages/PrivacyPage'
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage'
@@ -22,6 +23,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/impact" element={<ImpactDashboardPage />} />
 

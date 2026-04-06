@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import i18n from "../i18n";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -213,6 +214,9 @@ export default function HomePage() {
       },
     ],
     section: {
+      navLogin: t("nav_login"),
+      navImpact: t("nav_impact"),
+      navPrivacy: t("nav_privacy"),
       whatWeDo: t("section_what_we_do"),
       threePillars: t("section_three_pillars"),
       oneMission: t("section_one_mission"),
@@ -278,19 +282,39 @@ export default function HomePage() {
             {content.nav}
           </motion.a>
 
-          <motion.button
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            type="button"
-            onClick={() => void i18n.changeLanguage(nextLanguage)}
-            className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-4 py-1.5 text-sm font-medium text-white/80 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
-            aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
-            title={`Switch language to ${nextLanguage.toUpperCase()}`}
-          >
-            <span aria-hidden="true">🌐</span>
-            {currentLanguage.toLowerCase().startsWith("pt") ? "PT" : "EN"}
-          </motion.button>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/impact"
+              className="hidden sm:inline-flex items-center rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              {content.section.navImpact}
+            </Link>
+            <Link
+              to="/privacy"
+              className="hidden sm:inline-flex items-center rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              {content.section.navPrivacy}
+            </Link>
+            <Link
+              to="/login"
+              className="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-[#060e09] hover:bg-emerald-400 transition-colors"
+            >
+              {content.section.navLogin}
+            </Link>
+            <motion.button
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              type="button"
+              onClick={() => void i18n.changeLanguage(nextLanguage)}
+              className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-4 py-1.5 text-sm font-medium text-white/80 transition-colors focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
+              aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
+              title={`Switch language to ${nextLanguage.toUpperCase()}`}
+            >
+              <span aria-hidden="true">🌐</span>
+              {currentLanguage.toLowerCase().startsWith("pt") ? "PT" : "EN"}
+            </motion.button>
+          </div>
         </div>
       </header>
 
@@ -446,6 +470,7 @@ export default function HomePage() {
 
       {/* ══════════════════════════════ IMPACT ════════════════════════════════ */}
       <section
+        id="donate"
         ref={impactRef}
         aria-label="Impact Statistics"
         className="relative py-28 px-6 border-y border-white/5"
@@ -502,6 +527,7 @@ export default function HomePage() {
 
       {/* ════════════════════════════ PILLAR CARDS ════════════════════════════ */}
       <section
+        id="about"
         ref={pillarsRef}
         aria-label="Core Pillars"
         className="py-28 px-6"

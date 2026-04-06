@@ -5,7 +5,7 @@ import { useAuth } from '../state/AuthContext'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `px-3 py-2 rounded-md text-sm font-medium ${
-    isActive ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-100'
+    isActive ? 'bg-emerald-500/20 text-emerald-300' : 'text-slate-300 hover:bg-white/10 hover:text-white'
   }`
 
 export function NavBar() {
@@ -15,10 +15,10 @@ export function NavBar() {
   const nextLanguage = currentLanguage.toLowerCase().startsWith('pt') ? 'en' : 'pt'
 
   return (
-    <header className="border-b bg-white">
+    <header className="border-b border-white/10 bg-[#060e09]/90 backdrop-blur">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between gap-4">
-          <Link to="/admin" className="font-semibold tracking-tight text-slate-900">
+          <Link to="/admin" className="font-semibold tracking-tight text-white">
             Nova Path
           </Link>
 
@@ -44,16 +44,16 @@ export function NavBar() {
             <button
               type="button"
               onClick={() => void i18n.changeLanguage(nextLanguage)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 text-slate-700 hover:bg-slate-100"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-slate-300 hover:bg-white/10 hover:text-white"
               aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
               title={`Switch language to ${nextLanguage.toUpperCase()}`}
             >
               <span aria-hidden="true">🌐</span>
             </button>
-            <div className="hidden text-sm text-slate-600 sm:block">{user?.email}</div>
+            <div className="hidden text-sm text-slate-300 sm:block">{user?.email}</div>
             <button
               onClick={logout}
-              className="rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              className="rounded-md bg-emerald-500 px-3 py-2 text-sm font-semibold text-[#060e09] hover:bg-emerald-400"
             >
               Logout
             </button>

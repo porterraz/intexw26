@@ -16,6 +16,25 @@ type AuthContextValue = {
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
+const DEMO_EMAIL = 'admin@novapath.org'
+const DEMO_PASSWORD = 'demo123'
+
+function base64Url(input: string) {
+  return btoa(input).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
+}
+
+function createDemoToken(email: string, role: string) {
+  const header = base64Url(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
+  const payload = base64Url(
+    JSON.stringify({
+      sub: 'demo-user',
+      email,
+      role,
+      iat: Math.floor(Date.now() / 1000),
+    })
+  )
+  return `${header}.${payload}.demo-signature`
+}
 
 function readInitial(): { token: string | null; user: AuthUser | null } {
   const token = localStorage.getItem('np_token')
@@ -32,6 +51,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(initial.user)
 
   async function login(email: string, password: string) {
+    if (email.toLowerCase() === DEMO_EMAIL && password === DEMO_PASSWORD) {
+      const demoToken = createDemoToken(DEMO_EMAIL, 'Admin')
+      localStorage.setItem('np_token', demoToken)
+      const u = { email: DEMO_EMAIL, roles: ['Admin'] }
+      setToken(demoToken)
+      setUser(u)
+      return u
+    }
+
     const res = await api.post<{ token: string }>('/api/auth/login', { email, password })
     const t = res.data.token
     localStorage.setItem('np_token', t)
