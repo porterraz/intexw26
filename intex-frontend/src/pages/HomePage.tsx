@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import i18n from "../i18n";
+import brazil2 from "../assets/brazil2.png";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -189,6 +190,8 @@ function TiltCard({
 export default function HomePage() {
   const { t, i18n: i18nInstance } = useTranslation();
   const [snapshot, setSnapshot] = useState<PublicImpactSnapshot | null>(null);
+  const heroSlides = [brazil2];
+  const [activeSlide, setActiveSlide] = useState(0);
   const currentLanguage = i18nInstance.resolvedLanguage ?? "en";
   const nextLanguage = currentLanguage.toLowerCase().startsWith("pt") ? "en" : "pt";
   const languageToggleLabel = currentLanguage.toLowerCase().startsWith("pt")
@@ -251,6 +254,14 @@ export default function HomePage() {
   useEffect(() => {
     fetchImpactSnapshot().then(setSnapshot);
   }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
 
   // Refs for scroll sections
   const impactRef = useRef<HTMLElement>(null);
@@ -464,7 +475,49 @@ export default function HomePage() {
               {content.hero.ctaSecondary}
             </motion.a>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.05, duration: 0.65 }}
+            className="flex items-center gap-2"
+          >
+            {heroSlides.map((_, index) => (
+              <button
+                key={`slide-dot-${index}`}
+                type="button"
+                onClick={() => setActiveSlide(index)}
+                className={`h-2.5 rounded-full transition-all ${
+                  activeSlide === index ? "w-8 bg-accent" : "w-2.5 bg-surface-text/40 hover:bg-surface-text/70"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </motion.div>
         </div>
+
+        <div className="absolute inset-0 z-[1]">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={heroSlides[activeSlide]}
+              src={heroSlides[activeSlide]}
+              alt={`Nova Path highlight ${activeSlide + 1}`}
+              initial={{ opacity: 0, scale: 1.035 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ opacity: { duration: 1.0, ease: "easeInOut" }, scale: { duration: 4.5, ease: "easeOut" } }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          </AnimatePresence>
+        </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 z-[2]"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0.84) 0%, rgba(255,255,255,0.72) 26%, rgba(255,255,255,0.66) 56%, rgba(255,255,255,0.78) 100%)",
+          }}
+        />
 
       </section>
 
