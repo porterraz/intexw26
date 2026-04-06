@@ -280,7 +280,7 @@ export default function HomePage() {
       `}</style>
 
       {/* ════════════════════════════════ NAV ════════════════════════════════ */}
-      <header className="fixed top-0 inset-x-0 z-50 bg-brand-50/95 border-b border-brand-100">
+      <header className="fixed top-0 inset-x-0 z-50 bg-brand-50/98 border-b border-brand-100 shadow-sm backdrop-blur-[1px]">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           {/* logo */}
           <motion.a
@@ -318,7 +318,7 @@ export default function HomePage() {
             </Link>
             <Link
               to="/login"
-              className="inline-flex items-center rounded-full bg-brand px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-dark transition-colors"
+              className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
             >
               {content.section.navLogin}
             </Link>
@@ -575,12 +575,12 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════ FOOTER ════════════════════════════════ */}
-      <footer className="border-t border-white/5 py-10 px-6">
+      <footer className="border-t border-brand-100 py-10 px-6 bg-surface">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="font-display font-bold text-sm text-white/60">{content.nav}</span>
-          <p className="text-white/25 text-xs">{content.section.footer}</p>
-          <div className="flex items-center gap-1 text-xs text-white/25">
-            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-display font-bold text-sm text-surface-dark">{content.nav}</span>
+          <p className="text-surface-text text-xs">{content.section.footer}</p>
+          <div className="flex items-center gap-1 text-xs text-surface-text">
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span>{content.section.systems}</span>
           </div>
         </div>
