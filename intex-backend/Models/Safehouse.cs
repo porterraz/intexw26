@@ -38,5 +38,9 @@ public class Safehouse
     public string Notes { get; set; } = "";
 
     public ICollection<Resident> Residents { get; set; } = new List<Resident>();
+    public ICollection<DonationAllocation> DonationAllocations { get; set; } = new List<DonationAllocation>();
+    public ICollection<IncidentReport> IncidentReports { get; set; } = new List<IncidentReport>();
+    public ICollection<SafehouseMonthlyMetric> SafehouseMonthlyMetrics { get; set; } = new List<SafehouseMonthlyMetric>();
+    public ICollection<PartnerAssignment> PartnerAssignments { get; set; } = new List<PartnerAssignment>();
 }
 

@@ -11,6 +11,9 @@ public class SocialMediaPost
     [Required]
     public string Platform { get; set; } = "";
 
+    public string? PlatformPostId { get; set; }
+    public string? PostUrl { get; set; }
+
     public DateTime CreatedAt { get; set; }
 
     [Required]
@@ -31,6 +34,7 @@ public class SocialMediaPost
     public string Hashtags { get; set; } = "";
 
     public int NumHashtags { get; set; }
+    public int MentionsCount { get; set; }
     public bool HasCallToAction { get; set; }
     public string? CallToActionType { get; set; }
 
@@ -55,13 +59,21 @@ public class SocialMediaPost
     public int Shares { get; set; }
     public int Saves { get; set; }
     public int ClickThroughs { get; set; }
+    public int? VideoViews { get; set; }
 
     [Precision(18, 4)]
     public decimal EngagementRate { get; set; }
 
+    public int ProfileVisits { get; set; }
     public int DonationReferrals { get; set; }
 
     [Precision(18, 2)]
     public decimal EstimatedDonationValuePhp { get; set; }
+
+    public int FollowerCountAtPost { get; set; }
+    public double? WatchTimeSeconds { get; set; }
+    public double? AvgViewDurationSeconds { get; set; }
+    public int? SubscriberCountAtPost { get; set; }
+    public int? Forwards { get; set; }
 }
 

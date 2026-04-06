@@ -35,5 +35,11 @@ public class Donation
 
     [Required]
     public string Notes { get; set; } = "";
+
+    public int? ReferralPostId { get; set; }
+    public SocialMediaPost? ReferralPost { get; set; }
+
+    public ICollection<DonationAllocation> DonationAllocations { get; set; } = new List<DonationAllocation>();
+    public ICollection<InKindDonationItem> InKindDonationItems { get; set; } = new List<InKindDonationItem>();
 }
 

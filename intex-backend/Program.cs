@@ -89,4 +89,7 @@ app.MapControllers();
 
 await IdentitySeeder.SeedAsync(app.Services);
 
+var csvFolder = Path.Combine(app.Environment.ContentRootPath, "..", "lighthouse_csv_v7", "lighthouse_csv_v7");
+await CsvSeeder.SeedAsync(app.Services, csvFolder);
+
 app.Run();

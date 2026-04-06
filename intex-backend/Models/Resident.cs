@@ -25,6 +25,12 @@ public class Resident
     public DateTime DateOfBirth { get; set; }
 
     [Required]
+    public string BirthStatus { get; set; } = "";
+
+    [Required]
+    public string PlaceOfBirth { get; set; } = "";
+
+    [Required]
     public string Religion { get; set; } = "";
 
     [Required]
@@ -55,17 +61,25 @@ public class Resident
 
     public DateTime DateOfAdmission { get; set; }
 
+    public string? AgeUponAdmission { get; set; }
+    public string? PresentAge { get; set; }
+    public string? LengthOfStay { get; set; }
+
     [Required]
     public string ReferralSource { get; set; } = "";
 
-    [Required]
-    public string ReferringAgencyPerson { get; set; } = "";
+    public string? ReferringAgencyPerson { get; set; }
+
+    public DateTime? DateColbRegistered { get; set; }
+    public DateTime? DateColbObtained { get; set; }
 
     [Required]
     public string AssignedSocialWorker { get; set; } = "";
 
     [Required]
     public string InitialCaseAssessment { get; set; } = "";
+
+    public DateTime? DateCaseStudyPrepared { get; set; }
 
     public string? ReintegrationType { get; set; }
     public string? ReintegrationStatus { get; set; }
@@ -84,5 +98,9 @@ public class Resident
 
     public ICollection<ProcessRecording> ProcessRecordings { get; set; } = new List<ProcessRecording>();
     public ICollection<HomeVisitation> HomeVisitations { get; set; } = new List<HomeVisitation>();
+    public ICollection<EducationRecord> EducationRecords { get; set; } = new List<EducationRecord>();
+    public ICollection<HealthWellbeingRecord> HealthWellbeingRecords { get; set; } = new List<HealthWellbeingRecord>();
+    public ICollection<IncidentReport> IncidentReports { get; set; } = new List<IncidentReport>();
+    public ICollection<InterventionPlan> InterventionPlans { get; set; } = new List<InterventionPlan>();
 }
 
