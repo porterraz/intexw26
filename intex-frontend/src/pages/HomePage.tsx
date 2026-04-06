@@ -445,7 +445,7 @@ export default function HomePage() {
               href="#donate"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-semibold text-white text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50 bg-brand hover:bg-brand-dark transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-brand-100 text-surface-text hover:text-surface-dark hover:border-brand text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
               aria-label="Donate Now to Nova Path"
             >
               <span>{content.hero.cta}</span>
