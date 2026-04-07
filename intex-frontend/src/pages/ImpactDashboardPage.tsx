@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../lib/api'
 import { MetricCard } from '../components/MetricCard'
 import { LoadingSpinner } from '../components/LoadingSpinner'
@@ -79,6 +80,14 @@ export function ImpactDashboardPage() {
   return (
     <div className="min-h-full text-surface-dark">
       <main className="mx-auto max-w-6xl px-4 py-6">
+        <div className="mb-4 flex items-center justify-between">
+          <Link to="/" className="text-sm font-medium text-brand hover:text-brand-dark">
+            ← Back to home
+          </Link>
+          <Link to="/login" className="text-sm font-medium text-surface-text hover:text-surface-dark">
+            Login
+          </Link>
+        </div>
         <h1 className="text-3xl font-bold tracking-tight text-surface-dark">{headline}</h1>
         {snapshot?.summaryText && <p className="mt-2 max-w-3xl text-surface-text">{snapshot.summaryText}</p>}
 

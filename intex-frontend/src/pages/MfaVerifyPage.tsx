@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../state/AuthContext'
 
 export function MfaVerifyPage() {
@@ -49,6 +49,11 @@ export function MfaVerifyPage() {
   return (
     <div className="min-h-screen bg-brand-50 flex items-center justify-center px-4">
       <div className="w-full max-w-md rounded-2xl border border-brand-100 bg-surface p-8 shadow-sm">
+        <div className="mb-4">
+          <Link to="/login" className="text-sm font-medium text-brand hover:text-brand-dark">
+            ← Back to login
+          </Link>
+        </div>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Multi-Factor Authentication</p>
         <h1 className="mt-2 font-display text-2xl font-bold text-surface-dark">Verify your sign in</h1>
         <p className="mt-2 text-sm text-surface-text">
@@ -78,6 +83,12 @@ export function MfaVerifyPage() {
           >
             {loading ? 'Verifying...' : 'Verify and continue'}
           </button>
+          <Link
+            to="/"
+            className="block text-center text-sm font-medium text-surface-text hover:text-surface-dark"
+          >
+            Back to home
+          </Link>
         </form>
       </div>
     </div>

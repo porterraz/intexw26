@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import { useAuth } from '../state/AuthContext'
 
@@ -61,6 +61,11 @@ export function MfaSetupPage() {
   return (
     <div className="min-h-screen bg-brand-50 px-4 py-10 sm:px-6">
       <div className="mx-auto w-full max-w-2xl rounded-2xl border border-brand-100 bg-surface p-8 shadow-sm">
+        <div className="mb-4">
+          <Link to="/admin" className="text-sm font-medium text-brand hover:text-brand-dark">
+            ← Back to dashboard
+          </Link>
+        </div>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Admin Security</p>
         <h1 className="mt-2 font-display text-3xl font-bold text-surface-dark">Set up authenticator MFA</h1>
         <p className="mt-2 text-sm text-surface-text">
