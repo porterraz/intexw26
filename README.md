@@ -1,33 +1,25 @@
 # Intex W26
 
-A full-stack web app for trafficking survivor support operations, with a public impact view and an authenticated admin dashboard.
+Nova Path is a full-stack platform that supports survivor care operations with a public impact site and a secure admin dashboard.
 
-## Capabilities
+## Live Azure App
 
-- Public pages for home, privacy, and impact metrics
-- Secure authentication with protected admin routes
-- Resident and supporter/donor management workflows
-- Process recordings, home visitations, and social media analytics APIs
-- Bilingual frontend support (English and Portuguese)
+- Website: https://intexw26-web-21573.azurewebsites.net
+- API: https://intexw26-api-21573.azurewebsites.net
 
-## Run Locally (Terminal)
+## Run Locally
 
-Prereqs: Node.js + npm, and .NET SDK.
+Prereqs: .NET SDK and Node.js/npm.
 
-1. Start the backend:
+1. Backend
    - `cd intex-backend`
    - `dotnet restore`
    - `dotnet run`
-2. Start the frontend in a second terminal:
+2. Frontend (new terminal)
    - `cd intex-frontend`
    - `npm install`
    - `npm run dev`
 
-## Stop the Project
+## Deployment Notes
 
-- In each terminal where the app is running, press `Ctrl + C`.
-- That stops `dotnet run` and the Vite dev server.
-
-## Deploy to Azure (Option A)
-
-- Frontend on **Azure Static Web Apps** (main URL). API on **Azure App Service** (separate URL). See [AZURE_DEPLOY.md](AZURE_DEPLOY.md).
+Azure deployment is managed by GitHub Actions. See [AZURE_DEPLOY.md](AZURE_DEPLOY.md).
