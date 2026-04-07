@@ -29,6 +29,24 @@ public class HomeVisitationsController : ControllerBase
         return Ok(items);
     }
 
+    [HttpGet("case-conferences")]
+    public async Task<ActionResult<IReadOnlyList<HomeVisitation>>> GetCaseConferences([FromQuery] int? residentId = null)
+    {
+        var q = _db.HomeVisitations.AsNoTracking()
+            .Where(v =>
+                EF.Functions.Like(v.VisitType, "%Conference%") ||
+                EF.Functions.Like(v.Purpose, "%Conference%") ||
+                EF.Functions.Like(v.Observations, "%Conference%"));
+
+        if (residentId.HasValue)
+        {
+            q = q.Where(v => v.ResidentId == residentId.Value);
+        }
+
+        var items = await q.OrderByDescending(v => v.VisitDate).ToListAsync();
+        return Ok(items);
+    }
+
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<HomeVisitation>> Create([FromBody] HomeVisitation visitation)

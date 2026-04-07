@@ -143,6 +143,14 @@ export async function getHomeVisitations(residentId: number): Promise<HomeVisita
   return res.data
 }
 
+export async function getCaseConferences(residentId: number): Promise<HomeVisitation[]> {
+  const res = await api.get<HomeVisitation[]>('/api/home-visitations/case-conferences', {
+    params: { residentId },
+    headers: getHeaders(),
+  })
+  return res.data
+}
+
 export async function createHomeVisitation(payload: {
   residentId: number
   date: string
@@ -164,5 +172,42 @@ export async function createHomeVisitation(payload: {
     visitOutcome: 'Pending review',
   }
   const res = await api.post<HomeVisitation>('/api/home-visitations', body, { headers: getHeaders() })
+  return res.data
+}
+
+export type Donation = {
+  donationId: number
+  supporterId: number
+  donationDate: string
+  amount: number
+  currencyCode?: string
+  designation?: string
+  paymentMethod?: string
+  sourceChannel?: string
+  donorSegment?: string
+  campaignTag?: string
+  fiscalYear?: number
+  isRecurring?: boolean
+}
+
+export type PublicImpactSnapshot = {
+  activeSafehouses?: number
+  residentsSupported?: number
+  totalDonationsBRL?: number
+  totalDonationsUsd?: number
+  totalDonors?: number
+}
+
+export async function getDonations(page = 1, pageSize = 100): Promise<Donation[]> {
+  const res = await api.get<{ items?: Donation[]; data?: Donation[] } | Donation[]>('/api/donations', {
+    params: { page, pageSize },
+    headers: getHeaders(),
+  })
+  if (Array.isArray(res.data)) return res.data
+  return res.data.items ?? res.data.data ?? []
+}
+
+export async function getPublicImpactSnapshot(): Promise<PublicImpactSnapshot> {
+  const res = await api.get<PublicImpactSnapshot>('/api/public/stats')
   return res.data
 }

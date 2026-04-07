@@ -16,15 +16,16 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var defaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrWhiteSpace(defaultConnection))
+{
+    throw new InvalidOperationException(
+        "Missing required connection string 'DefaultConnection'. Configure SQL Server before starting the application."
+    );
+}
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    if (!string.IsNullOrWhiteSpace(defaultConnection))
-    {
-        options.UseSqlServer(defaultConnection);
-        return;
-    }
-
-    options.UseInMemoryDatabase("IntexFallback");
+    options.UseSqlServer(defaultConnection);
 });
 
 builder.Services
@@ -96,6 +97,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+}
+else
+{
+    app.UseHsts();
 }
 
 app.UseForwardedHeaders();

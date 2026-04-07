@@ -2,20 +2,44 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HeartIcon, TrendingUpIcon, CalendarIcon } from 'lucide-react';
 import { useAuth } from '../state/AuthContext';
+import { getDonations, getPublicImpactSnapshot, type Donation } from '../lib/api';
 
 export function DonorDashboard() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const [donations, setDonations] = useState<any[]>([]);
+  const [donations, setDonations] = useState<Donation[]>([]);
+  const [activeSafehouses, setActiveSafehouses] = useState<number>(0);
+  const [totalDonors, setTotalDonors] = useState<number>(0);
+  const [lifetimeGiving, setLifetimeGiving] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
 
-  // Placeholder for when API is fully wired
   useEffect(() => {
-    // In a real scenario, this fetches GET /api/donations/my-history
-    setDonations([
-      { id: 1, date: '2026-03-15', amount: 500.00, fund: 'General Safehouse Fund', status: 'Completed' },
-      { id: 2, date: '2025-12-20', amount: 1000.00, fund: 'Education & Reintegration', status: 'Completed' },
-      { id: 3, date: '2025-08-05', amount: 250.00, fund: 'Emergency Medical', status: 'Completed' }
-    ]);
+    let active = true;
+    async function loadData() {
+      setLoading(true);
+      setError('');
+      try {
+        const [donationRows, snapshot] = await Promise.all([
+          getDonations(1, 100),
+          getPublicImpactSnapshot(),
+        ]);
+        if (!active) return;
+        setDonations(donationRows);
+        setLifetimeGiving(donationRows.reduce((sum, d) => sum + (Number(d.amount) || 0), 0));
+        setActiveSafehouses(snapshot.activeSafehouses ?? 0);
+        setTotalDonors(snapshot.totalDonors ?? 0);
+      } catch (e) {
+        if (!active) return;
+        setError(e instanceof Error ? e.message : 'Failed to load donor dashboard data.');
+      } finally {
+        if (active) setLoading(false);
+      }
+    }
+    void loadData();
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (
@@ -34,7 +58,7 @@ export function DonorDashboard() {
           </div>
           <div>
             <p className="text-sm text-surface-text font-medium">Lifetime Giving</p>
-            <p className="text-2xl font-bold text-surface-dark">$1,750.00</p>
+            <p className="text-2xl font-bold text-surface-dark">${lifetimeGiving.toFixed(2)}</p>
           </div>
         </div>
         <div className="bg-surface border border-slate-200 p-6 rounded-xl shadow-sm flex items-center space-x-4">
@@ -43,7 +67,16 @@ export function DonorDashboard() {
           </div>
           <div>
             <p className="text-sm text-surface-text font-medium">Active Safehouses Supported</p>
-            <p className="text-2xl font-bold text-surface-dark">3</p>
+            <p className="text-2xl font-bold text-surface-dark">{activeSafehouses}</p>
+          </div>
+        </div>
+        <div className="bg-surface border border-slate-200 p-6 rounded-xl shadow-sm flex items-center space-x-4">
+          <div className="p-3 bg-brand-50 text-brand rounded-lg">
+            <HeartIcon className="w-8 h-8" />
+          </div>
+          <div>
+            <p className="text-sm text-surface-text font-medium">Community Donors</p>
+            <p className="text-2xl font-bold text-surface-dark">{totalDonors}</p>
           </div>
         </div>
       </div>
@@ -57,6 +90,8 @@ export function DonorDashboard() {
           </h2>
           <button className="text-sm text-brand hover:text-brand-dark font-medium">Download Tax Receipt</button>
         </div>
+        {loading && <p className="px-6 py-3 text-sm text-surface-text">Loading donation history...</p>}
+        {!loading && error && <p className="px-6 py-3 text-sm text-red-500">{error}</p>}
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
@@ -68,14 +103,21 @@ export function DonorDashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
+              {!loading && donations.length === 0 && (
+                <tr>
+                  <td className="px-6 py-4 text-surface-text" colSpan={4}>
+                    No donation records found yet.
+                  </td>
+                </tr>
+              )}
               {donations.map((d) => (
-                <tr key={d.id} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 text-surface-text">{d.date}</td>
-                  <td className="px-6 py-4 font-medium text-surface-dark">{d.fund}</td>
-                  <td className="px-6 py-4 text-surface-dark font-semibold">${d.amount.toFixed(2)}</td>
+                <tr key={d.donationId} className="hover:bg-slate-50 transition-colors">
+                  <td className="px-6 py-4 text-surface-text">{new Date(d.donationDate).toLocaleDateString()}</td>
+                  <td className="px-6 py-4 font-medium text-surface-dark">{d.designation || 'General Fund'}</td>
+                  <td className="px-6 py-4 text-surface-dark font-semibold">${Number(d.amount).toFixed(2)}</td>
                   <td className="px-6 py-4">
                     <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">
-                      {d.status}
+                      Completed
                     </span>
                   </td>
                 </tr>

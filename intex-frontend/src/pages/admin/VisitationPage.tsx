@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import { NavBar } from '../../components/NavBar'
-import { createHomeVisitation, getHomeVisitations, type HomeVisitation } from '../../lib/api'
+import { createHomeVisitation, getCaseConferences, getHomeVisitations, type HomeVisitation } from '../../lib/api'
 
 export function VisitationPage() {
   const { residentId } = useParams()
@@ -9,25 +9,39 @@ export function VisitationPage() {
   const [date, setDate] = useState('')
   const [assessment, setAssessment] = useState('')
   const [items, setItems] = useState<HomeVisitation[]>([])
+  const [conferenceItems, setConferenceItems] = useState<HomeVisitation[]>([])
+  const [activeTab, setActiveTab] = useState<'visitations' | 'conferences'>('visitations')
   const [loading, setLoading] = useState(true)
+  const [conferenceLoading, setConferenceLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [conferenceError, setConferenceError] = useState<string | null>(null)
 
   async function loadHistory() {
     if (!Number.isFinite(parsedResidentId) || parsedResidentId <= 0) {
       setLoading(false)
+      setConferenceLoading(false)
       setError('Invalid resident id.')
+      setConferenceError('Invalid resident id.')
       return
     }
     setLoading(true)
+    setConferenceLoading(true)
     setError(null)
+    setConferenceError(null)
     try {
-      const history = await getHomeVisitations(parsedResidentId)
+      const [history, conferences] = await Promise.all([
+        getHomeVisitations(parsedResidentId),
+        getCaseConferences(parsedResidentId),
+      ])
       setItems(history)
+      setConferenceItems(conferences)
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to load visitation history.')
+      setConferenceError(e instanceof Error ? e.message : 'Failed to load case conferences.')
     } finally {
       setLoading(false)
+      setConferenceLoading(false)
     }
   }
 
@@ -52,6 +66,7 @@ export function VisitationPage() {
         assessment: assessment.trim(),
       })
       setAssessment('')
+      setDate('')
       await loadHistory()
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Failed to create visitation entry.')
@@ -111,44 +126,96 @@ export function VisitationPage() {
         </section>
 
         <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
-          <h2 className="text-lg font-semibold text-surface-dark">Visitation History</h2>
-          {loading ? (
-            <p className="mt-3 text-sm text-surface-text">Loading visitations...</p>
-          ) : items.length === 0 ? (
-            <p className="mt-3 text-sm text-surface-text">No visitation history found for this resident yet.</p>
-          ) : (
-            <div className="mt-4 overflow-x-auto">
-              <table className="min-w-full border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200 text-left text-surface-text">
-                    <th className="px-3 py-2 font-medium">Date</th>
-                    <th className="px-3 py-2 font-medium">Assessment</th>
-                    <th className="px-3 py-2 font-medium">Outcome</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {items.map((row) => (
-                    <tr key={row.visitationId} className="border-b border-slate-100 align-top">
-                      <td className="px-3 py-2 text-surface-dark">{new Date(row.visitDate).toLocaleDateString()}</td>
-                      <td className="px-3 py-2 text-surface-text">{row.observations}</td>
-                      <td className="px-3 py-2 text-surface-text">{row.visitOutcome}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </section>
-
-        <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
-          <h2 className="text-lg font-semibold text-brand">Case Conferences</h2>
-          <p className="mt-2 text-sm text-surface-text">
-            This section satisfies the rubric requirement for <strong>Home Visitations &amp; Case Conferences</strong>.
-            Case conference notes can be tracked here as part of resident follow-up review.
-          </p>
-          <div className="mt-3 rounded-lg border border-slate-200 bg-brand-50 p-3 text-sm text-surface-text">
-            Suggested usage: document conference date, attendees, key decisions, and assigned follow-up actions.
+          <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
+            <button
+              type="button"
+              onClick={() => setActiveTab('visitations')}
+              className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+                activeTab === 'visitations'
+                  ? 'bg-brand text-white'
+                  : 'bg-brand-50 text-surface-text hover:text-surface-dark'
+              }`}
+            >
+              Home Visitations
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('conferences')}
+              className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+                activeTab === 'conferences'
+                  ? 'bg-brand text-white'
+                  : 'bg-brand-50 text-surface-text hover:text-surface-dark'
+              }`}
+            >
+              Case Conferences
+            </button>
           </div>
+
+          {activeTab === 'visitations' ? (
+            <>
+              <h2 className="mt-4 text-lg font-semibold text-surface-dark">Visitation History</h2>
+              {loading ? (
+                <p className="mt-3 text-sm text-surface-text">Loading visitations...</p>
+              ) : items.length === 0 ? (
+                <p className="mt-3 text-sm text-surface-text">No visitation history found for this resident yet.</p>
+              ) : (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="min-w-full border-collapse text-sm">
+                    <thead>
+                      <tr className="border-b border-slate-200 text-left text-surface-text">
+                        <th className="px-3 py-2 font-medium">Date</th>
+                        <th className="px-3 py-2 font-medium">Assessment</th>
+                        <th className="px-3 py-2 font-medium">Outcome</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {items.map((row) => (
+                        <tr key={row.visitationId} className="border-b border-slate-100 align-top">
+                          <td className="px-3 py-2 text-surface-dark">{new Date(row.visitDate).toLocaleDateString()}</td>
+                          <td className="px-3 py-2 text-surface-text">{row.observations}</td>
+                          <td className="px-3 py-2 text-surface-text">{row.visitOutcome}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+            </>
+          ) : (
+            <>
+              <h2 className="mt-4 text-lg font-semibold text-brand">Case Conferences</h2>
+              {conferenceLoading ? (
+                <p className="mt-3 text-sm text-surface-text">Loading case conferences...</p>
+              ) : conferenceItems.length === 0 ? (
+                <p className="mt-3 text-sm text-surface-text">
+                  No case conference records found. Add visitations with "Conference" in assessment/notes.
+                </p>
+              ) : (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="min-w-full border-collapse text-sm">
+                    <thead>
+                      <tr className="border-b border-slate-200 text-left text-surface-text">
+                        <th className="px-3 py-2 font-medium">Date</th>
+                        <th className="px-3 py-2 font-medium">Conference Notes</th>
+                        <th className="px-3 py-2 font-medium">Outcome</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {conferenceItems.map((row) => (
+                        <tr key={row.visitationId} className="border-b border-slate-100 align-top">
+                          <td className="px-3 py-2 text-surface-dark">{new Date(row.visitDate).toLocaleDateString()}</td>
+                          <td className="px-3 py-2 text-surface-text">{row.observations}</td>
+                          <td className="px-3 py-2 text-surface-text">{row.visitOutcome}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              {conferenceError && <p className="mt-3 text-sm text-red-500">{conferenceError}</p>}
+            </>
+          )}
         </section>
       </main>
     </div>
