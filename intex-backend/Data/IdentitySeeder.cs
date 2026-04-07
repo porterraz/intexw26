@@ -13,6 +13,7 @@ public static class IdentitySeeder
         await EnsureRoleAsync(roleManager, "Admin");
         await EnsureRoleAsync(roleManager, "Donor");
 
+        // 1. Standard Admin
         await EnsureUserAsync(
             userManager,
             email: "admin@test.com",
@@ -20,11 +21,21 @@ public static class IdentitySeeder
             role: "Admin"
         );
 
+        // 2. Standard Donor
         await EnsureUserAsync(
             userManager,
             email: "donor@test.com",
             password: "Donor@12345678!",
             role: "Donor"
+        );
+
+        // 3. REQUIRED: The MFA Testing Account
+        await EnsureUserAsync(
+            userManager,
+            email: "mfa_admin@test.com",
+            password: "MfaAdmin@12345678!",
+            role: "Admin",
+            requireMfa: true
         );
     }
 
@@ -40,7 +51,8 @@ public static class IdentitySeeder
         UserManager<ApplicationUser> userManager,
         string email,
         string password,
-        string role
+        string role,
+        bool requireMfa = false
     )
     {
         var user = await userManager.FindByEmailAsync(email);
@@ -50,7 +62,8 @@ public static class IdentitySeeder
             {
                 UserName = email,
                 Email = email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                TwoFactorEnabled = requireMfa // Set MFA requirement on creation
             };
 
             var createResult = await userManager.CreateAsync(user, password);
@@ -59,6 +72,12 @@ public static class IdentitySeeder
                 var msg = string.Join("; ", createResult.Errors.Select(e => $"{e.Code}:{e.Description}"));
                 throw new InvalidOperationException($"Failed to seed user {email}. {msg}");
             }
+        }
+        else if (user.TwoFactorEnabled != requireMfa)
+        {
+            // Ensure existing users get updated if the seeder changes
+            user.TwoFactorEnabled = requireMfa;
+            await userManager.UpdateAsync(user);
         }
 
         if (!await userManager.IsInRoleAsync(user, role))
@@ -72,4 +91,3 @@ public static class IdentitySeeder
         }
     }
 }
-
