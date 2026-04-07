@@ -45,9 +45,9 @@ export function AdminDashboardPage() {
   )
 
   return (
-    <div className="min-h-full bg-brand-50 text-surface-dark">
+    <div className="min-h-full text-surface-dark">
       <NavBar />
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto max-w-6xl px-4 py-6">
         <h1 className="text-2xl font-bold text-surface-dark">Admin Dashboard</h1>
 
         {error ? (

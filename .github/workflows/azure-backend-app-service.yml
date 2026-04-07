@@ -1,0 +1,35 @@
+# Deploy ASP.NET Core API to Azure App Service.
+# Prereqs in GitHub:
+# - Secret: INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE
+# - Variable: INTEX_AZURE_WEBAPP_BACKEND_NAME (for example: intexw26-api-21573)
+
+name: Deploy backend (Azure App Service)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'intex-backend/**'
+      - '.github/workflows/azure-backend-app-service.yml'
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish
+        run: dotnet publish intex-backend/Intex.Backend.csproj -c Release --verbosity minimal -o "${{ github.workspace }}/publish"
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ vars.INTEX_AZURE_WEBAPP_BACKEND_NAME }}
+          publish-profile: ${{ secrets.INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE }}
+          package: ${{ github.workspace }}/publish

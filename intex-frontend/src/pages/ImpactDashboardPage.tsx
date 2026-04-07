@@ -77,8 +77,8 @@ export function ImpactDashboardPage() {
   const headline = useMemo(() => snapshot?.headline || 'Our Impact', [snapshot])
 
   return (
-    <div className="min-h-full bg-brand-50 text-surface-dark">
-      <main className="mx-auto max-w-6xl px-4 py-10">
+    <div className="min-h-full text-surface-dark">
+      <main className="mx-auto max-w-6xl px-4 py-6">
         <h1 className="text-3xl font-bold tracking-tight text-surface-dark">{headline}</h1>
         {snapshot?.summaryText && <p className="mt-2 max-w-3xl text-surface-text">{snapshot.summaryText}</p>}
 
@@ -129,7 +129,7 @@ export function ImpactDashboardPage() {
           </p>
           <div className="mt-5">
             <a
-              className="inline-flex rounded-md bg-brand px-4 py-2 font-semibold text-white hover:bg-brand-dark"
+              className="inline-flex rounded-md bg-brand px-4 py-2 font-semibold text-surface hover:bg-brand-dark"
               href="mailto:donations@novapath.org"
             >
               Contact to Donate

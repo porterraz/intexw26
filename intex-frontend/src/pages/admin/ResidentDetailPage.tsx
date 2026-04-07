@@ -4,9 +4,9 @@ import { NavBar } from '../../components/NavBar'
 export function ResidentDetailPage() {
   const { id } = useParams()
   return (
-    <div className="min-h-full bg-brand-50 text-surface-dark">
+    <div className="min-h-full text-surface-dark">
       <NavBar />
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto max-w-6xl px-4 py-6">
         <Link to="/admin/residents" className="text-sm font-semibold text-surface-text hover:text-surface-dark">
           ← Back to caseload
         </Link>

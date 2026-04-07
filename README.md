@@ -27,3 +27,7 @@ Prereqs: Node.js + npm, and .NET SDK.
 
 - In each terminal where the app is running, press `Ctrl + C`.
 - That stops `dotnet run` and the Vite dev server.
+
+## Deploy to Azure (Option A)
+
+- Frontend on **Azure Static Web Apps** (main URL). API on **Azure App Service** (separate URL). See [AZURE_DEPLOY.md](AZURE_DEPLOY.md).

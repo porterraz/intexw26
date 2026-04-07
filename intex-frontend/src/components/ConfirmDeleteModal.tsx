@@ -13,7 +13,7 @@ export function ConfirmDeleteModal({
 }) {
   return (
     <Dialog open={open} onClose={onCancel} className="relative z-50">
-      <div className="fixed inset-0 bg-brand-50/70" aria-hidden="true" />
+      <div className="fixed inset-0 bg-surface-dark/35 backdrop-blur-[2px]" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <DialogPanel className="w-full max-w-md rounded-xl bg-surface p-5 shadow-xl border border-brand-100">
           <DialogTitle as={DialogTitle} className="text-base font-semibold text-surface-dark">
@@ -29,7 +29,7 @@ export function ConfirmDeleteModal({
             </button>
             <button
               onClick={onConfirm}
-              className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
             >
               Delete
             </button>

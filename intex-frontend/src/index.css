@@ -1,5 +1,40 @@
 @import "tailwindcss";
 
+/* Load legacy theme (brand / accent / surface scales) so utilities like bg-brand-50 are generated. */
+@config "../tailwind.config.js";
+
+:root {
+  --color-brand:        #059669;
+  --color-brand-dark:   #047857;
+  --color-brand-50:     #ecfdf5;
+  --color-brand-100:    #d1fae5;
+  --color-accent:       #f59e0b;
+  --color-accent-dark:  #d97706;
+  --color-surface:      #ffffff;
+  --color-surface-dark: #1e293b;
+  --color-surface-text: #475569;
+
+  /* Structural dark chrome — not part of the semantic system but referenced in gradients */
+  --color-chrome-900:   #060e09;
+  --color-chrome-800:   #0d1a14;
+  --color-chrome-700:   #091409;
+
+  /* Single site-wide background wash (slate → mint → slate) */
+  --app-bg: linear-gradient(
+    165deg,
+    #f8fafc 0%,
+    #ecfdf5 42%,
+    #f1f5f9 78%,
+    #f8fafc 100%
+  );
+}
+
+html {
+  min-height: 100%;
+  background-color: #f8fafc;
+  background-image: var(--app-bg);
+}
+
 html,
 body,
 #root {
@@ -8,4 +43,11 @@ body,
 
 body {
   margin: 0;
+  background: transparent;
+  color: var(--color-surface-dark);
+}
+
+#root {
+  min-height: 100%;
+  background: transparent;
 }

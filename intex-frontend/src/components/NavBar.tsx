@@ -18,9 +18,9 @@ export function NavBar() {
     : 'Mudar para portugues'
 
   return (
-    <header className="border-b border-brand-100 bg-brand-50">
+    <header className="border-b border-brand-100/40 bg-white/20 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="flex h-14 items-center justify-between gap-4">
           <Link to="/admin" className="font-semibold tracking-tight text-surface-dark">
             Nova Path
           </Link>
@@ -56,7 +56,7 @@ export function NavBar() {
             <div className="hidden text-sm text-surface-text sm:block">{user?.email}</div>
             <button
               onClick={logout}
-              className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
             >
               Logout
             </button>

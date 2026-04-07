@@ -40,7 +40,7 @@ export default function CookieBanner({
             className="fixed inset-0 z-40 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(241,245,249,0.85) 0%, transparent 45%)",
+                "linear-gradient(to top, color-mix(in srgb, var(--color-surface-dark) 6%, transparent), transparent 50%)",
             }}
           />
 
@@ -72,7 +72,7 @@ export default function CookieBanner({
                 className="absolute top-0 inset-x-0 h-px"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, #34d399 30%, #facc15 65%, transparent)",
+                    "linear-gradient(90deg, transparent, var(--color-brand) 30%, var(--color-accent) 65%, transparent)",
                 }}
               />
 
@@ -83,8 +83,8 @@ export default function CookieBanner({
                     className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center text-lg mt-0.5"
                     style={{
                       background:
-                        "linear-gradient(135deg,rgba(52,211,153,0.15),rgba(250,204,21,0.1))",
-                      border: "1px solid rgba(52,211,153,0.2)",
+                        "linear-gradient(135deg,color-mix(in srgb, var(--color-brand) 15%, transparent),color-mix(in srgb, var(--color-accent) 10%, transparent))",
+                      border: "1px solid color-mix(in srgb, var(--color-brand) 20%, transparent)",
                     }}
                   >
                     🍪
@@ -123,7 +123,7 @@ export default function CookieBanner({
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
                     onClick={() => handleChoice("accepted")}
-                    className="relative px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-brand hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50"
+                    className="relative px-5 py-2.5 rounded-xl text-sm font-semibold text-surface bg-brand hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50"
                     aria-label="Accept all cookies"
                   >
                     <span
@@ -131,7 +131,7 @@ export default function CookieBanner({
                       className="absolute inset-0 rounded-xl opacity-50"
                       style={{
                         background:
-                          "linear-gradient(135deg,rgba(255,255,255,0.15),transparent)",
+                          "linear-gradient(135deg,color-mix(in srgb, var(--color-surface) 15%, transparent),transparent)",
                       }}
                     />
                     <span className="relative">Accept</span>

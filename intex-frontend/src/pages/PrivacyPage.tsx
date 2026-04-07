@@ -58,7 +58,7 @@ function Table({
         <thead>
           <tr
             style={{
-              background: "linear-gradient(90deg,rgba(52,211,153,0.08),rgba(250,204,21,0.05))",
+              background: "linear-gradient(90deg,color-mix(in srgb, var(--color-brand) 8%, transparent),color-mix(in srgb, var(--color-accent) 5%, transparent))",
             }}
           >
             {headers.map((h) => (
@@ -105,8 +105,8 @@ function Callout({
     <div
       className="flex gap-4 rounded-xl p-4 mb-6 border"
       style={{
-        background: "rgba(52,211,153,0.05)",
-        borderColor: "rgba(52,211,153,0.15)",
+        background: "color-mix(in srgb, var(--color-brand) 5%, transparent)",
+        borderColor: "color-mix(in srgb, var(--color-brand) 15%, transparent)",
       }}
     >
       <span className="text-xl shrink-0" role="img" aria-hidden="true">
@@ -150,7 +150,7 @@ const sections: Section[] = [
           <strong className="text-surface-dark">Data Controller contact:</strong>{" "}
           <a
             href={`mailto:${CONTROLLER_EMAIL}`}
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300"
+            className="text-brand underline underline-offset-2 hover:text-brand-dark"
           >
             {CONTROLLER_EMAIL}
           </a>
@@ -170,13 +170,13 @@ const sections: Section[] = [
           compliance with this Policy and applicable data protection law. You
           may contact our DPO at any time:
         </P>
-        <div className="rounded-xl border border-white/8 bg-white/2 px-5 py-4 mb-4 space-y-1 text-[14px]">
+        <div className="rounded-xl border border-brand-100 bg-brand-50 px-5 py-4 mb-4 space-y-1 text-[14px]">
           <p className="text-surface-dark font-medium">Data Protection Officer</p>
           <p className="text-surface-text">Nova Path - Associacao Nova Path</p>
           <p className="text-surface-text">{ORG_ADDRESS}</p>
           <a
             href={`mailto:${DPO_EMAIL}`}
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300 block"
+            className="text-brand underline underline-offset-2 hover:text-brand-dark block"
           >
             {DPO_EMAIL}
           </a>
@@ -385,7 +385,7 @@ const sections: Section[] = [
           time by writing to{" "}
           <a
             href={`mailto:${CONTROLLER_EMAIL}`}
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300"
+            className="text-brand underline underline-offset-2 hover:text-brand-dark"
           >
             {CONTROLLER_EMAIL}
           </a>
@@ -500,7 +500,7 @@ const sections: Section[] = [
           contacting us at{" "}
           <a
             href={`mailto:${CONTROLLER_EMAIL}`}
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300"
+            className="text-brand underline underline-offset-2 hover:text-brand-dark"
           >
             {CONTROLLER_EMAIL}
           </a>
@@ -700,12 +700,12 @@ const sections: Section[] = [
           For any questions, concerns, or requests relating to this Privacy
           Policy or the processing of your personal data, please contact us:
         </P>
-        <div className="rounded-xl border border-white/8 bg-white/2 px-5 py-4 space-y-2 text-[14px]">
+        <div className="rounded-xl border border-brand-100 bg-brand-50 px-5 py-4 space-y-2 text-[14px]">
           <p className="text-surface-dark font-semibold">Nova Path - Associacao Nova Path</p>
           <p className="text-surface-text">{ORG_ADDRESS}</p>
           <a
             href={`mailto:${CONTROLLER_EMAIL}`}
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300 block"
+            className="text-brand underline underline-offset-2 hover:text-brand-dark block"
           >
             {CONTROLLER_EMAIL}
           </a>
@@ -713,7 +713,7 @@ const sections: Section[] = [
             DPO direct line:{" "}
             <a
               href={`mailto:${DPO_EMAIL}`}
-              className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300"
+              className="text-brand underline underline-offset-2 hover:text-brand-dark"
             >
               {DPO_EMAIL}
             </a>
@@ -781,7 +781,7 @@ function SectionBlock({ section }: { section: Section }) {
         <span
           aria-hidden="true"
           className="w-1 h-6 rounded-full shrink-0"
-          style={{ background: "linear-gradient(180deg,#34d399,#facc15)" }}
+          style={{ background: "linear-gradient(180deg,var(--color-brand),var(--color-accent))" }}
         />
         {section.title}
       </h2>
@@ -814,14 +814,14 @@ export default function PrivacyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-50 text-surface-dark">
+    <div className="min-h-screen text-surface-dark">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
         body { font-family: 'DM Sans', sans-serif; }
         .font-display { font-family: 'Sora', sans-serif; }
       `}</style>
 
-      <header className="border-b border-brand-100 bg-brand-50 sticky top-0 z-30">
+      <header className="sticky top-0 z-30 border-b border-brand-100/40 bg-white/20 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a
             href="/"
@@ -839,7 +839,7 @@ export default function PrivacyPage() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 flex gap-10">
+      <div className="mx-auto flex max-w-7xl gap-8 px-4 py-10 sm:px-6">
         <nav
           aria-label="Privacy policy sections"
           className="hidden lg:flex flex-col gap-1 w-56 xl:w-64 shrink-0 self-start sticky top-28"
@@ -875,7 +875,7 @@ export default function PrivacyPage() {
               <span
                 className="text-transparent bg-clip-text"
                 style={{
-                  backgroundImage: "linear-gradient(90deg,#34d399,#60a5fa)",
+                  backgroundImage: "linear-gradient(90deg,var(--color-brand),#60a5fa)",
                 }}
               >
                 Policy
@@ -894,9 +894,9 @@ export default function PrivacyPage() {
                     key={badge}
                     className="text-[11px] font-medium px-3 py-1 rounded-full border"
                     style={{
-                      background: "rgba(52,211,153,0.06)",
-                      borderColor: "rgba(52,211,153,0.2)",
-                      color: "#d97706",
+                      background: "color-mix(in srgb, var(--color-brand) 6%, transparent)",
+                      borderColor: "color-mix(in srgb, var(--color-brand) 20%, transparent)",
+                      color: "var(--color-accent-dark)",
                     }}
                   >
                     {badge}
@@ -906,7 +906,7 @@ export default function PrivacyPage() {
             </div>
           </motion.div>
 
-          <div className="space-y-16">
+          <div className="space-y-10">
             {sections.map((s) => (
               <SectionBlock key={s.id} section={s} />
             ))}
