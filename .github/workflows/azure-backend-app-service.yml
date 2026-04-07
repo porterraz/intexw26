@@ -7,11 +7,12 @@ name: Deploy backend (Azure App Service)
 
 on:
   push:
-    branches: ['**']
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build_and_deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
       AZURE_BACKEND_APP_NAME: ${{ vars.INTEX_AZURE_WEBAPP_BACKEND_NAME || vars.AZURE_WEBAPP_BACKEND_NAME || vars.AZURE_WEBAPP_NAME }}
