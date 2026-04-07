@@ -26,3 +26,9 @@ yarn-error.log*
 **/appsettings.Development.json
 **/appsettings.Local.json
 
+
+# Azure CLI local auth cache
+.azure/
+
+# Azure CLI local auth cache
+.azure/
