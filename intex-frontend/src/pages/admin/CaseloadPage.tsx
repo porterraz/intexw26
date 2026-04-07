@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
@@ -23,10 +24,7 @@ type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: 
 
 export function CaseloadPage() {
   const [safehouses, setSafehouses] = useState<Safehouse[]>([])
-  const [page, setPage] = useState(1)
-  const [pageSize] = useState(25)
   const [rows, setRows] = useState<Resident[]>([])
-  const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -57,20 +55,42 @@ export function CaseloadPage() {
     setError(null)
     ;(async () => {
       try {
-        const params: Record<string, string | number> = { page, pageSize }
+        const params: Record<string, string | number> = {}
         if (caseStatus) params.caseStatus = caseStatus
         if (safehouseId) params.safehouseId = Number(safehouseId)
         if (caseCategory) params.caseCategory = caseCategory
         if (riskLevel) params.riskLevel = riskLevel
         if (search) params.search = search
 
-        const res = await api.get<PagedResult<Resident>>('/api/residents', { params })
-        if (!cancelled) {
-          setRows(res.data.items)
-          setTotal(res.data.totalCount)
+        const fetchPageSize = 100
+        const allRows: Resident[] = []
+        let currentPage = 1
+        let totalCount = 0
+
+        while (true) {
+          const res = await api.get<PagedResult<Resident>>('/api/residents', {
+            params: { ...params, page: currentPage, pageSize: fetchPageSize },
+          })
+
+          if (currentPage === 1) totalCount = res.data.totalCount
+          allRows.push(...res.data.items)
+
+          if (allRows.length >= totalCount || res.data.items.length < fetchPageSize) break
+          currentPage += 1
         }
-      } catch {
-        if (!cancelled) setError('Unable to load residents.')
+
+        if (!cancelled) {
+          setRows(allRows)
+        }
+      } catch (err) {
+        if (!cancelled) {
+          const status = axios.isAxiosError(err) ? err.response?.status : undefined
+          if (status === 401 || status === 403) {
+            setError('Session expired or unauthorized. Please log in again.')
+          } else {
+            setError('Unable to load residents.')
+          }
+        }
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -79,7 +99,7 @@ export function CaseloadPage() {
     return () => {
       cancelled = true
     }
-  }, [page, pageSize, caseStatus, safehouseId, caseCategory, riskLevel, search])
+  }, [caseStatus, safehouseId, caseCategory, riskLevel, search])
 
   const columns = useMemo<ColumnDef<Resident>[]>(
     () => [
@@ -133,7 +153,6 @@ export function CaseloadPage() {
             <select
               value={safehouseId}
               onChange={(e) => {
-                setPage(1)
                 setSafehouseId(e.target.value)
               }}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
@@ -149,7 +168,6 @@ export function CaseloadPage() {
             <input
               value={caseStatus}
               onChange={(e) => {
-                setPage(1)
                 setCaseStatus(e.target.value)
               }}
               placeholder="Case Status"
@@ -158,7 +176,6 @@ export function CaseloadPage() {
             <input
               value={caseCategory}
               onChange={(e) => {
-                setPage(1)
                 setCaseCategory(e.target.value)
               }}
               placeholder="Case Category"
@@ -167,7 +184,6 @@ export function CaseloadPage() {
             <input
               value={riskLevel}
               onChange={(e) => {
-                setPage(1)
                 setRiskLevel(e.target.value)
               }}
               placeholder="Risk Level"
@@ -176,7 +192,6 @@ export function CaseloadPage() {
             <input
               value={search}
               onChange={(e) => {
-                setPage(1)
                 setSearch(e.target.value)
               }}
               placeholder="Search"
@@ -194,10 +209,12 @@ export function CaseloadPage() {
             <DataTable
               columns={columns}
               rows={rows}
-              page={page}
-              pageSize={pageSize}
-              totalCount={total}
-              onPageChange={setPage}
+              page={1}
+              pageSize={Math.max(rows.length, 1)}
+              totalCount={rows.length}
+              onPageChange={() => {
+                // Residents view intentionally renders all rows; pagination controls are inert.
+              }}
             />
           )}
         </section>

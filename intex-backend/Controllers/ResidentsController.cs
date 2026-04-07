@@ -12,6 +12,24 @@ namespace Intex.Backend.Controllers;
 [Authorize]
 public class ResidentsController : ControllerBase
 {
+    public sealed class ResidentListItemDto
+    {
+        public int ResidentId { get; set; }
+        public string CaseControlNo { get; set; } = "";
+        public string InternalCode { get; set; } = "";
+        public int SafehouseId { get; set; }
+        public string CaseCategory { get; set; } = "";
+        public string CurrentRiskLevel { get; set; } = "";
+        public string CaseStatus { get; set; } = "";
+        public string AssignedSocialWorker { get; set; } = "";
+        public SafehouseNameDto? Safehouse { get; set; }
+    }
+
+    public sealed class SafehouseNameDto
+    {
+        public string Name { get; set; } = "";
+    }
+
     private readonly ApplicationDbContext _db;
 
     public ResidentsController(ApplicationDbContext db)
@@ -20,7 +38,7 @@ public class ResidentsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<PagedResult<Resident>>> GetResidents(
+    public async Task<ActionResult<PagedResult<ResidentListItemDto>>> GetResidents(
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 25,
         [FromQuery] string? caseStatus = null,
@@ -33,7 +51,7 @@ public class ResidentsController : ControllerBase
         page = page < 1 ? 1 : page;
         pageSize = pageSize is < 1 or > 100 ? 25 : pageSize;
 
-        var q = _db.Residents.AsNoTracking().Include(r => r.Safehouse).AsQueryable();
+        var q = _db.Residents.AsNoTracking().AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(caseStatus))
             q = q.Where(r => r.CaseStatus == caseStatus);
@@ -60,9 +78,23 @@ public class ResidentsController : ControllerBase
         var items = await q.OrderByDescending(r => r.CreatedAt)
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
+            .Select(r => new ResidentListItemDto
+            {
+                ResidentId = r.ResidentId,
+                CaseControlNo = r.CaseControlNo,
+                InternalCode = r.InternalCode,
+                SafehouseId = r.SafehouseId,
+                CaseCategory = r.CaseCategory,
+                CurrentRiskLevel = r.CurrentRiskLevel,
+                CaseStatus = r.CaseStatus,
+                AssignedSocialWorker = r.AssignedSocialWorker,
+                Safehouse = r.Safehouse == null
+                    ? null
+                    : new SafehouseNameDto { Name = r.Safehouse.Name }
+            })
             .ToListAsync();
 
-        return Ok(new PagedResult<Resident>(items, page, pageSize, total));
+        return Ok(new PagedResult<ResidentListItemDto>(items, page, pageSize, total));
     }
 
     [HttpGet("{id:int}")]
