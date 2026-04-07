@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTrans
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import i18n from "../i18n";
+import { api } from "../lib/api";
 import brazil1 from "../assets/brazil1.png";
 import brazil2 from "../assets/brazil2.png";
 import brazil3 from "../assets/brazil3.png";
@@ -13,26 +14,48 @@ import brazil5 from "../assets/brazil5.png";
 interface PublicImpactSnapshot {
   activeSafehouses: number;
   residentsSupported: number;
-  totalDonationsBRL: number;
+  totalDonationsUsd: number;
 }
 
 type PillarIcon = "safehouse" | "visitation" | "process";
 
-// ─── Mock API ────────────────────────────────────────────────────────────────
+type PublicStatsResponse = {
+  totalGirlsServed: number;
+  activeSafehouses: number;
+  reintegrationRate: number;
+  totalDonors: number;
+  totalDonationsUsd: number;
+};
+
+function coerceFiniteNumber(value: unknown): number {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim() !== "") {
+    const n = Number(value);
+    if (Number.isFinite(n)) return n;
+  }
+  return 0;
+}
 
 async function fetchImpactSnapshot(): Promise<PublicImpactSnapshot> {
-  await new Promise((r) => setTimeout(r, 600));
-  return { activeSafehouses: 34, residentsSupported: 412, totalDonationsBRL: 1_850_000 };
+  const { data } = await api.get<PublicStatsResponse | Record<string, unknown>>("/api/public/stats");
+  const d = data as Record<string, unknown>;
+  return {
+    activeSafehouses: coerceFiniteNumber(d.activeSafehouses ?? d.ActiveSafehouses),
+    residentsSupported: coerceFiniteNumber(d.totalGirlsServed ?? d.TotalGirlsServed),
+    totalDonationsUsd: coerceFiniteNumber(d.totalDonationsUsd ?? d.TotalDonationsUsd),
+  };
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function formatStatValue(value: number, index: number, locale: string): string {
+  const v = Number.isFinite(value) ? value : 0;
   if (index === 2) {
-    if (value >= 1_000_000) return (value / 1_000_000).toFixed(1) + "M";
-    if (value >= 1_000) return (value / 1_000).toFixed(0) + "K";
+    if (v >= 1_000_000) return (v / 1_000_000).toFixed(2) + "M";
+    if (v >= 1_000) return (v / 1_000).toFixed(2) + "K";
+    return v.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
-  return value.toLocaleString(locale);
+  return v.toLocaleString(locale);
 }
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -56,6 +79,7 @@ function AnimatedNumber({
 
   useEffect(() => {
     if (!inView) return;
+    const end = Number.isFinite(target) ? target : 0;
     const duration = 1800;
     const steps = 60;
     const interval = duration / steps;
@@ -64,7 +88,7 @@ function AnimatedNumber({
       step++;
       const progress = step / steps;
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayed(Math.round(eased * target));
+      setDisplayed(Math.round(eased * end));
       if (step >= steps) clearInterval(timer);
     }, interval);
     return () => clearInterval(timer);
@@ -244,7 +268,9 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    fetchImpactSnapshot().then(setSnapshot);
+    fetchImpactSnapshot()
+      .then(setSnapshot)
+      .catch(() => setSnapshot(null));
   }, []);
 
   useEffect(() => {
@@ -262,7 +288,7 @@ export default function HomePage() {
   const pillarsInView = useInView(pillarsRef, { once: true, margin: "-80px" });
 
   const statValues = snapshot
-    ? [snapshot.activeSafehouses, snapshot.residentsSupported, snapshot.totalDonationsBRL]
+    ? [snapshot.activeSafehouses, snapshot.residentsSupported, snapshot.totalDonationsUsd]
     : [0, 0, 0];
 
   return (

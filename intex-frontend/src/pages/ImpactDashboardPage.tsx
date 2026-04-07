@@ -19,6 +19,7 @@ type PublicStats = {
   activeSafehouses: number
   reintegrationRate: number
   totalDonors: number
+  totalDonationsUsd: number
 }
 
 function tryParseMetrics(snapshot: PublicImpactSnapshot | null): Partial<PublicStats> | null {

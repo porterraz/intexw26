@@ -10,6 +10,9 @@ namespace Intex.Backend.Controllers;
 [AllowAnonymous]
 public class PublicController : ControllerBase
 {
+    /// <summary>Approximate PHP→USD for public totals (dataset monetary rows use PHP).</summary>
+    private const decimal PhpToUsdRate = 0.0175m;
+
     private readonly ApplicationDbContext _db;
 
     public PublicController(ApplicationDbContext db)
@@ -44,12 +47,19 @@ public class PublicController : ControllerBase
 
         var totalDonors = await _db.Supporters.AsNoTracking().CountAsync();
 
+        // Monetary rows: case-insensitive type; Amount ?? EstimatedValue (imports sometimes leave Amount null).
+        var totalDonationsUsd = await _db.Donations.AsNoTracking()
+            .Where(d => d.DonationType.ToLower() == "monetary")
+            .SumAsync(d =>
+                (d.CurrencyCode == "USD" ? 1m : PhpToUsdRate) * (d.Amount ?? d.EstimatedValue ?? 0m));
+
         return Ok(new
         {
             totalGirlsServed,
             activeSafehouses,
             reintegrationRate,
-            totalDonors
+            totalDonors,
+            totalDonationsUsd
         });
     }
 }
