@@ -140,16 +140,28 @@ function Field({
   );
 }
 
+function meetsPasswordPolicy(p: string): boolean {
+  if (p.length < 12) return false;
+  if (!/[A-Z]/.test(p)) return false;
+  if (!/[a-z]/.test(p)) return false;
+  if (!/[0-9]/.test(p)) return false;
+  if (!/[^A-Za-z0-9]/.test(p)) return false;
+  return true;
+}
+
 export function LoginPage() {
-  const { login } = useAuth();
+  const { login, signup } = useAuth();
   const navigate = useNavigate();
+  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<{
     email?: string;
     password?: string;
+    confirmPassword?: string;
   }>({});
 
   const [quoteIndex] = useState(() => Math.floor(Math.random() * QUOTES.length));
@@ -157,6 +169,7 @@ export function LoginPage() {
 
   const emailId = useId();
   const passwordId = useId();
+  const confirmPasswordId = useId();
   const formErrorId = useId();
 
   function validate(): boolean {
@@ -168,8 +181,18 @@ export function LoginPage() {
     }
     if (!password) {
       errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
+    } else if (mode === "signup") {
+      if (!meetsPasswordPolicy(password)) {
+        errors.password =
+          "Use at least 12 characters with uppercase, lowercase, a number, and a symbol.";
+      }
+    }
+    if (mode === "signup") {
+      if (!confirmPassword) {
+        errors.confirmPassword = "Please confirm your password.";
+      } else if (confirmPassword !== password) {
+        errors.confirmPassword = "Passwords do not match.";
+      }
     }
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
@@ -182,9 +205,15 @@ export function LoginPage() {
 
     setLoading(true);
     try {
-      const user = await login(email, password);
-      if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-      else navigate("/impact", { replace: true });
+      if (mode === "signup") {
+        const user = await signup(email, password);
+        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
+        else navigate("/impact", { replace: true });
+      } else {
+        const user = await login(email, password);
+        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
+        else navigate("/impact", { replace: true });
+      }
     } catch (err: unknown) {
       setServerError(
         err instanceof Error ? err.message : "An unexpected error occurred."
@@ -441,17 +470,21 @@ export function LoginPage() {
 
           <div className="mb-9">
             <h1 className="font-display font-bold text-3xl text-surface-dark mb-2 tracking-tight">
-              Welcome back
+              {mode === "signin" ? "Welcome back" : "Create an account"}
             </h1>
             <p className="text-surface-text text-sm">
-              Sign in to access the Nova Path admin portal.
+              {mode === "signin"
+                ? "Sign in to access the Nova Path portal."
+                : "Register as a donor. You can view impact; admin access is invite-only."}
             </p>
           </div>
 
           <form
             onSubmit={handleSubmit}
             noValidate
-            aria-label="Sign in to Nova Path"
+            aria-label={
+              mode === "signin" ? "Sign in to Nova Path" : "Create a Nova Path account"
+            }
           >
             <div className="flex flex-col gap-5">
               <Field
@@ -466,7 +499,7 @@ export function LoginPage() {
                   setServerError("");
                 }}
                 autoComplete="email"
-                placeholder="you@novapath.org"
+                placeholder="you@example.com"
                 error={fieldErrors.email}
                 disabled={loading}
               />
@@ -482,20 +515,41 @@ export function LoginPage() {
                     setFieldErrors((p) => ({ ...p, password: undefined }));
                   setServerError("");
                 }}
-                autoComplete="current-password"
+                autoComplete={mode === "signup" ? "new-password" : "current-password"}
                 placeholder="••••••••"
                 error={fieldErrors.password}
                 disabled={loading}
               />
 
-              <div className="flex justify-end -mt-2">
-                <a
-                  href="/forgot-password"
-                  className="text-[12px] text-surface-text hover:text-brand transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand rounded"
-                >
-                  Forgot password?
-                </a>
-              </div>
+              {mode === "signup" && (
+                <Field
+                  id={confirmPasswordId}
+                  label="Confirm password"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(v) => {
+                    setConfirmPassword(v);
+                    if (fieldErrors.confirmPassword)
+                      setFieldErrors((p) => ({ ...p, confirmPassword: undefined }));
+                    setServerError("");
+                  }}
+                  autoComplete="new-password"
+                  placeholder="••••••••"
+                  error={fieldErrors.confirmPassword}
+                  disabled={loading}
+                />
+              )}
+
+              {mode === "signin" && (
+                <div className="flex justify-end -mt-2">
+                  <a
+                    href="/forgot-password"
+                    className="text-[12px] text-surface-text hover:text-brand transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand rounded"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+              )}
 
               <AnimatePresence>
                 {serverError && (
@@ -545,7 +599,15 @@ export function LoginPage() {
                 disabled={loading}
                 whileHover={loading ? {} : { scale: 1.02 }}
                 whileTap={loading ? {} : { scale: 0.97 }}
-                aria-label={loading ? "Signing in, please wait" : "Sign in"}
+                aria-label={
+                  loading
+                    ? mode === "signup"
+                      ? "Creating account, please wait"
+                      : "Signing in, please wait"
+                    : mode === "signup"
+                      ? "Create account"
+                      : "Sign in"
+                }
                 aria-busy={loading}
                 className="relative mt-1 w-full py-3.5 rounded-xl font-semibold text-white text-sm overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50 disabled:cursor-not-allowed disabled:opacity-80 transition-opacity bg-brand hover:bg-brand-dark"
               >
@@ -594,11 +656,11 @@ export function LoginPage() {
                           strokeLinecap="round"
                         />
                       </svg>
-                      Signing in...
+                      {mode === "signup" ? "Creating account..." : "Signing in..."}
                     </>
                   ) : (
                     <>
-                      Sign in
+                      {mode === "signup" ? "Create account" : "Sign in"}
                       <svg
                         width="14"
                         height="14"
@@ -621,15 +683,50 @@ export function LoginPage() {
             </div>
           </form>
 
-          <p className="mt-8 text-center text-[12px] text-slate-600">
-            Access is restricted to authorised Nova Path personnel.
-            <br />
-            Demo login: <span className="text-slate-400">admin@novapath.org / demo123</span>
+          <p className="mt-6 text-center text-sm text-surface-text">
+            {mode === "signin" ? (
+              <>
+                New here?{" "}
+                <button
+                  type="button"
+                  className="font-semibold text-brand hover:underline"
+                  onClick={() => {
+                    setMode("signup");
+                    setServerError("");
+                    setFieldErrors({});
+                    setConfirmPassword("");
+                  }}
+                >
+                  Create an account
+                </button>
+              </>
+            ) : (
+              <>
+                Already have an account?{" "}
+                <button
+                  type="button"
+                  className="font-semibold text-brand hover:underline"
+                  onClick={() => {
+                    setMode("signin");
+                    setServerError("");
+                    setFieldErrors({});
+                    setConfirmPassword("");
+                  }}
+                >
+                  Sign in
+                </button>
+              </>
+            )}
+          </p>
+
+          <p className="mt-6 text-center text-[12px] text-slate-600">
+            Admin access: use seeded admin or demo shortcut{" "}
+            <span className="text-slate-400">admin@novapath.org / demo123</span>
             <br />
             Contact{" "}
             <a
               href="mailto:admin@novapath.org.br"
-            className="text-surface-text hover:text-brand transition-colors underline underline-offset-2"
+              className="text-surface-text hover:text-brand transition-colors underline underline-offset-2"
             >
               admin@novapath.org.br
             </a>{" "}

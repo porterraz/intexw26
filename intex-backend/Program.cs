@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+// Repo-root .env (DB_*) overrides appsettings for DefaultConnection — same as load_csv_to_sql.py.
+EnvConnectionLoader.ApplyDatabaseConnectionFromEnvFile();
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();

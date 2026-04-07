@@ -29,7 +29,6 @@ public class DonationsController : ControllerBase
         pageSize = pageSize is < 1 or > 100 ? 25 : pageSize;
 
         var q = _db.Donations.AsNoTracking()
-            .Include(d => d.Supporter)
             .OrderByDescending(d => d.DonationDate);
 
         var total = await q.CountAsync();

@@ -12,10 +12,12 @@ import { ResidentDetailPage } from './pages/admin/ResidentDetailPage'
 import { NewResidentPage } from './pages/admin/NewResidentPage'
 import { DonorsPage } from './pages/admin/DonorsPage'
 import { DonorDetailPage } from './pages/admin/DonorDetailPage'
+import { NewSupporterPage } from './pages/admin/NewSupporterPage'
 import { ProcessRecordingPage } from './pages/admin/ProcessRecordingPage'
 import { VisitationPage } from './pages/admin/VisitationPage'
 import { ReportsPage } from './pages/admin/ReportsPage'
 import { SocialMediaPage } from './pages/admin/SocialMediaPage'
+import { AdminDonationsPage } from './pages/admin/AdminDonationsPage'
 
 export default function App() {
   return (
@@ -33,10 +35,12 @@ export default function App() {
           <Route path="/admin/residents/new" element={<NewResidentPage />} />
           <Route path="/admin/residents/:id" element={<ResidentDetailPage />} />
           <Route path="/admin/donors" element={<DonorsPage />} />
+          <Route path="/admin/donors/new" element={<NewSupporterPage />} />
           <Route path="/admin/donors/:id" element={<DonorDetailPage />} />
           <Route path="/admin/process-recordings/:residentId" element={<ProcessRecordingPage />} />
           <Route path="/admin/visitations/:residentId" element={<VisitationPage />} />
           <Route path="/admin/reports" element={<ReportsPage />} />
+          <Route path="/admin/donations" element={<AdminDonationsPage />} />
           <Route path="/admin/social-media" element={<SocialMediaPage />} />
         </Route>
 

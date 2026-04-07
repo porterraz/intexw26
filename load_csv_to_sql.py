@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 import pyodbc
 from dotenv import load_dotenv
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 
 
 def build_engine():
@@ -58,8 +58,117 @@ def build_engine():
     )
 
 
+def _norm(name: str) -> str:
+    return "".join(ch for ch in name.lower() if ch.isalnum())
+
+
+def _resolve_table_name(engine, csv_stem: str) -> str:
+    insp = inspect(engine)
+    existing = insp.get_table_names(schema="dbo")
+    norm_map = {_norm(t): t for t in existing}
+    return norm_map.get(_norm(csv_stem), csv_stem)
+
+
+def _default_for_column(col: dict):
+    data_type = (col.get("type") or "").__class__.__name__.lower()
+    # SQLAlchemy inspector types vary by dialect class names.
+    if any(k in data_type for k in ("int", "bigint", "smallint")):
+        return 0
+    if any(k in data_type for k in ("decimal", "numeric", "float", "real")):
+        return 0
+    if "bool" in data_type or "bit" in data_type:
+        return False
+    if "datetime" in data_type or "date" in data_type:
+        return "1900-01-01"
+    return ""
+
+
+def _sanitize_for_constraints(engine, table_name: str, df: pd.DataFrame, table_columns: list[dict]) -> pd.DataFrame:
+    if df.empty:
+        return df
+
+    insp = inspect(engine)
+    nullable_map = {c["name"]: c.get("nullable", True) for c in table_columns}
+
+    # Validate foreign keys against referenced tables.
+    for fk in insp.get_foreign_keys(table_name):
+        cols = fk.get("constrained_columns") or []
+        ref_cols = fk.get("referred_columns") or []
+        ref_table = fk.get("referred_table")
+        if len(cols) != 1 or len(ref_cols) != 1 or not ref_table:
+            continue
+
+        col = cols[0]
+        ref_col = ref_cols[0]
+        if col not in df.columns:
+            continue
+
+        valid_df = pd.read_sql(f"SELECT [{ref_col}] AS v FROM dbo.[{ref_table}]", con=engine)
+        if valid_df.empty:
+            valid = set()
+        else:
+            valid = set(pd.to_numeric(valid_df["v"], errors="coerce").dropna().astype(int).tolist())
+
+        vals_num = pd.to_numeric(df[col], errors="coerce")
+        vals_int = vals_num.fillna(-1).astype(int)
+        invalid_mask = vals_num.notna() & ~vals_int.isin(valid)
+
+        if not invalid_mask.any():
+            continue
+
+        if nullable_map.get(col, True):
+            df.loc[invalid_mask, col] = pd.NA
+        else:
+            before = len(df)
+            df = df.loc[~invalid_mask].copy()
+            removed = before - len(df)
+            if removed:
+                print(f"Dropped {removed} rows from '{table_name}' due to invalid required FK '{col}'.")
+
+    # Fill required non-null columns if CSV has blanks/NaN.
+    for col in table_columns:
+        col_name = col["name"]
+        if col_name not in df.columns:
+            continue
+
+        nullable = col.get("nullable", True)
+        if not nullable:
+            default = _default_for_column(col)
+            df[col_name] = df[col_name].fillna(default)
+            if isinstance(default, str):
+                df[col_name] = df[col_name].replace("", default)
+
+    return df
+
+
 def load_one_csv(engine, csv_path, table_name, if_exists, chunksize):
     df = pd.read_csv(csv_path)
+    insp = inspect(engine)
+    table_columns = insp.get_columns(table_name)
+    if table_columns:
+        col_map = {_norm(c["name"]): c["name"] for c in table_columns}
+        identity_cols = {
+            c["name"]
+            for c in table_columns
+            if c.get("autoincrement") in (True, "auto")
+        }
+
+        renamed = {}
+        for col in df.columns:
+            mapped = col_map.get(_norm(col))
+            if mapped:
+                renamed[col] = mapped
+        if renamed:
+            df = df.rename(columns=renamed)
+
+        keep_cols = [c["name"] for c in table_columns if c["name"] in df.columns and c["name"] not in identity_cols]
+        df = df[keep_cols]
+        df = _sanitize_for_constraints(engine, table_name, df, table_columns)
+
+    if df.empty:
+        print(f"Skipped '{csv_path}' for '{table_name}' (no mappable columns).")
+        return
+
     df.to_sql(
         table_name,
         con=engine,
@@ -143,8 +252,30 @@ def main():
     if not csv_files:
         raise ValueError(f"No CSV files found in directory: {csv_dir}")
 
+    # Load parent tables before dependent tables to satisfy foreign keys.
+    load_order = {
+        "safehouses": 1,
+        "supporters": 2,
+        "social_media_posts": 3,
+        "residents": 4,
+        "partners": 5,
+        "donations": 6,
+        "partner_assignments": 7,
+        "education_records": 8,
+        "health_wellbeing_records": 9,
+        "home_visitations": 10,
+        "incident_reports": 11,
+        "intervention_plans": 12,
+        "process_recordings": 13,
+        "safehouse_monthly_metrics": 14,
+        "donation_allocations": 15,
+        "in_kind_donation_items": 16,
+        "public_impact_snapshots": 17,
+    }
+    csv_files = sorted(csv_files, key=lambda p: (load_order.get(p.stem, 1000), p.stem))
+
     for csv_file in csv_files:
-        table_name = csv_file.stem
+        table_name = _resolve_table_name(engine, csv_file.stem)
         load_one_csv(engine, str(csv_file), table_name, args.if_exists, args.chunksize)
 
 

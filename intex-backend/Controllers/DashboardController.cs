@@ -48,43 +48,45 @@ public class DashboardController : ControllerBase
 
     private async Task<IReadOnlyList<RecentActivityItem>> BuildRecentActivity()
     {
-        var residentEvents = _db.Residents.AsNoTracking()
+        var residentEvents = await _db.Residents.AsNoTracking()
             .Select(r => new RecentActivityItem(
                 r.CreatedAt == default ? DateTime.UtcNow : r.CreatedAt,
                 "Resident",
                 $"Resident case created: {r.CaseControlNo}"
-            ));
+            ))
+            .ToListAsync();
 
-        var donationEvents = _db.Donations.AsNoTracking()
+        var donationEvents = await _db.Donations.AsNoTracking()
             .Select(d => new RecentActivityItem(
                 d.DonationDate,
                 "Donation",
                 $"Donation recorded (SupporterId {d.SupporterId})"
-            ));
+            ))
+            .ToListAsync();
 
-        var sessionEvents = _db.ProcessRecordings.AsNoTracking()
+        var sessionEvents = await _db.ProcessRecordings.AsNoTracking()
             .Select(p => new RecentActivityItem(
                 p.SessionDate,
                 "ProcessRecording",
                 $"Session recorded (ResidentId {p.ResidentId})"
-            ));
+            ))
+            .ToListAsync();
 
-        var visitEvents = _db.HomeVisitations.AsNoTracking()
+        var visitEvents = await _db.HomeVisitations.AsNoTracking()
             .Select(v => new RecentActivityItem(
                 v.VisitDate,
                 "HomeVisitation",
                 $"Home visit recorded (ResidentId {v.ResidentId})"
-            ));
+            ))
+            .ToListAsync();
 
-        var combined = residentEvents
+        return residentEvents
             .Concat(donationEvents)
             .Concat(sessionEvents)
-            .Concat(visitEvents);
-
-        return await combined
+            .Concat(visitEvents)
             .OrderByDescending(e => e.Timestamp)
             .Take(10)
-            .ToListAsync();
+            .ToList();
     }
 }
 
