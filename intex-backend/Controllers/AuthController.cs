@@ -42,9 +42,30 @@ public class AuthController : ControllerBase
 
         if (user.TwoFactorEnabled)
         {
+            var key = await _userManager.GetAuthenticatorKeyAsync(user);
+            var requiresMfaSetup = string.IsNullOrWhiteSpace(key);
+            if (requiresMfaSetup)
+            {
+                await _userManager.ResetAuthenticatorKeyAsync(user);
+                key = await _userManager.GetAuthenticatorKeyAsync(user);
+                requiresMfaSetup = string.IsNullOrWhiteSpace(key);
+            }
+
             var oneTimeMfaNonce = await _userManager.GenerateUserTokenAsync(user, TokenOptions.DefaultProvider, MfaLoginPurpose);
             var mfaToken = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{user.Id}|{oneTimeMfaNonce}"));
-            return Ok(new MfaChallengeResponse(true, mfaToken, user.Email));
+            var sharedKey = !string.IsNullOrWhiteSpace(key) ? FormatKey(key) : null;
+            var uri = !string.IsNullOrWhiteSpace(key) && !string.IsNullOrWhiteSpace(user.Email)
+                ? BuildAuthenticatorUri(user.Email, key)
+                : null;
+
+            return Ok(new MfaChallengeResponse(
+                MfaRequired: true,
+                MfaToken: mfaToken,
+                Email: user.Email,
+                RequiresMfaSetup: requiresMfaSetup || string.IsNullOrWhiteSpace(uri),
+                SharedKey: sharedKey,
+                AuthenticatorUri: uri
+            ));
         }
 
         var token = await _jwtTokenService.CreateTokenAsync(user);

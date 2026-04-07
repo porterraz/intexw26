@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { QRCodeSVG } from 'qrcode.react'
 import { useAuth } from '../state/AuthContext'
 
 export function MfaVerifyPage() {
@@ -59,6 +60,26 @@ export function MfaVerifyPage() {
         <p className="mt-2 text-sm text-surface-text">
           Enter the 6-digit code from your authenticator app for <span className="font-medium">{pendingMfa.email}</span>.
         </p>
+
+        {(pendingMfa.requiresMfaSetup || pendingMfa.authenticatorUri || pendingMfa.sharedKey) && (
+          <div className="mt-5 rounded-xl border border-brand-100 bg-brand-50 p-4">
+            <p className="text-sm font-semibold text-surface-dark">Set up your authenticator first</p>
+            <p className="mt-1 text-sm text-surface-text">
+              Scan the QR code or enter the setup key manually in Google Authenticator, then enter the 6-digit code below.
+            </p>
+            {pendingMfa.authenticatorUri ? (
+              <div className="mt-3 inline-block rounded-lg border border-brand-100 bg-white p-2">
+                <QRCodeSVG value={pendingMfa.authenticatorUri} size={160} />
+              </div>
+            ) : null}
+            {pendingMfa.sharedKey ? (
+              <div className="mt-3 rounded-md border border-brand-100 bg-white px-3 py-2">
+                <p className="text-xs font-semibold text-surface-text">Setup key</p>
+                <p className="mt-1 break-all font-mono text-sm text-surface-dark">{pendingMfa.sharedKey}</p>
+              </div>
+            ) : null}
+          </div>
+        )}
 
         <form className="mt-6 space-y-4" onSubmit={onSubmit}>
           <label className="block text-sm font-medium text-surface-text" htmlFor="mfa-code">

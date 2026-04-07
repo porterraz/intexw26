@@ -29,7 +29,14 @@ api.interceptors.request.use((config) => {
 
 export type LoginApiResponse =
   | { token: string; mfaRequired?: false }
-  | { mfaRequired: true; mfaToken: string; email?: string }
+  | {
+      mfaRequired: true
+      mfaToken: string
+      email?: string
+      requiresMfaSetup?: boolean
+      sharedKey?: string
+      authenticatorUri?: string
+    }
 
 export type MfaSetupResponse = {
   sharedKey?: string

@@ -4,7 +4,14 @@ public record LoginRequest(string Email, string Password);
 
 public record LoginResponse(string Token);
 
-public record MfaChallengeResponse(bool MfaRequired, string MfaToken, string? Email);
+public record MfaChallengeResponse(
+    bool MfaRequired,
+    string MfaToken,
+    string? Email,
+    bool RequiresMfaSetup = false,
+    string? SharedKey = null,
+    string? AuthenticatorUri = null
+);
 
 public record MfaVerifyLoginRequest(string MfaToken, string Code);
 

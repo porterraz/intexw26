@@ -1,6 +1,5 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import i18n from '../i18n'
 import { useAuth } from '../state/AuthContext'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -10,6 +9,7 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 export function NavBar() {
   const { i18n: i18nInstance } = useTranslation()
+  const navigate = useNavigate()
   const { user, logout } = useAuth()
   const isAdmin = user?.roles?.includes('Admin') ?? false
   const isDonor = user?.roles?.includes('Donor') ?? false
@@ -24,9 +24,20 @@ export function NavBar() {
     <header className="border-b border-brand-100/40 bg-white/20 backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-14 items-center justify-between gap-4">
-          <Link to={homePath} className="font-semibold tracking-tight text-surface-dark">
-            Nova Path
-          </Link>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-brand-100 text-surface-text hover:bg-brand-50 hover:text-surface-dark"
+              aria-label="Go back"
+              title="Go back"
+            >
+              <span aria-hidden="true">←</span>
+            </button>
+            <Link to={homePath} className="font-semibold tracking-tight text-surface-dark">
+              Nova Path
+            </Link>
+          </div>
 
           <nav className="hidden items-center gap-2 md:flex">
             {isDonor && !isAdmin ? (
@@ -57,12 +68,15 @@ export function NavBar() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() => void i18n.changeLanguage(nextLanguage)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-brand-100 text-surface-text hover:bg-brand-100 hover:text-surface-dark"
+              onClick={() => void i18nInstance.changeLanguage(nextLanguage)}
+              className="inline-flex h-9 items-center gap-2 rounded-md border border-brand-100 px-2.5 text-surface-text hover:bg-brand-100 hover:text-surface-dark"
               aria-label={languageToggleLabel}
               title={languageToggleLabel}
             >
               <span aria-hidden="true">🌐</span>
+              <span className="text-xs font-semibold uppercase tracking-wide">
+                {currentLanguage.toLowerCase().startsWith('pt') ? 'PT' : 'EN'}
+              </span>
             </button>
             <div className="hidden text-sm text-surface-text sm:block">{user?.email}</div>
             <button

@@ -9,10 +9,16 @@ public static class IdentitySeeder
     {
         var adminPassword = config["Seed:AdminPassword"];
         var donorPassword = config["Seed:DonorPassword"];
-        if (string.IsNullOrWhiteSpace(adminPassword) || string.IsNullOrWhiteSpace(donorPassword))
+        var mfaAdminPassword = config["Seed:MfaAdminPassword"];
+
+        if (
+            string.IsNullOrWhiteSpace(adminPassword) ||
+            string.IsNullOrWhiteSpace(donorPassword) ||
+            string.IsNullOrWhiteSpace(mfaAdminPassword)
+        )
         {
             throw new InvalidOperationException(
-                "Seed passwords are required. Configure Seed:AdminPassword and Seed:DonorPassword."
+                "Seed passwords are required. Configure Seed:AdminPassword, Seed:DonorPassword, and Seed:MfaAdminPassword."
             );
         }
 
@@ -40,12 +46,9 @@ public static class IdentitySeeder
         );
 
         // 3. REQUIRED: The MFA Testing Account
-        await EnsureUserAsync(
+        await EnsureMfaAdminAsync(
             userManager,
-            email: "mfa_admin@test.com",
-            password: adminPassword,
-            role: "Admin",
-            requireMfa: true
+            mfaAdminPassword
         );
     }
 
@@ -88,6 +91,67 @@ public static class IdentitySeeder
             // Ensure existing users get updated if the seeder changes
             user.TwoFactorEnabled = requireMfa;
             await userManager.UpdateAsync(user);
+        }
+
+        if (!await userManager.IsInRoleAsync(user, role))
+        {
+            var addRoleResult = await userManager.AddToRoleAsync(user, role);
+            if (!addRoleResult.Succeeded)
+            {
+                var msg = string.Join("; ", addRoleResult.Errors.Select(e => $"{e.Code}:{e.Description}"));
+                throw new InvalidOperationException($"Failed to assign role {role} to {email}. {msg}");
+            }
+        }
+    }
+
+    private static async Task EnsureMfaAdminAsync(
+        UserManager<ApplicationUser> userManager,
+        string mfaAdminPassword
+    )
+    {
+        const string email = "mfa_admin@test.com";
+        const string role = "Admin";
+
+        var user = await userManager.FindByEmailAsync(email);
+        if (user is null)
+        {
+            user = new ApplicationUser
+            {
+                UserName = email,
+                Email = email,
+                EmailConfirmed = true,
+                TwoFactorEnabled = true
+            };
+
+            var createResult = await userManager.CreateAsync(user, mfaAdminPassword);
+            if (!createResult.Succeeded)
+            {
+                var msg = string.Join("; ", createResult.Errors.Select(e => $"{e.Code}:{e.Description}"));
+                throw new InvalidOperationException($"Failed to seed user {email}. {msg}");
+            }
+        }
+        else
+        {
+            // Force MFA test account to match expected startup config.
+            if (!user.TwoFactorEnabled)
+            {
+                user.TwoFactorEnabled = true;
+                var updateResult = await userManager.UpdateAsync(user);
+                if (!updateResult.Succeeded)
+                {
+                    var msg = string.Join("; ", updateResult.Errors.Select(e => $"{e.Code}:{e.Description}"));
+                    throw new InvalidOperationException($"Failed to update MFA flag for {email}. {msg}");
+                }
+            }
+
+            // Keep password aligned with Seed:MfaAdminPassword so login is predictable.
+            var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
+            var resetResult = await userManager.ResetPasswordAsync(user, resetToken, mfaAdminPassword);
+            if (!resetResult.Succeeded)
+            {
+                var msg = string.Join("; ", resetResult.Errors.Select(e => $"{e.Code}:{e.Description}"));
+                throw new InvalidOperationException($"Failed to reset password for {email}. {msg}");
+            }
         }
 
         if (!await userManager.IsInRoleAsync(user, role))
