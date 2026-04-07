@@ -278,25 +278,29 @@ export default function HomePage() {
       <header className="fixed top-0 inset-x-0 z-50 bg-brand-50/95 border-b border-slate-200/80 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           {/* logo */}
-          <motion.a
-            href="#"
+          <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-surface-dark"
-            aria-label="Nova Path — go to homepage"
+            className="flex"
           >
-            <span
-              aria-hidden="true"
-              className="w-7 h-7 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg,#34d399,#facc15)" }}
+            <Link
+              to="/"
+              className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-surface-dark"
+              aria-label="Nova Path — go to homepage"
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M7 1L13 7 7 13M1 7h12" stroke="#060e09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            {content.nav}
-          </motion.a>
+              <span
+                aria-hidden="true"
+                className="w-7 h-7 rounded-lg flex items-center justify-center"
+                style={{ background: "linear-gradient(135deg,#34d399,#facc15)" }}
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1L13 7 7 13M1 7h12" stroke="#060e09" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              {content.nav}
+            </Link>
+          </motion.div>
 
           <div className="flex items-center gap-2">
             <Link
