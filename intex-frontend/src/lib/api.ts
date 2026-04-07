@@ -74,3 +74,95 @@ export async function getResidentRecommendations(id: number): Promise<number[] |
     return null
   }
 }
+
+export type ProcessRecording = {
+  recordingId: number
+  residentId: number
+  sessionDate: string
+  socialWorker: string
+  sessionType: string
+  sessionDurationMinutes: number
+  emotionalStateObserved: string
+  emotionalStateEnd: string
+  sessionNarrative: string
+  interventionsApplied: string
+  followUpActions: string
+  progressNoted: boolean
+  concernsFlagged: boolean
+  referralMade: boolean
+}
+
+export type HomeVisitation = {
+  visitationId: number
+  residentId: number
+  visitDate: string
+  socialWorker: string
+  visitType: string
+  locationVisited: string
+  familyMembersPresent: string
+  purpose: string
+  observations: string
+  familyCooperationLevel: string
+  safetyConcernsNoted: boolean
+  followUpNeeded: boolean
+  followUpNotes?: string | null
+  visitOutcome: string
+}
+
+export async function getProcessRecordings(residentId: number): Promise<ProcessRecording[]> {
+  const res = await api.get<ProcessRecording[]>(`/api/process-recordings/resident/${residentId}`)
+  return res.data
+}
+
+export async function createProcessRecording(payload: {
+  residentId: number
+  date: string
+  notes: string
+}): Promise<ProcessRecording> {
+  const body = {
+    residentId: payload.residentId,
+    sessionDate: payload.date,
+    socialWorker: 'Unassigned',
+    sessionType: 'General',
+    sessionDurationMinutes: 30,
+    emotionalStateObserved: 'Not assessed',
+    emotionalStateEnd: 'Not assessed',
+    sessionNarrative: payload.notes,
+    interventionsApplied: 'N/A',
+    followUpActions: 'N/A',
+    progressNoted: false,
+    concernsFlagged: false,
+    referralMade: false,
+  }
+  const res = await api.post<ProcessRecording>('/api/process-recordings', body, { headers: getHeaders() })
+  return res.data
+}
+
+export async function getHomeVisitations(residentId: number): Promise<HomeVisitation[]> {
+  const res = await api.get<HomeVisitation[]>(`/api/home-visitations/resident/${residentId}`)
+  return res.data
+}
+
+export async function createHomeVisitation(payload: {
+  residentId: number
+  date: string
+  assessment: string
+}): Promise<HomeVisitation> {
+  const body = {
+    residentId: payload.residentId,
+    visitDate: payload.date,
+    socialWorker: 'Unassigned',
+    visitType: 'Home Visit',
+    locationVisited: 'Not specified',
+    familyMembersPresent: 'Not specified',
+    purpose: 'Routine follow-up',
+    observations: payload.assessment,
+    familyCooperationLevel: 'Unknown',
+    safetyConcernsNoted: false,
+    followUpNeeded: false,
+    followUpNotes: '',
+    visitOutcome: 'Pending review',
+  }
+  const res = await api.post<HomeVisitation>('/api/home-visitations', body, { headers: getHeaders() })
+  return res.data
+}
