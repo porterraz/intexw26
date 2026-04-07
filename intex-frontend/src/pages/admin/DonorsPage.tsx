@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { isAxiosError } from 'axios'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
@@ -16,18 +17,40 @@ type Supporter = {
 }
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
+const SUPPORTER_TYPE_OPTIONS = [
+  'MonetaryDonor',
+  'InKindDonor',
+  'Volunteer',
+  'SkillsContributor',
+  'SocialMediaAdvocate',
+  'PartnerOrganization',
+  'Individual',
+  'Corporate',
+  'Foundation',
+]
+
+const STATUS_OPTIONS = ['Active', 'Inactive', 'Paused']
 
 export function DonorsPage() {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [page, setPage] = useState(1)
   const [pageSize] = useState(25)
   const [rows, setRows] = useState<Supporter[]>([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [supporterType, setSupporterType] = useState('')
-  const [status, setStatus] = useState('')
-  const [search, setSearch] = useState('')
+  const [supporterType, setSupporterType] = useState(() => searchParams.get('supporterType') ?? '')
+  const [status, setStatus] = useState(() => searchParams.get('status') ?? '')
+  const [search, setSearch] = useState(() => searchParams.get('search') ?? '')
+
+  useEffect(() => {
+    const next = new URLSearchParams()
+    if (supporterType) next.set('supporterType', supporterType)
+    if (status) next.set('status', status)
+    if (search) next.set('search', search)
+    setSearchParams(next, { replace: true })
+  }, [supporterType, status, search, setSearchParams])
 
   useEffect(() => {
     let cancelled = false
@@ -45,8 +68,20 @@ export function DonorsPage() {
           setRows(res.data.items)
           setTotal(res.data.totalCount)
         }
-      } catch {
-        if (!cancelled) setError('Unable to load supporters.')
+      } catch (err) {
+        if (!cancelled) {
+          if (isAxiosError(err) && err.response?.status === 401) {
+            setError(
+              'Not authorized. Sign out and sign in again so your session uses a real server token (demo login now talks to the API).'
+            )
+          } else if (isAxiosError(err) && err.code === 'ERR_NETWORK') {
+            setError(
+              'Cannot reach the API. Start the backend and ensure VITE_API_BASE_URL matches it (default http://localhost:5007).'
+            )
+          } else {
+            setError('Unable to load supporters.')
+          }
+        }
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -88,7 +123,7 @@ export function DonorsPage() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-bold text-surface-dark">Donors &amp; Contributions</h1>
           <button
-            onClick={() => navigate('/admin/donors')}
+            onClick={() => navigate('/admin/donors/new')}
             className="rounded-md border border-brand-100 px-4 py-2 text-sm font-semibold text-surface-dark hover:bg-brand-50"
           >
             Add Supporter
@@ -97,24 +132,36 @@ export function DonorsPage() {
 
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">
           <div className="grid gap-3 md:grid-cols-3">
-            <input
+            <select
               value={supporterType}
               onChange={(e) => {
                 setPage(1)
                 setSupporterType(e.target.value)
               }}
-              placeholder="Supporter type"
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
-            <input
+              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
+            >
+              <option value="">All supporter types</option>
+              {SUPPORTER_TYPE_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <select
               value={status}
               onChange={(e) => {
                 setPage(1)
                 setStatus(e.target.value)
               }}
-              placeholder="Status"
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
+              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
+            >
+              <option value="">All statuses</option>
+              {STATUS_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
             <input
               value={search}
               onChange={(e) => {

@@ -1,4 +1,4 @@
-import { useId, useState, type FormEvent } from "react";
+import { useId, useState, type CSSProperties, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../state/AuthContext";
@@ -17,6 +17,28 @@ const QUOTES = [
     author: "Nova Path Founding Principle",
   },
 ];
+
+function Orb({
+  className,
+  style,
+  duration,
+  delay,
+}: {
+  className: string;
+  style: CSSProperties;
+  duration: number;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      aria-hidden="true"
+      animate={{ scale: [1, 1.18, 1], opacity: [0.6, 1, 0.6] }}
+      transition={{ duration, repeat: Infinity, ease: "easeInOut", delay }}
+      className={`absolute rounded-full pointer-events-none ${className}`}
+      style={style}
+    />
+  );
+}
 
 function Field({
   id,
@@ -69,7 +91,7 @@ function Field({
             disabled:opacity-50 disabled:cursor-not-allowed
             ${
               error
-                ? "border-accent/60 focus:border-accent"
+                ? "border-red-500/60 focus:border-red-400"
                 : focused
                   ? "border-brand"
                   : "border-brand-100 hover:border-brand"
@@ -77,7 +99,7 @@ function Field({
           `}
           style={
             focused && !error
-              ? { boxShadow: "0 0 0 3px color-mix(in srgb, var(--color-brand) 12%, transparent)" }
+              ? { boxShadow: "0 0 0 3px rgba(52,211,153,0.12)" }
               : error
                 ? { boxShadow: "0 0 0 3px rgba(239,68,68,0.12)" }
                 : {}
@@ -93,7 +115,7 @@ function Field({
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -4, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-[12px] text-accent-dark flex items-center gap-1.5"
+            className="text-[12px] text-red-400 flex items-center gap-1.5"
           >
             <svg
               width="12"
@@ -118,16 +140,28 @@ function Field({
   );
 }
 
+function meetsPasswordPolicy(p: string): boolean {
+  if (p.length < 12) return false;
+  if (!/[A-Z]/.test(p)) return false;
+  if (!/[a-z]/.test(p)) return false;
+  if (!/[0-9]/.test(p)) return false;
+  if (!/[^A-Za-z0-9]/.test(p)) return false;
+  return true;
+}
+
 export function LoginPage() {
-  const { login } = useAuth();
+  const { login, signup } = useAuth();
   const navigate = useNavigate();
+  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<{
     email?: string;
     password?: string;
+    confirmPassword?: string;
   }>({});
 
   const [quoteIndex] = useState(() => Math.floor(Math.random() * QUOTES.length));
@@ -135,6 +169,7 @@ export function LoginPage() {
 
   const emailId = useId();
   const passwordId = useId();
+  const confirmPasswordId = useId();
   const formErrorId = useId();
 
   function validate(): boolean {
@@ -146,8 +181,18 @@ export function LoginPage() {
     }
     if (!password) {
       errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
+    } else if (mode === "signup") {
+      if (!meetsPasswordPolicy(password)) {
+        errors.password =
+          "Use at least 12 characters with uppercase, lowercase, a number, and a symbol.";
+      }
+    }
+    if (mode === "signup") {
+      if (!confirmPassword) {
+        errors.confirmPassword = "Please confirm your password.";
+      } else if (confirmPassword !== password) {
+        errors.confirmPassword = "Passwords do not match.";
+      }
     }
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
@@ -160,9 +205,15 @@ export function LoginPage() {
 
     setLoading(true);
     try {
-      const user = await login(email, password);
-      if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-      else navigate("/impact", { replace: true });
+      if (mode === "signup") {
+        const user = await signup(email, password);
+        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
+        else navigate("/impact", { replace: true });
+      } else {
+        const user = await login(email, password);
+        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
+        else navigate("/impact", { replace: true });
+      }
     } catch (err: unknown) {
       setServerError(
         err instanceof Error ? err.message : "An unexpected error occurred."
@@ -173,7 +224,7 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex overflow-hidden">
+    <div className="min-h-screen flex bg-brand-50 overflow-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
         .font-display { font-family: 'Sora', sans-serif; }
@@ -185,12 +236,61 @@ export function LoginPage() {
         initial={{ opacity: 0, x: -32 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative hidden w-[52%] flex-col justify-between overflow-hidden p-12 lg:flex xl:w-[55%]"
+        className="hidden lg:flex relative flex-col justify-between w-[52%] xl:w-[55%] p-12 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(145deg, #f8fafc 0%, #f1f5f9 40%, #ffffff 100%)",
+        }}
       >
+        <Orb
+          className="w-[500px] h-[500px] -top-32 -left-32"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(52,211,153,0.18) 0%, transparent 70%)",
+          }}
+          duration={9}
+          delay={0}
+        />
+        <Orb
+          className="w-[380px] h-[380px] bottom-0 right-0"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(250,204,21,0.12) 0%, transparent 70%)",
+          }}
+          duration={12}
+          delay={3}
+        />
+        <Orb
+          className="w-[260px] h-[260px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)",
+          }}
+          duration={7}
+          delay={1.5}
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(-45deg,#34d399 0px,#34d399 1px,transparent 1px,transparent 70px)",
+          }}
+        />
+
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #fff 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+
         <div className="relative z-10 flex items-center gap-3">
           <div
             className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-            style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-accent))" }}
+            style={{ background: "linear-gradient(135deg,#34d399,#facc15)" }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path
@@ -207,7 +307,7 @@ export function LoginPage() {
           </span>
         </div>
 
-        <div className="relative z-10 flex flex-1 items-center justify-center py-10">
+        <div className="relative z-10 flex-1 flex items-center justify-center py-16">
           <svg
             viewBox="0 0 340 340"
             className="w-64 xl:w-72 opacity-90"
@@ -311,7 +411,7 @@ export function LoginPage() {
           <div
             className="w-8 h-px mb-4"
             style={{
-              background: "linear-gradient(90deg,var(--color-brand),transparent)",
+              background: "linear-gradient(90deg,#34d399,transparent)",
             }}
           />
           <blockquote>
@@ -325,7 +425,22 @@ export function LoginPage() {
         </motion.div>
       </motion.aside>
 
-      <main className="relative flex flex-1 flex-col items-center justify-center px-6 py-8 sm:px-10">
+      <main
+        className="flex-1 flex flex-col items-center justify-center px-6 sm:px-10 py-12 relative"
+        style={{
+          background:
+            "linear-gradient(160deg,#f8fafc 0%,#f1f5f9 60%,#ffffff 100%)",
+        }}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute top-0 right-0 w-64 h-64 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at top right, rgba(52,211,153,0.06), transparent 70%)",
+          }}
+        />
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -335,7 +450,7 @@ export function LoginPage() {
           <div className="flex lg:hidden items-center gap-2.5 mb-10">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-accent))" }}
+              style={{ background: "linear-gradient(135deg,#34d399,#facc15)" }}
               aria-hidden="true"
             >
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -355,17 +470,21 @@ export function LoginPage() {
 
           <div className="mb-9">
             <h1 className="font-display font-bold text-3xl text-surface-dark mb-2 tracking-tight">
-              Welcome back
+              {mode === "signin" ? "Welcome back" : "Create an account"}
             </h1>
             <p className="text-surface-text text-sm">
-              Sign in to access the Nova Path admin portal.
+              {mode === "signin"
+                ? "Sign in to access the Nova Path portal."
+                : "Register as a donor. You can view impact; admin access is invite-only."}
             </p>
           </div>
 
           <form
             onSubmit={handleSubmit}
             noValidate
-            aria-label="Sign in to Nova Path"
+            aria-label={
+              mode === "signin" ? "Sign in to Nova Path" : "Create a Nova Path account"
+            }
           >
             <div className="flex flex-col gap-5">
               <Field
@@ -380,7 +499,7 @@ export function LoginPage() {
                   setServerError("");
                 }}
                 autoComplete="email"
-                placeholder="you@novapath.org"
+                placeholder="you@example.com"
                 error={fieldErrors.email}
                 disabled={loading}
               />
@@ -396,20 +515,41 @@ export function LoginPage() {
                     setFieldErrors((p) => ({ ...p, password: undefined }));
                   setServerError("");
                 }}
-                autoComplete="current-password"
+                autoComplete={mode === "signup" ? "new-password" : "current-password"}
                 placeholder="••••••••"
                 error={fieldErrors.password}
                 disabled={loading}
               />
 
-              <div className="flex justify-end -mt-2">
-                <a
-                  href="/forgot-password"
-                  className="text-[12px] text-surface-text hover:text-brand transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand rounded"
-                >
-                  Forgot password?
-                </a>
-              </div>
+              {mode === "signup" && (
+                <Field
+                  id={confirmPasswordId}
+                  label="Confirm password"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(v) => {
+                    setConfirmPassword(v);
+                    if (fieldErrors.confirmPassword)
+                      setFieldErrors((p) => ({ ...p, confirmPassword: undefined }));
+                    setServerError("");
+                  }}
+                  autoComplete="new-password"
+                  placeholder="••••••••"
+                  error={fieldErrors.confirmPassword}
+                  disabled={loading}
+                />
+              )}
+
+              {mode === "signin" && (
+                <div className="flex justify-end -mt-2">
+                  <a
+                    href="/forgot-password"
+                    className="text-[12px] text-surface-text hover:text-brand transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand rounded"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+              )}
 
               <AnimatePresence>
                 {serverError && (
@@ -421,7 +561,7 @@ export function LoginPage() {
                     animate={{ opacity: 1, y: 0, height: "auto" }}
                     exit={{ opacity: 0, y: -6, height: 0 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-xl px-4 py-3 text-[13px] text-accent-dark flex items-start gap-3 border"
+                    className="rounded-xl px-4 py-3 text-[13px] text-red-300 flex items-start gap-3 border"
                     style={{
                       background: "rgba(239,68,68,0.07)",
                       borderColor: "rgba(239,68,68,0.2)",
@@ -459,9 +599,17 @@ export function LoginPage() {
                 disabled={loading}
                 whileHover={loading ? {} : { scale: 1.02 }}
                 whileTap={loading ? {} : { scale: 0.97 }}
-                aria-label={loading ? "Signing in, please wait" : "Sign in"}
+                aria-label={
+                  loading
+                    ? mode === "signup"
+                      ? "Creating account, please wait"
+                      : "Signing in, please wait"
+                    : mode === "signup"
+                      ? "Create account"
+                      : "Sign in"
+                }
                 aria-busy={loading}
-                className="relative mt-1 w-full py-3.5 rounded-xl font-semibold text-surface text-sm overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50 disabled:cursor-not-allowed disabled:opacity-80 transition-opacity bg-brand hover:bg-brand-dark"
+                className="relative mt-1 w-full py-3.5 rounded-xl font-semibold text-white text-sm overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-brand-50 disabled:cursor-not-allowed disabled:opacity-80 transition-opacity bg-brand hover:bg-brand-dark"
               >
                 <AnimatePresence>
                   {loading && (
@@ -477,7 +625,7 @@ export function LoginPage() {
                       className="absolute inset-0 w-full"
                       style={{
                         background:
-                          "linear-gradient(90deg,transparent,color-mix(in srgb, var(--color-surface) 25%, transparent),transparent)",
+                          "linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent)",
                       }}
                     />
                   )}
@@ -508,11 +656,11 @@ export function LoginPage() {
                           strokeLinecap="round"
                         />
                       </svg>
-                      Signing in...
+                      {mode === "signup" ? "Creating account..." : "Signing in..."}
                     </>
                   ) : (
                     <>
-                      Sign in
+                      {mode === "signup" ? "Create account" : "Sign in"}
                       <svg
                         width="14"
                         height="14"
@@ -535,15 +683,50 @@ export function LoginPage() {
             </div>
           </form>
 
-          <p className="mt-8 text-center text-[12px] text-surface-text">
-            Access is restricted to authorised Nova Path personnel.
-            <br />
-            Demo login: <span className="text-surface-text">admin@novapath.org / demo123</span>
+          <p className="mt-6 text-center text-sm text-surface-text">
+            {mode === "signin" ? (
+              <>
+                New here?{" "}
+                <button
+                  type="button"
+                  className="font-semibold text-brand hover:underline"
+                  onClick={() => {
+                    setMode("signup");
+                    setServerError("");
+                    setFieldErrors({});
+                    setConfirmPassword("");
+                  }}
+                >
+                  Create an account
+                </button>
+              </>
+            ) : (
+              <>
+                Already have an account?{" "}
+                <button
+                  type="button"
+                  className="font-semibold text-brand hover:underline"
+                  onClick={() => {
+                    setMode("signin");
+                    setServerError("");
+                    setFieldErrors({});
+                    setConfirmPassword("");
+                  }}
+                >
+                  Sign in
+                </button>
+              </>
+            )}
+          </p>
+
+          <p className="mt-6 text-center text-[12px] text-slate-600">
+            Admin access: use seeded admin or demo shortcut{" "}
+            <span className="text-slate-400">admin@novapath.org / demo123</span>
             <br />
             Contact{" "}
             <a
               href="mailto:admin@novapath.org.br"
-            className="text-surface-text hover:text-brand transition-colors underline underline-offset-2"
+              className="text-surface-text hover:text-brand transition-colors underline underline-offset-2"
             >
               admin@novapath.org.br
             </a>{" "}

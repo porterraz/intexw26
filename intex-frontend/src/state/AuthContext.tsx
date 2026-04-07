@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from 'react'
+import { isAxiosError } from 'axios'
 import { api } from '../lib/api'
 import { decodeEmail, decodeRoles } from '../auth/jwt'
 
@@ -11,30 +12,18 @@ type AuthContextValue = {
   token: string | null
   user: AuthUser | null
   login: (email: string, password: string) => Promise<AuthUser>
+  signup: (email: string, password: string) => Promise<AuthUser>
   logout: () => void
   hasRole: (role: string) => boolean
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null)
+
+/** UI convenience: still uses the real API and a valid JWT (IdentitySeeder admin user). */
 const DEMO_EMAIL = 'admin@novapath.org'
 const DEMO_PASSWORD = 'demo123'
-
-function base64Url(input: string) {
-  return btoa(input).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
-}
-
-function createDemoToken(email: string, role: string) {
-  const header = base64Url(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
-  const payload = base64Url(
-    JSON.stringify({
-      sub: 'demo-user',
-      email,
-      role,
-      iat: Math.floor(Date.now() / 1000),
-    })
-  )
-  return `${header}.${payload}.demo-signature`
-}
+const SEEDED_ADMIN_EMAIL = 'admin@test.com'
+const SEEDED_ADMIN_PASSWORD = 'Admin@12345678!'
 
 function readInitial(): { token: string | null; user: AuthUser | null } {
   const token = localStorage.getItem('np_token')
@@ -51,24 +40,54 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(initial.user)
 
   async function login(email: string, password: string) {
+    let loginEmail = email
+    let loginPassword = password
     if (email.toLowerCase() === DEMO_EMAIL && password === DEMO_PASSWORD) {
-      const demoToken = createDemoToken(DEMO_EMAIL, 'Admin')
-      localStorage.setItem('np_token', demoToken)
-      const u = { email: DEMO_EMAIL, roles: ['Admin'] }
-      setToken(demoToken)
-      setUser(u)
-      return u
+      loginEmail = SEEDED_ADMIN_EMAIL
+      loginPassword = SEEDED_ADMIN_PASSWORD
     }
 
-    const res = await api.post<{ token: string }>('/api/auth/login', { email, password })
-    const t = res.data.token
-    localStorage.setItem('np_token', t)
-    const decodedEmail = decodeEmail(t) || email
-    const roles = decodeRoles(t)
-    const u = { email: decodedEmail, roles }
-    setToken(t)
-    setUser(u)
-    return u
+    try {
+      const res = await api.post<{ token: string }>('/api/auth/login', {
+        email: loginEmail,
+        password: loginPassword,
+      })
+      const t = res.data.token
+      localStorage.setItem('np_token', t)
+      const decodedEmail = decodeEmail(t) || email
+      const roles = decodeRoles(t)
+      const u = { email: decodedEmail, roles }
+      setToken(t)
+      setUser(u)
+      return u
+    } catch (e: unknown) {
+      if (isAxiosError(e) && e.response?.data) {
+        const data = e.response.data as { message?: string }
+        if (data.message) throw new Error(data.message)
+      }
+      throw e instanceof Error ? e : new Error('Sign in failed.')
+    }
+  }
+
+  async function signup(email: string, password: string) {
+    try {
+      const res = await api.post<{ token: string }>('/api/auth/signup', { email, password })
+      const t = res.data.token
+      localStorage.setItem('np_token', t)
+      const decodedEmail = decodeEmail(t) || email.trim()
+      const roles = decodeRoles(t)
+      const u = { email: decodedEmail, roles }
+      setToken(t)
+      setUser(u)
+      return u
+    } catch (e: unknown) {
+      if (isAxiosError(e) && e.response?.data) {
+        const data = e.response.data as { message?: string; errors?: string[] }
+        const detail = data.errors?.length ? data.errors.join(' ') : data.message
+        if (detail) throw new Error(detail)
+      }
+      throw e instanceof Error ? e : new Error('Registration failed.')
+    }
   }
 
   function logout() {
@@ -81,7 +100,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return !!user?.roles?.includes(role)
   }
 
-  const value: AuthContextValue = { token, user, login, logout, hasRole }
+  const value: AuthContextValue = { token, user, login, signup, logout, hasRole }
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 

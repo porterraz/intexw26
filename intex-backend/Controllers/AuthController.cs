@@ -41,6 +41,51 @@ public class AuthController : ControllerBase
         return Ok(new LoginResponse(token));
     }
 
+    /// <summary>Public self-registration. New accounts receive the Donor role only.</summary>
+    [HttpPost("signup")]
+    [AllowAnonymous]
+    public async Task<ActionResult<LoginResponse>> Signup([FromBody] LoginRequest req)
+    {
+        if (string.IsNullOrWhiteSpace(req.Email) || string.IsNullOrWhiteSpace(req.Password))
+        {
+            return BadRequest(new { message = "Email and password are required." });
+        }
+
+        var normalizedEmail = req.Email.Trim();
+        var existing = await _userManager.FindByEmailAsync(normalizedEmail);
+        if (existing is not null)
+        {
+            return Conflict(new { message = "An account with this email already exists." });
+        }
+
+        var user = new ApplicationUser
+        {
+            UserName = normalizedEmail,
+            Email = normalizedEmail,
+            EmailConfirmed = true
+        };
+
+        var create = await _userManager.CreateAsync(user, req.Password);
+        if (!create.Succeeded)
+        {
+            return BadRequest(new
+            {
+                message = "Password does not meet requirements.",
+                errors = create.Errors.Select(e => e.Description).ToArray()
+            });
+        }
+
+        var addRole = await _userManager.AddToRoleAsync(user, "Donor");
+        if (!addRole.Succeeded)
+        {
+            await _userManager.DeleteAsync(user);
+            return BadRequest(new { message = "Could not complete registration. Try again later." });
+        }
+
+        var token = await _jwtTokenService.CreateTokenAsync(user);
+        return Ok(new LoginResponse(token));
+    }
+
     [HttpGet("me")]
     [AllowAnonymous]
     public async Task<ActionResult<MeResponse>> Me()
