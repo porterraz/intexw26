@@ -30,5 +30,10 @@ yarn-error.log*
 # Azure CLI local auth cache
 .azure/
 
-# Azure CLI local auth cache
-.azure/
+# ML artifacts
+ML_Pipeline/*.pkl
+ML_Pipeline/*.png
+ML_Pipeline/donor_churn_predictions.csv
+ML_Pipeline/resident_risk_predictions.csv
+ML_Pipeline/social_media_predictions.csv
+ML_Pipeline/Resident_Recommendations.csv

@@ -1,17 +1,21 @@
 import pandas as pd
 import urllib
-from sqlalchemy import create_engine, text
 import os
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-# ==========================================
-# 1. AZURE SQL CONNECTION SETTINGS
-# Replace these with your Azure SQL Database details
-# ==========================================
-server = 'YOUR_SERVER_NAME.database.windows.net' # e.g., novapath-db-server.database.windows.net
-database = 'YOUR_DATABASE_NAME'
-username = 'YOUR_ADMIN_USERNAME'
-password = 'YOUR_ADMIN_PASSWORD'
-driver = '{ODBC Driver 18 for SQL Server}' # Use 17 if 18 throws an error
+# Load credentials from the .env file
+load_dotenv()
+
+server = os.getenv('DB_SERVER')
+database = os.getenv('DB_NAME')
+username = os.getenv('DB_USER')
+password = os.getenv('DB_PASSWORD')
+driver = '{ODBC Driver 18 for SQL Server}'
+
+if not all([server, database, username, password]):
+    print("❌ Error: Missing database credentials in .env file.")
+    exit()
 
 # Create the SQLAlchemy Engine
 params = urllib.parse.quote_plus(
@@ -19,27 +23,18 @@ params = urllib.parse.quote_plus(
 )
 engine = create_engine(f"mssql+pyodbc:///?odbc_connect={params}", fast_executemany=True)
 
-# ==========================================
-# 2. TABLE MAPPING & INSERTION ORDER
-# Order is critical to avoid Foreign Key constraint errors!
-# ==========================================
 CSV_DIR = 'lighthouse_csv_v7/lighthouse_csv_v7/'
 
-# Dictionary format: 'csv_filename': 'ExactEFCoreTableName'
+# Table mapping in critical FK order
 tables_to_load = {
-    # 1. Base Tables (No dependencies)
     'safehouses.csv': 'Safehouses',
     'supporters.csv': 'Supporters',
     'partners.csv': 'Partners',
     'social_media_posts.csv': 'SocialMediaPosts',
     'public_impact_snapshots.csv': 'PublicImpactSnapshots',
-    
-    # 2. Level 1 Dependencies
-    'residents.csv': 'Residents', # Depends on Safehouse
-    'donations.csv': 'Donations', # Depends on Supporter
-    'safehouse_monthly_metrics.csv': 'SafehouseMonthlyMetrics', # Depends on Safehouse
-    
-    # 3. Level 2 Dependencies (Tied to Residents or Donations)
+    'residents.csv': 'Residents',
+    'donations.csv': 'Donations',
+    'safehouse_monthly_metrics.csv': 'SafehouseMonthlyMetrics',
     'incident_reports.csv': 'IncidentReports',
     'health_wellbeing_records.csv': 'HealthWellbeingRecords',
     'education_records.csv': 'EducationRecords',
@@ -51,42 +46,28 @@ tables_to_load = {
     'partner_assignments.csv': 'PartnerAssignments'
 }
 
-# ==========================================
-# 3. EXECUTE UPLOAD
-# ==========================================
-print("🚀 Connecting to Azure SQL and starting upload...")
+print(f"🚀 Connecting to {server}...")
 
-# Use a single connection block for faster execution
 with engine.begin() as conn:
     for csv_file, table_name in tables_to_load.items():
         file_path = os.path.join(CSV_DIR, csv_file)
-
         if os.path.exists(file_path):
-            print(f"Loading {csv_file} into [{table_name}]...")
+            print(f"Loading {csv_file} -> [{table_name}]...")
             df = pd.read_csv(file_path)
-            
             try:
-                # We use if_exists='append' so we don't destroy the schema Entity Framework created
+                # Use append to avoid dropping tables created by EF Core
                 df.to_sql(table_name, conn, schema='dbo', if_exists='append', index=False)
-                print(f"   ✅ Success: {len(df)} rows added to {table_name}")
+                print(f"   ✅ Success: {len(df)} rows added.")
             except Exception as e:
-                print(f"   ❌ Error loading {table_name}. (Check if data already exists or FK error)")
-                print(f"      Details: {str(e)[:200]}")
+                print(f"   ❌ Error: {str(e)[:100]}")
         else:
-            print(f"⚠️ Warning: Could not find {file_path}")
+            print(f"⚠️ Warning: {file_path} not found.")
 
-    # ==========================================
-    # 4. UPLOAD MACHINE LEARNING RECOMMENDATIONS
-    # ==========================================
-    ml_file = 'Resident_Recommendations.csv'
-    if os.path.exists(ml_file):
-        print(f"\n🧠 Loading ML Data: {ml_file} into [ResidentRecommendations]...")
-        try:
-            df_ml = pd.read_csv(ml_file)
-            # We use 'replace' here in case you run the ML script multiple times and want fresh recs
-            df_ml.to_sql('ResidentRecommendations', conn, schema='dbo', if_exists='replace', index=False)
-            print(f"   ✅ Success: ML Recommendations Seeded!")
-        except Exception as e:
-            print(f"   ❌ Error loading ML Recommendations: {e}")
+    # Seed the ML recommendations if the file exists
+    if os.path.exists('Resident_Recommendations.csv'):
+        print("\n🧠 Seeding ML Recommendations...")
+        df_ml = pd.read_csv('Resident_Recommendations.csv')
+        df_ml.to_sql('ResidentRecommendations', conn, schema='dbo', if_exists='replace', index=False)
+        print("   ✅ ML Data Seeded!")
 
-print("\n🎉 All CSV data has been sent to Azure SQL!")
+print("\n🎉 Database population complete!")
