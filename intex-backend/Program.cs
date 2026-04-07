@@ -70,7 +70,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Frontend", policy =>
     {
-        var allowed = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? [];
+        var allowed = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
+        if (allowed is null || allowed.Length == 0)
+        {
+            // Local dev fallback when appsettings/user-secrets do not define CORS origins.
+            allowed = ["http://localhost:5173", "http://127.0.0.1:5173"];
+        }
         policy.WithOrigins(allowed)
             .AllowAnyHeader()
             .AllowAnyMethod();

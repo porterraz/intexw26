@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage'
 import { ImpactDashboardPage } from './pages/ImpactDashboardPage'
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage'
 import { LoginPage } from './pages/LoginPage'
+import { MfaSetupPage } from './pages/MfaSetupPage'
+import { MfaVerifyPage } from './pages/MfaVerifyPage'
 import PrivacyPage from './pages/PrivacyPage'
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage'
 import { CaseloadPage } from './pages/admin/CaseloadPage'
@@ -25,6 +27,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/mfa-verify" element={<MfaVerifyPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/impact" element={<ImpactDashboardPage />} />
@@ -42,6 +45,7 @@ export default function App() {
           <Route path="/admin/reports" element={<ReportsPage />} />
           <Route path="/admin/donations" element={<AdminDonationsPage />} />
           <Route path="/admin/social-media" element={<SocialMediaPage />} />
+          <Route path="/admin/mfa-setup" element={<MfaSetupPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />
