@@ -47,18 +47,20 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddScoped<JwtTokenService>();
 
 var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>() ?? new JwtOptions();
+var hasIssuer = !string.IsNullOrWhiteSpace(jwt.Issuer);
+var hasAudience = !string.IsNullOrWhiteSpace(jwt.Audience);
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
+            ValidateIssuer = hasIssuer,
+            ValidateAudience = hasAudience,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwt.Issuer,
-            ValidAudience = jwt.Audience,
+            ValidIssuer = hasIssuer ? jwt.Issuer : null,
+            ValidAudience = hasAudience ? jwt.Audience : null,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Secret)),
             ClockSkew = TimeSpan.FromMinutes(2)
         };

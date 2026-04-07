@@ -1,18 +1,27 @@
 import axios from 'axios'
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5007'
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5007/api'
+
+const apiOrigin = API_BASE_URL.endsWith('/api')
+  ? API_BASE_URL.slice(0, -'/api'.length)
+  : API_BASE_URL
 
 export const api = axios.create({
-  baseURL,
+  baseURL: apiOrigin,
 })
 
-api.interceptors.request.use((config) => {
+export const getHeaders = (): Record<string, string> => {
   const token = localStorage.getItem('np_token')
-  if (token) {
+  return token ? { Authorization: `Bearer ${token}` } : {}
+}
+
+api.interceptors.request.use((config) => {
+  const headers = getHeaders()
+  if (headers.Authorization) {
     if (config.headers && typeof (config.headers as { set?: unknown }).set === 'function') {
-      ;(config.headers as { set: (name: string, value: string) => void }).set('Authorization', `Bearer ${token}`)
+      ;(config.headers as { set: (name: string, value: string) => void }).set('Authorization', headers.Authorization)
     } else {
-      config.headers = { Authorization: `Bearer ${token}` } as never
+      config.headers = { ...headers } as never
     }
   }
   return config
