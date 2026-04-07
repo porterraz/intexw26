@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { NavBar } from '../../components/NavBar'
 import { MetricCard } from '../../components/MetricCard'
 import { api } from '../../lib/api'
@@ -55,8 +56,20 @@ export function SocialMediaPage() {
             </section>
 
             <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
-              <div className="text-sm text-surface-text">
-                Charts and recent posts table will be wired to `GET /api/social-media/posts` next.
+              <div className="mb-3 font-semibold text-surface-dark">Average engagement by platform</div>
+              <div className="h-64 w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={data.avgEngagementRateByPlatform}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    <XAxis dataKey="platform" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="avgEngagementRate" fill="#0f172a" radius={[6, 6, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="mt-3 text-sm text-surface-text">
+                This chart uses live data from `/api/social-media/analytics`.
               </div>
             </section>
           </>

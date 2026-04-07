@@ -70,9 +70,17 @@ public class SocialMediaController : ControllerBase
 
         var avgByPlatform = await _db.SocialMediaPosts.AsNoTracking()
             .GroupBy(p => p.Platform)
-            .Select(g => new AvgEngagementRateByPlatformItem(g.Key, (decimal)g.Average(x => x.EngagementRate)))
+            .Select(g => new
+            {
+                Platform = g.Key,
+                AvgEngagementRate = (decimal?)g.Average(x => x.EngagementRate) ?? 0m
+            })
             .OrderByDescending(x => x.AvgEngagementRate)
             .ToListAsync();
+
+        var avgByPlatformItems = avgByPlatform
+            .Select(x => new AvgEngagementRateByPlatformItem(x.Platform, x.AvgEngagementRate))
+            .ToList();
 
         var bestHour = await _db.SocialMediaPosts.AsNoTracking()
             .GroupBy(p => p.PostHour)
@@ -91,7 +99,7 @@ public class SocialMediaController : ControllerBase
         return Ok(new SocialMediaAnalyticsResponse(
             TopPlatformByEngagement: topPlatform,
             TopPostTypeByDonations: topPostType,
-            AvgEngagementRateByPlatform: avgByPlatform,
+            AvgEngagementRateByPlatform: avgByPlatformItems,
             BestPostingHour: bestHour,
             BestDayOfWeek: bestDay
         ));
