@@ -32,7 +32,7 @@ export function DonorDashboard() {
       setActiveSafehouses(snapshot.activeSafehouses ?? 0)
       setTotalDonors(snapshot.totalDonors ?? 0)
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Failed to load donor dashboard data.')
+      setError(e instanceof Error ? e.message : t('donor_load_error'))
     } finally {
       setLoading(false)
     }
@@ -47,7 +47,7 @@ export function DonorDashboard() {
     setFormError('')
     const parsedAmount = Number(amount)
     if (!Number.isFinite(parsedAmount) || parsedAmount <= 0) {
-      setFormError('Enter a valid amount greater than 0.')
+      setFormError(t('donate_amount_error'))
       return
     }
 
@@ -63,7 +63,7 @@ export function DonorDashboard() {
       setNotes('')
       await loadData()
     } catch (e) {
-      setFormError(e instanceof Error ? e.message : 'Unable to submit donation.')
+      setFormError(e instanceof Error ? e.message : t('donate_submit_error'))
     } finally {
       setSubmitting(false)
     }
@@ -73,12 +73,12 @@ export function DonorDashboard() {
     <div className="mx-auto max-w-7xl space-y-5 px-4 py-6">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-surface-dark">
-          {t('Welcome back')}, {user?.email?.split('@')[0] || 'Donor'}
+          {t('donor_welcome_back')}, {user?.email?.split('@')[0] || t('donor_default_name')}
         </h1>
       </div>
 
       <section id="donate-form" className="bg-surface border border-slate-200 rounded-xl shadow-sm p-6">
-        <h2 className="text-lg font-semibold text-surface-dark">Make a Donation</h2>
+        <h2 className="text-lg font-semibold text-surface-dark">{t('donate_title')}</h2>
         <form className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3" onSubmit={onSubmitDonation}>
           <input
             type="number"
@@ -86,14 +86,14 @@ export function DonorDashboard() {
             step="0.01"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount (USD)"
+            placeholder={t('donate_amount_placeholder')}
             className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             required
           />
           <input
             value={campaignName}
             onChange={(e) => setCampaignName(e.target.value)}
-            placeholder="Campaign (optional)"
+            placeholder={t('donate_campaign_placeholder')}
             className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
           />
           <button
@@ -101,12 +101,12 @@ export function DonorDashboard() {
             disabled={submitting}
             className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark disabled:opacity-60"
           >
-            {submitting ? 'Submitting...' : 'Submit Donation'}
+            {submitting ? t('donate_submitting') : t('donate_submit')}
           </button>
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="Notes (optional)"
+            placeholder={t('donate_notes_placeholder')}
             className="md:col-span-3 rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             rows={2}
           />
@@ -120,7 +120,7 @@ export function DonorDashboard() {
             <HeartIcon className="w-8 h-8" />
           </div>
           <div>
-            <p className="text-sm text-surface-text font-medium">Lifetime Giving</p>
+            <p className="text-sm text-surface-text font-medium">{t('donate_lifetime_giving')}</p>
             <p className="text-2xl font-bold text-surface-dark">${lifetimeGiving.toFixed(2)}</p>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function DonorDashboard() {
             <TrendingUpIcon className="w-8 h-8" />
           </div>
           <div>
-            <p className="text-sm text-surface-text font-medium">Active Safehouses Supported</p>
+            <p className="text-sm text-surface-text font-medium">{t('donor_safehouses_supported')}</p>
             <p className="text-2xl font-bold text-surface-dark">{activeSafehouses}</p>
           </div>
         </div>
@@ -138,7 +138,7 @@ export function DonorDashboard() {
             <HeartIcon className="w-8 h-8" />
           </div>
           <div>
-            <p className="text-sm text-surface-text font-medium">Community Donors</p>
+            <p className="text-sm text-surface-text font-medium">{t('donor_community_donors')}</p>
             <p className="text-2xl font-bold text-surface-dark">{totalDonors}</p>
           </div>
         </div>
@@ -148,38 +148,38 @@ export function DonorDashboard() {
         <div className="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-surface-dark flex items-center gap-2">
             <CalendarIcon className="w-5 h-5 text-brand" />
-            My Donation History
+            {t('donate_history_title')}
           </h2>
-          <button className="text-sm text-brand hover:text-brand-dark font-medium" type="button">Download Tax Receipt</button>
+          <button className="text-sm text-brand hover:text-brand-dark font-medium" type="button">{t('donor_download_receipt')}</button>
         </div>
-        {loading && <p className="px-6 py-3 text-sm text-surface-text">Loading donation history...</p>}
+        {loading && <p className="px-6 py-3 text-sm text-surface-text">{t('donate_history_loading')}</p>}
         {!loading && error && <p className="px-6 py-3 text-sm text-red-500">{error}</p>}
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white border-b border-slate-200 text-sm text-surface-text">
-                <th className="px-6 py-3 font-medium">Date</th>
-                <th className="px-6 py-3 font-medium">Fund Designation</th>
-                <th className="px-6 py-3 font-medium">Amount</th>
-                <th className="px-6 py-3 font-medium">Status</th>
+                <th className="px-6 py-3 font-medium">{t('table_date')}</th>
+                <th className="px-6 py-3 font-medium">{t('donor_fund_designation')}</th>
+                <th className="px-6 py-3 font-medium">{t('table_amount')}</th>
+                <th className="px-6 py-3 font-medium">{t('table_status')}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {!loading && donations.length === 0 && (
                 <tr>
                   <td className="px-6 py-4 text-surface-text" colSpan={4}>
-                    No donation records found yet.
+                    {t('donate_no_records')}
                   </td>
                 </tr>
               )}
               {donations.map((d) => (
                 <tr key={d.donationId} className="hover:bg-slate-50 transition-colors">
                   <td className="px-6 py-4 text-surface-text">{new Date(d.donationDate).toLocaleDateString()}</td>
-                  <td className="px-6 py-4 font-medium text-surface-dark">{d.campaignName || d.designation || 'General Fund'}</td>
+                  <td className="px-6 py-4 font-medium text-surface-dark">{d.campaignName || d.designation || t('donate_general_fund')}</td>
                   <td className="px-6 py-4 text-surface-dark font-semibold">${Number(d.amount).toFixed(2)}</td>
                   <td className="px-6 py-4">
                     <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">
-                      Completed
+                      {t('donate_completed')}
                     </span>
                   </td>
                 </tr>

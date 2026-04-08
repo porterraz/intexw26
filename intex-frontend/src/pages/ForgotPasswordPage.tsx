@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { requestPasswordReset, resetPasswordRequest } from '../lib/api'
 
 function meetsPasswordPolicy(password: string): boolean {
@@ -13,6 +14,7 @@ function meetsPasswordPolicy(password: string): boolean {
 }
 
 export function ForgotPasswordPage() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [resetToken, setResetToken] = useState('')
   const [newPassword, setNewPassword] = useState('')
@@ -23,8 +25,8 @@ export function ForgotPasswordPage() {
   const [info, setInfo] = useState('')
 
   const passwordPolicyHint = useMemo(
-    () => 'Use at least 12 characters with uppercase, lowercase, a number, and a symbol.',
-    []
+    () => t('reset_password_policy_hint'),
+    [t]
   )
 
   async function onRequestReset(e: FormEvent) {
@@ -33,7 +35,7 @@ export function ForgotPasswordPage() {
     setInfo('')
 
     if (!email.trim()) {
-      setError('Email is required.')
+      setError(t('reset_email_required'))
       return
     }
 
@@ -41,10 +43,10 @@ export function ForgotPasswordPage() {
     try {
       const res = await requestPasswordReset(email.trim())
       setResetToken(res.resetToken ?? '')
-      setInfo('Continue to set a new password for this email.')
+      setInfo(t('reset_continue_info'))
       setStep('reset')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to request password reset.')
+      setError(err instanceof Error ? err.message : t('reset_request_error'))
     } finally {
       setLoading(false)
     }
@@ -56,7 +58,7 @@ export function ForgotPasswordPage() {
     setInfo('')
 
     if (!email.trim() || !newPassword) {
-      setError('Email and new password are required.')
+      setError(t('reset_email_password_required'))
       return
     }
 
@@ -66,7 +68,7 @@ export function ForgotPasswordPage() {
     }
 
     if (newPassword !== confirmPassword) {
-      setError('Passwords do not match.')
+      setError(t('reset_password_mismatch'))
       return
     }
 
@@ -74,9 +76,9 @@ export function ForgotPasswordPage() {
     try {
       await resetPasswordRequest(email.trim(), newPassword, resetToken || undefined)
       setStep('done')
-      setInfo('Password reset successful. You can sign in now.')
+      setInfo(t('reset_success'))
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to reset password.')
+      setError(err instanceof Error ? err.message : t('reset_submit_error'))
     } finally {
       setLoading(false)
     }
@@ -85,9 +87,9 @@ export function ForgotPasswordPage() {
   return (
     <div className="min-h-screen bg-brand-50 text-surface-dark flex items-center justify-center px-6 py-8">
       <div className="w-full max-w-xl rounded-2xl border border-brand-100 bg-surface p-8 shadow-sm">
-        <h1 className="text-2xl font-bold">Reset your password</h1>
+        <h1 className="text-2xl font-bold">{t('reset_title')}</h1>
         <p className="mt-2 text-sm text-surface-text">
-          Step 1: Enter your email. Step 2: Set your new password.
+          {t('reset_subtitle')}
         </p>
 
         {error && <p className="mt-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
@@ -106,7 +108,7 @@ export function ForgotPasswordPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
-                placeholder="you@example.com"
+                placeholder={t('reset_email_placeholder')}
                 required
               />
             </div>
@@ -116,7 +118,7 @@ export function ForgotPasswordPage() {
               disabled={loading}
               className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark disabled:opacity-60"
             >
-              {loading ? 'Continuing...' : 'Continue'}
+              {loading ? t('reset_continuing') : t('reset_continue')}
             </button>
           </form>
         )}
@@ -138,7 +140,7 @@ export function ForgotPasswordPage() {
 
             <div>
               <label className="mb-1 block text-sm font-medium" htmlFor="new-password">
-                New Password
+                {t('reset_new_password')}
               </label>
               <input
                 id="new-password"
@@ -154,7 +156,7 @@ export function ForgotPasswordPage() {
 
             <div>
               <label className="mb-1 block text-sm font-medium" htmlFor="confirm-password">
-                Confirm New Password
+                {t('reset_confirm_new_password')}
               </label>
               <input
                 id="confirm-password"
@@ -173,14 +175,14 @@ export function ForgotPasswordPage() {
                 disabled={loading}
                 className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark disabled:opacity-60"
               >
-                {loading ? 'Resetting...' : 'Set New Password'}
+                {loading ? t('reset_resetting') : t('reset_set_new_password')}
               </button>
               <button
                 type="button"
                 onClick={() => setStep('request')}
                 className="rounded-md border border-brand-100 px-4 py-2 text-sm font-semibold text-surface-dark hover:bg-brand-50"
               >
-                Start Over
+                {t('reset_start_over')}
               </button>
             </div>
           </form>
@@ -192,7 +194,7 @@ export function ForgotPasswordPage() {
               to="/login"
               className="inline-flex rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
             >
-              Back to login
+              {t('reset_back_to_login')}
             </Link>
           </div>
         )}
