@@ -41,9 +41,14 @@ export function NavBar() {
 
           <nav className="hidden items-center gap-2 md:flex">
             {isDonor && !isAdmin ? (
-              <NavLink to="/donor/dashboard" end className={navLinkClass}>
-                My Dashboard
-              </NavLink>
+              <>
+                <NavLink to="/donor/dashboard" end className={navLinkClass}>
+                  My Dashboard
+                </NavLink>
+                <NavLink to="/donor/dashboard#donate-form" className={navLinkClass}>
+                  Make Donation
+                </NavLink>
+              </>
             ) : (
               <>
                 <NavLink to="/admin" end className={navLinkClass}>

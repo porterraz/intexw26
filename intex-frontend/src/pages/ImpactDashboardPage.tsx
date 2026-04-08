@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../lib/api'
+import { useAuth } from '../state/AuthContext'
 import { MetricCard } from '../components/MetricCard'
 import { LoadingSpinner } from '../components/LoadingSpinner'
 import { ErrorMessage } from '../components/ErrorMessage'
@@ -40,6 +41,7 @@ function tryParseMetrics(snapshot: PublicImpactSnapshot | null): Partial<PublicS
 }
 
 export function ImpactDashboardPage() {
+  const { user } = useAuth()
   const [snapshot, setSnapshot] = useState<PublicImpactSnapshot | null>(null)
   const [stats, setStats] = useState<PublicStats | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -131,17 +133,32 @@ export function ImpactDashboardPage() {
           </div>
         </section>
 
-        <section className="mt-10 rounded-2xl border border-brand-100 bg-surface p-6 text-surface-dark md:p-8">
+        <section className="mt-8 rounded-2xl border border-brand-100 bg-surface p-6 text-surface-dark md:p-8">
           <h2 className="text-xl font-semibold">Support recovery</h2>
           <p className="mt-2 max-w-2xl text-surface-text">
             Donations fund safe housing, clinical support, education planning, and reintegration services. All public reporting is anonymized.
           </p>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            {user?.roles?.includes('Donor') ? (
+              <Link
+                className="inline-flex rounded-md bg-brand px-4 py-2 font-semibold text-surface hover:bg-brand-dark"
+                to="/donor/dashboard#donate-form"
+              >
+                Make a Donation
+              </Link>
+            ) : (
+              <Link
+                className="inline-flex rounded-md bg-brand px-4 py-2 font-semibold text-surface hover:bg-brand-dark"
+                to="/login"
+              >
+                Log in to Donate
+              </Link>
+            )}
             <a
-              className="inline-flex rounded-md bg-brand px-4 py-2 font-semibold text-surface hover:bg-brand-dark"
+              className="inline-flex rounded-md border border-brand-100 px-4 py-2 font-semibold text-surface-dark hover:bg-brand-50"
               href="mailto:donations@novapath.org"
             >
-              Contact to Donate
+              Contact Donations Team
             </a>
           </div>
         </section>

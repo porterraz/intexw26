@@ -208,12 +208,12 @@ export function LoginPage() {
       if (mode === "signup") {
         const user = await signup(email, password);
         if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-        else navigate("/impact", { replace: true });
+        else navigate("/donor/dashboard", { replace: true });
       } else {
         const user = await login(email, password);
         if (!user) return;
         if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-        else navigate("/impact", { replace: true });
+        else navigate("/donor/dashboard", { replace: true });
       }
     } catch (err: unknown) {
       setServerError(

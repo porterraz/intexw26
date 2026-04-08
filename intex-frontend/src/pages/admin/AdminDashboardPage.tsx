@@ -1,13 +1,6 @@
-import { useEffect, useState } from 'react'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts'
+import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { NavBar } from '../../components/NavBar'
 import { MetricCard } from '../../components/MetricCard'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
@@ -30,6 +23,10 @@ interface DashboardSummary {
   }>
 }
 
+function formatCurrency(value: number): string {
+  return value.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+}
+
 export default function AdminDashboardPage() {
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [loading, setLoading] = useState(true)
@@ -40,22 +37,25 @@ export default function AdminDashboardPage() {
       try {
         const res = await api.get<DashboardSummary>('/api/dashboard/summary')
         setSummary(res.data)
-      } catch (err) {
+      } catch {
         setError('Failed to load dashboard data. Please ensure you are logged in.')
       } finally {
         setLoading(false)
       }
     }
-    loadDashboard()
+    void loadDashboard()
   }, [])
 
-  // Prepare data for the donation chart
-  const donationChartData = summary?.monthlyDonations || [
-    { month: 'Jan', amount: 0 },
-    { month: 'Feb', amount: 0 },
-    { month: 'Mar', amount: 0 },
-    { month: 'Current', amount: summary?.donationsThisMonth || 0 },
-  ]
+  const donationChartData = useMemo(
+    () =>
+      summary?.monthlyDonations?.length
+        ? summary.monthlyDonations
+        : [
+            { month: 'N/A', amount: 0 },
+            { month: 'Current', amount: summary?.donationsThisMonth || 0 },
+          ],
+    [summary]
+  )
 
   if (loading) {
     return (
@@ -67,64 +67,56 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="min-h-full text-surface-dark bg-slate-50">
+    <div className="min-h-full bg-slate-50 text-surface-dark">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
-        <h1 className="text-2xl font-bold text-surface-dark mb-6">Admin Dashboard</h1>
+        <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 className="text-2xl font-bold text-surface-dark">Admin Dashboard</h1>
+            <p className="text-sm text-surface-text">Operational health, funding trend, and immediate caseload risk.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/admin/donations" className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold hover:bg-brand-50">
+              Donations
+            </Link>
+            <Link to="/admin/reports" className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold hover:bg-brand-50">
+              Reports
+            </Link>
+            <Link to="/admin/residents" className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+              Caseload
+            </Link>
+          </div>
+        </div>
 
         {error ? (
           <ErrorMessage message={error} />
         ) : !summary ? (
-          <div className="text-center py-10 text-surface-text">No dashboard data available.</div>
+          <div className="py-8 text-center text-surface-text">No dashboard data available.</div>
         ) : (
           <>
-            {/* PRIMARY OKR BANNER - REQUIRED FOR THURSDAY RUBRIC */}
-            <section className="mb-6 rounded-2xl border border-rose-200 bg-rose-50 p-6 shadow-sm">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Primary OKR</span>
-                    <h2 className="text-xl font-bold text-rose-900">Metric: At-Risk Residents</h2>
-                  </div>
-                  <p className="text-sm text-rose-800 leading-relaxed">
-                    <strong>Business Case:</strong> The founders' greatest operational fear is "girls falling through the cracks." While donation metrics maintain our facilities, our ultimate measure of success is successful rehabilitation. By tracking residents who are stagnating or regressing in their recovery goals, staff can immediately redirect resources and adjust intervention plans to ensure every survivor successfully reaches reintegration.
-                  </p>
-                </div>
-                <div className="flex flex-col items-center justify-center bg-white px-8 py-4 rounded-xl shadow-inner border border-rose-100 min-w-[140px]">
-                  <span className="text-xs font-bold text-rose-500 uppercase">Current Count</span>
-                  <div className="text-5xl font-black text-rose-700">
-                    {summary.atRiskResidents}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Metric Summary Cards */}
-            <section className="grid gap-4 md:grid-cols-3">
+            <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <MetricCard label="Active Residents" value={summary.activeResidents} />
-              <MetricCard
-                label="Donations This Month"
-                value={summary.donationsThisMonth.toLocaleString(undefined, {
-                  style: 'currency',
-                  currency: 'USD',
-                })}
-              />
+              <MetricCard label="At-Risk Residents" value={summary.atRiskResidents} />
+              <MetricCard label="Donations This Month" value={formatCurrency(summary.donationsThisMonth)} />
               <MetricCard label="Upcoming Conferences" value={summary.upcomingCaseConferences} />
             </section>
 
-            <section className="mt-6 grid gap-4 lg:grid-cols-3">
-              {/* Donation Chart */}
+            <section className="mt-5 grid gap-4 lg:grid-cols-3">
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2">
-                <div className="font-semibold text-surface-dark mb-4">Donations by Month</div>
+                <div className="mb-3 flex items-center justify-between">
+                  <h2 className="text-base font-semibold text-surface-dark">Monthly Donations</h2>
+                  <span className="text-xs text-surface-text">Last 6 months</span>
+                </div>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={donationChartData}>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                       <XAxis dataKey="month" axisLine={false} tickLine={false} />
                       <YAxis axisLine={false} tickLine={false} />
-                      <Tooltip 
-                        cursor={{fill: '#f8fafc'}}
-                        contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                      <Tooltip
+                        cursor={{ fill: '#f8fafc' }}
+                        formatter={(value: unknown) => formatCurrency(Number(Array.isArray(value) ? value[0] : value || 0))}
+                        contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0' }}
                       />
                       <Bar dataKey="amount" fill="#0f172a" radius={[4, 4, 0, 0]} />
                     </BarChart>
@@ -132,33 +124,22 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              {/* Recent Activity Feed */}
               <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                <div className="font-semibold text-surface-dark mb-4">Recent Activity</div>
-                <div className="space-y-4">
+                <h2 className="text-base font-semibold text-surface-dark">Recent Activity</h2>
+                <div className="mt-3 max-h-64 space-y-3 overflow-auto pr-1">
                   {summary.recentActivity.length > 0 ? (
-                    summary.recentActivity.map((a, idx) => (
-                      <div key={idx} className="flex flex-col border-l-2 border-brand-100 pl-3">
-                        <span className="text-xs font-bold text-brand uppercase tracking-tighter">{a.type}</span>
-                        <p className="text-sm text-surface-dark leading-snug">{a.message}</p>
-                        <span className="text-[11px] text-surface-text mt-1">
-                          {new Date(a.timestamp).toLocaleDateString()}
-                        </span>
+                    summary.recentActivity.map((item, idx) => (
+                      <div key={idx} className="rounded-lg border border-slate-100 bg-slate-50 p-3">
+                        <div className="text-[11px] font-semibold uppercase tracking-wide text-brand">{item.type}</div>
+                        <p className="mt-1 text-sm text-surface-dark">{item.message}</p>
+                        <div className="mt-1 text-xs text-surface-text">{new Date(item.timestamp).toLocaleString()}</div>
                       </div>
                     ))
                   ) : (
-                    <p className="text-sm text-surface-text italic">No recent activity recorded.</p>
+                    <p className="text-sm text-surface-text">No recent activity recorded.</p>
                   )}
                 </div>
               </div>
-            </section>
-
-            {/* Placeholder for future expansion */}
-            <section className="mt-6 rounded-2xl border border-brand-100 bg-brand-50/30 p-5 shadow-sm">
-              <div className="font-semibold text-surface-dark">Safehouse Occupancy Details</div>
-              <p className="mt-2 text-sm text-surface-text">
-                Live capacity tracking and geographic distribution analysis will populate here as safehouse data is integrated.
-              </p>
             </section>
           </>
         )}

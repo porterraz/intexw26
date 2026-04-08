@@ -70,14 +70,14 @@ export function DonorDashboard() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6">
+    <div className="mx-auto max-w-7xl space-y-5 px-4 py-6">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-surface-dark">
           {t('Welcome back')}, {user?.email?.split('@')[0] || 'Donor'}
         </h1>
       </div>
 
-      <section className="bg-surface border border-slate-200 rounded-xl shadow-sm p-6">
+      <section id="donate-form" className="bg-surface border border-slate-200 rounded-xl shadow-sm p-6">
         <h2 className="text-lg font-semibold text-surface-dark">Make a Donation</h2>
         <form className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3" onSubmit={onSubmitDonation}>
           <input
@@ -114,7 +114,7 @@ export function DonorDashboard() {
         {formError && <p className="mt-2 text-sm text-red-500">{formError}</p>}
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div className="bg-surface border border-slate-200 p-6 rounded-xl shadow-sm flex items-center space-x-4">
           <div className="p-3 bg-brand-50 text-brand rounded-lg">
             <HeartIcon className="w-8 h-8" />

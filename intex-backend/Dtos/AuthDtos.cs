@@ -19,7 +19,12 @@ public record MfaSetupResponse(string? SharedKey, string? AuthenticatorUri);
 
 public record EnableMfaRequest(string Code);
 
+public record ForgotPasswordRequest(string Email);
+
+public record ForgotPasswordResponse(bool Success, string? ResetToken = null);
+
+public record ResetPasswordRequest(string Email, string Token, string NewPassword);
+
 public record RegisterRequest(string Email, string Password, string Role);
 
 public record MeResponse(bool Authenticated, string? Email, IReadOnlyList<string> Roles);
-

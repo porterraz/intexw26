@@ -63,6 +63,25 @@ export async function enableMfaRequest(code: string): Promise<{ success?: boolea
   return res.data
 }
 
+export type ForgotPasswordApiResponse = {
+  success: boolean
+  resetToken?: string | null
+}
+
+export async function requestPasswordReset(email: string): Promise<ForgotPasswordApiResponse> {
+  const res = await api.post<ForgotPasswordApiResponse>('/api/auth/forgot-password', { email })
+  return res.data
+}
+
+export async function resetPasswordRequest(email: string, token: string, newPassword: string): Promise<{ success?: boolean }> {
+  const res = await api.post<{ success?: boolean }>('/api/auth/reset-password', {
+    email,
+    token,
+    newPassword,
+  })
+  return res.data
+}
+
 export type ResidentRecommendation = {
   matchId: number
   similarityScore: number
