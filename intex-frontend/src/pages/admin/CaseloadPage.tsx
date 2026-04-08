@@ -22,6 +22,14 @@ type Resident = {
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 
+function getRiskLevelTextClass(riskLevel: string) {
+  const normalized = riskLevel.trim().toLowerCase()
+  if (normalized === 'low') return 'text-emerald-600'
+  if (normalized === 'medium' || normalized === 'moderate') return 'text-amber-600'
+  if (normalized === 'high') return 'text-rose-600'
+  return 'text-surface-text'
+}
+
 export function CaseloadPage() {
   const [safehouses, setSafehouses] = useState<Safehouse[]>([])
   const [rows, setRows] = useState<Resident[]>([])
@@ -114,7 +122,14 @@ export function CaseloadPage() {
       },
       { header: 'Safehouse', render: (r) => r.safehouse?.name ?? String(r.safehouseId) },
       { header: 'Category', render: (r) => r.caseCategory },
-      { header: 'Risk Level', render: (r) => r.currentRiskLevel },
+      {
+        header: 'Risk Level',
+        render: (r) => (
+          <span className={`font-medium ${getRiskLevelTextClass(r.currentRiskLevel)}`}>
+            {r.currentRiskLevel}
+          </span>
+        ),
+      },
       { header: 'Status', render: (r) => r.caseStatus },
       { header: 'Social Worker', render: (r) => r.assignedSocialWorker },
       {
