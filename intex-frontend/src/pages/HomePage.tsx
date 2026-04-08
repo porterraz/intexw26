@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import i18n from "../i18n";
 import { api } from "../lib/api";
+import { useAuth } from "../state/AuthContext";
 import brazil1 from "../assets/brazil1.png";
 import brazil2 from "../assets/brazil2.png";
 import brazil3 from "../assets/brazil3.png";
@@ -204,6 +205,7 @@ function TiltCard({
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function HomePage() {
+  const { token, user, logout } = useAuth();
   const { t, i18n: i18nInstance } = useTranslation();
   const [snapshot, setSnapshot] = useState<PublicImpactSnapshot | null>(null);
   const heroSlides = [brazil1, brazil2, brazil3, brazil5];
@@ -214,6 +216,9 @@ export default function HomePage() {
     ? "Switch to English"
     : "Mudar para portugues";
   const numberLocale = currentLanguage.toLowerCase().startsWith("pt") ? "pt-BR" : "en-US";
+  const isAdmin = user?.roles?.includes("Admin") ?? false;
+  const dashboardPath = isAdmin ? "/admin" : "/donor/dashboard";
+  const donatePath = token ? "/donate" : "/login?next=%2Fdonate";
 
   const content = {
     nav: t("nav"),
@@ -341,12 +346,36 @@ export default function HomePage() {
             >
               {content.section.navPrivacy}
             </Link>
-            <Link
-              to="/login"
-              className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
-            >
-              {content.section.navLogin}
-            </Link>
+            {token ? (
+              <>
+                <Link
+                  to={dashboardPath}
+                  className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/donate"
+                  className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
+                >
+                  Donate
+                </Link>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
+              >
+                {content.section.navLogin}
+              </Link>
+            )}
             <motion.button
               initial={{ opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
@@ -442,18 +471,19 @@ export default function HomePage() {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-3 lg:justify-start"
           >
-            <motion.a
-              href="#donate"
+            <motion.div
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-base font-medium text-surface-dark shadow-sm transition-colors hover:border-emerald-300 hover:bg-emerald-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
               aria-label="Donate Now to Nova Path"
             >
-              <span>{content.hero.cta}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </motion.a>
+              <Link to={donatePath} className="inline-flex items-center gap-2">
+                <span>{content.hero.cta}</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </motion.div>
 
             <motion.a
               href="#about"

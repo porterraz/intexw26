@@ -13,6 +13,13 @@ export function MfaSetupPage() {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  function consumePostLoginRedirect(): string | null {
+    const raw = sessionStorage.getItem('np_post_login_redirect')
+    if (!raw) return null
+    sessionStorage.removeItem('np_post_login_redirect')
+    if (!raw.startsWith('/') || raw.startsWith('//')) return null
+    return raw
+  }
 
   useEffect(() => {
     let active = true
@@ -59,8 +66,8 @@ export function MfaSetupPage() {
       } else {
         const loggedInUser = await verifyMfa(code.trim())
         setSuccess('MFA setup complete. Signing you in...')
-        if (loggedInUser.roles.includes('Admin')) navigate('/admin', { replace: true })
-        else navigate('/impact', { replace: true })
+        const target = consumePostLoginRedirect() ?? (loggedInUser.roles.includes('Admin') ? '/admin' : '/donor/dashboard')
+        navigate(target, { replace: true })
       }
       setCode('')
     } catch (err: unknown) {
@@ -71,7 +78,7 @@ export function MfaSetupPage() {
   }
 
   if (!user && !pendingMfa) return <Navigate to="/login" replace />
-  if (user && !hasRole('Admin')) return <Navigate to="/impact" replace />
+  if (user && !hasRole('Admin')) return <Navigate to="/donor/dashboard" replace />
 
   return (
     <div className="min-h-screen bg-brand-50 px-4 py-10 sm:px-6">

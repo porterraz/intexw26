@@ -9,6 +9,13 @@ export function MfaVerifyPage() {
   const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  function consumePostLoginRedirect(): string | null {
+    const raw = sessionStorage.getItem('np_post_login_redirect')
+    if (!raw) return null
+    sessionStorage.removeItem('np_post_login_redirect')
+    if (!raw.startsWith('/') || raw.startsWith('//')) return null
+    return raw
+  }
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault()
@@ -20,8 +27,8 @@ export function MfaVerifyPage() {
     setLoading(true)
     try {
       const user = await verifyMfa(code.trim())
-      if (user.roles.includes('Admin')) navigate('/admin', { replace: true })
-      else navigate('/impact', { replace: true })
+      const target = consumePostLoginRedirect() ?? (user.roles.includes('Admin') ? '/admin' : '/donor/dashboard')
+      navigate(target, { replace: true })
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Unable to verify MFA code.')
     } finally {

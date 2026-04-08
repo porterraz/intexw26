@@ -61,7 +61,12 @@ export function DonatePage() {
       setNotes('')
       await loadData()
     } catch (e) {
-      setFormError(e instanceof Error ? e.message : 'Unable to submit donation.')
+      const message = e instanceof Error ? e.message : 'Unable to submit donation.'
+      if (message.includes('403')) {
+        setFormError('You are not authorized to submit donations from this account.')
+      } else {
+        setFormError(message)
+      }
     } finally {
       setSubmitting(false)
     }
@@ -174,9 +179,11 @@ export function DonatePage() {
         <div className="mt-4 flex items-center gap-2 text-sm text-surface-text">
           <HeartIcon className="h-4 w-4 text-brand" />
           <span>Need records for accounting? Visit the admin donations table or contact finance.</span>
-          <Link to="/admin/donations" className="font-medium text-brand hover:text-brand-dark">
-            Open admin donations
-          </Link>
+          {user?.roles.includes('Admin') ? (
+            <Link to="/admin/donations" className="font-medium text-brand hover:text-brand-dark">
+              Open admin donations
+            </Link>
+          ) : null}
         </div>
       </main>
     </div>

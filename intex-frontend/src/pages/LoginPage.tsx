@@ -1,6 +1,6 @@
 import { useId, useState, type CSSProperties, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../state/AuthContext";
 
 const QUOTES = [
@@ -152,6 +152,7 @@ function meetsPasswordPolicy(p: string): boolean {
 export function LoginPage() {
   const { login, signup } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -171,6 +172,25 @@ export function LoginPage() {
   const passwordId = useId();
   const confirmPasswordId = useId();
   const formErrorId = useId();
+  const requestedRedirect = (() => {
+    const raw = new URLSearchParams(location.search).get("next");
+    if (!raw) return null;
+    if (!raw.startsWith("/") || raw.startsWith("//")) return null;
+    return raw;
+  })();
+
+  function consumePostLoginRedirect(): string | null {
+    const raw = sessionStorage.getItem("np_post_login_redirect");
+    if (!raw) return null;
+    sessionStorage.removeItem("np_post_login_redirect");
+    if (!raw.startsWith("/") || raw.startsWith("//")) return null;
+    return raw;
+  }
+
+  function defaultRouteForRoles(roles: string[]): string {
+    if (roles.includes("Admin")) return "/admin";
+    return "/donor/dashboard";
+  }
 
   function validate(): boolean {
     const errors: typeof fieldErrors = {};
@@ -205,15 +225,21 @@ export function LoginPage() {
 
     setLoading(true);
     try {
+      if (requestedRedirect) {
+        sessionStorage.setItem("np_post_login_redirect", requestedRedirect);
+      } else {
+        sessionStorage.removeItem("np_post_login_redirect");
+      }
+
       if (mode === "signup") {
         const user = await signup(email, password);
-        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-        else navigate("/donor/dashboard", { replace: true });
+        const target = consumePostLoginRedirect() ?? defaultRouteForRoles(user.roles);
+        navigate(target, { replace: true });
       } else {
         const user = await login(email, password);
         if (!user) return;
-        if (user.roles.includes("Admin")) navigate("/admin", { replace: true });
-        else navigate("/donor/dashboard", { replace: true });
+        const target = consumePostLoginRedirect() ?? defaultRouteForRoles(user.roles);
+        navigate(target, { replace: true });
       }
     } catch (err: unknown) {
       setServerError(
@@ -740,4 +766,3 @@ export function LoginPage() {
     </div>
   );
 }
-
