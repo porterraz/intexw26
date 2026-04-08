@@ -49,6 +49,7 @@ export default function App() {
           <Route path="/admin/reports" element={<ReportsPage />} />
           <Route path="/admin/donations" element={<AdminDonationsPage />} />
           <Route path="/admin/social-media" element={<SocialMediaPage />} />
+          <Route path="/admin/social-media/ml-dashboard" element={<Navigate to="/admin/social-media" replace />} />
           <Route path="/admin/mfa-setup" element={<MfaSetupPage />} />
         </Route>
 

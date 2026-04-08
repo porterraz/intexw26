@@ -77,15 +77,28 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Frontend", policy =>
     {
+        policy.AllowAnyHeader().AllowAnyMethod();
+
+        // Development: Vite may use 5174+ if 5173 is taken; fixed origin lists cause Axios "Network Error" (CORS).
+        if (builder.Environment.IsDevelopment())
+        {
+            policy.SetIsOriginAllowed(static origin =>
+                origin is not null &&
+                Uri.TryCreate(origin, UriKind.Absolute, out var uri) &&
+                uri.Scheme == Uri.UriSchemeHttp &&
+                (string.Equals(uri.Host, "localhost", StringComparison.OrdinalIgnoreCase) ||
+                 string.Equals(uri.Host, "127.0.0.1", StringComparison.Ordinal)));
+            return;
+        }
+
         var allowed = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
         if (allowed is null || allowed.Length == 0)
         {
-            // Local dev fallback when appsettings/user-secrets do not define CORS origins.
-            allowed = ["http://localhost:5173", "http://127.0.0.1:5173"];
+            throw new InvalidOperationException(
+                "Production requires Cors:AllowedOrigins in configuration (e.g. https://your-frontend.azurestaticapps.net).");
         }
-        policy.WithOrigins(allowed)
-            .AllowAnyHeader()
-            .AllowAnyMethod();
+
+        policy.WithOrigins(allowed);
     });
 });
 
