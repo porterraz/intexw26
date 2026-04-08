@@ -8,7 +8,7 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   }`
 
 export function NavBar() {
-  const { i18n: i18nInstance } = useTranslation()
+  const { i18n: i18nInstance, t } = useTranslation()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
   const isAdmin = user?.roles?.includes('Admin') ?? false
@@ -43,31 +43,31 @@ export function NavBar() {
             {isDonor && !isAdmin ? (
               <>
                 <NavLink to="/donor/dashboard" end className={navLinkClass}>
-                  My Dashboard
+                  {t('nav_my_dashboard')}
                 </NavLink>
                 <NavLink to="/donate" className={navLinkClass}>
-                  Make Donation
+                  {t('nav_make_donation')}
                 </NavLink>
               </>
             ) : (
               <>
                 <NavLink to="/admin" end className={navLinkClass}>
-                  Dashboard
+                  {t('nav_dashboard')}
                 </NavLink>
                 <NavLink to="/admin/residents" className={navLinkClass}>
-                  Residents
+                  {t('nav_residents')}
                 </NavLink>
                 <NavLink to="/admin/donors" className={navLinkClass}>
-                  Donors
+                  {t('nav_donors')}
                 </NavLink>
                 <NavLink to="/admin/reports" className={navLinkClass}>
-                  Reports
+                  {t('nav_reports')}
                 </NavLink>
                 <NavLink to="/donate" className={navLinkClass}>
-                  Donate
+                  {t('nav_donate')}
                 </NavLink>
                 <NavLink to="/admin/social-media" className={navLinkClass}>
-                  Social Media
+                  {t('nav_social_media')}
                 </NavLink>
               </>
             )}
@@ -91,7 +91,7 @@ export function NavBar() {
               onClick={logout}
               className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
             >
-              Logout
+              {t('nav_logout')}
             </button>
           </div>
         </div>

@@ -81,7 +81,7 @@ public class DonationsController : ControllerBase
     }
 
     [HttpPost("me")]
-    [Authorize(Roles = "Donor,Admin")]
+    [Authorize]
     public async Task<ActionResult<Donation>> CreateMyDonation([FromBody] DonorDonationRequest req)
     {
         if (req.Amount <= 0m)
