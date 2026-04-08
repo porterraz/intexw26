@@ -8,7 +8,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/home-visitations")]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class HomeVisitationsController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -87,4 +87,3 @@ public class HomeVisitationsController : ControllerBase
         return NoContent();
     }
 }
-

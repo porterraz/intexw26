@@ -8,7 +8,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/process-recordings")]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class ProcessRecordingsController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -69,4 +69,3 @@ public class ProcessRecordingsController : ControllerBase
         return NoContent();
     }
 }
-

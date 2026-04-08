@@ -13,6 +13,8 @@ namespace Intex.Backend.Controllers;
 [Authorize]
 public class DonationsController : ControllerBase
 {
+    public record DonorDonationRequest(decimal Amount, string? CampaignName, string? Notes, bool IsRecurring = false);
+
     private readonly ApplicationDbContext _db;
 
     public DonationsController(ApplicationDbContext db)
@@ -78,6 +80,68 @@ public class DonationsController : ControllerBase
         return Ok(items);
     }
 
+    [HttpPost("me")]
+    [Authorize(Roles = "Donor")]
+    public async Task<ActionResult<Donation>> CreateMyDonation([FromBody] DonorDonationRequest req)
+    {
+        if (req.Amount <= 0m)
+        {
+            return BadRequest(new { message = "Donation amount must be greater than zero." });
+        }
+
+        var email = User.FindFirstValue(ClaimTypes.Email);
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            return Unauthorized(new { message = "Could not resolve current user email." });
+        }
+
+        var supporter = await _db.Supporters.FirstOrDefaultAsync(s => s.Email == email);
+        if (supporter is null)
+        {
+            supporter = new Supporter
+            {
+                SupporterType = "MonetaryDonor",
+                DisplayName = email.Split('@')[0],
+                RelationshipType = "Local",
+                Region = "Unknown",
+                Country = "Unknown",
+                Email = email,
+                Phone = "N/A",
+                Status = "Active",
+                AcquisitionChannel = "Website",
+                CreatedAt = DateTime.UtcNow,
+                FirstDonationDate = DateTime.UtcNow.Date
+            };
+            _db.Supporters.Add(supporter);
+            await _db.SaveChangesAsync();
+        }
+
+        var donation = new Donation
+        {
+            SupporterId = supporter.SupporterId,
+            DonationType = "Monetary",
+            DonationDate = DateTime.UtcNow,
+            ChannelSource = "Website",
+            CurrencyCode = "USD",
+            Amount = req.Amount,
+            EstimatedValue = req.Amount,
+            ImpactUnit = "USD",
+            IsRecurring = req.IsRecurring,
+            CampaignName = string.IsNullOrWhiteSpace(req.CampaignName) ? null : req.CampaignName.Trim(),
+            Notes = string.IsNullOrWhiteSpace(req.Notes) ? "Donor dashboard self-service donation." : req.Notes.Trim()
+        };
+
+        if (!supporter.FirstDonationDate.HasValue)
+        {
+            supporter.FirstDonationDate = donation.DonationDate;
+        }
+
+        _db.Donations.Add(donation);
+        await _db.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetMyDonations), new { }, donation);
+    }
+
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<Donation>> Create([FromBody] Donation donation)
@@ -118,4 +182,3 @@ public class DonationsController : ControllerBase
         return NoContent();
     }
 }
-

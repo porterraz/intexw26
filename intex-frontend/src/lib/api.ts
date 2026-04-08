@@ -222,7 +222,10 @@ export type Donation = {
   supporterId: number
   donationDate: string
   amount: number
+  estimatedValue?: number | null
   currencyCode?: string
+  campaignName?: string | null
+  notes?: string
   designation?: string
   paymentMethod?: string
   sourceChannel?: string
@@ -240,6 +243,28 @@ export type PublicImpactSnapshot = {
   totalDonors?: number
 }
 
+export type Supporter = {
+  supporterId: number
+  supporterType: string
+  displayName: string
+  organizationName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  relationshipType: string
+  region: string
+  country: string
+  email: string
+  phone: string
+  status: string
+  firstDonationDate?: string | null
+  acquisitionChannel: string
+  createdAt?: string
+}
+
+export type SupporterDetail = Supporter & {
+  donations?: Donation[]
+}
+
 export async function getDonations(page = 1, pageSize = 100): Promise<Donation[]> {
   const res = await api.get<{ items?: Donation[]; data?: Donation[] } | Donation[]>('/api/donations', {
     params: { page, pageSize },
@@ -254,7 +279,36 @@ export async function getMyDonations(): Promise<Donation[]> {
   return Array.isArray(res.data) ? res.data : []
 }
 
+export async function getDonationsForSupporter(supporterId: number): Promise<Donation[]> {
+  const res = await api.get<Donation[]>(`/api/donations/supporter/${supporterId}`, { headers: getHeaders() })
+  return Array.isArray(res.data) ? res.data : []
+}
+
+export async function createMyDonation(payload: {
+  amount: number
+  campaignName?: string
+  notes?: string
+  isRecurring?: boolean
+}): Promise<Donation> {
+  const res = await api.post<Donation>(
+    '/api/donations/me',
+    {
+      amount: payload.amount,
+      campaignName: payload.campaignName ?? null,
+      notes: payload.notes ?? null,
+      isRecurring: payload.isRecurring ?? false,
+    },
+    { headers: getHeaders() }
+  )
+  return res.data
+}
+
 export async function getPublicImpactSnapshot(): Promise<PublicImpactSnapshot> {
   const res = await api.get<PublicImpactSnapshot>('/api/public/stats')
+  return res.data
+}
+
+export async function getSupporterById(supporterId: number): Promise<SupporterDetail> {
+  const res = await api.get<SupporterDetail>(`/api/supporters/${supporterId}`, { headers: getHeaders() })
   return res.data
 }

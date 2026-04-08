@@ -1,73 +1,93 @@
-# Deploy to Azure (Option A)
+# Deploy to Azure App Service (Current Repo Setup)
 
-**Option A:** Users use the **frontend** URL (main link). The **API** is deployed separately on its **own HTTPS origin** (for example `https://app.example.com` and `https://api.example.com`). The React app calls the API using `VITE_API_BASE_URL` (see [`intex-frontend/src/lib/api.ts`](intex-frontend/src/lib/api.ts)).
+This repository deploys **both apps to Azure App Service** using GitHub Actions.
 
-Recommended layout:
+- Backend workflow: `.github/workflows/azure-backend-app-service.yml`
+- Frontend workflow: `.github/workflows/azure-frontend-static-web-app.yml`
 
-| Component | Azure service |
-|-----------|----------------|
-| Frontend | [Azure Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/overview) |
-| Backend | [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview) (Linux, .NET) |
-| Database | [Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview) |
+Both workflows support:
+- `push` to `main` (with path filters)
+- manual run via `workflow_dispatch`
 
-## 1. Azure SQL Database
+## 1. Required GitHub Configuration
 
-1. Create a logical server and a single database.
-2. Allow connectivity from your App Service (firewall rule for Azure services and/or your App Service outbound IPs).
-3. Build a **SQL connection string** for Entity Framework (same shape as local `ConnectionStrings:DefaultConnection`).
+Set these exactly in **GitHub repo Settings → Secrets and variables → Actions**.
 
-## 2. Backend — Azure App Service
+### Secrets
 
-1. Create a **Linux** Web App and choose **.NET 10** runtime.
-2. Under **Configuration → Application settings**, add:
+- `INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE`
+  - Value: contents of backend App Service publish profile
+- `INTEX_AZURE_WEBAPP_FRONTEND_PUBLISH_PROFILE`
+  - Value: contents of frontend App Service publish profile
 
-   - `ConnectionStrings__DefaultConnection` — Azure SQL connection string (use **Connection strings** tab if you prefer; either works with ASP.NET Core).
-   - **JWT** (required for auth; use long random secrets in production):
-     - `Jwt__Issuer` — e.g. `https://api.example.com`
-     - `Jwt__Audience` — e.g. `https://app.example.com` or the same as Issuer if you prefer
-     - `Jwt__Secret` — long random string (e.g. 32+ bytes base64)
-     - `Jwt__ExpiresMinutes` — optional (defaults from code if omitted)
-   - **CORS** — must list your **Static Web Apps** URL(s) only (no trailing slash):
-     - `Cors__AllowedOrigins__0` — e.g. `https://app.example.com`
-     - Add `Cors__AllowedOrigins__1` for a staging frontend URL if needed.
+### Variables
 
-3. Save and restart the app.
-4. **Database schema:** from your machine (or a CI job), run EF migrations against Azure SQL, for example:
+- `INTEX_AZURE_WEBAPP_BACKEND_NAME`
+  - Backend App Service name (example: `intexw26-api-21573`)
+- `INTEX_AZURE_WEBAPP_FRONTEND_NAME`
+  - Frontend App Service name (example: `intexw26-web-21573`)
+- `VITE_API_BASE_URL`
+  - Public backend base URL used at frontend build time
+  - Example: `https://intexw26-api-21573.azurewebsites.net`
+  - Use origin only (no trailing slash, no extra path)
 
-   ```bash
-   cd intex-backend
-   dotnet ef database update
-   ```
+## 2. Workflow Triggers
 
-   Point `ConnectionStrings__DefaultConnection` at Azure SQL for that command (user secrets, env var, or temporary `appsettings` — your team’s usual practice).
+### Backend deploy workflow
 
-5. **Custom domain:** bind `api.example.com` (or your chosen API host) to the App Service and enable HTTPS.
+Runs on push to `main` only when one of these paths changes:
+- `intex-backend/**`
+- `.github/workflows/azure-backend-app-service.yml`
 
-## 3. Frontend — Azure Static Web Apps
+### Frontend deploy workflow
 
-1. In the Azure Portal, create a **Static Web App** and link your **GitHub** repository (or use the workflow only and connect the resource manually — follow the wizard you prefer).
-2. **GitHub secrets / variables** (for the workflow [`.github/workflows/azure-frontend-static-web-app.yml`](.github/workflows/azure-frontend-static-web-app.yml)):
-   - Secret: `AZURE_STATIC_WEB_APPS_API_TOKEN` — from Static Web App → **Manage deployment token**.
-   - Variable: `VITE_API_BASE_URL` — your **public API origin**, e.g. `https://api.example.com` (no path, no trailing slash).
-3. **GitHub secrets / variables** (for [`.github/workflows/azure-backend-app-service.yml`](.github/workflows/azure-backend-app-service.yml)):
-   - Secret: `AZURE_WEBAPP_PUBLISH_PROFILE` — App Service → **Download publish profile** (file contents).
-   - Variable: `AZURE_WEBAPP_NAME` — the App Service **name** (not the full URL).
+Runs on push to `main` only when one of these paths changes:
+- `intex-frontend/**`
+- `.github/workflows/azure-frontend-static-web-app.yml`
 
-4. Push to `main` or run the workflows manually (**Actions → workflow_dispatch**).
-5. **Custom domain:** bind `app.example.com` (or apex/`www`) to the Static Web App.
+If your merge to `main` does not touch those paths, deployment will not auto-run. Use **Actions → Run workflow** in that case.
 
-## 4. Local production build check
+## 3. Azure App Settings (Backend)
 
-Copy [`intex-frontend/.env.production.example`](intex-frontend/.env.production.example) to `intex-frontend/.env.production`, set `VITE_API_BASE_URL`, then:
+In backend App Service, configure:
+
+- `ConnectionStrings__DefaultConnection`
+- `Jwt__Issuer`
+- `Jwt__Audience`
+- `Jwt__Secret`
+- `Jwt__ExpiresMinutes` (optional)
+- `Cors__AllowedOrigins__0` (frontend URL)
+- `Cors__AllowedOrigins__1` (optional additional frontend URL)
+
+After updating settings, restart the backend app.
+
+## 4. Database Migrations
+
+Apply EF migrations to Azure SQL (from a trusted machine/runner):
+
+```bash
+cd intex-backend
+dotnet ef database update
+```
+
+Ensure `ConnectionStrings__DefaultConnection` targets your Azure SQL instance when running this.
+
+## 5. Safe Deployment Flow
+
+1. Work in feature branch (for example `isaac2`).
+2. Open PR into `main`.
+3. Merge PR.
+4. Confirm GitHub Actions succeeded:
+   - Deploy backend (Azure App Service)
+   - Deploy frontend (Azure App Service)
+5. Smoke test live frontend and API.
+
+## 6. Local Frontend Production Build Check
 
 ```bash
 cd intex-frontend
 npm ci
-npm run build
+VITE_API_BASE_URL=https://your-api-host.example.com npm run build
 ```
 
-## 5. SPA routing
-
-[`intex-frontend/public/staticwebapp.config.json`](intex-frontend/public/staticwebapp.config.json) configures client-side route fallback so React Router deep links work on Static Web Apps.
-
-If something still 404s after deploy, confirm the file appears at the **root of `dist/`** after build (Vite copies `public/` into `dist/`).
+Use this to validate production build behavior before merging.

@@ -12,7 +12,11 @@ on:
 
 jobs:
   build_and_deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    env:
+      AZURE_BACKEND_APP_NAME: ${{ vars.INTEX_AZURE_WEBAPP_BACKEND_NAME || vars.AZURE_WEBAPP_BACKEND_NAME || vars.AZURE_WEBAPP_NAME }}
+      AZURE_BACKEND_PUBLISH_PROFILE: ${{ secrets.INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE || secrets.AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE || secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
     steps:
       - uses: actions/checkout@v4
 
@@ -24,9 +28,20 @@ jobs:
       - name: Publish
         run: dotnet publish intex-backend/Intex.Backend.csproj -c Release --verbosity minimal -o "${{ github.workspace }}/publish"
 
+      - name: Validate deploy configuration
+        run: |
+          if [ -z "${AZURE_BACKEND_APP_NAME}" ]; then
+            echo "::error::Missing app name variable. Set one of: INTEX_AZURE_WEBAPP_BACKEND_NAME, AZURE_WEBAPP_BACKEND_NAME, AZURE_WEBAPP_NAME."
+            exit 1
+          fi
+          if [ -z "${AZURE_BACKEND_PUBLISH_PROFILE}" ]; then
+            echo "::error::Missing publish profile secret. Set one of: INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE, AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE, AZURE_WEBAPP_PUBLISH_PROFILE."
+            exit 1
+          fi
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ vars.INTEX_AZURE_WEBAPP_BACKEND_NAME }}
-          publish-profile: ${{ secrets.INTEX_AZURE_WEBAPP_BACKEND_PUBLISH_PROFILE }}
+          app-name: ${{ env.AZURE_BACKEND_APP_NAME }}
+          publish-profile: ${{ env.AZURE_BACKEND_PUBLISH_PROFILE }}
           package: ${{ github.workspace }}/publish

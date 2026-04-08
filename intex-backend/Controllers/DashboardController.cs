@@ -24,26 +24,69 @@ public class DashboardController : ControllerBase
         var activeResidents = await _db.Residents.AsNoTracking()
             .CountAsync(r => r.DateClosed == null && r.CaseStatus != "Closed");
 
-        var startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
+        var now = DateTime.UtcNow;
+        var startOfMonth = new DateTime(now.Year, now.Month, 1);
         var donationsThisMonth = await _db.Donations.AsNoTracking()
             .Where(d => d.DonationDate >= startOfMonth)
             .Select(d => d.Amount ?? d.EstimatedValue ?? 0m)
             .SumAsync();
 
+        var conferenceWindowEnd = now.Date.AddDays(30);
+        var upcomingCaseConferences = await _db.HomeVisitations.AsNoTracking()
+            .CountAsync(v =>
+                v.VisitDate.Date >= now.Date &&
+                v.VisitDate.Date <= conferenceWindowEnd &&
+                (EF.Functions.Like(v.VisitType, "%Conference%")
+                 || EF.Functions.Like(v.Purpose, "%Conference%")
+                 || EF.Functions.Like(v.Observations, "%Conference%")));
+
         var atRiskResidents = await _db.Residents.AsNoTracking()
             .CountAsync(r => r.CurrentRiskLevel == "High" || r.CurrentRiskLevel == "Critical");
 
         var recent = await BuildRecentActivity();
+        var monthlyDonations = await BuildMonthlyDonations(now);
 
         var response = new DashboardSummaryResponse(
             ActiveResidents: activeResidents,
             DonationsThisMonth: donationsThisMonth,
-            UpcomingCaseConferences: 0,
+            UpcomingCaseConferences: upcomingCaseConferences,
             AtRiskResidents: atRiskResidents,
-            RecentActivity: recent
+            RecentActivity: recent,
+            MonthlyDonations: monthlyDonations
         );
 
         return Ok(response);
+    }
+
+    private async Task<IReadOnlyList<MonthlyDonationPoint>> BuildMonthlyDonations(DateTime nowUtc)
+    {
+        var firstMonth = new DateTime(nowUtc.Year, nowUtc.Month, 1).AddMonths(-5);
+        var rows = await _db.Donations.AsNoTracking()
+            .Where(d => d.DonationDate >= firstMonth)
+            .Select(d => new
+            {
+                Year = d.DonationDate.Year,
+                Month = d.DonationDate.Month,
+                Amount = d.Amount ?? d.EstimatedValue ?? 0m
+            })
+            .ToListAsync();
+
+        var grouped = rows
+            .GroupBy(x => new { x.Year, x.Month })
+            .ToDictionary(
+                g => (g.Key.Year, g.Key.Month),
+                g => g.Sum(x => x.Amount)
+            );
+
+        var points = new List<MonthlyDonationPoint>(6);
+        for (var i = 0; i < 6; i++)
+        {
+            var dt = firstMonth.AddMonths(i);
+            grouped.TryGetValue((dt.Year, dt.Month), out var amount);
+            points.Add(new MonthlyDonationPoint(dt.ToString("MMM yyyy"), amount));
+        }
+
+        return points;
     }
 
     private async Task<IReadOnlyList<RecentActivityItem>> BuildRecentActivity()
@@ -89,4 +132,3 @@ public class DashboardController : ControllerBase
             .ToList();
     }
 }
-

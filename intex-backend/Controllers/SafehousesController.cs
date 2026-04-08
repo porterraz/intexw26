@@ -8,7 +8,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/safehouses")]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class SafehousesController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -61,4 +61,3 @@ public class SafehousesController : ControllerBase
         return NoContent();
     }
 }
-

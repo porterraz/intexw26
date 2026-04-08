@@ -9,7 +9,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/supporters")]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class SupportersController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -111,4 +111,3 @@ public class SupportersController : ControllerBase
         return NoContent();
     }
 }
-
