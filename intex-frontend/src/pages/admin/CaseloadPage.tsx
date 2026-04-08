@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { NavBar } from '../../components/NavBar'
@@ -6,6 +6,7 @@ import { api } from '../../lib/api'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
+import { compareSortValues } from '../../lib/tableSort'
 
 type Safehouse = { safehouseId: number; name: string }
 type Resident = {
@@ -24,10 +25,20 @@ type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: 
 
 function getRiskLevelTextClass(riskLevel: string) {
   const normalized = riskLevel.trim().toLowerCase()
-  if (normalized === 'low') return 'text-emerald-600'
-  if (normalized === 'medium' || normalized === 'moderate') return 'text-amber-600'
-  if (normalized === 'high') return 'text-rose-600'
-  return 'text-surface-text'
+  if (normalized === 'low') return 'text-emerald-500'
+  if (normalized === 'medium' || normalized === 'moderate') return 'text-amber-500'
+  if (normalized === 'high') return 'text-rose-500'
+  if (normalized === 'critical') return 'text-red-600 font-bold'
+  return 'text-surface-text font-medium'
+}
+
+function riskSortValue(level: string): number {
+  const n = level.trim().toLowerCase()
+  if (n === 'low') return 1
+  if (n === 'medium' || n === 'moderate') return 2
+  if (n === 'high') return 3
+  if (n === 'critical') return 4
+  return 99
 }
 
 export function CaseloadPage() {
@@ -41,6 +52,10 @@ export function CaseloadPage() {
   const [caseCategory, setCaseCategory] = useState<string>('')
   const [riskLevel, setRiskLevel] = useState<string>('')
   const [search, setSearch] = useState<string>('')
+  const [sort, setSort] = useState<{ column: string; direction: 'asc' | 'desc' }>({
+    column: 'Name',
+    direction: 'asc',
+  })
 
   useEffect(() => {
     let cancelled = false
@@ -111,27 +126,49 @@ export function CaseloadPage() {
 
   const columns = useMemo<ColumnDef<Resident>[]>(
     () => [
-      { header: 'Case No.', render: (r) => r.caseControlNo },
+      {
+        header: 'Case No.',
+        sortValue: (r) => r.caseControlNo,
+        render: (r) => r.caseControlNo,
+      },
       {
         header: 'Name',
+        sortValue: (r) => r.internalCode,
         render: (r) => (
           <span className="rounded bg-brand-50 px-2 py-1 text-xs font-semibold text-accent">
             {r.internalCode}
           </span>
         ),
       },
-      { header: 'Safehouse', render: (r) => r.safehouse?.name ?? String(r.safehouseId) },
-      { header: 'Category', render: (r) => r.caseCategory },
+      {
+        header: 'Safehouse',
+        sortValue: (r) => r.safehouse?.name ?? String(r.safehouseId),
+        render: (r) => r.safehouse?.name ?? String(r.safehouseId),
+      },
+      {
+        header: 'Category',
+        sortValue: (r) => r.caseCategory,
+        render: (r) => r.caseCategory,
+      },
       {
         header: 'Risk Level',
+        sortValue: (r) => riskSortValue(r.currentRiskLevel),
         render: (r) => (
-          <span className={`font-medium ${getRiskLevelTextClass(r.currentRiskLevel)}`}>
+          <span className={getRiskLevelTextClass(r.currentRiskLevel)}>
             {r.currentRiskLevel}
           </span>
         ),
       },
-      { header: 'Status', render: (r) => r.caseStatus },
-      { header: 'Social Worker', render: (r) => r.assignedSocialWorker },
+      {
+        header: 'Status',
+        sortValue: (r) => r.caseStatus,
+        render: (r) => r.caseStatus,
+      },
+      {
+        header: 'Social Worker',
+        sortValue: (r) => r.assignedSocialWorker,
+        render: (r) => r.assignedSocialWorker,
+      },
       {
         header: 'Actions',
         render: (r) => (
@@ -147,6 +184,30 @@ export function CaseloadPage() {
       },
     ],
     []
+  )
+
+  const sortedRows = useMemo(() => {
+    const col = columns.find((c) => c.header === sort.column)
+    if (!col?.sortValue) return [...rows]
+    const mult = sort.direction === 'asc' ? 1 : -1
+    return [...rows].sort((a, b) => {
+      const va = col.sortValue!(a)
+      const vb = col.sortValue!(b)
+      return compareSortValues(va, vb) * mult
+    })
+  }, [rows, sort.column, sort.direction, columns])
+
+  const handleSortColumn = useCallback(
+    (header: string) => {
+      if (!columns.find((c) => c.header === header)?.sortValue) return
+      setSort((prev) => {
+        if (prev.column === header) {
+          return { column: header, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+        }
+        return { column: header, direction: 'asc' }
+      })
+    },
+    [columns]
   )
 
   return (
@@ -223,12 +284,17 @@ export function CaseloadPage() {
           ) : (
             <DataTable
               columns={columns}
-              rows={rows}
+              rows={sortedRows}
               page={1}
-              pageSize={Math.max(rows.length, 1)}
-              totalCount={rows.length}
+              pageSize={Math.max(sortedRows.length, 1)}
+              totalCount={sortedRows.length}
               onPageChange={() => {
                 // Residents view intentionally renders all rows; pagination controls are inert.
+              }}
+              sort={{
+                column: sort.column,
+                direction: sort.direction,
+                onColumnClick: handleSortColumn,
               }}
             />
           )}

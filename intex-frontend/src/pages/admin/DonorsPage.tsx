@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { isAxiosError } from 'axios'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
+import { compareSortValues } from '../../lib/tableSort'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
@@ -43,6 +44,10 @@ export function DonorsPage() {
   const [supporterType, setSupporterType] = useState(() => searchParams.get('supporterType') ?? '')
   const [status, setStatus] = useState(() => searchParams.get('status') ?? '')
   const [search, setSearch] = useState(() => searchParams.get('search') ?? '')
+  const [sort, setSort] = useState<{ column: string; direction: 'asc' | 'desc' }>({
+    column: 'Display Name',
+    direction: 'asc',
+  })
 
   useEffect(() => {
     const next = new URLSearchParams()
@@ -93,12 +98,30 @@ export function DonorsPage() {
 
   const columns = useMemo<ColumnDef<Supporter>[]>(
     () => [
-      { header: 'Display Name', render: (s) => s.displayName },
-      { header: 'Type', render: (s) => s.supporterType },
-      { header: 'Country', render: (s) => s.country },
-      { header: 'Status', render: (s) => s.status },
+      {
+        header: 'Display Name',
+        sortValue: (s) => s.displayName,
+        render: (s) => s.displayName,
+      },
+      {
+        header: 'Type',
+        sortValue: (s) => s.supporterType,
+        render: (s) => s.supporterType,
+      },
+      {
+        header: 'Country',
+        sortValue: (s) => s.country,
+        render: (s) => s.country,
+      },
+      {
+        header: 'Status',
+        sortValue: (s) => s.status,
+        render: (s) => s.status,
+      },
       {
         header: 'First Donation',
+        sortValue: (s) =>
+          s.firstDonationDate ? new Date(s.firstDonationDate).getTime() : Number.POSITIVE_INFINITY,
         render: (s) => (s.firstDonationDate ? new Date(s.firstDonationDate).toLocaleDateString() : '—'),
       },
       {
@@ -114,6 +137,30 @@ export function DonorsPage() {
       },
     ],
     []
+  )
+
+  const sortedRows = useMemo(() => {
+    const col = columns.find((c) => c.header === sort.column)
+    if (!col?.sortValue) return [...rows]
+    const mult = sort.direction === 'asc' ? 1 : -1
+    return [...rows].sort((a, b) => {
+      const va = col.sortValue!(a)
+      const vb = col.sortValue!(b)
+      return compareSortValues(va, vb) * mult
+    })
+  }, [rows, sort.column, sort.direction, columns])
+
+  const handleSortColumn = useCallback(
+    (header: string) => {
+      if (!columns.find((c) => c.header === header)?.sortValue) return
+      setSort((prev) => {
+        if (prev.column === header) {
+          return { column: header, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+        }
+        return { column: header, direction: 'asc' }
+      })
+    },
+    [columns]
   )
 
   return (
@@ -182,11 +229,16 @@ export function DonorsPage() {
           ) : (
             <DataTable
               columns={columns}
-              rows={rows}
+              rows={sortedRows}
               page={page}
               pageSize={pageSize}
               totalCount={total}
               onPageChange={setPage}
+              sort={{
+                column: sort.column,
+                direction: sort.direction,
+                onColumnClick: handleSortColumn,
+              }}
             />
           )}
         </section>

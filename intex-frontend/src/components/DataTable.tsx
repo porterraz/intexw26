@@ -4,6 +4,8 @@ export type ColumnDef<T> = {
   header: string
   render: (row: T) => React.ReactNode
   className?: string
+  /** If set, the column header is clickable when `sort` is provided. */
+  sortValue?: (row: T) => string | number
 }
 
 export function DataTable<T>({
@@ -13,6 +15,7 @@ export function DataTable<T>({
   pageSize,
   totalCount,
   onPageChange,
+  sort,
 }: {
   columns: ColumnDef<T>[]
   rows: T[]
@@ -20,6 +23,11 @@ export function DataTable<T>({
   pageSize: number
   totalCount: number
   onPageChange: (nextPage: number) => void
+  sort?: {
+    column: string | null
+    direction: 'asc' | 'desc'
+    onColumnClick: (header: string) => void
+  }
 }) {
   const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
 
@@ -29,11 +37,42 @@ export function DataTable<T>({
         <table className="min-w-full text-left text-sm">
           <thead className="bg-brand-50 text-surface-dark">
             <tr>
-              {columns.map((c) => (
-                <th key={c.header} className={`whitespace-nowrap px-4 py-3 font-semibold ${c.className ?? ''}`}>
-                  {c.header}
-                </th>
-              ))}
+              {columns.map((c) => {
+                const sortable = Boolean(sort && c.sortValue)
+                const active = sort?.column === c.header
+                return (
+                  <th
+                    key={c.header}
+                    className={`whitespace-nowrap px-4 py-3 font-semibold ${c.className ?? ''}`}
+                    aria-sort={
+                      sortable
+                        ? active
+                          ? sort!.direction === 'asc'
+                            ? 'ascending'
+                            : 'descending'
+                          : 'none'
+                        : undefined
+                    }
+                  >
+                    {sortable ? (
+                      <button
+                        type="button"
+                        onClick={() => sort!.onColumnClick(c.header)}
+                        className="inline-flex items-center gap-1 rounded-md -mx-1 px-1 py-0.5 text-left font-semibold text-surface-dark hover:bg-brand-100/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+                      >
+                        <span>{c.header}</span>
+                        {active ? (
+                          <span className="text-xs font-normal text-surface-text" aria-hidden>
+                            {sort!.direction === 'asc' ? '▲' : '▼'}
+                          </span>
+                        ) : null}
+                      </button>
+                    ) : (
+                      c.header
+                    )}
+                  </th>
+                )
+              })}
             </tr>
           </thead>
           <tbody className="divide-y divide-brand-100">
