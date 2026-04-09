@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export type ColumnDef<T> = {
   header: string
@@ -29,6 +30,7 @@ export function DataTable<T>({
     onColumnClick: (header: string) => void
   }
 }) {
+  const { t } = useTranslation()
   const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
 
   return (
@@ -88,7 +90,7 @@ export function DataTable<T>({
             {rows.length === 0 && (
               <tr>
                 <td className="px-4 py-6 text-surface-text" colSpan={columns.length}>
-                  No results.
+                  {t('common_no_results')}
                 </td>
               </tr>
             )}
@@ -98,7 +100,7 @@ export function DataTable<T>({
 
       <div className="flex items-center justify-between gap-3 border-t border-brand-100 bg-surface px-4 py-3">
         <div className="text-sm text-surface-text">
-          Page {page} of {totalPages} · {totalCount} total
+          {t('common_table_page_status', { page, totalPages, total: totalCount })}
         </div>
         <div className="flex gap-2">
           <button
@@ -106,18 +108,17 @@ export function DataTable<T>({
             onClick={() => onPageChange(Math.max(1, page - 1))}
             disabled={page <= 1}
           >
-            Prev
+            {t('common_prev')}
           </button>
           <button
             className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold text-surface-dark hover:bg-brand-50 disabled:opacity-50"
             onClick={() => onPageChange(Math.min(totalPages, page + 1))}
             disabled={page >= totalPages}
           >
-            Next
+            {t('common_next')}
           </button>
         </div>
       </div>
     </div>
   )
 }
-

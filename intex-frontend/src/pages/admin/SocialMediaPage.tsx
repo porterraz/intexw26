@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   Bar,
   BarChart,
@@ -64,6 +65,7 @@ function Section({
 }
 
 export function SocialMediaPage() {
+  const { t } = useTranslation()
   const [data, setData] = useState<MlDashboardPayload | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -74,13 +76,13 @@ export function SocialMediaPage() {
         const res = await api.get<MlDashboardPayload>('/api/social-media/ml-dashboard')
         if (!cancelled) setData(res.data)
       } catch {
-        if (!cancelled) setError('Unable to load social media analytics from the database.')
+        if (!cancelled) setError(t('social_media_error_load'))
       }
     })()
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [t])
 
   const dualPostType = useMemo(() => {
     if (!data) return []
@@ -107,10 +109,9 @@ export function SocialMediaPage() {
     <div className="min-h-full text-surface-dark">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
-        <h1 className="text-2xl font-bold text-surface-dark">Social Media</h1>
+        <h1 className="text-2xl font-bold text-surface-dark">{t('social_media_title')}</h1>
         <p className="mt-2 max-w-3xl text-sm text-surface-text">
-          Live charts from your database: what to post, which platforms, posting cadence, timing, and
-          donation referrals vs engagement. Data from{' '}
+          {t('social_media_subtitle_prefix')}{' '}
           <code className="rounded bg-brand-50 px-1 text-xs">GET /api/social-media/ml-dashboard</code>.
         </p>
 
@@ -126,23 +127,23 @@ export function SocialMediaPage() {
           <>
             <div className="mt-6 grid gap-3 text-sm text-surface-text sm:grid-cols-2 lg:grid-cols-4">
               <div className="rounded-xl border border-brand-100 bg-white/80 px-4 py-3">
-                <div className="text-xs uppercase tracking-wide text-surface-text">Posts in database</div>
+                <div className="text-xs uppercase tracking-wide text-surface-text">{t('social_media_posts_in_db')}</div>
                 <div className="text-xl font-semibold text-surface-dark">{data.meta.nPosts}</div>
               </div>
               <div className="rounded-xl border border-brand-100 bg-white/80 px-4 py-3">
-                <div className="text-xs uppercase tracking-wide text-surface-text">Mean posts / week</div>
+                <div className="text-xs uppercase tracking-wide text-surface-text">{t('social_media_mean_posts_per_week')}</div>
                 <div className="text-xl font-semibold text-surface-dark">
                   {data.meta.weeklyMean.toFixed(1)}
                 </div>
               </div>
               <div className="rounded-xl border border-brand-100 bg-white/80 px-4 py-3">
-                <div className="text-xs uppercase tracking-wide text-surface-text">Median posts / week</div>
+                <div className="text-xs uppercase tracking-wide text-surface-text">{t('social_media_median_posts_per_week')}</div>
                 <div className="text-xl font-semibold text-surface-dark">
                   {data.meta.weeklyMedian.toFixed(0)}
                 </div>
               </div>
               <div className="rounded-xl border border-brand-100 bg-white/80 px-4 py-3">
-                <div className="text-xs uppercase tracking-wide text-surface-text">Cadence volatility (std)</div>
+                <div className="text-xs uppercase tracking-wide text-surface-text">{t('social_media_cadence_volatility')}</div>
                 <div className="text-xl font-semibold text-surface-dark">
                   {data.meta.weeklyStd.toFixed(1)}
                 </div>
@@ -150,8 +151,8 @@ export function SocialMediaPage() {
             </div>
 
             <Section
-              title="1. What should we post?"
-              hint="Average donation referrals by post type (types with at least 8 posts)."
+              title={t('social_media_section_1_title')}
+              hint={t('social_media_section_1_hint')}
             >
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={zipDecimal(data.postTypeAvgReferrals)}>
@@ -159,26 +160,26 @@ export function SocialMediaPage() {
                   <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} angle={-25} textAnchor="end" height={70} />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="value" name="Avg referrals" fill="#4f46e5" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="value" name={t('social_media_avg_referrals')} fill="#4f46e5" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </Section>
 
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <Section title="2a. Which platforms? (avg referrals)" hint="Historical averages — not causal.">
+              <Section title={t('social_media_section_2a_title')} hint={t('social_media_section_2a_hint')}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.platformAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="value" name="Avg referrals" fill="#2563eb" radius={[6, 6, 0, 0]} />
+                    <Bar dataKey="value" name={t('social_media_avg_referrals')} fill="#2563eb" radius={[6, 6, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Section>
               <Section
-                title="2b. Donation signal rate by platform"
-                hint="Share of posts with referral count or a linked gift (ReferralPostId)."
+                title={t('social_media_section_2b_title')}
+                hint={t('social_media_section_2b_hint')}
               >
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.platformDonationSignalRate)}>
@@ -186,52 +187,52 @@ export function SocialMediaPage() {
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
                     <YAxis tickFormatter={(v) => `${(v * 100).toFixed(0)}%`} domain={[0, 1]} />
                     <Tooltip formatter={(v) => `${(Number(v) * 100).toFixed(1)}%`} />
-                    <Bar dataKey="value" name="Signal rate" fill="#16a34a" radius={[6, 6, 0, 0]} />
+                    <Bar dataKey="value" name={t('social_media_signal_rate')} fill="#16a34a" radius={[6, 6, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Section>
             </div>
 
-            <Section title="3. How often? (posts per ISO week)" hint="Line shows weekly volume over time.">
+            <Section title={t('social_media_section_3_title')} hint={t('social_media_section_3_hint')}>
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={zipCadence(data.cadence)}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="week" tick={{ fontSize: 9 }} angle={-45} textAnchor="end" height={80} />
                   <YAxis allowDecimals={false} />
                   <Tooltip />
-                  <Line type="monotone" dataKey="posts" name="Posts" stroke="#0ea5e9" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="posts" name={t('social_media_posts')} stroke="#0ea5e9" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </Section>
 
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <Section title="4a. What time? (by hour)" hint="Average donation referrals by post hour.">
+              <Section title={t('social_media_section_4a_title')} hint={t('social_media_section_4a_hint')}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={zipDecimal(data.hourAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 10 }} />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="value" name="Avg referrals" stroke="#d97706" strokeWidth={2} />
+                    <Line type="monotone" dataKey="value" name={t('social_media_avg_referrals')} stroke="#d97706" strokeWidth={2} />
                   </LineChart>
                 </ResponsiveContainer>
               </Section>
-              <Section title="4b. Day of week" hint="Average donation referrals.">
+              <Section title={t('social_media_section_4b_title')} hint={t('social_media_section_4b_hint')}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.dayOfWeekAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="value" name="Avg referrals" fill="#059669" radius={[6, 6, 0, 0]} />
+                    <Bar dataKey="value" name={t('social_media_avg_referrals')} fill="#059669" radius={[6, 6, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Section>
             </div>
 
             <Section
-              title="5. Donations vs engagement (by post type)"
-              hint="Blue: avg donation referrals. Orange: engagement rate scaled to the same vertical scale for comparison."
+              title={t('social_media_section_5_title')}
+              hint={t('social_media_section_5_hint')}
             >
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart data={dualPostType}>
@@ -240,15 +241,15 @@ export function SocialMediaPage() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="referrals" name="Avg donation referrals" fill="#2563eb" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="engagementScaled" name="Engagement (scaled)" fill="#ea580c" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="referrals" name={t('social_media_avg_donation_referrals')} fill="#2563eb" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="engagementScaled" name={t('social_media_engagement_scaled')} fill="#ea580c" radius={[4, 4, 0, 0]} />
                 </ComposedChart>
               </ResponsiveContainer>
             </Section>
 
             <Section
-              title="6. Strongest post type × platform pairs"
-              hint="Top combinations by average donation referrals."
+              title={t('social_media_section_6_title')}
+              hint={t('social_media_section_6_hint')}
             >
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={comboChartData} layout="vertical" margin={{ left: 8, right: 16 }}>
@@ -256,10 +257,10 @@ export function SocialMediaPage() {
                   <XAxis type="number" />
                   <YAxis type="category" dataKey="name" width={200} tick={{ fontSize: 9 }} />
                   <Tooltip
-                    formatter={(v) => [Number(v).toFixed(2), 'Avg referrals']}
+                    formatter={(v) => [Number(v).toFixed(2), t('social_media_avg_referrals')]}
                     labelFormatter={(_, p) => String((p?.[0]?.payload as { full?: string } | undefined)?.full ?? '')}
                   />
-                  <Bar dataKey="referrals" name="Avg referrals" fill="#9333ea" radius={[0, 4, 4, 0]} />
+                  <Bar dataKey="referrals" name={t('social_media_avg_referrals')} fill="#9333ea" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </Section>

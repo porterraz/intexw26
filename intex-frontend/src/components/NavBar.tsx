@@ -34,7 +34,7 @@ export function NavBar() {
   }, [location.pathname])
 
   return (
-    <header className="border-b border-brand-100/40 bg-white/95 md:bg-white/20 md:backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-brand-100/40 bg-white/95 md:bg-white/20 md:backdrop-blur-md">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-14 items-center justify-between gap-4">
           <div className="flex items-center gap-3">

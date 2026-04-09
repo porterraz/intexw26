@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { MetricCard } from '../../components/MetricCard'
@@ -54,6 +55,7 @@ async function fetchAllPages<T>(url: string, pageSize = 100): Promise<T[]> {
 }
 
 export function ReportsPage() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -81,7 +83,7 @@ export function ReportsPage() {
         setSupporters(supportersItems)
         setDonations(donationsItems)
       } catch {
-        if (!cancelled) setError('Unable to load reports data.')
+        if (!cancelled) setError(t('reports_error_load'))
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -90,7 +92,7 @@ export function ReportsPage() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [t])
 
   const donationByMonth = useMemo(() => {
     const buckets = new Map<string, number>()
@@ -137,7 +139,7 @@ export function ReportsPage() {
     <div className="min-h-full text-surface-dark">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
-        <h1 className="text-2xl font-bold text-surface-dark">Reports</h1>
+        <h1 className="text-2xl font-bold text-surface-dark">{t('reports_title')}</h1>
 
         {error ? (
           <div className="mt-6">
@@ -152,35 +154,35 @@ export function ReportsPage() {
                 type="button"
                 onClick={() => navigate('/admin/donors')}
                 className="text-left rounded-xl border border-brand-100 bg-surface p-0 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                aria-label="Open supporters page"
-                title="Open supporters page"
+                aria-label={t('reports_open_supporters')}
+                title={t('reports_open_supporters')}
               >
-                <MetricCard label="Supporters" value={supporters.length} />
+                <MetricCard label={t('reports_metric_supporters')} value={supporters.length} />
               </button>
               <button
                 type="button"
                 onClick={() => navigate('/admin/donors?status=Active')}
                 className="text-left rounded-xl border border-brand-100 bg-surface p-0 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                aria-label="Open active supporters page"
-                title="Open active supporters page"
+                aria-label={t('reports_open_active_supporters')}
+                title={t('reports_open_active_supporters')}
               >
-                <MetricCard label="Active Supporters" value={activeSupporters} />
+                <MetricCard label={t('reports_metric_active_supporters')} value={activeSupporters} />
               </button>
               <button
                 type="button"
                 onClick={() => navigate('/admin/donations')}
                 className="text-left rounded-xl border border-brand-100 bg-surface p-0 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                aria-label="Open donations list"
-                title="Open donations list"
+                aria-label={t('reports_open_donations')}
+                title={t('reports_open_donations')}
               >
-                <MetricCard label="Donations Loaded" value={donations.length} />
+                <MetricCard label={t('reports_metric_donations_loaded')} value={donations.length} />
               </button>
-              <MetricCard label="Donations This Month" value={summary?.donationsThisMonth ?? 0} />
+              <MetricCard label={t('reports_metric_donations_this_month')} value={summary?.donationsThisMonth ?? 0} />
             </section>
 
             <section className="mt-6 grid gap-4 lg:grid-cols-2">
               <div className="rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
-                <div className="font-semibold text-surface-dark">Donations trend (last 8 months)</div>
+                <div className="font-semibold text-surface-dark">{t('reports_donations_trend')}</div>
                 <div className="mt-4 h-72">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={donationByMonth}>
@@ -195,7 +197,7 @@ export function ReportsPage() {
               </div>
 
               <div className="rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
-                <div className="font-semibold text-surface-dark">Supporters by type</div>
+                <div className="font-semibold text-surface-dark">{t('reports_supporters_by_type')}</div>
                 <div className="mt-4 h-72">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
@@ -212,7 +214,7 @@ export function ReportsPage() {
             </section>
 
             <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
-              <div className="font-semibold text-surface-dark">Safehouse occupancy (%)</div>
+              <div className="font-semibold text-surface-dark">{t('reports_safehouse_occupancy')}</div>
               <div className="mt-4 h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={safehouseOccupancy} layout="vertical" margin={{ left: 30 }}>
@@ -231,4 +233,3 @@ export function ReportsPage() {
     </div>
   )
 }
-

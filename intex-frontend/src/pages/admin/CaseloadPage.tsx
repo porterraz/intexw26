@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useTranslation } from 'react-i18next'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
@@ -22,6 +23,7 @@ type Resident = {
 }
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
+type CaseloadSortKey = 'caseNo' | 'name' | 'safehouse' | 'category' | 'risk' | 'status' | 'socialWorker' | 'actions'
 
 function getRiskLevelTextClass(riskLevel: string) {
   const normalized = riskLevel.trim().toLowerCase()
@@ -42,6 +44,7 @@ function riskSortValue(level: string): number {
 }
 
 export function CaseloadPage() {
+  const { t } = useTranslation()
   const [safehouses, setSafehouses] = useState<Safehouse[]>([])
   const [rows, setRows] = useState<Resident[]>([])
   const [loading, setLoading] = useState(true)
@@ -52,8 +55,8 @@ export function CaseloadPage() {
   const [caseCategory, setCaseCategory] = useState<string>('')
   const [riskLevel, setRiskLevel] = useState<string>('')
   const [search, setSearch] = useState<string>('')
-  const [sort, setSort] = useState<{ column: string; direction: 'asc' | 'desc' }>({
-    column: 'Name',
+  const [sort, setSort] = useState<{ column: CaseloadSortKey; direction: 'asc' | 'desc' }>({
+    column: 'name',
     direction: 'asc',
   })
 
@@ -109,9 +112,9 @@ export function CaseloadPage() {
         if (!cancelled) {
           const status = axios.isAxiosError(err) ? err.response?.status : undefined
           if (status === 401 || status === 403) {
-            setError('Session expired or unauthorized. Please log in again.')
+            setError(t('caseload_error_unauthorized'))
           } else {
-            setError('Unable to load residents.')
+            setError(t('caseload_error_load'))
           }
         }
       } finally {
@@ -124,15 +127,17 @@ export function CaseloadPage() {
     }
   }, [caseStatus, safehouseId, caseCategory, riskLevel, search])
 
-  const columns = useMemo<ColumnDef<Resident>[]>(
+  const columnDefs = useMemo<Array<{ key: CaseloadSortKey } & ColumnDef<Resident>>>(
     () => [
       {
-        header: 'Case No.',
+        key: 'caseNo',
+        header: t('caseload_col_case_no'),
         sortValue: (r) => r.caseControlNo,
         render: (r) => r.caseControlNo,
       },
       {
-        header: 'Name',
+        key: 'name',
+        header: t('caseload_col_name'),
         sortValue: (r) => r.internalCode,
         render: (r) => (
           <span className="rounded bg-brand-50 px-2 py-1 text-xs font-semibold text-accent">
@@ -141,17 +146,20 @@ export function CaseloadPage() {
         ),
       },
       {
-        header: 'Safehouse',
+        key: 'safehouse',
+        header: t('caseload_col_safehouse'),
         sortValue: (r) => r.safehouse?.name ?? String(r.safehouseId),
         render: (r) => r.safehouse?.name ?? String(r.safehouseId),
       },
       {
-        header: 'Category',
+        key: 'category',
+        header: t('caseload_col_category'),
         sortValue: (r) => r.caseCategory,
         render: (r) => r.caseCategory,
       },
       {
-        header: 'Risk Level',
+        key: 'risk',
+        header: t('caseload_col_risk_level'),
         sortValue: (r) => riskSortValue(r.currentRiskLevel),
         render: (r) => (
           <span className={getRiskLevelTextClass(r.currentRiskLevel)}>
@@ -160,34 +168,38 @@ export function CaseloadPage() {
         ),
       },
       {
-        header: 'Status',
+        key: 'status',
+        header: t('caseload_col_status'),
         sortValue: (r) => r.caseStatus,
         render: (r) => r.caseStatus,
       },
       {
-        header: 'Social Worker',
+        key: 'socialWorker',
+        header: t('caseload_col_social_worker'),
         sortValue: (r) => r.assignedSocialWorker,
         render: (r) => r.assignedSocialWorker,
       },
       {
-        header: 'Actions',
+        key: 'actions',
+        header: t('caseload_col_actions'),
         render: (r) => (
           <div className="flex gap-2">
             <Link
               to={`/admin/residents/${r.residentId}`}
               className="text-sm font-semibold text-brand hover:underline"
             >
-              View
+              {t('common_view')}
             </Link>
           </div>
         ),
       },
     ],
-    []
+    [t]
   )
+  const columns = useMemo<ColumnDef<Resident>[]>(() => columnDefs.map(({ key: _, ...col }) => col), [columnDefs])
 
   const sortedRows = useMemo(() => {
-    const col = columns.find((c) => c.header === sort.column)
+    const col = columnDefs.find((c) => c.key === sort.column)
     if (!col?.sortValue) return [...rows]
     const mult = sort.direction === 'asc' ? 1 : -1
     return [...rows].sort((a, b) => {
@@ -195,32 +207,34 @@ export function CaseloadPage() {
       const vb = col.sortValue!(b)
       return compareSortValues(va, vb) * mult
     })
-  }, [rows, sort.column, sort.direction, columns])
+  }, [rows, sort.column, sort.direction, columnDefs])
 
   const handleSortColumn = useCallback(
     (header: string) => {
-      if (!columns.find((c) => c.header === header)?.sortValue) return
+      const selected = columnDefs.find((c) => c.header === header)
+      if (!selected?.sortValue) return
       setSort((prev) => {
-        if (prev.column === header) {
-          return { column: header, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+        if (prev.column === selected.key) {
+          return { column: selected.key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
         }
-        return { column: header, direction: 'asc' }
+        return { column: selected.key, direction: 'asc' }
       })
     },
-    [columns]
+    [columnDefs]
   )
+  const activeSortHeader = columnDefs.find((c) => c.key === sort.column)?.header ?? null
 
   return (
     <div className="min-h-full text-surface-dark">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold text-surface-dark">Caseload Inventory</h1>
+          <h1 className="text-2xl font-bold text-surface-dark">{t('caseload_title')}</h1>
           <Link
             to="/admin/residents/new"
             className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
           >
-            Add Resident
+            {t('caseload_add_resident')}
           </Link>
         </div>
 
@@ -233,7 +247,7 @@ export function CaseloadPage() {
               }}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
             >
-              <option value="">All safehouses</option>
+              <option value="">{t('caseload_all_safehouses')}</option>
               {safehouses.map((s) => (
                 <option key={s.safehouseId} value={String(s.safehouseId)}>
                   {s.name}
@@ -246,7 +260,7 @@ export function CaseloadPage() {
               onChange={(e) => {
                 setCaseStatus(e.target.value)
               }}
-              placeholder="Case Status"
+              placeholder={t('caseload_filter_case_status')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
             />
             <input
@@ -254,7 +268,7 @@ export function CaseloadPage() {
               onChange={(e) => {
                 setCaseCategory(e.target.value)
               }}
-              placeholder="Case Category"
+              placeholder={t('caseload_filter_case_category')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
             />
             <input
@@ -262,7 +276,7 @@ export function CaseloadPage() {
               onChange={(e) => {
                 setRiskLevel(e.target.value)
               }}
-              placeholder="Risk Level"
+              placeholder={t('caseload_filter_risk_level')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
             />
             <input
@@ -270,7 +284,7 @@ export function CaseloadPage() {
               onChange={(e) => {
                 setSearch(e.target.value)
               }}
-              placeholder="Search"
+              placeholder={t('common_search')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
             />
           </div>
@@ -292,7 +306,7 @@ export function CaseloadPage() {
                 // Residents view intentionally renders all rows; pagination controls are inert.
               }}
               sort={{
-                column: sort.column,
+                column: activeSortHeader,
                 direction: sort.direction,
                 onColumnClick: handleSortColumn,
               }}
@@ -303,4 +317,3 @@ export function CaseloadPage() {
     </div>
   )
 }
-

@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { isAxiosError } from 'axios'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
 import { compareSortValues } from '../../lib/tableSort'
+import { formatDate } from '../../lib/locale'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
@@ -16,6 +18,7 @@ type Supporter = {
   status: string
   firstDonationDate: string | null
 }
+type DonorSortKey = 'displayName' | 'type' | 'country' | 'status' | 'firstDonation' | 'actions'
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 const SUPPORTER_TYPE_OPTIONS = [
@@ -33,6 +36,7 @@ const SUPPORTER_TYPE_OPTIONS = [
 const STATUS_OPTIONS = ['Active', 'Inactive', 'Paused']
 
 export function DonorsPage() {
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [page, setPage] = useState(1)
@@ -44,8 +48,8 @@ export function DonorsPage() {
   const [supporterType, setSupporterType] = useState(() => searchParams.get('supporterType') ?? '')
   const [status, setStatus] = useState(() => searchParams.get('status') ?? '')
   const [search, setSearch] = useState(() => searchParams.get('search') ?? '')
-  const [sort, setSort] = useState<{ column: string; direction: 'asc' | 'desc' }>({
-    column: 'Display Name',
+  const [sort, setSort] = useState<{ column: DonorSortKey; direction: 'asc' | 'desc' }>({
+    column: 'displayName',
     direction: 'asc',
   })
 
@@ -76,15 +80,11 @@ export function DonorsPage() {
       } catch (err) {
         if (!cancelled) {
           if (isAxiosError(err) && err.response?.status === 401) {
-            setError(
-              'Not authorized. Sign out and sign in again so your session uses a real server token (demo login now talks to the API).'
-            )
+            setError(t('donors_error_unauthorized'))
           } else if (isAxiosError(err) && err.code === 'ERR_NETWORK') {
-            setError(
-              'Cannot reach the API. Start the backend and ensure VITE_API_BASE_URL matches it (default http://localhost:5007).'
-            )
+            setError(t('donors_error_network'))
           } else {
-            setError('Unable to load supporters.')
+            setError(t('donors_error_load'))
           }
         }
       } finally {
@@ -96,51 +96,58 @@ export function DonorsPage() {
     }
   }, [page, pageSize, supporterType, status, search])
 
-  const columns = useMemo<ColumnDef<Supporter>[]>(
+  const columnDefs = useMemo<Array<{ key: DonorSortKey } & ColumnDef<Supporter>>>(
     () => [
       {
-        header: 'Display Name',
+        key: 'displayName',
+        header: t('donors_col_display_name'),
         sortValue: (s) => s.displayName,
         render: (s) => s.displayName,
       },
       {
-        header: 'Type',
+        key: 'type',
+        header: t('donors_col_type'),
         sortValue: (s) => s.supporterType,
         render: (s) => s.supporterType,
       },
       {
-        header: 'Country',
+        key: 'country',
+        header: t('donors_col_country'),
         sortValue: (s) => s.country,
         render: (s) => s.country,
       },
       {
-        header: 'Status',
+        key: 'status',
+        header: t('donors_col_status'),
         sortValue: (s) => s.status,
         render: (s) => s.status,
       },
       {
-        header: 'First Donation',
+        key: 'firstDonation',
+        header: t('donors_col_first_donation'),
         sortValue: (s) =>
           s.firstDonationDate ? new Date(s.firstDonationDate).getTime() : Number.POSITIVE_INFINITY,
-        render: (s) => (s.firstDonationDate ? new Date(s.firstDonationDate).toLocaleDateString() : '—'),
+        render: (s) => (s.firstDonationDate ? formatDate(s.firstDonationDate, i18n.resolvedLanguage) : '—'),
       },
       {
-        header: 'Actions',
+        key: 'actions',
+        header: t('donors_col_actions'),
         render: (s) => (
           <Link
             to={`/admin/donors/${s.supporterId}`}
             className="text-sm font-semibold text-brand hover:underline"
           >
-            View
+            {t('common_view')}
           </Link>
         ),
       },
     ],
-    []
+    [t, i18n.resolvedLanguage]
   )
+  const columns = useMemo<ColumnDef<Supporter>[]>(() => columnDefs.map(({ key: _, ...col }) => col), [columnDefs])
 
   const sortedRows = useMemo(() => {
-    const col = columns.find((c) => c.header === sort.column)
+    const col = columnDefs.find((c) => c.key === sort.column)
     if (!col?.sortValue) return [...rows]
     const mult = sort.direction === 'asc' ? 1 : -1
     return [...rows].sort((a, b) => {
@@ -148,32 +155,34 @@ export function DonorsPage() {
       const vb = col.sortValue!(b)
       return compareSortValues(va, vb) * mult
     })
-  }, [rows, sort.column, sort.direction, columns])
+  }, [rows, sort.column, sort.direction, columnDefs])
 
   const handleSortColumn = useCallback(
     (header: string) => {
-      if (!columns.find((c) => c.header === header)?.sortValue) return
+      const selected = columnDefs.find((c) => c.header === header)
+      if (!selected?.sortValue) return
       setSort((prev) => {
-        if (prev.column === header) {
-          return { column: header, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+        if (prev.column === selected.key) {
+          return { column: selected.key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
         }
-        return { column: header, direction: 'asc' }
+        return { column: selected.key, direction: 'asc' }
       })
     },
-    [columns]
+    [columnDefs]
   )
+  const activeSortHeader = columnDefs.find((c) => c.key === sort.column)?.header ?? null
 
   return (
     <div className="min-h-full text-surface-dark">
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold text-surface-dark">Donors &amp; Contributions</h1>
+          <h1 className="text-2xl font-bold text-surface-dark">{t('donors_title')}</h1>
           <button
             onClick={() => navigate('/admin/donors/new')}
             className="rounded-md border border-brand-100 px-4 py-2 text-sm font-semibold text-surface-dark hover:bg-brand-50"
           >
-            Add Supporter
+            {t('donors_add_supporter')}
           </button>
         </div>
 
@@ -187,7 +196,7 @@ export function DonorsPage() {
               }}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
             >
-              <option value="">All supporter types</option>
+              <option value="">{t('donors_all_supporter_types')}</option>
               {SUPPORTER_TYPE_OPTIONS.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
@@ -202,7 +211,7 @@ export function DonorsPage() {
               }}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
             >
-              <option value="">All statuses</option>
+              <option value="">{t('donors_all_statuses')}</option>
               {STATUS_OPTIONS.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
@@ -215,7 +224,7 @@ export function DonorsPage() {
                 setPage(1)
                 setSearch(e.target.value)
               }}
-              placeholder="Search"
+              placeholder={t('common_search')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
             />
           </div>
@@ -235,7 +244,7 @@ export function DonorsPage() {
               totalCount={total}
               onPageChange={setPage}
               sort={{
-                column: sort.column,
+                column: activeSortHeader,
                 direction: sort.direction,
                 onColumnClick: handleSortColumn,
               }}
@@ -246,4 +255,3 @@ export function DonorsPage() {
     </div>
   )
 }
-
