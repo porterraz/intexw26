@@ -4,13 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { requestPasswordReset, resetPasswordRequest } from '../lib/api'
 
 function meetsPasswordPolicy(password: string): boolean {
-  return (
-    password.length >= 12 &&
-    /[A-Z]/.test(password) &&
-    /[a-z]/.test(password) &&
-    /[0-9]/.test(password) &&
-    /[^A-Za-z0-9]/.test(password)
-  )
+  return password.trim().length >= 14
 }
 
 export function ForgotPasswordPage() {

@@ -183,7 +183,7 @@
   "social_media_section_6_hint": "Principais combinacoes por media de encaminhamentos de doacao.",
   "reset_title": "Redefina sua senha",
   "reset_subtitle": "Passo 1: digite seu email. Passo 2: defina sua nova senha.",
-  "reset_password_policy_hint": "Use pelo menos 12 caracteres com maiuscula, minuscula, numero e simbolo.",
+  "reset_password_policy_hint": "Use pelo menos 14 caracteres.",
   "reset_email_required": "Email obrigatorio.",
   "reset_continue_info": "Continue para definir uma nova senha para este email.",
   "reset_request_error": "Nao foi possivel solicitar redefinicao de senha.",

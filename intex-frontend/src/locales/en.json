@@ -183,7 +183,7 @@
   "social_media_section_6_hint": "Top combinations by average donation referrals.",
   "reset_title": "Reset your password",
   "reset_subtitle": "Step 1: Enter your email. Step 2: Set your new password.",
-  "reset_password_policy_hint": "Use at least 12 characters with uppercase, lowercase, a number, and a symbol.",
+  "reset_password_policy_hint": "Use at least 14 characters.",
   "reset_email_required": "Email is required.",
   "reset_continue_info": "Continue to set a new password for this email.",
   "reset_request_error": "Unable to request password reset.",

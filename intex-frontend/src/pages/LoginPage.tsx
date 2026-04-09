@@ -141,12 +141,7 @@ function Field({
 }
 
 function meetsPasswordPolicy(p: string): boolean {
-  if (p.length < 12) return false;
-  if (!/[A-Z]/.test(p)) return false;
-  if (!/[a-z]/.test(p)) return false;
-  if (!/[0-9]/.test(p)) return false;
-  if (!/[^A-Za-z0-9]/.test(p)) return false;
-  return true;
+  return p.trim().length >= 14;
 }
 
 export function LoginPage() {
@@ -204,8 +199,7 @@ export function LoginPage() {
       errors.password = "Password is required.";
     } else if (mode === "signup") {
       if (!meetsPasswordPolicy(password)) {
-        errors.password =
-          "Use at least 12 characters with uppercase, lowercase, a number, and a symbol.";
+        errors.password = "Use at least 14 characters.";
       }
     }
     if (mode === "signup") {

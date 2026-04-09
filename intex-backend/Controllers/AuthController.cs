@@ -13,6 +13,7 @@ namespace Intex.Backend.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
+    private const int MinimumPasswordLength = 14;
     private const string MfaLoginPurpose = "mfa-login";
     private const string MfaIssuer = "NovaPath";
     private readonly UserManager<ApplicationUser> _userManager;
@@ -217,13 +218,19 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Invalid reset request." });
         }
 
+        var normalizedPassword = req.NewPassword.Trim();
+        if (normalizedPassword.Length < MinimumPasswordLength)
+        {
+            return BadRequest(new { message = $"Password must be at least {MinimumPasswordLength} characters." });
+        }
+
         var user = await _userManager.FindByEmailAsync(req.Email.Trim());
         if (user is null)
         {
             return BadRequest(new { message = "Invalid reset request." });
         }
 
-        var result = await _userManager.ResetPasswordAsync(user, req.Token, req.NewPassword);
+        var result = await _userManager.ResetPasswordAsync(user, req.Token, normalizedPassword);
         if (!result.Succeeded)
         {
             return BadRequest(new
@@ -246,6 +253,12 @@ public class AuthController : ControllerBase
         }
 
         var normalizedEmail = req.Email.Trim();
+        var normalizedPassword = req.Password.Trim();
+        if (normalizedPassword.Length < MinimumPasswordLength)
+        {
+            return BadRequest(new { message = $"Password must be at least {MinimumPasswordLength} characters." });
+        }
+
         var existing = await _userManager.FindByEmailAsync(normalizedEmail);
         if (existing is not null)
         {
@@ -259,12 +272,12 @@ public class AuthController : ControllerBase
             EmailConfirmed = true
         };
 
-        var create = await _userManager.CreateAsync(user, req.Password);
+        var create = await _userManager.CreateAsync(user, normalizedPassword);
         if (!create.Succeeded)
         {
             return BadRequest(new
             {
-                message = "Password does not meet requirements.",
+                message = "Unable to create account.",
                 errors = create.Errors.Select(e => e.Description).ToArray()
             });
         }
@@ -313,6 +326,10 @@ public class AuthController : ControllerBase
         {
             return BadRequest(new { message = "Email and password are required." });
         }
+        if (req.Password.Trim().Length < MinimumPasswordLength)
+        {
+            return BadRequest(new { message = $"Password must be at least {MinimumPasswordLength} characters." });
+        }
 
         if (req.Role is not ("Admin" or "Donor"))
         {
@@ -325,6 +342,8 @@ public class AuthController : ControllerBase
             return Conflict(new { message = "User already exists." });
         }
 
+        var normalizedPassword = req.Password.Trim();
+
         var user = new ApplicationUser
         {
             UserName = req.Email,
@@ -332,7 +351,7 @@ public class AuthController : ControllerBase
             EmailConfirmed = true
         };
 
-        var create = await _userManager.CreateAsync(user, req.Password);
+        var create = await _userManager.CreateAsync(user, normalizedPassword);
         if (!create.Succeeded)
         {
             return BadRequest(new { errors = create.Errors.Select(e => new { e.Code, e.Description }) });
