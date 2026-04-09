@@ -8,7 +8,6 @@ import { LoginPage } from './pages/LoginPage'
 import { MfaSetupPage } from './pages/MfaSetupPage'
 import { MfaVerifyPage } from './pages/MfaVerifyPage'
 import PrivacyPage from './pages/PrivacyPage'
-import { DonorDashboard } from './pages/DonorDashboard'
 import AdminDashboardPage from './pages/admin/AdminDashboardPage'
 import { CaseloadPage } from './pages/admin/CaseloadPage'
 import { ResidentDetailPage } from './pages/admin/ResidentDetailPage'
@@ -36,20 +35,23 @@ export default function App() {
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/impact" element={<ImpactDashboardPage />} />
 
-        <Route element={<ProtectedRoute requiredRole="Admin" />}>
+        <Route element={<ProtectedRoute allowedRoles={['Admin', 'Donor']} />}>
           <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/admin/residents" element={<CaseloadPage />} />
-          <Route path="/admin/residents/new" element={<NewResidentPage />} />
-          <Route path="/admin/residents/:id" element={<ResidentDetailPage />} />
           <Route path="/admin/donors" element={<DonorsPage />} />
-          <Route path="/admin/donors/new" element={<NewSupporterPage />} />
-          <Route path="/admin/donors/:id" element={<DonorDetailPage />} />
-          <Route path="/admin/process-recordings/:residentId" element={<ProcessRecordingPage />} />
-          <Route path="/admin/visitations/:residentId" element={<VisitationPage />} />
           <Route path="/admin/reports" element={<ReportsPage />} />
           <Route path="/admin/donations" element={<AdminDonationsPage />} />
           <Route path="/admin/social-media" element={<SocialMediaPage />} />
           <Route path="/admin/social-media/ml-dashboard" element={<Navigate to="/admin/social-media" replace />} />
+        </Route>
+
+        <Route element={<ProtectedRoute requiredRole="Admin" />}>
+          <Route path="/admin/residents/new" element={<NewResidentPage />} />
+          <Route path="/admin/residents/:id" element={<ResidentDetailPage />} />
+          <Route path="/admin/donors/new" element={<NewSupporterPage />} />
+          <Route path="/admin/donors/:id" element={<DonorDetailPage />} />
+          <Route path="/admin/process-recordings/:residentId" element={<ProcessRecordingPage />} />
+          <Route path="/admin/visitations/:residentId" element={<VisitationPage />} />
           <Route path="/admin/mfa-setup" element={<MfaSetupPage />} />
         </Route>
 
@@ -58,7 +60,7 @@ export default function App() {
           path="/donor/dashboard"
           element={
             <ProtectedRoute allowedRoles={['Donor']}>
-              <DonorDashboard />
+              <Navigate to="/admin" replace />
             </ProtectedRoute>
           }
         />

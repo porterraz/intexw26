@@ -23,7 +23,7 @@ public class DonationsController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Donor")]
     public async Task<ActionResult<PagedResult<Donation>>> GetDonations(
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 25
@@ -41,7 +41,7 @@ public class DonationsController : ControllerBase
     }
 
     [HttpGet("supporter/{supporterId:int}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Donor")]
     public async Task<ActionResult<IReadOnlyList<Donation>>> GetForSupporter(int supporterId)
     {
         var items = await _db.Donations.AsNoTracking()

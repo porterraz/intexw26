@@ -27,7 +27,7 @@ export function MfaVerifyPage() {
     setLoading(true)
     try {
       const user = await verifyMfa(code.trim())
-      const target = consumePostLoginRedirect() ?? (user.roles.includes('Admin') ? '/admin' : '/donor/dashboard')
+      const target = consumePostLoginRedirect() ?? (user.roles.includes('Admin') || user.roles.includes('Donor') ? '/admin' : '/impact')
       navigate(target, { replace: true })
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Unable to verify MFA code.')

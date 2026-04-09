@@ -188,8 +188,8 @@ export function LoginPage() {
   }
 
   function defaultRouteForRoles(roles: string[]): string {
-    if (roles.includes("Admin")) return "/admin";
-    return "/donor/dashboard";
+    if (roles.includes("Admin") || roles.includes("Donor")) return "/admin";
+    return "/impact";
   }
 
   function validate(): boolean {

@@ -22,8 +22,9 @@ export function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isAdmin = user?.roles?.includes('Admin') ?? false
   const isDonor = user?.roles?.includes('Donor') ?? false
+  const canAccessOps = isAdmin || isDonor
   const viewLabel = isAdmin ? t('nav_admin_view') : isDonor ? t('nav_donor_view') : t('nav_user_view')
-  const homePath = isDonor && !isAdmin ? '/donor/dashboard' : '/admin'
+  const homePath = canAccessOps ? '/admin' : '/'
   const currentLanguage = i18nInstance.resolvedLanguage ?? 'en'
   const isPortuguese = isPortugueseLanguage(currentLanguage)
   const nextLanguage = isPortuguese ? 'en' : 'pt'
@@ -54,16 +55,7 @@ export function NavBar() {
           </div>
 
           <nav className="hidden items-center gap-2 md:flex">
-            {isDonor && !isAdmin ? (
-              <>
-                <NavLink to="/donor/dashboard" end className={navLinkClass}>
-                  {t('nav_my_dashboard')}
-                </NavLink>
-                <NavLink to="/donate" className={navLinkClass}>
-                  {t('nav_make_donation')}
-                </NavLink>
-              </>
-            ) : (
+            {canAccessOps ? (
               <>
                 <NavLink to="/admin" end className={navLinkClass}>
                   {t('nav_dashboard')}
@@ -83,7 +75,14 @@ export function NavBar() {
                 <NavLink to="/admin/social-media" className={navLinkClass}>
                   {t('nav_social_media')}
                 </NavLink>
+                <NavLink to="/donate" className={navLinkClass}>
+                  {t('nav_make_donation')}
+                </NavLink>
               </>
+            ) : (
+              <NavLink to="/impact" className={navLinkClass}>
+                {t('nav_impact')}
+              </NavLink>
             )}
           </nav>
 
@@ -141,16 +140,7 @@ export function NavBar() {
             </div>
             <div className="mb-4 text-sm text-surface-text">{user?.email}</div>
             <nav className="flex flex-col gap-2">
-              {isDonor && !isAdmin ? (
-                <>
-                  <NavLink to="/donor/dashboard" end className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_my_dashboard')}
-                  </NavLink>
-                  <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_make_donation')}
-                  </NavLink>
-                </>
-              ) : (
+              {canAccessOps ? (
                 <>
                   <NavLink to="/admin" end className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_dashboard')}
@@ -170,7 +160,14 @@ export function NavBar() {
                   <NavLink to="/admin/social-media" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_social_media')}
                   </NavLink>
+                  <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+                    {t('nav_make_donation')}
+                  </NavLink>
                 </>
+              ) : (
+                <NavLink to="/impact" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+                  {t('nav_impact')}
+                </NavLink>
               )}
             </nav>
             <button
