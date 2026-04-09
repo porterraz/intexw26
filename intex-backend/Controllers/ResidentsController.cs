@@ -9,7 +9,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/residents")]
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin,Donor")]
 public class ResidentsController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
@@ -227,4 +227,3 @@ public class ResidentsController : ControllerBase
         });
     }
 }
-

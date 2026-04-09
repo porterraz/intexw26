@@ -8,6 +8,7 @@ import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { compareSortValues } from '../../lib/tableSort'
+import { useAuth } from '../../state/AuthContext'
 
 type Safehouse = { safehouseId: number; name: string }
 type Resident = {
@@ -45,6 +46,8 @@ function riskSortValue(level: string): number {
 
 export function CaseloadPage() {
   const { t } = useTranslation()
+  const { hasRole } = useAuth()
+  const canManage = hasRole('Admin')
   const [safehouses, setSafehouses] = useState<Safehouse[]>([])
   const [rows, setRows] = useState<Resident[]>([])
   const [loading, setLoading] = useState(true)
@@ -179,22 +182,24 @@ export function CaseloadPage() {
         sortValue: (r) => r.assignedSocialWorker,
         render: (r) => r.assignedSocialWorker,
       },
-      {
-        key: 'actions',
-        header: t('caseload_col_actions'),
-        render: (r) => (
-          <div className="flex gap-2">
-            <Link
-              to={`/admin/residents/${r.residentId}`}
-              className="text-sm font-semibold text-brand hover:underline"
-            >
-              {t('common_view')}
-            </Link>
-          </div>
-        ),
-      },
+      ...(canManage
+        ? [{
+            key: 'actions' as const,
+            header: t('caseload_col_actions'),
+            render: (r: Resident) => (
+              <div className="flex gap-2">
+                <Link
+                  to={`/admin/residents/${r.residentId}`}
+                  className="text-sm font-semibold text-brand hover:underline"
+                >
+                  {t('common_view')}
+                </Link>
+              </div>
+            ),
+          }]
+        : []),
     ],
-    [t]
+    [t, canManage]
   )
   const columns = useMemo<ColumnDef<Resident>[]>(() => columnDefs, [columnDefs])
 
@@ -230,12 +235,14 @@ export function CaseloadPage() {
       <main className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-bold text-surface-dark">{t('caseload_title')}</h1>
-          <Link
-            to="/admin/residents/new"
-            className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
-          >
-            {t('caseload_add_resident')}
-          </Link>
+          {canManage ? (
+            <Link
+              to="/admin/residents/new"
+              className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
+            >
+              {t('caseload_add_resident')}
+            </Link>
+          ) : null}
         </div>
 
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">

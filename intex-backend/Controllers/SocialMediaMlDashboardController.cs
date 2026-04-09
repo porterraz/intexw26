@@ -13,7 +13,7 @@ namespace Intex.Backend.Controllers;
 /// </summary>
 [ApiController]
 [Route("api")]
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin,Donor")]
 public class SocialMediaMlDashboardController : ControllerBase
 {
     private static readonly string[] DayOrder =

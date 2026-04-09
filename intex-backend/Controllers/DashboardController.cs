@@ -8,7 +8,7 @@ namespace Intex.Backend.Controllers;
 
 [ApiController]
 [Route("api/dashboard")]
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin,Donor")]
 public class DashboardController : ControllerBase
 {
     private readonly ApplicationDbContext _db;

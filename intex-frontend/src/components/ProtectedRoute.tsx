@@ -21,11 +21,10 @@ export function ProtectedRoute({ requiredRole, allowedRoles, children }: Protect
 
   if (!roleAllowed) {
     if (hasRole('Donor')) {
-      return <Navigate to="/donor/dashboard" replace />
+      return <Navigate to="/admin" replace />
     }
     return <Navigate to="/impact" replace />
   }
 
   return children ? <>{children}</> : <Outlet />
 }
-

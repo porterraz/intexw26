@@ -9,6 +9,7 @@ import { formatDate } from '../../lib/locale'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
+import { useAuth } from '../../state/AuthContext'
 
 type Supporter = {
   supporterId: number
@@ -37,6 +38,8 @@ const STATUS_OPTIONS = ['Active', 'Inactive', 'Paused']
 
 export function DonorsPage() {
   const { t, i18n } = useTranslation()
+  const { hasRole } = useAuth()
+  const canManage = hasRole('Admin')
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [page, setPage] = useState(1)
@@ -129,20 +132,22 @@ export function DonorsPage() {
           s.firstDonationDate ? new Date(s.firstDonationDate).getTime() : Number.POSITIVE_INFINITY,
         render: (s) => (s.firstDonationDate ? formatDate(s.firstDonationDate, i18n.resolvedLanguage) : '—'),
       },
-      {
-        key: 'actions',
-        header: t('donors_col_actions'),
-        render: (s) => (
-          <Link
-            to={`/admin/donors/${s.supporterId}`}
-            className="text-sm font-semibold text-brand hover:underline"
-          >
-            {t('common_view')}
-          </Link>
-        ),
-      },
+      ...(canManage
+        ? [{
+            key: 'actions' as const,
+            header: t('donors_col_actions'),
+            render: (s: Supporter) => (
+              <Link
+                to={`/admin/donors/${s.supporterId}`}
+                className="text-sm font-semibold text-brand hover:underline"
+              >
+                {t('common_view')}
+              </Link>
+            ),
+          }]
+        : []),
     ],
-    [t, i18n.resolvedLanguage]
+    [t, i18n.resolvedLanguage, canManage]
   )
   const columns = useMemo<ColumnDef<Supporter>[]>(() => columnDefs, [columnDefs])
 
@@ -178,12 +183,14 @@ export function DonorsPage() {
       <main className="mx-auto max-w-6xl px-4 py-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-bold text-surface-dark">{t('donors_title')}</h1>
-          <button
-            onClick={() => navigate('/admin/donors/new')}
-            className="rounded-md border border-brand-100 px-4 py-2 text-sm font-semibold text-surface-dark hover:bg-brand-50"
-          >
-            {t('donors_add_supporter')}
-          </button>
+          {canManage ? (
+            <button
+              onClick={() => navigate('/admin/donors/new')}
+              className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
+            >
+              {t('donors_add_supporter')}
+            </button>
+          ) : null}
         </div>
 
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">

@@ -5,6 +5,7 @@ import { ErrorMessage } from '../../components/ErrorMessage'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
+import { useAuth } from '../../state/AuthContext'
 
 type Donation = {
   donationId: number
@@ -24,6 +25,8 @@ type Donation = {
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 
 export function AdminDonationsPage() {
+  const { hasRole } = useAuth()
+  const canManage = hasRole('Admin')
   const [page, setPage] = useState(1)
   const [pageSize] = useState(25)
   const [rows, setRows] = useState<Donation[]>([])
@@ -59,7 +62,17 @@ export function AdminDonationsPage() {
     () => [
       { header: 'Donation ID', render: (d) => d.donationId },
       { header: 'Date', render: (d) => new Date(d.donationDate).toLocaleDateString() },
-      { header: 'Supporter ID', render: (d) => <Link className="text-brand hover:underline" to={`/admin/donors/${d.supporterId}`}>{d.supporterId}</Link> },
+      {
+        header: 'Supporter ID',
+        render: (d) =>
+          canManage ? (
+            <Link className="text-brand hover:underline" to={`/admin/donors/${d.supporterId}`}>
+              {d.supporterId}
+            </Link>
+          ) : (
+            d.supporterId
+          ),
+      },
       { header: 'Type', render: (d) => d.donationType },
       { header: 'Channel', render: (d) => d.channelSource },
       {
@@ -73,7 +86,7 @@ export function AdminDonationsPage() {
       { header: 'Recurring', render: (d) => (d.isRecurring ? 'Yes' : 'No') },
       { header: 'Campaign', render: (d) => d.campaignName ?? '—' },
     ],
-    []
+    [canManage]
   )
 
   return (
@@ -96,4 +109,3 @@ export function AdminDonationsPage() {
     </div>
   )
 }
-

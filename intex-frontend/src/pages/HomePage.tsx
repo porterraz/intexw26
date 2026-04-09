@@ -209,8 +209,8 @@ export default function HomePage() {
   const isPortuguese = isPortugueseLanguage(currentLanguage);
   const nextLanguage = isPortuguese ? "en" : "pt";
   const languageToggleLabel = isPortuguese ? t("language_switch_to_english") : t("language_switch_to_portuguese");
-  const isAdmin = user?.roles?.includes("Admin") ?? false;
-  const dashboardPath = isAdmin ? "/admin" : "/donor/dashboard";
+  const canAccessOps = (user?.roles?.includes("Admin") ?? false) || (user?.roles?.includes("Donor") ?? false);
+  const dashboardPath = canAccessOps ? "/admin" : "/impact";
   const donatePath = token ? "/donate" : "/login?next=%2Fdonate";
 
   const content = {

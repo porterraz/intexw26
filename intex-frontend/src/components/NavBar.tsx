@@ -5,7 +5,7 @@ import { useAuth } from '../state/useAuth'
 import { LanguageToggle } from './LanguageToggle'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `px-3 py-2 rounded-md text-sm font-medium ${
+  `px-3 py-2 rounded-lg text-sm font-semibold ${
     isActive ? 'bg-brand-100 text-brand' : 'text-surface-text hover:bg-brand-50 hover:text-surface-dark'
   }`
 
@@ -23,15 +23,16 @@ export function NavBar() {
   const isMobileMenuOpen = mobileMenuPath === location.pathname
   const isAdmin = user?.roles?.includes('Admin') ?? false
   const isDonor = user?.roles?.includes('Donor') ?? false
+  const canAccessOps = isAdmin || isDonor
   const viewLabel = isAdmin ? t('nav_admin_view') : isDonor ? t('nav_donor_view') : t('nav_user_view')
-  const homePath = isDonor && !isAdmin ? '/donor/dashboard' : '/admin'
+  const homePath = isDonor && !isAdmin ? '/donor/dashboard' : canAccessOps ? '/admin' : '/'
   const closeMobileMenu = () => setMobileMenuPath(null)
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-100/40 bg-white/95 md:bg-white/20 md:backdrop-blur-md">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex h-14 items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="flex min-h-[68px] items-center justify-between gap-5 py-2">
+          <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => navigate(-1)}
@@ -41,22 +42,13 @@ export function NavBar() {
             >
               <span aria-hidden="true">←</span>
             </button>
-            <Link to={homePath} className="font-semibold tracking-tight text-surface-dark">
+            <Link to={homePath} className="text-4 font-bold tracking-tight leading-tight text-surface-dark">
               {t('nav')}
             </Link>
           </div>
 
-          <nav className="hidden items-center gap-2 md:flex">
-            {isDonor && !isAdmin ? (
-              <>
-                <NavLink to="/donor/dashboard" end className={navLinkClass}>
-                  {t('nav_my_dashboard')}
-                </NavLink>
-                <NavLink to="/donate" className={navLinkClass}>
-                  {t('nav_make_donation')}
-                </NavLink>
-              </>
-            ) : (
+          <nav className="hidden items-center gap-1 lg:flex xl:gap-2">
+            {canAccessOps ? (
               <>
                 <NavLink to="/admin" end className={navLinkClass}>
                   {t('nav_dashboard')}
@@ -70,25 +62,29 @@ export function NavBar() {
                 <NavLink to="/admin/reports" className={navLinkClass}>
                   {t('nav_reports')}
                 </NavLink>
-                <NavLink to="/donate" className={navLinkClass}>
-                  {t('nav_donate')}
-                </NavLink>
                 <NavLink to="/admin/social-media" className={navLinkClass}>
                   {t('nav_social_media')}
                 </NavLink>
+                <NavLink to="/donate" className={navLinkClass}>
+                  {t('nav_make_donation')}
+                </NavLink>
               </>
+            ) : (
+              <NavLink to="/impact" className={navLinkClass}>
+                {t('nav_impact')}
+              </NavLink>
             )}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <span className="hidden rounded-full border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand md:inline-flex">
+          <div className="flex items-center gap-2 xl:gap-3">
+            <span className="hidden rounded-full border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand lg:inline-flex">
               {viewLabel}
             </span>
             <LanguageToggle />
-            <div className="hidden text-sm text-surface-text sm:block">{user?.email}</div>
+            <div className="hidden max-w-[180px] truncate text-sm text-surface-text xl:block">{user?.email}</div>
             <button
               onClick={logout}
-              className="hidden rounded-md bg-brand px-3 py-2 text-sm font-semibold text-surface hover:bg-brand-dark md:inline-flex"
+              className="hidden rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark md:inline-flex"
             >
               {t('nav_logout')}
             </button>
@@ -125,16 +121,7 @@ export function NavBar() {
             </div>
             <div className="mb-4 text-sm text-surface-text">{user?.email}</div>
             <nav className="flex flex-col gap-2">
-              {isDonor && !isAdmin ? (
-                <>
-                  <NavLink to="/donor/dashboard" end className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_my_dashboard')}
-                  </NavLink>
-                  <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_make_donation')}
-                  </NavLink>
-                </>
-              ) : (
+              {canAccessOps ? (
                 <>
                   <NavLink to="/admin" end className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_dashboard')}
@@ -148,13 +135,17 @@ export function NavBar() {
                   <NavLink to="/admin/reports" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_reports')}
                   </NavLink>
-                  <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_donate')}
-                  </NavLink>
                   <NavLink to="/admin/social-media" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_social_media')}
                   </NavLink>
+                  <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+                    {t('nav_make_donation')}
+                  </NavLink>
                 </>
+              ) : (
+                <NavLink to="/impact" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+                  {t('nav_impact')}
+                </NavLink>
               )}
             </nav>
             <button
