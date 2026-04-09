@@ -143,13 +143,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-try
+if (app.Environment.IsDevelopment())
 {
-    await IdentitySeeder.SeedAsync(app.Services, builder.Configuration);
-}
-catch (Exception ex) when (app.Environment.IsDevelopment())
-{
-    app.Logger.LogWarning(ex, "Identity seed failed during startup in Development; continuing without seed.");
+    try
+    {
+        await IdentitySeeder.SeedAsync(app.Services, builder.Configuration);
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogWarning(ex, "Identity seed failed during startup in Development; continuing without seed.");
+    }
 }
 
 app.Run();
