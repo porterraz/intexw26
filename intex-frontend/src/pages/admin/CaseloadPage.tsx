@@ -25,9 +25,79 @@ type Resident = {
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 type CaseloadSortKey = 'caseNo' | 'name' | 'safehouse' | 'category' | 'risk' | 'status' | 'socialWorker' | 'actions'
-const CASE_STATUS_OPTIONS = ['Open', 'In Progress', 'Closed', 'On Hold']
-const CASE_CATEGORY_OPTIONS = ['Protection', 'At Risk', 'OSAEC', 'Trafficking', 'Abuse']
+
+function parseStringList(data: unknown): string[] {
+  if (!Array.isArray(data)) return []
+  return data
+    .filter((x): x is string => typeof x === 'string')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0)
+}
+
+function dedupeSortedStrings(values: string[]): string[] {
+  const byKey = new Map<string, string>()
+  for (const raw of values) {
+    const s = raw.trim()
+    if (!s) continue
+    const key = s.toLowerCase()
+    if (!byKey.has(key)) byKey.set(key, s)
+  }
+  return [...byKey.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+}
+
+function pickCaseCategoryField(r: Resident & { CaseCategory?: string }): string {
+  return (r.caseCategory ?? r.CaseCategory ?? '').trim()
+}
+
+function pickCaseStatusField(r: Resident & { CaseStatus?: string }): string {
+  return (r.caseStatus ?? r.CaseStatus ?? '').trim()
+}
+
+/** Load category dropdown options: dedicated endpoints, then paginated residents (covers 404 / odd JSON / PascalCase rows). */
+async function loadCaseCategoryOptions(): Promise<string[]> {
+  const paths = ['/api/residents/case-categories', '/api/residents/categories'] as const
+  for (const path of paths) {
+    try {
+      const res = await api.get<unknown>(path)
+      const parsed = dedupeSortedStrings(parseStringList(res.data))
+      if (parsed.length > 0) return parsed
+    } catch {
+      // try next path or resident scan
+    }
+  }
+
+  const pageSize = 100
+  const items: Resident[] = []
+  let page = 1
+  let totalCount = 0
+  while (true) {
+    const res = await api.get<PagedResult<Resident>>('/api/residents', { params: { page, pageSize } })
+    if (page === 1) totalCount = res.data.totalCount
+    items.push(...res.data.items)
+    if (items.length >= totalCount || res.data.items.length < pageSize) break
+    page += 1
+  }
+
+  return dedupeSortedStrings(items.map((r) => pickCaseCategoryField(r)))
+}
+
+/** Columns shown in simple (default) table view */
+const SIMPLE_COLUMN_KEYS = new Set<CaseloadSortKey>(['name', 'risk', 'category', 'socialWorker'])
+
+/** Sort keys still valid when simple columns only are visible */
+const SIMPLE_SORTABLE_KEYS = new Set<CaseloadSortKey>(['name', 'risk', 'category', 'socialWorker'])
+
 const RISK_LEVEL_OPTIONS = ['Low', 'Moderate', 'High', 'Critical']
+
+const filterControlClass =
+  'rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text'
+
+function matchesTextFilter(dbValue: string, selected: string): boolean {
+  if (!selected.trim()) return true
+  return (
+    dbValue.trim().localeCompare(selected.trim(), undefined, { sensitivity: 'base' }) === 0
+  )
+}
 
 function getRiskLevelTextClass(riskLevel: string) {
   const normalized = riskLevel.trim().toLowerCase()
@@ -49,7 +119,7 @@ function riskSortValue(level: string): number {
 
 export function CaseloadPage() {
   const { t } = useTranslation()
-  const { hasRole } = useAuth()
+  const { token, hasRole } = useAuth()
   const canManage = hasRole('Admin')
   const [safehouses, setSafehouses] = useState<Safehouse[]>([])
   const [rows, setRows] = useState<Resident[]>([])
@@ -60,10 +130,65 @@ export function CaseloadPage() {
   const [caseStatus, setCaseStatus] = useState<string>('')
   const [caseCategory, setCaseCategory] = useState<string>('')
   const [riskLevel, setRiskLevel] = useState<string>('')
+  const [socialWorker, setSocialWorker] = useState<string>('')
+  const [searchInput, setSearchInput] = useState('')
+  const [debouncedSearch, setDebouncedSearch] = useState('')
+  const [socialWorkerOptions, setSocialWorkerOptions] = useState<string[]>([])
+  const [categoryOptions, setCategoryOptions] = useState<string[]>([])
+  const [statusOptions, setStatusOptions] = useState<string[]>([])
   const [sort, setSort] = useState<{ column: CaseloadSortKey; direction: 'asc' | 'desc' }>({
     column: 'name',
     direction: 'asc',
   })
+  const [detailedView, setDetailedView] = useState(false)
+
+  useEffect(() => {
+    if (detailedView) return
+    if (!SIMPLE_SORTABLE_KEYS.has(sort.column)) {
+      setSort({ column: 'name', direction: 'asc' })
+    }
+  }, [detailedView, sort.column])
+
+  useEffect(() => {
+    if (!detailedView) {
+      setSafehouseId('')
+      setCaseStatus('')
+    }
+  }, [detailedView])
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setDebouncedSearch(searchInput.trim()), 300)
+    return () => window.clearTimeout(id)
+  }, [searchInput])
+
+  useEffect(() => {
+    if (!token) return
+
+    let cancelled = false
+    ;(async () => {
+      try {
+        const res = await api.get<unknown>('/api/residents/social-workers')
+        if (!cancelled) setSocialWorkerOptions(dedupeSortedStrings(parseStringList(res.data)))
+      } catch {
+        if (!cancelled) setSocialWorkerOptions([])
+      }
+      try {
+        const categories = await loadCaseCategoryOptions()
+        if (!cancelled) setCategoryOptions(categories)
+      } catch {
+        if (!cancelled) setCategoryOptions([])
+      }
+      try {
+        const res = await api.get<unknown>('/api/residents/case-statuses')
+        if (!cancelled) setStatusOptions(dedupeSortedStrings(parseStringList(res.data)))
+      } catch {
+        if (!cancelled) setStatusOptions([])
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [token])
 
   useEffect(() => {
     let cancelled = false
@@ -91,6 +216,8 @@ export function CaseloadPage() {
         if (safehouseId) params.safehouseId = Number(safehouseId)
         if (caseCategory) params.caseCategory = caseCategory
         if (riskLevel) params.riskLevel = riskLevel
+        if (socialWorker) params.assignedSocialWorker = socialWorker
+        if (debouncedSearch) params.search = debouncedSearch
 
         const fetchPageSize = 100
         const allRows: Resident[] = []
@@ -129,9 +256,9 @@ export function CaseloadPage() {
     return () => {
       cancelled = true
     }
-  }, [caseStatus, safehouseId, caseCategory, riskLevel])
+  }, [caseStatus, safehouseId, caseCategory, riskLevel, socialWorker, debouncedSearch, t])
 
-  const columnDefs = useMemo<Array<{ key: CaseloadSortKey } & ColumnDef<Resident>>>(
+  const allColumnDefs = useMemo<Array<{ key: CaseloadSortKey } & ColumnDef<Resident>>>(
     () => [
       {
         key: 'caseNo',
@@ -158,8 +285,8 @@ export function CaseloadPage() {
       {
         key: 'category',
         header: t('caseload_col_category'),
-        sortValue: (r) => r.caseCategory,
-        render: (r) => r.caseCategory,
+        sortValue: (r) => pickCaseCategoryField(r),
+        render: (r) => pickCaseCategoryField(r),
       },
       {
         key: 'risk',
@@ -174,8 +301,8 @@ export function CaseloadPage() {
       {
         key: 'status',
         header: t('caseload_col_status'),
-        sortValue: (r) => r.caseStatus,
-        render: (r) => r.caseStatus,
+        sortValue: (r) => pickCaseStatusField(r),
+        render: (r) => pickCaseStatusField(r),
       },
       {
         key: 'socialWorker',
@@ -202,18 +329,49 @@ export function CaseloadPage() {
     ],
     [t, canManage]
   )
+
+  const columnDefs = useMemo(() => {
+    if (detailedView) return allColumnDefs
+    return allColumnDefs.filter((c) => {
+      if (c.key === 'actions') return canManage
+      return SIMPLE_COLUMN_KEYS.has(c.key)
+    })
+  }, [allColumnDefs, detailedView, canManage])
+
   const columns = useMemo<ColumnDef<Resident>[]>(() => columnDefs.map(({ key: _, ...col }) => col), [columnDefs])
+
+  /** Apply current filters in the UI to whatever the API returned (covers binding/trim mismatches and over-fetch). */
+  const displayRows = useMemo(() => {
+    return rows.filter((r) => {
+      if (!matchesTextFilter(pickCaseCategoryField(r), caseCategory)) return false
+      if (!matchesTextFilter(pickCaseStatusField(r), caseStatus)) return false
+      if (!matchesTextFilter(r.assignedSocialWorker, socialWorker)) return false
+      if (riskLevel.trim() && !matchesTextFilter(r.currentRiskLevel, riskLevel)) return false
+      if (safehouseId && r.safehouseId !== Number(safehouseId)) return false
+      const q = debouncedSearch.trim()
+      if (q) {
+        const n = q.toLowerCase()
+        if (
+          !r.caseControlNo.toLowerCase().includes(n) &&
+          !r.internalCode.toLowerCase().includes(n)
+        ) {
+          return false
+        }
+      }
+      return true
+    })
+  }, [rows, caseCategory, caseStatus, socialWorker, riskLevel, safehouseId, debouncedSearch])
 
   const sortedRows = useMemo(() => {
     const col = columnDefs.find((c) => c.key === sort.column)
-    if (!col?.sortValue) return [...rows]
+    if (!col?.sortValue) return [...displayRows]
     const mult = sort.direction === 'asc' ? 1 : -1
-    return [...rows].sort((a, b) => {
+    return [...displayRows].sort((a, b) => {
       const va = col.sortValue!(a)
       const vb = col.sortValue!(b)
       return compareSortValues(va, vb) * mult
     })
-  }, [rows, sort.column, sort.direction, columnDefs])
+  }, [displayRows, sort.column, sort.direction, columnDefs])
 
   const handleSortColumn = useCallback(
     (header: string) => {
@@ -229,6 +387,46 @@ export function CaseloadPage() {
     [columnDefs]
   )
   const activeSortHeader = columnDefs.find((c) => c.key === sort.column)?.header ?? null
+
+  /** Distinct values from the API only. Do not merge filtered `rows` — after a filter applies, rows only match that filter and would shrink the dropdown. */
+  const socialWorkerChoices = useMemo(() => {
+    const byKey = new Map<string, string>()
+    const add = (value: string) => {
+      const trimmed = value.trim()
+      if (!trimmed) return
+      const key = trimmed.toLowerCase()
+      if (!byKey.has(key)) byKey.set(key, trimmed)
+    }
+    for (const n of socialWorkerOptions) add(n)
+    if (socialWorker) add(socialWorker)
+    return [...byKey.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+  }, [socialWorkerOptions, socialWorker])
+
+  const categoryChoices = useMemo(() => {
+    const byKey = new Map<string, string>()
+    const add = (value: string) => {
+      const trimmed = value.trim()
+      if (!trimmed) return
+      const key = trimmed.toLowerCase()
+      if (!byKey.has(key)) byKey.set(key, trimmed)
+    }
+    for (const c of categoryOptions) add(c)
+    if (caseCategory) add(caseCategory)
+    return [...byKey.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+  }, [categoryOptions, caseCategory])
+
+  const statusChoices = useMemo(() => {
+    const byKey = new Map<string, string>()
+    const add = (value: string) => {
+      const trimmed = value.trim()
+      if (!trimmed) return
+      const key = trimmed.toLowerCase()
+      if (!byKey.has(key)) byKey.set(key, trimmed)
+    }
+    for (const s of statusOptions) add(s)
+    if (caseStatus) add(caseStatus)
+    return [...byKey.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+  }, [statusOptions, caseStatus])
 
   return (
     <div className="min-h-full text-surface-dark">
@@ -247,45 +445,39 @@ export function CaseloadPage() {
         </div>
 
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">
-          <div className="grid gap-3 md:grid-cols-4">
-            <select
-              value={safehouseId}
-              onChange={(e) => {
-                setSafehouseId(e.target.value)
-              }}
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text"
-            >
-              <option value="">{t('caseload_all_safehouses')}</option>
-              {safehouses.map((s) => (
-                <option key={s.safehouseId} value={String(s.safehouseId)}>
-                  {s.name}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={caseStatus}
-              onChange={(e) => {
-                setCaseStatus(e.target.value)
-              }}
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            >
-              <option value="">{t('caseload_filter_case_status')}</option>
-              {CASE_STATUS_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
+          <div
+            className={
+              detailedView
+                ? 'grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6'
+                : 'grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+            }
+          >
+            {detailedView ? (
+              <select
+                value={safehouseId}
+                onChange={(e) => {
+                  setSafehouseId(e.target.value)
+                }}
+                className={filterControlClass}
+              >
+                <option value="">{t('caseload_all_safehouses')}</option>
+                {safehouses.map((s) => (
+                  <option key={s.safehouseId} value={String(s.safehouseId)}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            ) : null}
             <select
               value={caseCategory}
               onChange={(e) => {
                 setCaseCategory(e.target.value)
               }}
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
+              className={filterControlClass}
+              aria-label={t('caseload_filter_case_category')}
             >
-              <option value="">{t('caseload_filter_case_category')}</option>
-              {CASE_CATEGORY_OPTIONS.map((opt) => (
+              <option value="">{t('caseload_all_categories')}</option>
+              {categoryChoices.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
                 </option>
@@ -296,7 +488,7 @@ export function CaseloadPage() {
               onChange={(e) => {
                 setRiskLevel(e.target.value)
               }}
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
+              className={filterControlClass}
             >
               <option value="">{t('caseload_filter_risk_level')}</option>
               {RISK_LEVEL_OPTIONS.map((opt) => (
@@ -305,8 +497,67 @@ export function CaseloadPage() {
                 </option>
               ))}
             </select>
+            {detailedView ? (
+              <select
+                value={caseStatus}
+                onChange={(e) => {
+                  setCaseStatus(e.target.value)
+                }}
+                className={filterControlClass}
+                aria-label={t('caseload_filter_case_status')}
+              >
+                <option value="">{t('caseload_all_statuses')}</option>
+                {statusChoices.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            ) : null}
+            <select
+              value={socialWorker}
+              onChange={(e) => {
+                setSocialWorker(e.target.value)
+              }}
+              className={filterControlClass}
+            >
+              <option value="">{t('caseload_all_social_workers')}</option>
+              {socialWorkerChoices.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder={t('caseload_search_name_case')}
+              aria-label={t('caseload_search_name_case')}
+              className={filterControlClass}
+            />
           </div>
         </section>
+
+        <div className="mt-4 flex justify-end">
+          {detailedView ? (
+            <button
+              type="button"
+              onClick={() => setDetailedView(false)}
+              className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
+            >
+              {t('caseload_simple_view')}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setDetailedView(true)}
+              className="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-surface hover:bg-brand-dark"
+            >
+              {t('caseload_detailed_view')}
+            </button>
+          )}
+        </div>
 
         <section className="mt-4">
           {error ? (

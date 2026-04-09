@@ -37,6 +37,7 @@ public class ResidentsController : ControllerBase
         [FromQuery] int? safehouseId = null,
         [FromQuery] string? caseCategory = null,
         [FromQuery] string? riskLevel = null,
+        [FromQuery] string? assignedSocialWorker = null,
         [FromQuery] string? search = null
     )
     {
@@ -46,24 +47,35 @@ public class ResidentsController : ControllerBase
         var q = _db.Residents.AsNoTracking().Include(r => r.Safehouse).AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(caseStatus))
-            q = q.Where(r => r.CaseStatus == caseStatus);
+        {
+            var st = caseStatus.Trim();
+            q = q.Where(r => r.CaseStatus == st);
+        }
 
         if (safehouseId.HasValue)
             q = q.Where(r => r.SafehouseId == safehouseId.Value);
 
         if (!string.IsNullOrWhiteSpace(caseCategory))
-            q = q.Where(r => r.CaseCategory == caseCategory);
+        {
+            var cat = caseCategory.Trim();
+            q = q.Where(r => r.CaseCategory == cat);
+        }
 
         if (!string.IsNullOrWhiteSpace(riskLevel))
             q = q.Where(r => r.CurrentRiskLevel == riskLevel);
+
+        if (!string.IsNullOrWhiteSpace(assignedSocialWorker))
+        {
+            var sw = assignedSocialWorker.Trim();
+            q = q.Where(r => r.AssignedSocialWorker == sw);
+        }
 
         if (!string.IsNullOrWhiteSpace(search))
         {
             var s = search.Trim();
             q = q.Where(r =>
                 r.CaseControlNo.Contains(s) ||
-                r.InternalCode.Contains(s) ||
-                r.AssignedSocialWorker.Contains(s));
+                r.InternalCode.Contains(s));
         }
 
         var total = await q.CountAsync();
@@ -73,6 +85,69 @@ public class ResidentsController : ControllerBase
             .ToListAsync();
 
         return Ok(new PagedResult<Resident>(items, page, pageSize, total));
+    }
+
+    /// <summary>All distinct assigned social worker names (trimmed), from every resident record.</summary>
+    [HttpGet("social-workers")]
+    public async Task<ActionResult<List<string>>> GetDistinctSocialWorkers()
+    {
+        var raw = await _db.Residents.AsNoTracking()
+            .Select(r => r.AssignedSocialWorker)
+            .ToListAsync();
+
+        var names = raw
+            .Select(s => s?.Trim() ?? "")
+            .Where(s => s.Length > 0)
+            .GroupBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.OrderBy(x => x, StringComparer.Ordinal).First())
+            .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        return Ok(names);
+    }
+
+    private async Task<List<string>> LoadDistinctCaseCategoriesAsync()
+    {
+        var raw = await _db.Residents.AsNoTracking()
+            .Select(r => r.CaseCategory)
+            .ToListAsync();
+
+        return raw
+            .Select(s => s?.Trim() ?? "")
+            .Where(s => s.Length > 0)
+            .GroupBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.OrderBy(x => x, StringComparer.Ordinal).First())
+            .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+    }
+
+    /// <summary>All distinct case categories (trimmed), from every resident record.</summary>
+    [HttpGet("case-categories")]
+    public async Task<ActionResult<List<string>>> GetDistinctCaseCategories() =>
+        Ok(await LoadDistinctCaseCategoriesAsync());
+
+    /// <summary>Alias for clients/proxies where the longer route misbehaves.</summary>
+    [HttpGet("categories")]
+    public async Task<ActionResult<List<string>>> GetDistinctCaseCategoriesAlias() =>
+        Ok(await LoadDistinctCaseCategoriesAsync());
+
+    /// <summary>All distinct case statuses (trimmed), from every resident record.</summary>
+    [HttpGet("case-statuses")]
+    public async Task<ActionResult<List<string>>> GetDistinctCaseStatuses()
+    {
+        var raw = await _db.Residents.AsNoTracking()
+            .Select(r => r.CaseStatus)
+            .ToListAsync();
+
+        var statuses = raw
+            .Select(s => s?.Trim() ?? "")
+            .Where(s => s.Length > 0)
+            .GroupBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .Select(g => g.OrderBy(x => x, StringComparer.Ordinal).First())
+            .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        return Ok(statuses);
     }
 
     [HttpGet("{id:int}")]
