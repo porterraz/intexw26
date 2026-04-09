@@ -32,6 +32,8 @@ export function ForgotPasswordPage() {
       setError(t('reset_email_required'))
       return
     }
+    const confirmed = window.confirm('Are you sure you want to request a password reset for this account?')
+    if (!confirmed) return
 
     setLoading(true)
     try {
@@ -65,6 +67,8 @@ export function ForgotPasswordPage() {
       setError(t('reset_password_mismatch'))
       return
     }
+    const confirmed = window.confirm('Are you sure you want to reset this password?')
+    if (!confirmed) return
 
     setLoading(true)
     try {

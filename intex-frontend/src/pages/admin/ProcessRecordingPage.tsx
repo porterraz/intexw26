@@ -50,6 +50,8 @@ export function ProcessRecordingPage() {
       setError('Please provide both date and notes.')
       return
     }
+    const confirmed = window.confirm('Are you sure you want to save this process recording?')
+    if (!confirmed) return
     setSubmitting(true)
     setError(null)
     try {
@@ -186,4 +188,3 @@ export function ProcessRecordingPage() {
     </div>
   )
 }
-

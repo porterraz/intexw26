@@ -52,6 +52,8 @@ export function DonatePage() {
       setFormError(t('donate_amount_error'))
       return
     }
+    const confirmed = window.confirm(`Are you sure you want to submit a donation of ${formatUsd(parsedAmount, i18n.resolvedLanguage)} to Nova Path?`)
+    if (!confirmed) return
 
     setSubmitting(true)
     try {

@@ -61,6 +61,11 @@ export function MfaSetupPage() {
     setSaving(true)
     try {
       if (user) {
+        const confirmed = window.confirm('Are you sure you want to enable MFA for this account?')
+        if (!confirmed) {
+          setSaving(false)
+          return
+        }
         await enableMfa(code.trim())
         setSuccess('MFA is now enabled for your account.')
       } else {

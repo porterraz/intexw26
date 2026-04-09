@@ -227,6 +227,11 @@ export function LoginPage() {
       }
 
       if (mode === "signup") {
+        const confirmed = window.confirm("Are you sure you want to create this account?");
+        if (!confirmed) {
+          setLoading(false);
+          return;
+        }
         const user = await signup(email, password);
         const target = consumePostLoginRedirect() ?? defaultRouteForRoles(user.roles);
         navigate(target, { replace: true });

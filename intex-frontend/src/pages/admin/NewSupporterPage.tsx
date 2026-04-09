@@ -63,6 +63,8 @@ export function NewSupporterPage() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault()
     setError(null)
+    const confirmed = window.confirm('Are you sure you want to create this supporter record?')
+    if (!confirmed) return
     setSaving(true)
     try {
       const payload = {
@@ -228,4 +230,3 @@ export function NewSupporterPage() {
     </div>
   )
 }
-

@@ -57,6 +57,8 @@ export function VisitationPage() {
       setError(`Please provide both date and ${entryType === 'Case Conference' ? 'conference notes' : 'assessment'}.`)
       return
     }
+    const confirmed = window.confirm(`Are you sure you want to save this ${entryType === 'Case Conference' ? 'case conference' : 'visitation'} entry?`)
+    if (!confirmed) return
 
     setSubmitting(true)
     setError(null)

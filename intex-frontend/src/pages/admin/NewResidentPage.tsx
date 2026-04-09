@@ -83,6 +83,8 @@ export function NewResidentPage() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault()
     setError(null)
+    const confirmed = window.confirm('Are you sure you want to create this resident record?')
+    if (!confirmed) return
     setSaving(true)
 
     try {
