@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { useTranslation } from 'react-i18next'
 import { NavBar } from '../../components/NavBar'
@@ -76,17 +75,6 @@ export default function AdminDashboardPage() {
           <div>
             <h1 className="text-2xl font-bold text-surface-dark">{t('admin_dashboard_title')}</h1>
             <p className="text-sm text-surface-text">{t('admin_dashboard_subtitle')}</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Link to="/admin/donations" className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold hover:bg-brand-50">
-              {t('admin_donations')}
-            </Link>
-            <Link to="/admin/reports" className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold hover:bg-brand-50">
-              {t('admin_reports')}
-            </Link>
-            <Link to="/admin/residents" className="rounded-md border border-brand-100 px-3 py-2 text-sm font-semibold hover:bg-brand-50">
-              {t('admin_caseload')}
-            </Link>
           </div>
         </div>
 
