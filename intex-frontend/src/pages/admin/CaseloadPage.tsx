@@ -25,6 +25,9 @@ type Resident = {
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 type CaseloadSortKey = 'caseNo' | 'name' | 'safehouse' | 'category' | 'risk' | 'status' | 'socialWorker' | 'actions'
+const CASE_STATUS_OPTIONS = ['Open', 'In Progress', 'Closed', 'On Hold']
+const CASE_CATEGORY_OPTIONS = ['Protection', 'At Risk', 'OSAEC', 'Trafficking', 'Abuse']
+const RISK_LEVEL_OPTIONS = ['Low', 'Moderate', 'High', 'Critical']
 
 function getRiskLevelTextClass(riskLevel: string) {
   const normalized = riskLevel.trim().toLowerCase()
@@ -57,7 +60,6 @@ export function CaseloadPage() {
   const [caseStatus, setCaseStatus] = useState<string>('')
   const [caseCategory, setCaseCategory] = useState<string>('')
   const [riskLevel, setRiskLevel] = useState<string>('')
-  const [search, setSearch] = useState<string>('')
   const [sort, setSort] = useState<{ column: CaseloadSortKey; direction: 'asc' | 'desc' }>({
     column: 'name',
     direction: 'asc',
@@ -89,7 +91,6 @@ export function CaseloadPage() {
         if (safehouseId) params.safehouseId = Number(safehouseId)
         if (caseCategory) params.caseCategory = caseCategory
         if (riskLevel) params.riskLevel = riskLevel
-        if (search) params.search = search
 
         const fetchPageSize = 100
         const allRows: Resident[] = []
@@ -128,7 +129,7 @@ export function CaseloadPage() {
     return () => {
       cancelled = true
     }
-  }, [caseStatus, safehouseId, caseCategory, riskLevel, search])
+  }, [caseStatus, safehouseId, caseCategory, riskLevel])
 
   const columnDefs = useMemo<Array<{ key: CaseloadSortKey } & ColumnDef<Resident>>>(
     () => [
@@ -246,7 +247,7 @@ export function CaseloadPage() {
         </div>
 
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">
-          <div className="grid gap-3 md:grid-cols-5">
+          <div className="grid gap-3 md:grid-cols-4">
             <select
               value={safehouseId}
               onChange={(e) => {
@@ -262,38 +263,48 @@ export function CaseloadPage() {
               ))}
             </select>
 
-            <input
+            <select
               value={caseStatus}
               onChange={(e) => {
                 setCaseStatus(e.target.value)
               }}
-              placeholder={t('caseload_filter_case_status')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
-            <input
+            >
+              <option value="">{t('caseload_filter_case_status')}</option>
+              {CASE_STATUS_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <select
               value={caseCategory}
               onChange={(e) => {
                 setCaseCategory(e.target.value)
               }}
-              placeholder={t('caseload_filter_case_category')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
-            <input
+            >
+              <option value="">{t('caseload_filter_case_category')}</option>
+              {CASE_CATEGORY_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <select
               value={riskLevel}
               onChange={(e) => {
                 setRiskLevel(e.target.value)
               }}
-              placeholder={t('caseload_filter_risk_level')}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
-            <input
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value)
-              }}
-              placeholder={t('common_search')}
-              className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm text-surface-text placeholder:text-surface-text"
-            />
+            >
+              <option value="">{t('caseload_filter_risk_level')}</option>
+              {RISK_LEVEL_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
           </div>
         </section>
 

@@ -110,10 +110,6 @@ export function SocialMediaPage() {
       <NavBar />
       <main className="mx-auto max-w-6xl px-4 py-6">
         <h1 className="text-2xl font-bold text-surface-dark">{t('social_media_title')}</h1>
-        <p className="mt-2 max-w-3xl text-sm text-surface-text">
-          {t('social_media_subtitle_prefix')}{' '}
-          <code className="rounded bg-brand-50 px-1 text-xs">GET /api/social-media/ml-dashboard</code>.
-        </p>
 
         {error ? (
           <div className="mt-6">
