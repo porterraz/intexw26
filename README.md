@@ -33,6 +33,10 @@ The project uses models such as Random Forest classification and K-Means cluster
 - **Risk assessment:** Flags residents who may need intervention using predictive signals.
 - **Documentation:** Methodology and validation are in `ML_Pipeline/IS455_Master_Models.ipynb` and related notebooks in `ML_Pipeline/`.
 
+## IS 455: Machine Learning Deployment Architecture
+
+Per Professor Mark Keith’s Slack approval on April 8th, our production application is **deliberately decoupled** from a live Python ML runtime. That design keeps latency and hosting cost predictable on our current Azure tier by avoiding an always-on Python inference service or heavy ML dependencies in the web tier. Instead, training and scoring run **offline in Jupyter notebooks** in `ML_Pipeline/`; the resulting predictions are exported as a versioned JSON artifact, **`resident_recommendations.json`**, which ships with the .NET API and is read at request time. The C# backend does **not** load a `.pkl` or `.joblib` model into memory for online inference—it serves **pre-computed scores** from that JSON file—while the notebooks remain the source of truth for model training and reproducibility.
+
 ## Security and infrastructure (IS 414)
 
 - **Secrets:** JWT secrets, database connection strings, and seed passwords are configured via environment variables (e.g. Azure App Settings), not committed to the repo.
