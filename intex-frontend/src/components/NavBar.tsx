@@ -22,6 +22,7 @@ export function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const isAdmin = user?.roles?.includes('Admin') ?? false
   const isDonor = user?.roles?.includes('Donor') ?? false
+  const viewLabel = isAdmin ? t('nav_admin_view') : isDonor ? t('nav_donor_view') : t('nav_user_view')
   const homePath = isDonor && !isAdmin ? '/donor/dashboard' : '/admin'
   const currentLanguage = i18nInstance.resolvedLanguage ?? 'en'
   const isPortuguese = isPortugueseLanguage(currentLanguage)
@@ -87,6 +88,9 @@ export function NavBar() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <span className="hidden rounded-full border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand md:inline-flex">
+              {viewLabel}
+            </span>
             <button
               type="button"
               onClick={() => void i18nInstance.changeLanguage(nextLanguage)}
@@ -132,6 +136,9 @@ export function NavBar() {
             id="mobile-nav-menu"
             className="absolute right-0 top-0 z-[101] h-full w-72 max-w-[85vw] overflow-y-auto border-l border-brand-100 bg-white p-4 shadow-xl"
           >
+            <div className="mb-2 inline-flex rounded-full border border-brand-100 bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand">
+              {viewLabel}
+            </div>
             <div className="mb-4 text-sm text-surface-text">{user?.email}</div>
             <nav className="flex flex-col gap-2">
               {isDonor && !isAdmin ? (
