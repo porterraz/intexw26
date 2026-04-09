@@ -9,7 +9,7 @@ import { formatDate } from '../../lib/locale'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
-import { useAuth } from '../../state/AuthContext'
+import { useAuth } from '../../state/useAuth'
 
 type Supporter = {
   supporterId: number

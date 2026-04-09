@@ -5,7 +5,7 @@ import { ErrorMessage } from '../../components/ErrorMessage'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
-import { useAuth } from '../../state/AuthContext'
+import { useAuth } from '../../state/useAuth'
 
 type Donation = {
   donationId: number

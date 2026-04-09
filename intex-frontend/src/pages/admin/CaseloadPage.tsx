@@ -8,7 +8,7 @@ import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
 import { compareSortValues } from '../../lib/tableSort'
-import { useAuth } from '../../state/AuthContext'
+import { useAuth } from '../../state/useAuth'
 
 type Safehouse = { safehouseId: number; name: string }
 type Resident = {
