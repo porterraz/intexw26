@@ -153,6 +153,24 @@ app.UseCors("Frontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/api/ping", () =>
+{
+    return Results.Ok(new { ok = true, utc = DateTime.UtcNow });
+});
+
+app.MapGet("/api/ping-db", async (ApplicationDbContext db) =>
+{
+    try
+    {
+        var canConnect = await db.Database.CanConnectAsync();
+        return Results.Ok(new { ok = canConnect });
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(title: "DB connectivity error", detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+    }
+});
+
 app.MapControllers();
 
 if (app.Environment.IsDevelopment())
