@@ -56,6 +56,18 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddScoped<JwtTokenService>();
 
 var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>() ?? new JwtOptions();
+if (string.IsNullOrWhiteSpace(jwt.Secret))
+{
+    jwt.Secret = "NovaPathProdFallbackJwtSecret_ChangeInAppSettings_2026";
+}
+if (string.IsNullOrWhiteSpace(jwt.Issuer))
+{
+    jwt.Issuer = "IntexBackend";
+}
+if (string.IsNullOrWhiteSpace(jwt.Audience))
+{
+    jwt.Audience = "IntexFrontend";
+}
 var hasIssuer = !string.IsNullOrWhiteSpace(jwt.Issuer);
 var hasAudience = !string.IsNullOrWhiteSpace(jwt.Audience);
 builder.Services
