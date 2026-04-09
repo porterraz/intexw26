@@ -2,8 +2,8 @@ import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react
 import { AnimatePresence, motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import i18n from "../i18n";
 import { api } from "../lib/api";
+import { formatCompactUsd, getNumberLocale, isPortugueseLanguage } from "../lib/locale";
 import { useAuth } from "../state/AuthContext";
 import brazil1 from "../assets/brazil1.png";
 import brazil2 from "../assets/brazil2.png";
@@ -49,14 +49,12 @@ async function fetchImpactSnapshot(): Promise<PublicImpactSnapshot> {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-function formatStatValue(value: number, index: number, locale: string): string {
+function formatStatValue(value: number, index: number, language: string): string {
   const v = Number.isFinite(value) ? value : 0;
   if (index === 2) {
-    if (v >= 1_000_000) return (v / 1_000_000).toFixed(2) + "M";
-    if (v >= 1_000) return (v / 1_000).toFixed(2) + "K";
-    return v.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return formatCompactUsd(v, language);
   }
-  return v.toLocaleString(locale);
+  return v.toLocaleString(getNumberLocale(language));
 }
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -64,14 +62,12 @@ function formatStatValue(value: number, index: number, locale: string): string {
 function AnimatedNumber({
   target,
   index,
-  locale,
-  prefix = "",
+  language,
   suffix = "",
 }: {
   target: number;
   index: number;
-  locale: string;
-  prefix?: string;
+  language: string;
   suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -96,9 +92,8 @@ function AnimatedNumber({
   }, [inView, target]);
 
   return (
-    <span ref={ref} aria-label={`${prefix}${target}${suffix}`}>
-      {prefix}
-      {formatStatValue(displayed, index, locale)}
+    <span ref={ref} aria-label={`${formatStatValue(target, index, language)}${suffix}`}>
+      {formatStatValue(displayed, index, language)}
       {suffix}
     </span>
   );
@@ -211,11 +206,9 @@ export default function HomePage() {
   const heroSlides = [brazil1, brazil2, brazil3, brazil5];
   const [activeSlide, setActiveSlide] = useState(0);
   const currentLanguage = i18nInstance.resolvedLanguage ?? "en";
-  const nextLanguage = currentLanguage.toLowerCase().startsWith("pt") ? "en" : "pt";
-  const languageToggleLabel = currentLanguage.toLowerCase().startsWith("pt")
-    ? "Switch to English"
-    : "Mudar para portugues";
-  const numberLocale = currentLanguage.toLowerCase().startsWith("pt") ? "pt-BR" : "en-US";
+  const isPortuguese = isPortugueseLanguage(currentLanguage);
+  const nextLanguage = isPortuguese ? "en" : "pt";
+  const languageToggleLabel = isPortuguese ? t("language_switch_to_english") : t("language_switch_to_portuguese");
   const isAdmin = user?.roles?.includes("Admin") ?? false;
   const dashboardPath = isAdmin ? "/admin" : "/donor/dashboard";
   const donatePath = token ? "/donate" : "/login?next=%2Fdonate";
@@ -235,7 +228,7 @@ export default function HomePage() {
       stats: [
         { label: t("impact_safehouses"), suffix: "" },
         { label: t("impact_residents"), suffix: "+" },
-        { label: t("impact_donations"), suffix: "", prefix: "$" },
+        { label: t("impact_donations"), suffix: "" },
       ],
     },
     pillars: [
@@ -262,6 +255,9 @@ export default function HomePage() {
       navLogin: t("nav_login"),
       navImpact: t("nav_impact"),
       navPrivacy: t("nav_privacy"),
+      navDashboard: t("nav_dashboard"),
+      navDonate: t("nav_donate"),
+      navLogout: t("nav_logout"),
       whatWeDo: t("section_what_we_do"),
       threePillars: t("section_three_pillars"),
       oneMission: t("section_one_mission"),
@@ -269,6 +265,13 @@ export default function HomePage() {
       footer: t("footer_copyright"),
       systems: t("footer_systems"),
       scroll: t("scroll_hint"),
+      logoHomeAria: t("home_logo_home_aria"),
+      heroAria: t("home_hero_aria"),
+      donateAria: t("home_donate_aria"),
+      carouselAria: t("home_carousel_aria"),
+      slideTabListAria: t("home_slide_tablist_aria"),
+      impactStatsAria: t("home_impact_stats_aria"),
+      corePillarsAria: t("home_core_pillars_aria"),
     },
   };
 
@@ -318,7 +321,7 @@ export default function HomePage() {
             <Link
               to="/"
               className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-surface-dark"
-              aria-label="Nova Path — go to homepage"
+              aria-label={content.section.logoHomeAria}
             >
               <span
                 aria-hidden="true"
@@ -352,20 +355,20 @@ export default function HomePage() {
                   to={dashboardPath}
                   className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
                 >
-                  Dashboard
+                  {content.section.navDashboard}
                 </Link>
                 <Link
                   to="/donate"
                   className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
                 >
-                  Donate
+                  {content.section.navDonate}
                 </Link>
                 <button
                   type="button"
                   onClick={logout}
                   className="inline-flex items-center rounded-full border border-brand-100 px-3 py-1.5 text-xs font-medium text-surface-text hover:bg-brand-50 hover:text-surface-dark transition-colors"
                 >
-                  Logout
+                  {content.section.navLogout}
                 </button>
               </>
             ) : (
@@ -381,7 +384,7 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               type="button"
-              onClick={() => void i18n.changeLanguage(nextLanguage)}
+              onClick={() => void i18nInstance.changeLanguage(nextLanguage)}
               className="inline-flex items-center gap-2 bg-surface hover:bg-brand-50 border border-brand-100 rounded-full px-4 py-1.5 text-sm font-medium text-surface-text transition-colors focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none"
               aria-label={languageToggleLabel}
               title={languageToggleLabel}
@@ -398,7 +401,7 @@ export default function HomePage() {
 
       {/* ══════════════════════════════ HERO ══════════════════════════════════ */}
       <section
-        aria-label="Hero"
+        aria-label={content.section.heroAria}
         className="relative min-h-[min(100dvh,56rem)] flex flex-col justify-center px-6 pt-28 pb-16 sm:pb-20 overflow-hidden"
       >
         <motion.div
@@ -475,7 +478,7 @@ export default function HomePage() {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-base font-medium text-surface-dark shadow-sm transition-colors hover:border-emerald-300 hover:bg-emerald-50/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
-              aria-label="Donate Now to Nova Path"
+              aria-label={content.section.donateAria}
             >
               <Link to={donatePath} className="inline-flex items-center gap-2">
                 <span>{content.hero.cta}</span>
@@ -507,7 +510,7 @@ export default function HomePage() {
               <div
                 role="region"
                 aria-roledescription="carousel"
-                aria-label="Brazil outreach"
+                aria-label={content.section.carouselAria}
                 className="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-lg shadow-slate-900/5"
               >
                 <div className="relative aspect-[4/3] sm:aspect-[16/10] bg-brand-50">
@@ -526,7 +529,7 @@ export default function HomePage() {
                   </AnimatePresence>
                 </div>
               </div>
-              <div className="mt-4 flex items-center justify-center gap-2" role="tablist" aria-label="Slide selection">
+              <div className="mt-4 flex items-center justify-center gap-2" role="tablist" aria-label={content.section.slideTabListAria}>
                 {heroSlides.map((_, index) => (
                   <button
                     key={`slide-dot-${index}`}
@@ -537,7 +540,7 @@ export default function HomePage() {
                     className={`h-2 rounded-full transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-offset-2 ${
                       activeSlide === index ? "w-8 bg-accent" : "w-2 bg-surface-text/35 hover:bg-surface-text/55"
                     }`}
-                    aria-label={`Slide ${index + 1} of ${heroSlides.length}`}
+                    aria-label={t("home_slide_aria", { current: index + 1, total: heroSlides.length })}
                   />
                 ))}
               </div>
@@ -551,7 +554,7 @@ export default function HomePage() {
       <section
         id="donate"
         ref={impactRef}
-        aria-label="Impact Statistics"
+        aria-label={content.section.impactStatsAria}
         className="relative bg-surface px-6 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-5xl">
@@ -583,8 +586,7 @@ export default function HomePage() {
                     <AnimatedNumber
                       target={statValues[i]}
                       index={i}
-                      locale={numberLocale}
-                      prefix={stat.prefix}
+                      language={currentLanguage}
                       suffix={stat.suffix}
                     />
                   ) : (
@@ -602,7 +604,7 @@ export default function HomePage() {
       <section
         id="about"
         ref={pillarsRef}
-        aria-label="Core Pillars"
+        aria-label={content.section.corePillarsAria}
         className="px-6 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl">

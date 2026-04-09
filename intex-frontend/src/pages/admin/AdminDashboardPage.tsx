@@ -7,6 +7,7 @@ import { MetricCard } from '../../components/MetricCard'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { api } from '../../lib/api'
+import { formatDateTime, formatUsd } from '../../lib/locale'
 
 interface DashboardSummary {
   activeResidents: number
@@ -24,12 +25,8 @@ interface DashboardSummary {
   }>
 }
 
-function formatCurrency(value: number): string {
-  return value.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
-}
-
 export default function AdminDashboardPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -99,7 +96,7 @@ export default function AdminDashboardPage() {
             <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <MetricCard label={t('admin_active_residents')} value={summary.activeResidents} />
               <MetricCard label={t('admin_at_risk_residents')} value={summary.atRiskResidents} />
-              <MetricCard label={t('admin_donations_this_month')} value={formatCurrency(summary.donationsThisMonth)} />
+              <MetricCard label={t('admin_donations_this_month')} value={formatUsd(summary.donationsThisMonth, i18n.resolvedLanguage, 0)} />
               <MetricCard label={t('admin_upcoming_conferences')} value={summary.upcomingCaseConferences} />
             </section>
 
@@ -117,7 +114,9 @@ export default function AdminDashboardPage() {
                       <YAxis axisLine={false} tickLine={false} />
                       <Tooltip
                         cursor={{ fill: '#f8fafc' }}
-                        formatter={(value: unknown) => formatCurrency(Number(Array.isArray(value) ? value[0] : value || 0))}
+                        formatter={(value: unknown) =>
+                          formatUsd(Number(Array.isArray(value) ? value[0] : value || 0), i18n.resolvedLanguage, 0)
+                        }
                         contentStyle={{ borderRadius: '8px', border: '1px solid #e2e8f0' }}
                       />
                       <Bar dataKey="amount" fill="#0f172a" radius={[4, 4, 0, 0]} />
@@ -134,7 +133,7 @@ export default function AdminDashboardPage() {
                       <div key={idx} className="rounded-lg border border-slate-100 bg-slate-50 p-3">
                         <div className="text-[11px] font-semibold uppercase tracking-wide text-brand">{item.type}</div>
                         <p className="mt-1 text-sm text-surface-dark">{item.message}</p>
-                        <div className="mt-1 text-xs text-surface-text">{new Date(item.timestamp).toLocaleString()}</div>
+                        <div className="mt-1 text-xs text-surface-text">{formatDateTime(item.timestamp, i18n.resolvedLanguage)}</div>
                       </div>
                     ))
                   ) : (

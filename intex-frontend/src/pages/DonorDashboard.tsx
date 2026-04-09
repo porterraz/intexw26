@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CalendarIcon, HeartIcon, TrendingUpIcon } from 'lucide-react'
 import { createMyDonation, getMyDonations, getPublicImpactSnapshot, type Donation } from '../lib/api'
+import { formatDate, formatUsd } from '../lib/locale'
 import { useAuth } from '../state/AuthContext'
 
 export function DonorDashboard() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { user } = useAuth()
   const [donations, setDonations] = useState<Donation[]>([])
   const [activeSafehouses, setActiveSafehouses] = useState<number>(0)
@@ -121,7 +122,7 @@ export function DonorDashboard() {
           </div>
           <div>
             <p className="text-sm text-surface-text font-medium">{t('donate_lifetime_giving')}</p>
-            <p className="text-2xl font-bold text-surface-dark">${lifetimeGiving.toFixed(2)}</p>
+            <p className="text-2xl font-bold text-surface-dark">{formatUsd(lifetimeGiving, i18n.resolvedLanguage)}</p>
           </div>
         </div>
         <div className="bg-surface border border-slate-200 p-6 rounded-xl shadow-sm flex items-center space-x-4">
@@ -174,9 +175,9 @@ export function DonorDashboard() {
               )}
               {donations.map((d) => (
                 <tr key={d.donationId} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-4 text-surface-text">{new Date(d.donationDate).toLocaleDateString()}</td>
+                  <td className="px-6 py-4 text-surface-text">{formatDate(d.donationDate, i18n.resolvedLanguage)}</td>
                   <td className="px-6 py-4 font-medium text-surface-dark">{d.campaignName || d.designation || t('donate_general_fund')}</td>
-                  <td className="px-6 py-4 text-surface-dark font-semibold">${Number(d.amount).toFixed(2)}</td>
+                  <td className="px-6 py-4 text-surface-dark font-semibold">{formatUsd(Number(d.amount), i18n.resolvedLanguage)}</td>
                   <td className="px-6 py-4">
                     <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">
                       {t('donate_completed')}

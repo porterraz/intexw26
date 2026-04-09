@@ -15,6 +15,10 @@ const initialLanguage =
       ? "pt"
       : "en";
 
+function normalizeLanguage(language: string): "pt" | "en" {
+  return language.toLowerCase().startsWith("pt") ? "pt" : "en";
+}
+
 void i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
@@ -28,9 +32,15 @@ void i18n.use(initReactI18next).init({
 });
 
 i18n.on("languageChanged", (lng) => {
+  const normalized = normalizeLanguage(lng);
   if (typeof window !== "undefined") {
-    window.localStorage.setItem("np_language", lng.startsWith("pt") ? "pt" : "en");
+    window.localStorage.setItem("np_language", normalized);
+    document.documentElement.lang = normalized === "pt" ? "pt-BR" : "en";
   }
 });
+
+if (typeof document !== "undefined") {
+  document.documentElement.lang = initialLanguage === "pt" ? "pt-BR" : "en";
+}
 
 export default i18n;
