@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <Content Update="resident_recommendations.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="social_media_insights.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="donor_segments.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
