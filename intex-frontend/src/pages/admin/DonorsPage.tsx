@@ -4,7 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
-import { getAllSegments, type SegmentEntry } from '../../lib/api'
+import { getAllSegments, getAllChurnPredictions, type SegmentEntry, type ChurnEntry } from '../../lib/api'
 import { compareSortValues } from '../../lib/tableSort'
 import { formatDate } from '../../lib/locale'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
@@ -20,14 +20,21 @@ type Supporter = {
   status: string
   firstDonationDate: string | null
 }
-type DonorSortKey = 'displayName' | 'type' | 'country' | 'status' | 'segment' | 'firstDonation' | 'actions'
+type DonorSortKey = 'displayName' | 'type' | 'country' | 'status' | 'segment' | 'churnRisk' | 'firstDonation' | 'actions'
 
 const PERSONA_COLORS: Record<string, string> = {
   Champions: 'bg-green-100 text-green-800 border-green-200',
-  'At-Risk Donors': 'bg-red-100 text-red-800 border-red-200',
-  'New/Occasional Donors': 'bg-amber-100 text-amber-800 border-amber-200',
+  'Steady Supporters': 'bg-blue-100 text-blue-800 border-blue-200',
+  'Light Givers': 'bg-amber-100 text-amber-800 border-amber-200',
 }
 const DEFAULT_PERSONA_COLOR = 'bg-slate-100 text-slate-700 border-slate-200'
+
+const CHURN_COLORS: Record<string, string> = {
+  Low: 'bg-green-100 text-green-800 border-green-200',
+  Medium: 'bg-amber-100 text-amber-800 border-amber-200',
+  High: 'bg-red-100 text-red-800 border-red-200',
+}
+const DEFAULT_CHURN_COLOR = 'bg-slate-100 text-slate-700 border-slate-200'
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 const SUPPORTER_TYPE_OPTIONS = [
@@ -60,6 +67,7 @@ export function DonorsPage() {
   const [status, setStatus] = useState(() => searchParams.get('status') ?? '')
   const [search, setSearch] = useState(() => searchParams.get('search') ?? '')
   const [segments, setSegments] = useState<Record<string, SegmentEntry>>({})
+  const [churnPredictions, setChurnPredictions] = useState<Record<string, ChurnEntry>>({})
   const [sort, setSort] = useState<{ column: DonorSortKey; direction: 'asc' | 'desc' }>({
     column: 'displayName',
     direction: 'asc',
@@ -67,6 +75,7 @@ export function DonorsPage() {
 
   useEffect(() => {
     getAllSegments().then(setSegments)
+    getAllChurnPredictions().then(setChurnPredictions)
   }, [])
 
   useEffect(() => {
@@ -154,6 +163,25 @@ export function DonorsPage() {
         },
       },
       {
+        key: 'churnRisk',
+        header: 'Churn Risk',
+        sortValue: (s) => {
+          const risk = churnPredictions[String(s.supporterId)]?.churnRisk
+          const order: Record<string, number> = { High: 0, Medium: 1, Low: 2 }
+          return risk ? order[risk] ?? 3 : 4
+        },
+        render: (s) => {
+          const risk = churnPredictions[String(s.supporterId)]?.churnRisk
+          if (!risk) return <span className="text-xs text-surface-text">—</span>
+          const color = CHURN_COLORS[risk] ?? DEFAULT_CHURN_COLOR
+          return (
+            <span className={`inline-block rounded-full border px-2 py-0.5 text-xs font-semibold ${color}`}>
+              {risk}
+            </span>
+          )
+        },
+      },
+      {
         key: 'firstDonation',
         header: t('donors_col_first_donation'),
         sortValue: (s) =>
@@ -175,7 +203,7 @@ export function DonorsPage() {
           }]
         : []),
     ],
-    [t, i18n.resolvedLanguage, canManage, segments]
+    [t, i18n.resolvedLanguage, canManage, segments, churnPredictions]
   )
   const columns = useMemo<ColumnDef<Supporter>[]>(() => columnDefs.map(({ key: _, ...col }) => col), [columnDefs])
 

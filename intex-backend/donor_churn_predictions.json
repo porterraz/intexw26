@@ -1,0 +1,6554 @@
+{
+  "1": {
+    "churnProbability": 0.0704,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "2": {
+    "churnProbability": 0.3105,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 337 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "3": {
+    "churnProbability": 0.1856,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 209 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "4": {
+    "churnProbability": 0.095,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "5": {
+    "churnProbability": 0.1994,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 190 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "6": {
+    "churnProbability": 0.1068,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "7": {
+    "churnProbability": 0.0833,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "8": {
+    "churnProbability": 0.1076,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "9": {
+    "churnProbability": 0.0531,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "10": {
+    "churnProbability": 0.122,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "11": {
+    "churnProbability": 0.317,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "12": {
+    "churnProbability": 0.1134,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "13": {
+    "churnProbability": 0.093,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "14": {
+    "churnProbability": 0.269,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 837 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "15": {
+    "churnProbability": 0.2879,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 572 days ago",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "16": {
+    "churnProbability": 0.1709,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "17": {
+    "churnProbability": 0.2194,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 391 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "18": {
+    "churnProbability": 0.0895,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "19": {
+    "churnProbability": 0.1457,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "20": {
+    "churnProbability": 0.2032,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 334 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "21": {
+    "churnProbability": 0.1282,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "22": {
+    "churnProbability": 0.1537,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "23": {
+    "churnProbability": 0.201,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 380 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "24": {
+    "churnProbability": 0.1124,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "25": {
+    "churnProbability": 0.0767,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "26": {
+    "churnProbability": 0.0398,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "27": {
+    "churnProbability": 0.0884,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "28": {
+    "churnProbability": 0.2795,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 9999 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "29": {
+    "churnProbability": 0.1538,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 184 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "30": {
+    "churnProbability": 0.3158,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 255 days ago",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "31": {
+    "churnProbability": 0.0802,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "32": {
+    "churnProbability": 0.0756,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "33": {
+    "churnProbability": 0.212,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 374 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "34": {
+    "churnProbability": 0.143,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 338 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "35": {
+    "churnProbability": 0.1448,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "36": {
+    "churnProbability": 0.2318,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 664 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "37": {
+    "churnProbability": 0.1738,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 453 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "38": {
+    "churnProbability": 0.0762,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "39": {
+    "churnProbability": 0.1684,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 299 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "40": {
+    "churnProbability": 0.3193,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 262 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "41": {
+    "churnProbability": 0.3431,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 442 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "42": {
+    "churnProbability": 0.1305,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "43": {
+    "churnProbability": 0.1117,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "44": {
+    "churnProbability": 0.1569,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "45": {
+    "churnProbability": 0.1616,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "46": {
+    "churnProbability": 0.2224,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 220 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "47": {
+    "churnProbability": 0.1849,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 185 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "48": {
+    "churnProbability": 0.3236,
+    "churnRisk": "High",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "49": {
+    "churnProbability": 0.2966,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "50": {
+    "churnProbability": 0.4353,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 276 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "51": {
+    "churnProbability": 0.21,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "52": {
+    "churnProbability": 0.3093,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 570 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "53": {
+    "churnProbability": 0.4596,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 517 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "54": {
+    "churnProbability": 0.2042,
+    "churnRisk": "High",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "55": {
+    "churnProbability": 0.1814,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 298 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "56": {
+    "churnProbability": 0.3838,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "57": {
+    "churnProbability": 0.3316,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "58": {
+    "churnProbability": 0.3759,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 814 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "59": {
+    "churnProbability": 0.3641,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 190 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "60": {
+    "churnProbability": 0.3649,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 316 days ago",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "61": {
+    "churnProbability": 0.2409,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "62": {
+    "churnProbability": 0.2398,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "63": {
+    "churnProbability": 0.2409,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "64": {
+    "churnProbability": 0.2409,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "65": {
+    "churnProbability": 0.2409,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "66": {
+    "churnProbability": 0.2325,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "67": {
+    "churnProbability": 0.2795,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 9999 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "68": {
+    "churnProbability": 0.2795,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 9999 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "69": {
+    "churnProbability": 0.1194,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "70": {
+    "churnProbability": 0.2409,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "71": {
+    "churnProbability": 0.1898,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 203 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "72": {
+    "churnProbability": 0.143,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "73": {
+    "churnProbability": 0.0928,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "74": {
+    "churnProbability": 0.1199,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "75": {
+    "churnProbability": 0.0327,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "76": {
+    "churnProbability": 0.0182,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "77": {
+    "churnProbability": 0.0824,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "78": {
+    "churnProbability": 0.0669,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "79": {
+    "churnProbability": 0.1865,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 321 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "80": {
+    "churnProbability": 0.0173,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "81": {
+    "churnProbability": 0.0885,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "82": {
+    "churnProbability": 0.2635,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 444 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "83": {
+    "churnProbability": 0.0127,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "84": {
+    "churnProbability": 0.1063,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "85": {
+    "churnProbability": 0.0315,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "86": {
+    "churnProbability": 0.0344,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "87": {
+    "churnProbability": 0.011,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "88": {
+    "churnProbability": 0.2424,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 217 days ago",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "89": {
+    "churnProbability": 0.014,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "90": {
+    "churnProbability": 0.1343,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "91": {
+    "churnProbability": 0.2686,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "92": {
+    "churnProbability": 0.0431,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "93": {
+    "churnProbability": 0.1851,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 221 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "94": {
+    "churnProbability": 0.1943,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "95": {
+    "churnProbability": 0.0803,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "96": {
+    "churnProbability": 0.0569,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "97": {
+    "churnProbability": 0.2767,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 196 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "98": {
+    "churnProbability": 0.0246,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "99": {
+    "churnProbability": 0.0664,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "100": {
+    "churnProbability": 0.3413,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 208 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "101": {
+    "churnProbability": 0.2031,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 333 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "102": {
+    "churnProbability": 0.0591,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "103": {
+    "churnProbability": 0.095,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "104": {
+    "churnProbability": 0.0629,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "105": {
+    "churnProbability": 0.0778,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "106": {
+    "churnProbability": 0.0324,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "107": {
+    "churnProbability": 0.0554,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Last donation was 197 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "108": {
+    "churnProbability": 0.0546,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "109": {
+    "churnProbability": 0.2092,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 250 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "110": {
+    "churnProbability": 0.1984,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "111": {
+    "churnProbability": 0.0096,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "112": {
+    "churnProbability": 0.0436,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "113": {
+    "churnProbability": 0.0611,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "114": {
+    "churnProbability": 0.2544,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 748 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "115": {
+    "churnProbability": 0.1026,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "116": {
+    "churnProbability": 0.1054,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "117": {
+    "churnProbability": 0.1927,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 281 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "118": {
+    "churnProbability": 0.2074,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 216 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "119": {
+    "churnProbability": 0.0219,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "120": {
+    "churnProbability": 0.0585,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "121": {
+    "churnProbability": 0.2548,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "122": {
+    "churnProbability": 0.0982,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "123": {
+    "churnProbability": 0.1379,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "124": {
+    "churnProbability": 0.0302,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "125": {
+    "churnProbability": 0.0123,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "126": {
+    "churnProbability": 0.0687,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "127": {
+    "churnProbability": 0.1457,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 279 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "128": {
+    "churnProbability": 0.3433,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 296 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "129": {
+    "churnProbability": 0.1964,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "130": {
+    "churnProbability": 0.0583,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "131": {
+    "churnProbability": 0.0413,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "132": {
+    "churnProbability": 0.1239,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "133": {
+    "churnProbability": 0.011,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "134": {
+    "churnProbability": 0.0183,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "135": {
+    "churnProbability": 0.0499,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "136": {
+    "churnProbability": 0.3472,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "137": {
+    "churnProbability": 0.1219,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "138": {
+    "churnProbability": 0.0467,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "139": {
+    "churnProbability": 0.1117,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "140": {
+    "churnProbability": 0.3469,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 325 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "141": {
+    "churnProbability": 0.2707,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 732 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "142": {
+    "churnProbability": 0.1855,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "143": {
+    "churnProbability": 0.0329,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "144": {
+    "churnProbability": 0.4733,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 347 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "145": {
+    "churnProbability": 0.1214,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 295 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "146": {
+    "churnProbability": 0.0249,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "147": {
+    "churnProbability": 0.0891,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "148": {
+    "churnProbability": 0.1583,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "149": {
+    "churnProbability": 0.0106,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "150": {
+    "churnProbability": 0.022,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "151": {
+    "churnProbability": 0.2359,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "152": {
+    "churnProbability": 0.0602,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "153": {
+    "churnProbability": 0.0271,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "154": {
+    "churnProbability": 0.0148,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "155": {
+    "churnProbability": 0.0526,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "156": {
+    "churnProbability": 0.0094,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "157": {
+    "churnProbability": 0.1416,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "158": {
+    "churnProbability": 0.0126,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "159": {
+    "churnProbability": 0.1141,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "160": {
+    "churnProbability": 0.1274,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 241 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "161": {
+    "churnProbability": 0.0587,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "162": {
+    "churnProbability": 0.1342,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "163": {
+    "churnProbability": 0.1811,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 398 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "164": {
+    "churnProbability": 0.0391,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "165": {
+    "churnProbability": 0.1765,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "166": {
+    "churnProbability": 0.1489,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "167": {
+    "churnProbability": 0.0661,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "168": {
+    "churnProbability": 0.3674,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 876 days ago",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "169": {
+    "churnProbability": 0.2784,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 197 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "170": {
+    "churnProbability": 0.1439,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "171": {
+    "churnProbability": 0.0739,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "172": {
+    "churnProbability": 0.0502,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "173": {
+    "churnProbability": 0.1451,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 370 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "174": {
+    "churnProbability": 0.4164,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 241 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "175": {
+    "churnProbability": 0.0133,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "176": {
+    "churnProbability": 0.2278,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "177": {
+    "churnProbability": 0.2043,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "178": {
+    "churnProbability": 0.1126,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "179": {
+    "churnProbability": 0.4993,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 202 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "180": {
+    "churnProbability": 0.0393,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "181": {
+    "churnProbability": 0.1033,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "182": {
+    "churnProbability": 0.1577,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 343 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "183": {
+    "churnProbability": 0.0363,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "184": {
+    "churnProbability": 0.0729,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "185": {
+    "churnProbability": 0.313,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 252 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "186": {
+    "churnProbability": 0.0648,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "187": {
+    "churnProbability": 0.1112,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "188": {
+    "churnProbability": 0.0463,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "189": {
+    "churnProbability": 0.0959,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "190": {
+    "churnProbability": 0.0832,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "191": {
+    "churnProbability": 0.0137,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "192": {
+    "churnProbability": 0.1371,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "193": {
+    "churnProbability": 0.0984,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "194": {
+    "churnProbability": 0.089,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "195": {
+    "churnProbability": 0.1128,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "196": {
+    "churnProbability": 0.2132,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "197": {
+    "churnProbability": 0.0151,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "198": {
+    "churnProbability": 0.0605,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "199": {
+    "churnProbability": 0.4528,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 340 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "200": {
+    "churnProbability": 0.0374,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "201": {
+    "churnProbability": 0.0389,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "202": {
+    "churnProbability": 0.2215,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 237 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "203": {
+    "churnProbability": 0.3514,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 266 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "204": {
+    "churnProbability": 0.0667,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 184 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "205": {
+    "churnProbability": 0.0224,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "206": {
+    "churnProbability": 0.2517,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 199 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "207": {
+    "churnProbability": 0.1078,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "208": {
+    "churnProbability": 0.0383,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "209": {
+    "churnProbability": 0.24,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "210": {
+    "churnProbability": 0.2769,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 350 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "211": {
+    "churnProbability": 0.1063,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "212": {
+    "churnProbability": 0.0755,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "213": {
+    "churnProbability": 0.2476,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 452 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "214": {
+    "churnProbability": 0.051,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "215": {
+    "churnProbability": 0.1622,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 331 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "216": {
+    "churnProbability": 0.1415,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "217": {
+    "churnProbability": 0.1449,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "218": {
+    "churnProbability": 0.1703,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 460 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "219": {
+    "churnProbability": 0.3397,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "220": {
+    "churnProbability": 0.0278,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "221": {
+    "churnProbability": 0.066,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "222": {
+    "churnProbability": 0.0174,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "223": {
+    "churnProbability": 0.1371,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 248 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "224": {
+    "churnProbability": 0.1714,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "225": {
+    "churnProbability": 0.1243,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "226": {
+    "churnProbability": 0.1492,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "227": {
+    "churnProbability": 0.0845,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "228": {
+    "churnProbability": 0.1616,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "229": {
+    "churnProbability": 0.0312,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "230": {
+    "churnProbability": 0.3202,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 559 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "231": {
+    "churnProbability": 0.1539,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "232": {
+    "churnProbability": 0.0351,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "233": {
+    "churnProbability": 0.1213,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 424 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "234": {
+    "churnProbability": 0.0182,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "235": {
+    "churnProbability": 0.52,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 209 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "236": {
+    "churnProbability": 0.0153,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "237": {
+    "churnProbability": 0.1099,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "238": {
+    "churnProbability": 0.0495,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "239": {
+    "churnProbability": 0.2563,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 270 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "240": {
+    "churnProbability": 0.0497,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "241": {
+    "churnProbability": 0.0328,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "242": {
+    "churnProbability": 0.1279,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "243": {
+    "churnProbability": 0.0122,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "244": {
+    "churnProbability": 0.0732,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "245": {
+    "churnProbability": 0.206,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 324 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "246": {
+    "churnProbability": 0.0082,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "247": {
+    "churnProbability": 0.5057,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 254 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "248": {
+    "churnProbability": 0.0207,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "249": {
+    "churnProbability": 0.0052,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "250": {
+    "churnProbability": 0.1345,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "251": {
+    "churnProbability": 0.0027,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "252": {
+    "churnProbability": 0.1926,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 283 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "253": {
+    "churnProbability": 0.027,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "254": {
+    "churnProbability": 0.0162,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "255": {
+    "churnProbability": 0.4739,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 530 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "256": {
+    "churnProbability": 0.1139,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "257": {
+    "churnProbability": 0.2566,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "258": {
+    "churnProbability": 0.0216,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "259": {
+    "churnProbability": 0.1066,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "260": {
+    "churnProbability": 0.1398,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "261": {
+    "churnProbability": 0.1559,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "262": {
+    "churnProbability": 0.0873,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "263": {
+    "churnProbability": 0.1318,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "264": {
+    "churnProbability": 0.2458,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 619 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "265": {
+    "churnProbability": 0.2266,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "266": {
+    "churnProbability": 0.1745,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "267": {
+    "churnProbability": 0.0857,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "268": {
+    "churnProbability": 0.2043,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 242 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "269": {
+    "churnProbability": 0.1417,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 338 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "270": {
+    "churnProbability": 0.1324,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "271": {
+    "churnProbability": 0.0156,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "272": {
+    "churnProbability": 0.0078,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "273": {
+    "churnProbability": 0.1136,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 247 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "274": {
+    "churnProbability": 0.3204,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "275": {
+    "churnProbability": 0.0476,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "276": {
+    "churnProbability": 0.0174,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "277": {
+    "churnProbability": 0.0997,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "278": {
+    "churnProbability": 0.009,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "279": {
+    "churnProbability": 0.0628,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "280": {
+    "churnProbability": 0.23,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 492 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "281": {
+    "churnProbability": 0.186,
+    "churnRisk": "High",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "282": {
+    "churnProbability": 0.0893,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 212 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "283": {
+    "churnProbability": 0.115,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "284": {
+    "churnProbability": 0.4236,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 352 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "285": {
+    "churnProbability": 0.1686,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 190 days ago",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "286": {
+    "churnProbability": 0.1561,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "287": {
+    "churnProbability": 0.1906,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 242 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "288": {
+    "churnProbability": 0.0793,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "289": {
+    "churnProbability": 0.3133,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 301 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "290": {
+    "churnProbability": 0.0706,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "291": {
+    "churnProbability": 0.089,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "292": {
+    "churnProbability": 0.1706,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "293": {
+    "churnProbability": 0.013,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "294": {
+    "churnProbability": 0.2482,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "295": {
+    "churnProbability": 0.0243,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "296": {
+    "churnProbability": 0.0445,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "297": {
+    "churnProbability": 0.3785,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 224 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "298": {
+    "churnProbability": 0.396,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 269 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "299": {
+    "churnProbability": 0.1072,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "300": {
+    "churnProbability": 0.1795,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 199 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "301": {
+    "churnProbability": 0.0241,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "302": {
+    "churnProbability": 0.0076,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "303": {
+    "churnProbability": 0.2773,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 247 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "304": {
+    "churnProbability": 0.168,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "305": {
+    "churnProbability": 0.1322,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "306": {
+    "churnProbability": 0.1359,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "307": {
+    "churnProbability": 0.027,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "308": {
+    "churnProbability": 0.0073,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "309": {
+    "churnProbability": 0.3883,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "310": {
+    "churnProbability": 0.1202,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "311": {
+    "churnProbability": 0.0276,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "312": {
+    "churnProbability": 0.013,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "313": {
+    "churnProbability": 0.1803,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "314": {
+    "churnProbability": 0.4401,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 346 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "315": {
+    "churnProbability": 0.0132,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "316": {
+    "churnProbability": 0.3208,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "317": {
+    "churnProbability": 0.0151,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "318": {
+    "churnProbability": 0.2491,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "319": {
+    "churnProbability": 0.1651,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "320": {
+    "churnProbability": 0.0237,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "321": {
+    "churnProbability": 0.0287,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "322": {
+    "churnProbability": 0.0189,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "323": {
+    "churnProbability": 0.0797,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "324": {
+    "churnProbability": 0.4112,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 210 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "325": {
+    "churnProbability": 0.2663,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 816 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "326": {
+    "churnProbability": 0.4058,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "327": {
+    "churnProbability": 0.3407,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 492 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "328": {
+    "churnProbability": 0.0226,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "329": {
+    "churnProbability": 0.2027,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "330": {
+    "churnProbability": 0.0538,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "331": {
+    "churnProbability": 0.425,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "332": {
+    "churnProbability": 0.4139,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 504 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "333": {
+    "churnProbability": 0.0616,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "334": {
+    "churnProbability": 0.0556,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "335": {
+    "churnProbability": 0.0343,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "336": {
+    "churnProbability": 0.0352,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "337": {
+    "churnProbability": 0.3427,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 308 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "338": {
+    "churnProbability": 0.0975,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 198 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "339": {
+    "churnProbability": 0.4412,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 307 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "340": {
+    "churnProbability": 0.288,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 398 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "341": {
+    "churnProbability": 0.2079,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "342": {
+    "churnProbability": 0.1388,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 315 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "343": {
+    "churnProbability": 0.0322,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "344": {
+    "churnProbability": 0.2974,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 228 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "345": {
+    "churnProbability": 0.1423,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 199 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "346": {
+    "churnProbability": 0.0108,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "347": {
+    "churnProbability": 0.1255,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "348": {
+    "churnProbability": 0.0472,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "349": {
+    "churnProbability": 0.3498,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 889 days ago",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "350": {
+    "churnProbability": 0.0827,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "351": {
+    "churnProbability": 0.1442,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "352": {
+    "churnProbability": 0.0164,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "353": {
+    "churnProbability": 0.1019,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "354": {
+    "churnProbability": 0.1277,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "355": {
+    "churnProbability": 0.1444,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "356": {
+    "churnProbability": 0.2979,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "357": {
+    "churnProbability": 0.127,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 275 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "358": {
+    "churnProbability": 0.0309,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "359": {
+    "churnProbability": 0.0587,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "360": {
+    "churnProbability": 0.0253,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "361": {
+    "churnProbability": 0.0982,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "362": {
+    "churnProbability": 0.0947,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "363": {
+    "churnProbability": 0.2738,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 1022 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "364": {
+    "churnProbability": 0.0588,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "365": {
+    "churnProbability": 0.3978,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 885 days ago",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "366": {
+    "churnProbability": 0.0116,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "367": {
+    "churnProbability": 0.1754,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "368": {
+    "churnProbability": 0.3223,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 206 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "369": {
+    "churnProbability": 0.0786,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "370": {
+    "churnProbability": 0.1386,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "371": {
+    "churnProbability": 0.0021,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "372": {
+    "churnProbability": 0.1779,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "373": {
+    "churnProbability": 0.0251,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "374": {
+    "churnProbability": 0.3238,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 373 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "375": {
+    "churnProbability": 0.0251,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "376": {
+    "churnProbability": 0.0505,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "377": {
+    "churnProbability": 0.1243,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "378": {
+    "churnProbability": 0.0983,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "379": {
+    "churnProbability": 0.1986,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 1012 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "380": {
+    "churnProbability": 0.0135,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "381": {
+    "churnProbability": 0.1981,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "382": {
+    "churnProbability": 0.0752,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "383": {
+    "churnProbability": 0.0184,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "384": {
+    "churnProbability": 0.392,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "385": {
+    "churnProbability": 0.5369,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 195 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "386": {
+    "churnProbability": 0.102,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "387": {
+    "churnProbability": 0.034,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "388": {
+    "churnProbability": 0.0143,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "389": {
+    "churnProbability": 0.1353,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "390": {
+    "churnProbability": 0.1346,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 219 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "391": {
+    "churnProbability": 0.3781,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "392": {
+    "churnProbability": 0.0297,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "393": {
+    "churnProbability": 0.2858,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "394": {
+    "churnProbability": 0.2742,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "395": {
+    "churnProbability": 0.0188,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "396": {
+    "churnProbability": 0.1805,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "397": {
+    "churnProbability": 0.0598,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "398": {
+    "churnProbability": 0.0747,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "399": {
+    "churnProbability": 0.0182,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "400": {
+    "churnProbability": 0.0377,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "401": {
+    "churnProbability": 0.0357,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "402": {
+    "churnProbability": 0.0657,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "403": {
+    "churnProbability": 0.1525,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "404": {
+    "churnProbability": 0.0565,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "405": {
+    "churnProbability": 0.21,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "406": {
+    "churnProbability": 0.5313,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 341 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "407": {
+    "churnProbability": 0.3706,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 188 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "408": {
+    "churnProbability": 0.0101,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "409": {
+    "churnProbability": 0.1037,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "410": {
+    "churnProbability": 0.0231,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "411": {
+    "churnProbability": 0.1461,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "412": {
+    "churnProbability": 0.3964,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 712 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "413": {
+    "churnProbability": 0.0512,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "414": {
+    "churnProbability": 0.42,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 203 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "415": {
+    "churnProbability": 0.4582,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 283 days ago",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "416": {
+    "churnProbability": 0.0625,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "417": {
+    "churnProbability": 0.1365,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "418": {
+    "churnProbability": 0.0476,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "419": {
+    "churnProbability": 0.0135,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "420": {
+    "churnProbability": 0.0794,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "421": {
+    "churnProbability": 0.1612,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 313 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "422": {
+    "churnProbability": 0.4097,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 420 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "423": {
+    "churnProbability": 0.1283,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "424": {
+    "churnProbability": 0.1694,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "425": {
+    "churnProbability": 0.1141,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "426": {
+    "churnProbability": 0.2345,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 722 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "427": {
+    "churnProbability": 0.1954,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 334 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "428": {
+    "churnProbability": 0.498,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 205 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "429": {
+    "churnProbability": 0.1298,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 223 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "430": {
+    "churnProbability": 0.4049,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 257 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "431": {
+    "churnProbability": 0.3147,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 232 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "432": {
+    "churnProbability": 0.0439,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "433": {
+    "churnProbability": 0.021,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "434": {
+    "churnProbability": 0.4464,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 345 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "435": {
+    "churnProbability": 0.2048,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 718 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "436": {
+    "churnProbability": 0.2372,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "437": {
+    "churnProbability": 0.0476,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "438": {
+    "churnProbability": 0.0283,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "439": {
+    "churnProbability": 0.0993,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "440": {
+    "churnProbability": 0.1075,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "441": {
+    "churnProbability": 0.2482,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 233 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "442": {
+    "churnProbability": 0.0961,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "443": {
+    "churnProbability": 0.0156,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "444": {
+    "churnProbability": 0.0387,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "445": {
+    "churnProbability": 0.0161,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "446": {
+    "churnProbability": 0.0185,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "447": {
+    "churnProbability": 0.0977,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "448": {
+    "churnProbability": 0.3563,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "449": {
+    "churnProbability": 0.2449,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 669 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "450": {
+    "churnProbability": 0.2254,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "451": {
+    "churnProbability": 0.353,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 267 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "452": {
+    "churnProbability": 0.0752,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "453": {
+    "churnProbability": 0.0388,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "454": {
+    "churnProbability": 0.0892,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "455": {
+    "churnProbability": 0.087,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "456": {
+    "churnProbability": 0.0983,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "457": {
+    "churnProbability": 0.1929,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "458": {
+    "churnProbability": 0.0268,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "459": {
+    "churnProbability": 0.2922,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 354 days ago",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "460": {
+    "churnProbability": 0.4583,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 535 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "461": {
+    "churnProbability": 0.1806,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "462": {
+    "churnProbability": 0.1889,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "463": {
+    "churnProbability": 0.0965,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "464": {
+    "churnProbability": 0.1501,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 364 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "465": {
+    "churnProbability": 0.15,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "466": {
+    "churnProbability": 0.0574,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "467": {
+    "churnProbability": 0.2082,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "468": {
+    "churnProbability": 0.2014,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 410 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "469": {
+    "churnProbability": 0.021,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "470": {
+    "churnProbability": 0.1668,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "471": {
+    "churnProbability": 0.1815,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 286 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "472": {
+    "churnProbability": 0.009,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "473": {
+    "churnProbability": 0.0936,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "474": {
+    "churnProbability": 0.334,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 333 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "475": {
+    "churnProbability": 0.0118,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "476": {
+    "churnProbability": 0.0416,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "477": {
+    "churnProbability": 0.1955,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 760 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "478": {
+    "churnProbability": 0.329,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 390 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "479": {
+    "churnProbability": 0.0527,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "480": {
+    "churnProbability": 0.3792,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 220 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "481": {
+    "churnProbability": 0.1117,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "482": {
+    "churnProbability": 0.1447,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "483": {
+    "churnProbability": 0.067,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "484": {
+    "churnProbability": 0.0345,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "485": {
+    "churnProbability": 0.1795,
+    "churnRisk": "High",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "486": {
+    "churnProbability": 0.4495,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 290 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "487": {
+    "churnProbability": 0.1809,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 231 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "488": {
+    "churnProbability": 0.1784,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "489": {
+    "churnProbability": 0.322,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "490": {
+    "churnProbability": 0.0377,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "491": {
+    "churnProbability": 0.1565,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "492": {
+    "churnProbability": 0.0267,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "493": {
+    "churnProbability": 0.0913,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 217 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "494": {
+    "churnProbability": 0.0505,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "495": {
+    "churnProbability": 0.0176,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "496": {
+    "churnProbability": 0.0092,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "497": {
+    "churnProbability": 0.2339,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 293 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "498": {
+    "churnProbability": 0.03,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "499": {
+    "churnProbability": 0.0484,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "500": {
+    "churnProbability": 0.1318,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "501": {
+    "churnProbability": 0.134,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "502": {
+    "churnProbability": 0.0308,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "503": {
+    "churnProbability": 0.1458,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "504": {
+    "churnProbability": 0.0575,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "505": {
+    "churnProbability": 0.0779,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "506": {
+    "churnProbability": 0.0265,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "507": {
+    "churnProbability": 0.0936,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "508": {
+    "churnProbability": 0.2109,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "509": {
+    "churnProbability": 0.3318,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 340 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "510": {
+    "churnProbability": 0.007,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "511": {
+    "churnProbability": 0.2277,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 184 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "512": {
+    "churnProbability": 0.1451,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "513": {
+    "churnProbability": 0.1327,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 488 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "514": {
+    "churnProbability": 0.2131,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 394 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "515": {
+    "churnProbability": 0.136,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "516": {
+    "churnProbability": 0.1605,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "517": {
+    "churnProbability": 0.198,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "518": {
+    "churnProbability": 0.04,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "519": {
+    "churnProbability": 0.2689,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 233 days ago",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "520": {
+    "churnProbability": 0.0228,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "521": {
+    "churnProbability": 0.0758,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "522": {
+    "churnProbability": 0.0447,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "523": {
+    "churnProbability": 0.0933,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 199 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "524": {
+    "churnProbability": 0.1301,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "525": {
+    "churnProbability": 0.11,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Last donation was 282 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "526": {
+    "churnProbability": 0.0295,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "527": {
+    "churnProbability": 0.0729,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "528": {
+    "churnProbability": 0.0506,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "529": {
+    "churnProbability": 0.0782,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "530": {
+    "churnProbability": 0.0946,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "531": {
+    "churnProbability": 0.3497,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 369 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "532": {
+    "churnProbability": 0.0172,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "533": {
+    "churnProbability": 0.29,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 689 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "534": {
+    "churnProbability": 0.4461,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 228 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "535": {
+    "churnProbability": 0.166,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "536": {
+    "churnProbability": 0.028,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "537": {
+    "churnProbability": 0.0081,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "538": {
+    "churnProbability": 0.0853,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "539": {
+    "churnProbability": 0.0034,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "540": {
+    "churnProbability": 0.0254,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "541": {
+    "churnProbability": 0.0419,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "542": {
+    "churnProbability": 0.2991,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "543": {
+    "churnProbability": 0.5283,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 483 days ago",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "544": {
+    "churnProbability": 0.3871,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 639 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "545": {
+    "churnProbability": 0.1381,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "546": {
+    "churnProbability": 0.0144,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "547": {
+    "churnProbability": 0.0167,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "548": {
+    "churnProbability": 0.016,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "549": {
+    "churnProbability": 0.2489,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 362 days ago",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "550": {
+    "churnProbability": 0.1948,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 520 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "551": {
+    "churnProbability": 0.0993,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "552": {
+    "churnProbability": 0.0081,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "553": {
+    "churnProbability": 0.0474,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "554": {
+    "churnProbability": 0.1027,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "555": {
+    "churnProbability": 0.3788,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "556": {
+    "churnProbability": 0.1871,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "557": {
+    "churnProbability": 0.1293,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Only gives in one way",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Invite to volunteer or in-kind drive to diversify engagement",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "558": {
+    "churnProbability": 0.1466,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 926 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "559": {
+    "churnProbability": 0.1098,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "560": {
+    "churnProbability": 0.1913,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Only gives in one way"
+    ],
+    "recommendations": [
+      "Invite to volunteer or in-kind drive to diversify engagement"
+    ]
+  },
+  "561": {
+    "churnProbability": 0.3809,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 259 days ago"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "562": {
+    "churnProbability": 0.015,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "563": {
+    "churnProbability": 0.0277,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "No major risk factors identified"
+    ],
+    "recommendations": [
+      "Continue current engagement strategy"
+    ]
+  },
+  "564": {
+    "churnProbability": 0.0442,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "565": {
+    "churnProbability": 0.474,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Last donation was 342 days ago",
+      "Acquired via social media (higher churn channel)",
+      "Lifetime giving is in the bottom quartile"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Send a personalized re-engagement message",
+      "Build a personal relationship beyond social media",
+      "Acknowledge contributions and share impact stories"
+    ]
+  },
+  "566": {
+    "churnProbability": 0.1622,
+    "churnRisk": "Medium",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "567": {
+    "churnProbability": 0.0459,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  },
+  "568": {
+    "churnProbability": 0.225,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Not on a recurring donation plan",
+      "Acquired via social media (higher churn channel)"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation",
+      "Build a personal relationship beyond social media"
+    ]
+  },
+  "569": {
+    "churnProbability": 0.3103,
+    "churnRisk": "High",
+    "riskFactors": [
+      "Last donation was 541 days ago"
+    ],
+    "recommendations": [
+      "Send a personalized re-engagement message"
+    ]
+  },
+  "570": {
+    "churnProbability": 0.0117,
+    "churnRisk": "Low",
+    "riskFactors": [
+      "Not on a recurring donation plan"
+    ],
+    "recommendations": [
+      "Convert to a recurring monthly donation"
+    ]
+  }
+}

@@ -36,7 +36,7 @@ interface Analytics {
 
 const COLORS = ['#0f172a', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316', '#6366f1']
 const PIE_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#94a3b8']
-const RISK_COLORS: Record<string, string> = { Low: '#10b981', Moderate: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
+const RISK_COLORS: Record<string, string> = { Low: '#10b981', Medium: '#f59e0b', Moderate: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
 
 // ── tiny stat card ──
 
@@ -111,7 +111,6 @@ export default function AdminDashboardPage() {
             {/* ── KPI row ── */}
             <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               <StatCard label={t('admin_total_residents')} value={data.totalResidents} />
-              <StatCard label={t('admin_active_residents')} value={data.activeResidents} />
               <StatCard label={t('admin_at_risk_residents')} value={data.atRiskResidents} />
               <StatCard
                 label={t('admin_reintegration_rate')}
@@ -148,17 +147,17 @@ export default function AdminDashboardPage() {
               </ChartCard>
 
               <ChartCard title={t('admin_reintegration_breakdown')}>
-                <div className="h-64">
+                <div className="h-72 overflow-visible">
                   <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
+                    <PieChart margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
                       <Pie
                         data={data.reintegrationBreakdown}
                         dataKey="count"
                         nameKey="label"
                         cx="50%"
                         cy="50%"
-                        innerRadius={50}
-                        outerRadius={80}
+                        innerRadius={45}
+                        outerRadius={70}
                         paddingAngle={3}
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         label={((props: any) => `${props.label} ${((props.percent as number) * 100).toFixed(0)}%`) as any}
@@ -202,14 +201,14 @@ export default function AdminDashboardPage() {
               <ChartCard title={t('admin_risk_distribution')}>
                 <div className="h-64">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={data.riskDistribution} layout="vertical" barSize={20}>
+                    <BarChart data={['Critical', 'High', 'Medium', 'Low'].map(lvl => data.riskDistribution.find(d => d.label === lvl) ?? { label: lvl, count: 0 })} layout="vertical" barSize={20}>
                       <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
                       <XAxis type="number" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
                       <YAxis type="category" dataKey="label" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} width={80} />
                       <Tooltip />
                       <Bar dataKey="count" radius={[0, 4, 4, 0]}>
-                        {data.riskDistribution.map((d, i) => (
-                          <Cell key={i} fill={RISK_COLORS[d.label] ?? '#94a3b8'} />
+                        {['Critical', 'High', 'Medium', 'Low'].map((lvl) => (
+                          <Cell key={lvl} fill={RISK_COLORS[lvl] ?? '#94a3b8'} />
                         ))}
                       </Bar>
                     </BarChart>
@@ -218,26 +217,8 @@ export default function AdminDashboardPage() {
               </ChartCard>
             </section>
 
-            {/* ── Row 4: Case categories + Platform reach + Recent activity ── */}
+            {/* ── Row 4: Platform reach ── */}
             <section className="grid gap-4 lg:grid-cols-3">
-              <ChartCard title={t('admin_case_categories')}>
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={data.caseCategoryBreakdown} layout="vertical" barSize={16}>
-                      <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
-                      <XAxis type="number" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                      <YAxis type="category" dataKey="label" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} width={95} />
-                      <Tooltip />
-                      <Bar dataKey="count" radius={[0, 4, 4, 0]}>
-                        {data.caseCategoryBreakdown.map((_, i) => (
-                          <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                        ))}
-                      </Bar>
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </ChartCard>
-
               <ChartCard title={t('admin_platform_reach')}>
                 <div className="space-y-3">
                   {data.platformReach.map((p, i) => (
@@ -252,20 +233,6 @@ export default function AdminDashboardPage() {
                       <p className="text-[11px] text-slate-400">{t('admin_total_reach')}</p>
                     </div>
                   ))}
-                </div>
-              </ChartCard>
-
-              <ChartCard title={t('admin_recent_activity')}>
-                <div className="max-h-64 space-y-2.5 overflow-auto pr-1">
-                  {data.recentActivity.length > 0 ? data.recentActivity.map((item, idx) => (
-                    <div key={idx} className="rounded-lg border border-slate-100 bg-slate-50 p-3">
-                      <div className="text-[10px] font-semibold uppercase tracking-wider text-blue-600">{item.type}</div>
-                      <p className="mt-0.5 text-xs text-slate-700">{item.message}</p>
-                      <p className="mt-0.5 text-[10px] text-slate-400">{formatDateTime(item.timestamp, lang)}</p>
-                    </div>
-                  )) : (
-                    <p className="text-sm text-slate-400">{t('admin_no_recent_activity')}</p>
-                  )}
                 </div>
               </ChartCard>
             </section>

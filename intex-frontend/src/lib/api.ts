@@ -481,3 +481,41 @@ export async function getAllSegments(): Promise<Record<string, SegmentEntry>> {
     return {}
   }
 }
+
+export type ChurnPrediction = {
+  supporterId?: number
+  churnProbability?: number
+  churnRisk?: string | null
+  riskFactors?: string[]
+  recommendations?: string[]
+  message?: string | null
+}
+
+export type ChurnEntry = {
+  churnProbability?: number
+  churnRisk?: string | null
+  riskFactors?: string[]
+  recommendations?: string[]
+}
+
+export async function getChurnPrediction(supporterId: number): Promise<ChurnPrediction | null> {
+  try {
+    const res = await api.get<ChurnPrediction>(`/api/supporters/${supporterId}/churn`, {
+      headers: getHeaders(),
+    })
+    return res.data
+  } catch {
+    return null
+  }
+}
+
+export async function getAllChurnPredictions(): Promise<Record<string, ChurnEntry>> {
+  try {
+    const res = await api.get<Record<string, ChurnEntry>>('/api/supporters/churn-predictions', {
+      headers: getHeaders(),
+    })
+    return res.data
+  } catch {
+    return {}
+  }
+}

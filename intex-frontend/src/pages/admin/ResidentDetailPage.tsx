@@ -714,198 +714,6 @@ export function ResidentDetailPage() {
         </div>
         {deleteError ? <div className="mt-2"><ErrorMessage message={deleteError} /></div> : null}
 
-        {!invalidId ? (
-          <>
-            <div className="mt-6 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
-              <div className="text-sm text-surface-text">Resident workflow actions</div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <Link
-                  to={`/admin/process-recordings/${id}`}
-                  className="inline-flex items-center rounded-md bg-brand px-3 py-2 text-xs font-semibold text-white hover:bg-brand-dark"
-                >
-                  Open Process Recordings
-                </Link>
-                <Link
-                  to={`/admin/visitations/${id}`}
-                  className="inline-flex items-center rounded-md border border-brand-100 px-3 py-2 text-xs font-semibold text-surface-dark hover:bg-brand-50"
-                >
-                  Open Visitations
-                </Link>
-              </div>
-            </div>
-
-            <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
-              {recommendationsLoading ? (
-                <p className="text-sm text-surface-text">Loading resident risk score...</p>
-              ) : recommendationsError ? (
-                <p className="text-sm text-red-500">{recommendationsError}</p>
-              ) : recommendations === null ? (
-                <>
-                  <p className="text-sm text-surface-text">
-                    No recommendation data is available yet for this resident.
-                  </p>
-                  <p className="mt-2 text-sm text-surface-text">
-                    When a score is available, it is created using our ML Pipelines.
-                  </p>
-                </>
-              ) : recommendations.riskScore != null && Number.isFinite(recommendations.riskScore) ? (
-                <>
-                  <p className="text-2xl font-bold tabular-nums text-surface-dark">
-                    <span className="font-semibold">Resident Risk Score:</span>{' '}
-                    {recommendations.riskScore.toFixed(4)}
-                  </p>
-                  {recommendations.averageRiskScore != null &&
-                  Number.isFinite(recommendations.averageRiskScore) ? (
-                    <p className="mt-2 text-sm text-surface-text">
-                      {riskVersusAverageSentence(
-                        recommendations.riskScore,
-                        recommendations.averageRiskScore
-                      )}
-                    </p>
-                  ) : null}
-                  <p className="mt-2 text-sm text-surface-text">
-                    This score was created using our ML Pipelines.
-                  </p>
-                </>
-              ) : recommendations.message ? (
-                <>
-                  <p className="text-sm text-surface-text">{recommendations.message}</p>
-                  <p className="mt-2 text-sm text-surface-text">
-                    Risk scores are produced using our ML Pipelines when available.
-                  </p>
-                </>
-              ) : recommendations.peerMatches.length === 0 ? (
-                <>
-                  <p className="text-sm text-surface-text">No peer matches were found for this resident.</p>
-                  <p className="mt-2 text-sm text-surface-text">
-                    Risk scores are produced using our ML Pipelines when available.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <div className="space-y-2">
-                    {recommendations.peerMatches.map((match) => (
-                      <div
-                        key={match.matchId}
-                        className="rounded-lg border border-brand-100 bg-brand-50 px-3 py-2 text-sm text-surface-dark"
-                      >
-                        <div className="font-medium">Resident #{match.matchId}</div>
-                        <div className="mt-0.5 text-xs text-surface-text">
-                          Similarity: {match.similarityScore.toFixed(2)} · {match.matchReason}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-3 text-sm text-surface-text">
-                    Peer matches are generated using our ML Pipelines.
-                  </p>
-                </>
-              )}
-            </section>
-
-            <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
-              <h2 className="text-lg font-semibold text-surface-dark">Intervention Recommendations</h2>
-              <p className="mt-1 text-sm text-surface-text">
-                Data-driven intervention guidance based on wellbeing trajectory and incident risk models.
-              </p>
-
-              {recommendationsLoading ? (
-                <p className="mt-4 text-sm text-surface-text">Loading intervention recommendations...</p>
-              ) : recommendationsError ? (
-                <p className="mt-4 text-sm text-red-500">{recommendationsError}</p>
-              ) : recommendations === null ? (
-                <p className="mt-4 text-sm text-surface-text">
-                  No intervention recommendation data is available yet for this resident.
-                </p>
-              ) : recommendations.recommendedIntervention ? (
-                <div className="mt-4 space-y-4">
-                  {recommendations.reviewRequired && (
-                    <div className="flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm font-medium text-amber-800">
-                      <span>Requires Manual Review</span>
-                    </div>
-                  )}
-                  <div className="rounded-xl border border-brand-200 bg-brand-50/50 p-4">
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-base font-semibold text-surface-dark">
-                        Recommended: {recommendations.recommendedIntervention}
-                      </span>
-                      {recommendations.confidence != null && Number.isFinite(recommendations.confidence) && (
-                        <span className="text-xs text-surface-text">
-                          Confidence: {(recommendations.confidence * 100).toFixed(0)}%
-                        </span>
-                      )}
-                    </div>
-                    {recommendations.confidence != null && Number.isFinite(recommendations.confidence) && (
-                      <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
-                        <div
-                          className="h-full rounded-full bg-brand transition-all"
-                          style={{ width: `${Math.min(100, recommendations.confidence * 100)}%` }}
-                        />
-                      </div>
-                    )}
-                    {recommendations.incidentRisk != null && Number.isFinite(recommendations.incidentRisk) && (
-                      <p className="mt-2 text-xs text-surface-text">
-                        30-day incident risk: {(recommendations.incidentRisk * 100).toFixed(0)}%
-                      </p>
-                    )}
-                  </div>
-                  {recommendations.topDrivers && recommendations.topDrivers.length > 0 && (
-                    <div>
-                      <p className="text-xs font-medium text-surface-text">Top drivers for this recommendation:</p>
-                      <div className="mt-1 flex flex-wrap gap-1.5">
-                        {recommendations.topDrivers.map((driver) => (
-                          <span
-                            key={driver}
-                            className="inline-flex items-center rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-xs text-surface-dark"
-                          >
-                            {driver.replace(/_/g, ' ')}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  <p className="text-xs text-surface-text">
-                    Generated by the Resident Intervention Recommender pipeline.
-                  </p>
-                </div>
-              ) : recommendations.suggestedInterventions.length === 0 ? (
-                <p className="mt-4 text-sm text-surface-text">No intervention recommendations were found.</p>
-              ) : (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {recommendations.suggestedInterventions.map((intervention) => (
-                    <span
-                      key={intervention}
-                      className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-surface-dark"
-                    >
-                      {intervention}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </section>
-          </>
-        ) : null}
-
-        {residentLoading ? (
-          <LoadingSpinner />
-        ) : residentLoadError ? (
-          <div className="mt-4">
-            <ErrorMessage message={residentLoadError} />
-          </div>
-        ) : null}
-
-        {resident && !residentLoading && !residentLoadError && !isEditing ? (
-          <ResidentProfilePanel
-            resident={resident}
-            language={i18n.resolvedLanguage}
-            residentId={residentId}
-            recordingsPreview={recordingsPreview}
-            visitationsPreview={visitationsPreview}
-            relatedCounts={relatedCounts}
-            activityLoading={activityLoading}
-          />
-        ) : null}
-
         {isEditing && form && resident ? (
           <form
             onSubmit={(e) => void handleSave(e)}
@@ -1109,6 +917,185 @@ export function ResidentDetailPage() {
               </button>
             </div>
           </form>
+        ) : null}
+
+        {!invalidId && !isEditing ? (
+          <>
+            <div className="mt-6 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
+              <div className="text-sm text-surface-text">Resident workflow actions</div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Link
+                  to={`/admin/process-recordings/${id}`}
+                  className="inline-flex items-center rounded-md bg-brand px-3 py-2 text-xs font-semibold text-white hover:bg-brand-dark"
+                >
+                  Open Process Recordings
+                </Link>
+                <Link
+                  to={`/admin/visitations/${id}`}
+                  className="inline-flex items-center rounded-md border border-brand-100 px-3 py-2 text-xs font-semibold text-surface-dark hover:bg-brand-50"
+                >
+                  Open Visitations
+                </Link>
+              </div>
+            </div>
+
+            <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
+              {recommendationsLoading ? (
+                <p className="text-sm text-surface-text">Loading resident risk score...</p>
+              ) : recommendationsError ? (
+                <p className="text-sm text-red-500">{recommendationsError}</p>
+              ) : recommendations === null ? (
+                <>
+                  <p className="text-sm text-surface-text">
+                    No recommendation data is available yet for this resident.
+                  </p>
+                  <p className="mt-2 text-sm text-surface-text">
+                    When a score is available, it is created using our ML Pipelines.
+                  </p>
+                </>
+              ) : recommendations.riskScore != null && Number.isFinite(recommendations.riskScore) ? (
+                <>
+                  <p className="text-2xl font-bold tabular-nums text-surface-dark">
+                    <span className="font-semibold">Resident Risk Score:</span>{' '}
+                    {recommendations.riskScore.toFixed(4)}
+                  </p>
+                  {recommendations.averageRiskScore != null &&
+                  Number.isFinite(recommendations.averageRiskScore) ? (
+                    <p className="mt-2 text-sm text-surface-text">
+                      {riskVersusAverageSentence(
+                        recommendations.riskScore,
+                        recommendations.averageRiskScore
+                      )}
+                    </p>
+                  ) : null}
+                  <p className="mt-2 text-sm text-surface-text">
+                    This score was created using our ML Pipelines.
+                  </p>
+                </>
+              ) : recommendations.message ? (
+                <>
+                  <p className="text-sm text-surface-text">{recommendations.message}</p>
+                  <p className="mt-2 text-sm text-surface-text">
+                    Risk scores are produced using our ML Pipelines when available.
+                  </p>
+                </>
+              ) : recommendations.peerMatches.length === 0 ? (
+                <>
+                  <p className="text-sm text-surface-text">No peer matches were found for this resident.</p>
+                  <p className="mt-2 text-sm text-surface-text">
+                    Risk scores are produced using our ML Pipelines when available.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="space-y-2">
+                    {recommendations.peerMatches.map((match) => (
+                      <div
+                        key={match.matchId}
+                        className="rounded-lg border border-brand-100 bg-brand-50 px-3 py-2 text-sm text-surface-dark"
+                      >
+                        <div className="font-medium">Resident #{match.matchId}</div>
+                        <div className="mt-0.5 text-xs text-surface-text">
+                          Similarity: {match.similarityScore.toFixed(2)} · {match.matchReason}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-sm text-surface-text">
+                    Peer matches are generated using our ML Pipelines.
+                  </p>
+                </>
+              )}
+            </section>
+
+            <section className="mt-6 rounded-2xl border border-slate-200 bg-surface p-5 shadow-sm">
+              <h2 className="text-lg font-semibold text-surface-dark">Intervention Recommendations</h2>
+              <p className="mt-1 text-sm text-surface-text">
+                Data-driven intervention guidance based on wellbeing trajectory and incident risk models.
+              </p>
+
+              {recommendationsLoading ? (
+                <p className="mt-4 text-sm text-surface-text">Loading intervention recommendations...</p>
+              ) : recommendationsError ? (
+                <p className="mt-4 text-sm text-red-500">{recommendationsError}</p>
+              ) : recommendations === null ? (
+                <p className="mt-4 text-sm text-surface-text">
+                  No intervention recommendation data is available yet for this resident.
+                </p>
+              ) : recommendations.recommendedIntervention ? (
+                <div className="mt-4 space-y-4">
+                  {recommendations.reviewRequired && (
+                    <div className="flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm font-medium text-amber-800">
+                      <span>Requires Manual Review</span>
+                    </div>
+                  )}
+                  <div className="rounded-xl border border-brand-200 bg-brand-50/50 p-4">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-base font-semibold text-surface-dark">
+                        Recommended: {recommendations.recommendedIntervention}
+                      </span>
+                    </div>
+                    {recommendations.incidentRisk != null && Number.isFinite(recommendations.incidentRisk) && (
+                      <p className="mt-2 text-xs text-surface-text">
+                        30-day incident risk: {(recommendations.incidentRisk * 100).toFixed(0)}%
+                      </p>
+                    )}
+                  </div>
+                  {recommendations.topDrivers && recommendations.topDrivers.length > 0 && (
+                    <div>
+                      <p className="text-xs font-medium text-surface-text">Top drivers for this recommendation:</p>
+                      <div className="mt-1 flex flex-wrap gap-1.5">
+                        {recommendations.topDrivers.map((driver) => (
+                          <span
+                            key={driver}
+                            className="inline-flex items-center rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-xs text-surface-dark"
+                          >
+                            {driver.replace(/_/g, ' ')}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <p className="text-xs text-surface-text">
+                    Generated by the Resident Intervention Recommender pipeline.
+                  </p>
+                </div>
+              ) : recommendations.suggestedInterventions.length === 0 ? (
+                <p className="mt-4 text-sm text-surface-text">No intervention recommendations were found.</p>
+              ) : (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {recommendations.suggestedInterventions.map((intervention) => (
+                    <span
+                      key={intervention}
+                      className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-surface-dark"
+                    >
+                      {intervention}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </section>
+          </>
+        ) : null}
+
+        {residentLoading ? (
+          <LoadingSpinner />
+        ) : residentLoadError ? (
+          <div className="mt-4">
+            <ErrorMessage message={residentLoadError} />
+          </div>
+        ) : null}
+
+        {resident && !residentLoading && !residentLoadError && !isEditing ? (
+          <ResidentProfilePanel
+            resident={resident}
+            language={i18n.resolvedLanguage}
+            residentId={residentId}
+            recordingsPreview={recordingsPreview}
+            visitationsPreview={visitationsPreview}
+            relatedCounts={relatedCounts}
+            activityLoading={activityLoading}
+          />
         ) : null}
       </main>
     </div>

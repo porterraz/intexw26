@@ -20,9 +20,9 @@ const DonorDetailPage = lazy(() => import('./pages/admin/DonorDetailPage').then(
 const NewSupporterPage = lazy(() => import('./pages/admin/NewSupporterPage').then(m => ({ default: m.NewSupporterPage })))
 const ProcessRecordingPage = lazy(() => import('./pages/admin/ProcessRecordingPage').then(m => ({ default: m.ProcessRecordingPage })))
 const VisitationPage = lazy(() => import('./pages/admin/VisitationPage').then(m => ({ default: m.VisitationPage })))
-const ReportsPage = lazy(() => import('./pages/admin/ReportsPage').then(m => ({ default: m.ReportsPage })))
 const SocialMediaPage = lazy(() => import('./pages/admin/SocialMediaPage').then(m => ({ default: m.SocialMediaPage })))
 const AdminDonationsPage = lazy(() => import('./pages/admin/AdminDonationsPage').then(m => ({ default: m.AdminDonationsPage })))
+const ReportsPage = lazy(() => import('./pages/admin/ReportsPage').then(m => ({ default: m.ReportsPage })))
 const DonatePage = lazy(() => import('./pages/DonatePage'))
 const DonorDashboard = lazy(() => import('./pages/DonorDashboard'))
 
@@ -43,9 +43,9 @@ export default function App() {
           <Route path="/admin" element={<AdminDashboardPage />} />
           <Route path="/admin/residents" element={<CaseloadPage />} />
           <Route path="/admin/donors" element={<DonorsPage />} />
-          <Route path="/admin/reports" element={<ReportsPage />} />
           <Route path="/admin/donations" element={<AdminDonationsPage />} />
           <Route path="/admin/social-media" element={<SocialMediaPage />} />
+          <Route path="/admin/reports" element={<ReportsPage />} />
           <Route path="/admin/social-media/ml-dashboard" element={<Navigate to="/admin/social-media" replace />} />
           <Route path="/admin/residents/new" element={<NewResidentPage />} />
           <Route path="/admin/residents/:id" element={<ResidentDetailPage />} />

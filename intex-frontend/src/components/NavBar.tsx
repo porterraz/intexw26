@@ -65,11 +65,11 @@ export function NavBar() {
                 <NavLink to="/admin/donors" className={navLinkClass}>
                   {t('nav_donors')}
                 </NavLink>
-                <NavLink to="/admin/reports" className={navLinkClass}>
-                  {t('nav_reports')}
-                </NavLink>
                 <NavLink to="/admin/social-media" className={navLinkClass}>
                   {t('nav_social_media')}
+                </NavLink>
+                <NavLink to="/admin/reports" className={navLinkClass}>
+                  {t('nav_reports')}
                 </NavLink>
                 <NavLink to="/donate" className={navLinkClass}>
                   {t('nav_make_donation')}
@@ -156,11 +156,11 @@ export function NavBar() {
                   <NavLink to="/admin/donors" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_donors')}
                   </NavLink>
-                  <NavLink to="/admin/reports" className={mobileNavLinkClass} onClick={closeMobileMenu}>
-                    {t('nav_reports')}
-                  </NavLink>
                   <NavLink to="/admin/social-media" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_social_media')}
+                  </NavLink>
+                  <NavLink to="/admin/reports" className={mobileNavLinkClass} onClick={closeMobileMenu}>
+                    {t('nav_reports')}
                   </NavLink>
                   <NavLink to="/donate" className={mobileNavLinkClass} onClick={closeMobileMenu}>
                     {t('nav_make_donation')}

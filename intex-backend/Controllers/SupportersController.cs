@@ -196,6 +196,67 @@ public class SupportersController : ControllerBase
         }
     }
 
+    // ── Churn predictions ──
+
+    private const string ChurnPredictionsFileName = "donor_churn_predictions.json";
+
+    [HttpGet("churn-predictions")]
+    public ActionResult GetAllChurnPredictions()
+    {
+        var path = Path.Combine(_env.ContentRootPath, ChurnPredictionsFileName);
+        if (!System.IO.File.Exists(path))
+            return Ok(new Dictionary<string, object>());
+
+        try
+        {
+            var json = System.IO.File.ReadAllText(path);
+            var opts = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var predictions = JsonSerializer.Deserialize<Dictionary<string, ChurnPredictionEntry>>(json, opts);
+            return Ok(predictions ?? new Dictionary<string, ChurnPredictionEntry>());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Could not read {File}", ChurnPredictionsFileName);
+            return Ok(new Dictionary<string, object>());
+        }
+    }
+
+    [HttpGet("{id:int}/churn")]
+    public ActionResult GetChurnPrediction(int id)
+    {
+        var path = Path.Combine(_env.ContentRootPath, ChurnPredictionsFileName);
+        if (!System.IO.File.Exists(path))
+            return Ok(new { supporterId = id, churnRisk = (string?)null, message = "Churn predictions not available." });
+
+        try
+        {
+            var json = System.IO.File.ReadAllText(path);
+            var opts = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var predictions = JsonSerializer.Deserialize<Dictionary<string, ChurnPredictionEntry>>(json, opts);
+
+            if (predictions is not null && predictions.TryGetValue(id.ToString(), out var entry))
+            {
+                return Ok(new
+                {
+                    supporterId = id,
+                    churnProbability = entry.ChurnProbability,
+                    churnRisk = entry.ChurnRisk,
+                    riskFactors = entry.RiskFactors,
+                    recommendations = entry.Recommendations
+                });
+            }
+
+            return Ok(new { supporterId = id, churnRisk = (string?)null, message = "No churn prediction for this supporter." });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Could not read {File}", ChurnPredictionsFileName);
+            return Ok(new { supporterId = id, churnRisk = (string?)null, message = "Error reading churn predictions." });
+        }
+    }
+
+    // ── Private types ──
+
     private sealed class DonorSegmentEntry
     {
         public string? Persona { get; set; }
@@ -203,5 +264,13 @@ public class SupportersController : ControllerBase
         public int Frequency { get; set; }
         public decimal Monetary { get; set; }
         public int Cluster { get; set; }
+    }
+
+    private sealed class ChurnPredictionEntry
+    {
+        public double ChurnProbability { get; set; }
+        public string? ChurnRisk { get; set; }
+        public string[]? RiskFactors { get; set; }
+        public string[]? Recommendations { get; set; }
     }
 }
