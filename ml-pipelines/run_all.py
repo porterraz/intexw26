@@ -35,9 +35,9 @@ ARTIFACTS_TO_COPY = {
 }
 
 
-def run_notebook(notebook_name: str) -> bool:
+def run_notebook(notebook_name: str, save_outputs: bool = False) -> bool:
     input_path = PIPELINES_DIR / notebook_name
-    output_path = PIPELINES_DIR / f".output-{notebook_name}"
+    output_path = input_path if save_outputs else PIPELINES_DIR / f".output-{notebook_name}"
 
     if not input_path.exists():
         print(f"  SKIP  {notebook_name} (file not found)")
@@ -54,7 +54,8 @@ def run_notebook(notebook_name: str) -> bool:
         )
         elapsed = time.time() - start
         print(f"  OK    {notebook_name} ({elapsed:.1f}s)")
-        output_path.unlink(missing_ok=True)
+        if not save_outputs:
+            output_path.unlink(missing_ok=True)
         return True
     except pm.PapermillExecutionError as exc:
         elapsed = time.time() - start
@@ -89,6 +90,11 @@ def main():
         "--only",
         help="Run only the specified notebook (without .ipynb extension)",
     )
+    parser.add_argument(
+        "--save-outputs",
+        action="store_true",
+        help="Write executed outputs back into the original notebook files",
+    )
     args = parser.parse_args()
 
     if args.only:
@@ -101,7 +107,7 @@ def main():
 
     results = {}
     for nb in notebooks:
-        results[nb] = run_notebook(nb)
+        results[nb] = run_notebook(nb, save_outputs=args.save_outputs)
 
     print("\nCopying artifacts to backend...")
     copy_artifacts()
