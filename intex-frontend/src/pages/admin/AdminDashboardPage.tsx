@@ -160,7 +160,7 @@ export default function AdminDashboardPage() {
                         innerRadius={50}
                         outerRadius={80}
                         paddingAngle={3}
-                        label={({ label, percent }: { label: string; percent: number }) => `${label} ${(percent * 100).toFixed(0)}%`}
+                        label={(props: Record<string, unknown>) => `${props.label} ${((props.percent as number) * 100).toFixed(0)}%`}
                       >
                         {data.reintegrationBreakdown.map((_, i) => (
                           <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
