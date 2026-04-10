@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { NavBar } from '../../components/NavBar'
 import { api } from '../../lib/api'
+import { getAllSegments, type SegmentEntry } from '../../lib/api'
 import { compareSortValues } from '../../lib/tableSort'
 import { formatDate } from '../../lib/locale'
 import { DataTable, type ColumnDef } from '../../components/DataTable'
@@ -19,7 +20,14 @@ type Supporter = {
   status: string
   firstDonationDate: string | null
 }
-type DonorSortKey = 'displayName' | 'type' | 'country' | 'status' | 'firstDonation' | 'actions'
+type DonorSortKey = 'displayName' | 'type' | 'country' | 'status' | 'segment' | 'firstDonation' | 'actions'
+
+const PERSONA_COLORS: Record<string, string> = {
+  Champions: 'bg-green-100 text-green-800 border-green-200',
+  'At-Risk Donors': 'bg-red-100 text-red-800 border-red-200',
+  'New/Occasional Donors': 'bg-amber-100 text-amber-800 border-amber-200',
+}
+const DEFAULT_PERSONA_COLOR = 'bg-slate-100 text-slate-700 border-slate-200'
 
 type PagedResult<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 const SUPPORTER_TYPE_OPTIONS = [
@@ -51,10 +59,15 @@ export function DonorsPage() {
   const [supporterType, setSupporterType] = useState(() => searchParams.get('supporterType') ?? '')
   const [status, setStatus] = useState(() => searchParams.get('status') ?? '')
   const [search, setSearch] = useState(() => searchParams.get('search') ?? '')
+  const [segments, setSegments] = useState<Record<string, SegmentEntry>>({})
   const [sort, setSort] = useState<{ column: DonorSortKey; direction: 'asc' | 'desc' }>({
     column: 'displayName',
     direction: 'asc',
   })
+
+  useEffect(() => {
+    getAllSegments().then(setSegments)
+  }, [])
 
   useEffect(() => {
     const next = new URLSearchParams()
@@ -126,6 +139,21 @@ export function DonorsPage() {
         render: (s) => s.status,
       },
       {
+        key: 'segment',
+        header: 'ML Segment',
+        sortValue: (s) => segments[String(s.supporterId)]?.persona ?? '',
+        render: (s) => {
+          const persona = segments[String(s.supporterId)]?.persona
+          if (!persona) return <span className="text-xs text-surface-text">—</span>
+          const color = PERSONA_COLORS[persona] ?? DEFAULT_PERSONA_COLOR
+          return (
+            <span className={`inline-block rounded-full border px-2 py-0.5 text-xs font-semibold ${color}`}>
+              {persona}
+            </span>
+          )
+        },
+      },
+      {
         key: 'firstDonation',
         header: t('donors_col_first_donation'),
         sortValue: (s) =>
@@ -147,7 +175,7 @@ export function DonorsPage() {
           }]
         : []),
     ],
-    [t, i18n.resolvedLanguage, canManage]
+    [t, i18n.resolvedLanguage, canManage, segments]
   )
   const columns = useMemo<ColumnDef<Supporter>[]>(() => columnDefs.map(({ key: _, ...col }) => col), [columnDefs])
 

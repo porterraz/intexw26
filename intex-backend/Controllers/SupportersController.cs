@@ -118,6 +118,27 @@ public class SupportersController : ControllerBase
         return NoContent();
     }
 
+    [HttpGet("segments")]
+    public ActionResult GetAllSegments()
+    {
+        var path = Path.Combine(_env.ContentRootPath, DonorSegmentsFileName);
+        if (!System.IO.File.Exists(path))
+            return Ok(new Dictionary<string, object>());
+
+        try
+        {
+            var json = System.IO.File.ReadAllText(path);
+            var opts = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var segments = JsonSerializer.Deserialize<Dictionary<string, DonorSegmentEntry>>(json, opts);
+            return Ok(segments ?? new Dictionary<string, DonorSegmentEntry>());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Could not read {File}", DonorSegmentsFileName);
+            return Ok(new Dictionary<string, object>());
+        }
+    }
+
     // GET: api/supporters/{id}/segment
     [HttpGet("{id:int}/segment")]
     public async Task<ActionResult> GetSegment(int id)

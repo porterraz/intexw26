@@ -462,3 +462,22 @@ export async function getSupporterSegment(supporterId: number): Promise<DonorSeg
     return null
   }
 }
+
+export type SegmentEntry = {
+  persona?: string | null
+  recency?: number
+  frequency?: number
+  monetary?: number
+  cluster?: number
+}
+
+export async function getAllSegments(): Promise<Record<string, SegmentEntry>> {
+  try {
+    const res = await api.get<Record<string, SegmentEntry>>('/api/supporters/segments', {
+      headers: getHeaders(),
+    })
+    return res.data
+  } catch {
+    return {}
+  }
+}
