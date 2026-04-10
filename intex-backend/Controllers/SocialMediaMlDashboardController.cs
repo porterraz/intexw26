@@ -156,7 +156,11 @@ public class SocialMediaMlDashboardController : ControllerBase
             try
             {
                 var json = System.IO.File.ReadAllText(path);
-                var opts = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var opts = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+                };
                 return JsonSerializer.Deserialize<MlInsights>(json, opts);
             }
             catch { }
