@@ -396,7 +396,7 @@ export function SocialMediaPage() {
                     <XAxis type="number" />
                     <YAxis type="category" dataKey="name" width={180} tick={{ fontSize: 10 }} />
                     <Tooltip
-                      formatter={(v: number) => [v.toFixed(2), 'Avg referrals']}
+                      formatter={(v) => [Number(v).toFixed(2), 'Avg referrals']}
                       labelFormatter={(_, p) => String((p?.[0]?.payload as { full?: string } | undefined)?.full ?? '')}
                     />
                     <Bar dataKey="referrals" name="Avg referrals" radius={[0, 6, 6, 0]}>
