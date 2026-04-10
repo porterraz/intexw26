@@ -32,6 +32,7 @@ NOTEBOOKS = [
 ARTIFACTS_TO_COPY = {
     "resident_recommendations.json": BACKEND_DIR / "resident_recommendations.json",
     "donor_segments.json": BACKEND_DIR / "donor_segments.json",
+    "social_media_insights.json": BACKEND_DIR / "social_media_insights.json",
 }
 
 

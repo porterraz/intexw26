@@ -41,3 +41,4 @@ ml-pipelines/social_media_predictions.csv
 ml-pipelines/Resident_Recommendations.csv
 intex-backend/donor_segments.json
 intex-backend/resident_recommendations.json
+intex-backend/social_media_insights.json

@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Text.Json;
 using Intex.Backend.Data;
 using Intex.Backend.Dtos;
 using Intex.Backend.Models;
@@ -16,16 +17,20 @@ namespace Intex.Backend.Controllers;
 [Authorize(Roles = "Admin,Donor")]
 public class SocialMediaMlDashboardController : ControllerBase
 {
+    private const string InsightsFileName = "social_media_insights.json";
+
     private static readonly string[] DayOrder =
     [
         "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
     ];
 
     private readonly ApplicationDbContext _db;
+    private readonly IWebHostEnvironment _env;
 
-    public SocialMediaMlDashboardController(ApplicationDbContext db)
+    public SocialMediaMlDashboardController(ApplicationDbContext db, IWebHostEnvironment env)
     {
         _db = db;
+        _env = env;
     }
 
     [HttpGet("social-media/ml-dashboard")]
@@ -117,6 +122,8 @@ public class SocialMediaMlDashboardController : ControllerBase
             .Take(24)
             .ToList();
 
+        var insights = LoadInsights();
+
         var response = new SocialMediaMlDashboardResponse(
             meta,
             platformReferrals,
@@ -128,10 +135,34 @@ public class SocialMediaMlDashboardController : ControllerBase
                 dowAvgs.Select(x => x.Day).ToList(),
                 dowAvgs.Select(x => Math.Round(x.Avg, 4)).ToList()),
             cadence,
-            combos
+            combos,
+            insights
         );
 
         return Ok(response);
+    }
+
+    private MlInsights? LoadInsights()
+    {
+        var searchPaths = new[]
+        {
+            Path.Combine(_env.ContentRootPath, InsightsFileName),
+            Path.Combine(_env.ContentRootPath, "..", "ml-pipelines", InsightsFileName),
+        };
+
+        foreach (var path in searchPaths)
+        {
+            if (!System.IO.File.Exists(path)) continue;
+            try
+            {
+                var json = System.IO.File.ReadAllText(path);
+                var opts = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                return JsonSerializer.Deserialize<MlInsights>(json, opts);
+            }
+            catch { }
+        }
+
+        return null;
     }
 
     private static SocialMediaMlDashboardMeta BuildMeta(IReadOnlyList<EnrichedPost> enriched)
