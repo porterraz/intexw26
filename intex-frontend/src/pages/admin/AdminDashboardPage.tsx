@@ -160,7 +160,8 @@ export default function AdminDashboardPage() {
                         innerRadius={50}
                         outerRadius={80}
                         paddingAngle={3}
-                        label={(props: Record<string, unknown>) => `${props.label} ${((props.percent as number) * 100).toFixed(0)}%`}
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        label={((props: any) => `${props.label} ${((props.percent as number) * 100).toFixed(0)}%`) as any}
                       >
                         {data.reintegrationBreakdown.map((_, i) => (
                           <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
