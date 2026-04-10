@@ -267,7 +267,7 @@ export function ReportsPage() {
                             innerRadius={45}
                             outerRadius={70}
                             paddingAngle={3}
-                            label={({ label, percent }: { label: string; percent: number }) =>
+                            label={({ label, percent }: any) =>
                               `${label} ${(percent * 100).toFixed(0)}%`
                             }
                           >

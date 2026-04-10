@@ -8,7 +8,7 @@ import { NavBar } from '../../components/NavBar'
 import { LoadingSpinner } from '../../components/LoadingSpinner'
 import { ErrorMessage } from '../../components/ErrorMessage'
 import { api } from '../../lib/api'
-import { formatDateTime, formatCompactUsd } from '../../lib/locale'
+import { formatCompactUsd } from '../../lib/locale'
 
 // ── types ──
 
