@@ -56,10 +56,10 @@ function Section({
   children: React.ReactNode
 }) {
   return (
-    <section className="mt-6 min-w-0 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
+    <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-5 shadow-sm">
       <h2 className="text-lg font-semibold text-surface-dark">{title}</h2>
       {hint ? <p className="mt-1 text-sm text-surface-text">{hint}</p> : null}
-      <div className="mt-4 h-72 w-full min-w-0">{children}</div>
+      <div className="mt-4 h-72 w-full">{children}</div>
     </section>
   )
 }
@@ -150,7 +150,7 @@ export function SocialMediaPage() {
               title={t('social_media_section_1_title')}
               hint={t('social_media_section_1_hint')}
             >
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+              <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={zipDecimal(data.postTypeAvgReferrals)}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} angle={-25} textAnchor="end" height={70} />
@@ -163,7 +163,7 @@ export function SocialMediaPage() {
 
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               <Section title={t('social_media_section_2a_title')} hint={t('social_media_section_2a_hint')}>
-                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+                <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.platformAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
@@ -177,7 +177,7 @@ export function SocialMediaPage() {
                 title={t('social_media_section_2b_title')}
                 hint={t('social_media_section_2b_hint')}
               >
-                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+                <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.platformDonationSignalRate)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
@@ -190,7 +190,7 @@ export function SocialMediaPage() {
             </div>
 
             <Section title={t('social_media_section_3_title')} hint={t('social_media_section_3_hint')}>
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+              <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={zipCadence(data.cadence)}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="week" tick={{ fontSize: 9 }} angle={-45} textAnchor="end" height={80} />
@@ -203,7 +203,7 @@ export function SocialMediaPage() {
 
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               <Section title={t('social_media_section_4a_title')} hint={t('social_media_section_4a_hint')}>
-                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+                <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={zipDecimal(data.hourAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 10 }} />
@@ -214,7 +214,7 @@ export function SocialMediaPage() {
                 </ResponsiveContainer>
               </Section>
               <Section title={t('social_media_section_4b_title')} hint={t('social_media_section_4b_hint')}>
-                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+                <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={zipDecimal(data.dayOfWeekAvgReferrals)}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} />
@@ -230,7 +230,7 @@ export function SocialMediaPage() {
               title={t('social_media_section_5_title')}
               hint={t('social_media_section_5_hint')}
             >
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+              <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart data={dualPostType}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="name" tick={{ fontSize: 10 }} interval={0} angle={-20} textAnchor="end" height={72} />
@@ -247,7 +247,7 @@ export function SocialMediaPage() {
               title={t('social_media_section_6_title')}
               hint={t('social_media_section_6_hint')}
             >
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+              <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={comboChartData} layout="vertical" margin={{ left: 8, right: 16 }}>
                   <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                   <XAxis type="number" />

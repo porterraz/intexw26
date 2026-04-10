@@ -89,13 +89,13 @@ export default function AdminDashboardPage() {
             </section>
 
             <section className="mt-5 grid gap-4 lg:grid-cols-3">
-              <div className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2">
                 <div className="mb-3 flex items-center justify-between">
                   <h2 className="text-base font-semibold text-surface-dark">{t('admin_monthly_donations')}</h2>
                   <span className="text-xs text-surface-text">{t('admin_last_6_months')}</span>
                 </div>
-                <div className="h-64 min-w-0">
-                  <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={220}>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={donationChartData}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                       <XAxis dataKey="month" axisLine={false} tickLine={false} />
