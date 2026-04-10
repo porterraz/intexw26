@@ -1,32 +1,35 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import CookieBanner from './components/CookieBanner'
 import { ProtectedRoute } from './components/ProtectedRoute'
-import HomePage from './pages/HomePage'
-import { ImpactDashboardPage } from './pages/ImpactDashboardPage'
-import { ForgotPasswordPage } from './pages/ForgotPasswordPage'
-import { LoginPage } from './pages/LoginPage'
-import { MfaSetupPage } from './pages/MfaSetupPage'
-import { MfaVerifyPage } from './pages/MfaVerifyPage'
-import PrivacyPage from './pages/PrivacyPage'
-import AdminDashboardPage from './pages/admin/AdminDashboardPage'
-import { CaseloadPage } from './pages/admin/CaseloadPage'
-import { ResidentDetailPage } from './pages/admin/ResidentDetailPage'
-import { NewResidentPage } from './pages/admin/NewResidentPage'
-import { DonorsPage } from './pages/admin/DonorsPage'
-import { DonorDetailPage } from './pages/admin/DonorDetailPage'
-import { NewSupporterPage } from './pages/admin/NewSupporterPage'
-import { ProcessRecordingPage } from './pages/admin/ProcessRecordingPage'
-import { VisitationPage } from './pages/admin/VisitationPage'
-import { ReportsPage } from './pages/admin/ReportsPage'
-import { SocialMediaPage } from './pages/admin/SocialMediaPage'
-import { AdminDonationsPage } from './pages/admin/AdminDonationsPage'
-import DonatePage from './pages/DonatePage'
-import DonorDashboard from './pages/DonorDashboard'
+import { LoadingSpinner } from './components/LoadingSpinner'
 
+const HomePage = lazy(() => import('./pages/HomePage'))
+const LoginPage = lazy(() => import('./pages/LoginPage').then(m => ({ default: m.LoginPage })))
+const MfaSetupPage = lazy(() => import('./pages/MfaSetupPage').then(m => ({ default: m.MfaSetupPage })))
+const MfaVerifyPage = lazy(() => import('./pages/MfaVerifyPage').then(m => ({ default: m.MfaVerifyPage })))
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage').then(m => ({ default: m.ForgotPasswordPage })))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const ImpactDashboardPage = lazy(() => import('./pages/ImpactDashboardPage').then(m => ({ default: m.ImpactDashboardPage })))
+const AdminDashboardPage = lazy(() => import('./pages/admin/AdminDashboardPage'))
+const CaseloadPage = lazy(() => import('./pages/admin/CaseloadPage').then(m => ({ default: m.CaseloadPage })))
+const ResidentDetailPage = lazy(() => import('./pages/admin/ResidentDetailPage').then(m => ({ default: m.ResidentDetailPage })))
+const NewResidentPage = lazy(() => import('./pages/admin/NewResidentPage').then(m => ({ default: m.NewResidentPage })))
+const DonorsPage = lazy(() => import('./pages/admin/DonorsPage').then(m => ({ default: m.DonorsPage })))
+const DonorDetailPage = lazy(() => import('./pages/admin/DonorDetailPage').then(m => ({ default: m.DonorDetailPage })))
+const NewSupporterPage = lazy(() => import('./pages/admin/NewSupporterPage').then(m => ({ default: m.NewSupporterPage })))
+const ProcessRecordingPage = lazy(() => import('./pages/admin/ProcessRecordingPage').then(m => ({ default: m.ProcessRecordingPage })))
+const VisitationPage = lazy(() => import('./pages/admin/VisitationPage').then(m => ({ default: m.VisitationPage })))
+const ReportsPage = lazy(() => import('./pages/admin/ReportsPage').then(m => ({ default: m.ReportsPage })))
+const SocialMediaPage = lazy(() => import('./pages/admin/SocialMediaPage').then(m => ({ default: m.SocialMediaPage })))
+const AdminDonationsPage = lazy(() => import('./pages/admin/AdminDonationsPage').then(m => ({ default: m.AdminDonationsPage })))
+const DonatePage = lazy(() => import('./pages/DonatePage'))
+const DonorDashboard = lazy(() => import('./pages/DonorDashboard'))
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><LoadingSpinner /></div>}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -74,6 +77,7 @@ export default function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
       <CookieBanner />
     </BrowserRouter>
   )
