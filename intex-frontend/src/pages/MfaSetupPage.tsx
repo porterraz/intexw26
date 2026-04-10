@@ -133,6 +133,7 @@ export function MfaSetupPage() {
                 </label>
                 <input
                   id="setup-code"
+                  name="mfaCode"
                   value={code}
                   onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                   inputMode="numeric"

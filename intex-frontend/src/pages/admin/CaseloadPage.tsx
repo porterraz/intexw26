@@ -473,6 +473,8 @@ export function CaseloadPage() {
           >
             {detailedView ? (
               <select
+                id="caseload-safehouse"
+                name="safehouseId"
                 value={safehouseId}
                 onChange={(e) => {
                   setSafehouseId(e.target.value)
@@ -488,6 +490,8 @@ export function CaseloadPage() {
               </select>
             ) : null}
             <select
+              id="caseload-category"
+              name="caseCategory"
               value={caseCategory}
               onChange={(e) => {
                 setCaseCategory(e.target.value)
@@ -503,6 +507,8 @@ export function CaseloadPage() {
               ))}
             </select>
             <select
+              id="caseload-risk"
+              name="riskLevel"
               value={riskLevel}
               onChange={(e) => {
                 setRiskLevel(e.target.value)
@@ -518,6 +524,8 @@ export function CaseloadPage() {
             </select>
             {detailedView ? (
               <select
+                id="caseload-status"
+                name="caseStatus"
                 value={caseStatus}
                 onChange={(e) => {
                   setCaseStatus(e.target.value)
@@ -534,6 +542,8 @@ export function CaseloadPage() {
               </select>
             ) : null}
             <select
+              id="caseload-social-worker"
+              name="assignedSocialWorker"
               value={socialWorker}
               onChange={(e) => {
                 setSocialWorker(e.target.value)
@@ -548,6 +558,8 @@ export function CaseloadPage() {
               ))}
             </select>
             <input
+              id="caseload-search"
+              name="search"
               type="search"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}

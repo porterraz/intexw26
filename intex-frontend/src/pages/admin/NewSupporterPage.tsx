@@ -98,6 +98,8 @@ export function NewSupporterPage() {
 
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             <input
+              id="new-supporter-displayName"
+              name="displayName"
               value={form.displayName}
               onChange={(e) => update('displayName', e.target.value)}
               placeholder="Display Name"
@@ -105,6 +107,8 @@ export function NewSupporterPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <select
+              id="new-supporter-supporterType"
+              name="supporterType"
               value={form.supporterType}
               onChange={(e) => update('supporterType', e.target.value)}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
@@ -117,6 +121,8 @@ export function NewSupporterPage() {
             </select>
 
             <input
+              id="new-supporter-email"
+              name="email"
               value={form.email}
               onChange={(e) => update('email', e.target.value)}
               placeholder="Email"
@@ -125,6 +131,8 @@ export function NewSupporterPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-supporter-phone"
+              name="phone"
               value={form.phone}
               onChange={(e) => update('phone', e.target.value)}
               placeholder="Phone"
@@ -133,12 +141,16 @@ export function NewSupporterPage() {
             />
 
             <input
+              id="new-supporter-firstName"
+              name="firstName"
               value={form.firstName ?? ''}
               onChange={(e) => update('firstName', e.target.value || null)}
               placeholder="First Name (optional)"
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-supporter-lastName"
+              name="lastName"
               value={form.lastName ?? ''}
               onChange={(e) => update('lastName', e.target.value || null)}
               placeholder="Last Name (optional)"
@@ -146,12 +158,16 @@ export function NewSupporterPage() {
             />
 
             <input
+              id="new-supporter-organizationName"
+              name="organizationName"
               value={form.organizationName ?? ''}
               onChange={(e) => update('organizationName', e.target.value || null)}
               placeholder="Organization (optional)"
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <select
+              id="new-supporter-relationshipType"
+              name="relationshipType"
               value={form.relationshipType}
               onChange={(e) => update('relationshipType', e.target.value)}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
@@ -164,6 +180,8 @@ export function NewSupporterPage() {
             </select>
 
             <input
+              id="new-supporter-region"
+              name="region"
               value={form.region}
               onChange={(e) => update('region', e.target.value)}
               placeholder="Region"
@@ -171,6 +189,8 @@ export function NewSupporterPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-supporter-country"
+              name="country"
               value={form.country}
               onChange={(e) => update('country', e.target.value)}
               placeholder="Country"
@@ -179,6 +199,8 @@ export function NewSupporterPage() {
             />
 
             <select
+              id="new-supporter-status"
+              name="status"
               value={form.status}
               onChange={(e) => update('status', e.target.value)}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
@@ -190,6 +212,8 @@ export function NewSupporterPage() {
               ))}
             </select>
             <select
+              id="new-supporter-acquisitionChannel"
+              name="acquisitionChannel"
               value={form.acquisitionChannel}
               onChange={(e) => update('acquisitionChannel', e.target.value)}
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
@@ -202,6 +226,8 @@ export function NewSupporterPage() {
             </select>
 
             <input
+              id="new-supporter-firstDonationDate"
+              name="firstDonationDate"
               value={form.firstDonationDate ?? ''}
               onChange={(e) => update('firstDonationDate', e.target.value || null)}
               type="date"

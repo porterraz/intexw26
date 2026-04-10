@@ -195,6 +195,8 @@ export function NewResidentPage() {
 
           <div className="grid gap-3 md:grid-cols-2">
             <input
+              id="new-resident-caseControlNo"
+              name="caseControlNo"
               value={form.caseControlNo}
               readOnly
               aria-readonly="true"
@@ -204,6 +206,8 @@ export function NewResidentPage() {
               className="cursor-default rounded-md border border-brand-100 bg-brand-50 px-3 py-2 text-sm text-surface-dark"
             />
             <input
+              id="new-resident-internalCode"
+              name="internalCode"
               value={form.internalCode}
               onChange={(e) => update('internalCode', e.target.value)}
               placeholder="Internal code (e.g. LS-0061)"
@@ -212,6 +216,8 @@ export function NewResidentPage() {
             />
 
             <select
+              id="new-resident-safehouseId"
+              name="safehouseId"
               value={form.safehouseId}
               onChange={(e) => update('safehouseId', e.target.value)}
               disabled={loadingSafehouses || safehouses.length === 0}
@@ -228,6 +234,8 @@ export function NewResidentPage() {
               )}
             </select>
             <input
+              id="new-resident-caseStatus"
+              name="caseStatus"
               value={form.caseStatus}
               onChange={(e) => update('caseStatus', e.target.value)}
               placeholder="Case Status"
@@ -236,6 +244,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-caseCategory"
+              name="caseCategory"
               value={form.caseCategory}
               onChange={(e) => update('caseCategory', e.target.value)}
               placeholder="Case Category"
@@ -243,6 +253,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-sex"
+              name="sex"
               value={form.sex}
               onChange={(e) => update('sex', e.target.value)}
               placeholder="Sex"
@@ -251,6 +263,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-dateOfBirth"
+              name="dateOfBirth"
               value={form.dateOfBirth}
               onChange={(e) => update('dateOfBirth', e.target.value)}
               type="date"
@@ -258,6 +272,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-birthStatus"
+              name="birthStatus"
               value={form.birthStatus}
               onChange={(e) => update('birthStatus', e.target.value)}
               placeholder="Birth Status"
@@ -266,6 +282,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-placeOfBirth"
+              name="placeOfBirth"
               value={form.placeOfBirth}
               onChange={(e) => update('placeOfBirth', e.target.value)}
               placeholder="Place of Birth"
@@ -273,6 +291,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-religion"
+              name="religion"
               value={form.religion}
               onChange={(e) => update('religion', e.target.value)}
               placeholder="Religion"
@@ -281,6 +301,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-referralSource"
+              name="referralSource"
               value={form.referralSource}
               onChange={(e) => update('referralSource', e.target.value)}
               placeholder="Referral Source"
@@ -288,6 +310,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-assignedSocialWorker"
+              name="assignedSocialWorker"
               value={form.assignedSocialWorker}
               onChange={(e) => update('assignedSocialWorker', e.target.value)}
               placeholder="Assigned Social Worker"
@@ -296,6 +320,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-initialRiskLevel"
+              name="initialRiskLevel"
               value={form.initialRiskLevel}
               onChange={(e) => update('initialRiskLevel', e.target.value)}
               placeholder="Initial Risk Level"
@@ -303,6 +329,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-currentRiskLevel"
+              name="currentRiskLevel"
               value={form.currentRiskLevel}
               onChange={(e) => update('currentRiskLevel', e.target.value)}
               placeholder="Current Risk Level"
@@ -311,6 +339,8 @@ export function NewResidentPage() {
             />
 
             <input
+              id="new-resident-dateOfAdmission"
+              name="dateOfAdmission"
               value={form.dateOfAdmission}
               onChange={(e) => update('dateOfAdmission', e.target.value)}
               type="date"
@@ -318,6 +348,8 @@ export function NewResidentPage() {
               className="rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <input
+              id="new-resident-dateEnrolled"
+              name="dateEnrolled"
               value={form.dateEnrolled}
               onChange={(e) => update('dateEnrolled', e.target.value)}
               type="date"
@@ -326,6 +358,8 @@ export function NewResidentPage() {
             />
 
             <textarea
+              id="new-resident-initialCaseAssessment"
+              name="initialCaseAssessment"
               value={form.initialCaseAssessment}
               onChange={(e) => update('initialCaseAssessment', e.target.value)}
               placeholder="Initial Case Assessment"
@@ -334,6 +368,8 @@ export function NewResidentPage() {
               className="md:col-span-2 rounded-md border border-brand-100 bg-surface px-3 py-2 text-sm"
             />
             <textarea
+              id="new-resident-notesRestricted"
+              name="notesRestricted"
               value={form.notesRestricted}
               onChange={(e) => update('notesRestricted', e.target.value)}
               placeholder="Restricted Notes (optional)"

@@ -101,6 +101,7 @@ export function ForgotPasswordPage() {
               </label>
               <input
                 id="reset-email"
+                name="email"
                 type="email"
                 autoComplete="email"
                 value={email}
@@ -127,6 +128,7 @@ export function ForgotPasswordPage() {
               <label className="mb-1 block text-sm font-medium" htmlFor="reset-email-confirm">Email</label>
               <input
                 id="reset-email-confirm"
+                name="email"
                 type="email"
                 autoComplete="email"
                 value={email}
@@ -142,6 +144,7 @@ export function ForgotPasswordPage() {
               </label>
               <input
                 id="new-password"
+                name="newPassword"
                 type="password"
                 autoComplete="new-password"
                 value={newPassword}
@@ -158,6 +161,7 @@ export function ForgotPasswordPage() {
               </label>
               <input
                 id="confirm-password"
+                name="confirmPassword"
                 type="password"
                 autoComplete="new-password"
                 value={confirmPassword}

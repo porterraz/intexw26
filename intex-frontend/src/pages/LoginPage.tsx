@@ -42,6 +42,7 @@ function Orb({
 
 function Field({
   id,
+  name,
   label,
   type,
   value,
@@ -52,6 +53,7 @@ function Field({
   disabled,
 }: {
   id: string;
+  name: string;
   label: string;
   type: string;
   value: string;
@@ -75,6 +77,7 @@ function Field({
       <div className="relative">
         <input
           id={id}
+          name={name}
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
@@ -521,6 +524,7 @@ export function LoginPage() {
             <div className="flex flex-col gap-5">
               <Field
                 id={emailId}
+                name="email"
                 label="Email address"
                 type="email"
                 value={email}
@@ -538,6 +542,7 @@ export function LoginPage() {
 
               <Field
                 id={passwordId}
+                name="password"
                 label="Password"
                 type="password"
                 value={password}
@@ -556,6 +561,7 @@ export function LoginPage() {
               {mode === "signup" && (
                 <Field
                   id={confirmPasswordId}
+                  name="confirmPassword"
                   label="Confirm password"
                   type="password"
                   value={confirmPassword}

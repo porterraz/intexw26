@@ -186,16 +186,24 @@ export function ProcessRecordingPage() {
               </div>
               <form className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2" onSubmit={onSubmit}>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-surface-text">ResidentId</label>
+                  <label htmlFor="process-recording-residentId" className="mb-1 block text-sm font-medium text-surface-text">
+                    ResidentId
+                  </label>
                   <input
+                    id="process-recording-residentId"
+                    name="residentId"
                     value={Number.isFinite(parsedResidentId) ? parsedResidentId : ''}
                     disabled
                     className="w-full rounded-md border border-slate-200 bg-brand-50 px-3 py-2 text-sm text-surface-dark"
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-surface-text">Date</label>
+                  <label htmlFor="process-recording-date" className="mb-1 block text-sm font-medium text-surface-text">
+                    Date
+                  </label>
                   <input
+                    id="process-recording-date"
+                    name="date"
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
@@ -203,8 +211,12 @@ export function ProcessRecordingPage() {
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="mb-1 block text-sm font-medium text-surface-text">Notes</label>
+                  <label htmlFor="process-recording-notes" className="mb-1 block text-sm font-medium text-surface-text">
+                    Notes
+                  </label>
                   <textarea
+                    id="process-recording-notes"
+                    name="notes"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     rows={4}
@@ -249,12 +261,16 @@ export function ProcessRecordingPage() {
                         <td className="px-3 py-2" colSpan={2}>
                           <div className="flex flex-col gap-3">
                             <input
+                              id={`process-recording-edit-date-${row.recordingId}`}
+                              name="editDate"
                               type="date"
                               value={editRecordingDate}
                               onChange={(e) => setEditRecordingDate(e.target.value)}
                               className="w-full max-w-xs rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-surface-dark"
                             />
                             <textarea
+                              id={`process-recording-edit-notes-${row.recordingId}`}
+                              name="editNotes"
                               value={editRecordingNotes}
                               onChange={(e) => setEditRecordingNotes(e.target.value)}
                               rows={4}

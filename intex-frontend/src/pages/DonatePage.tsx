@@ -124,6 +124,8 @@ export function DonatePage() {
           <h2 className="text-lg font-semibold text-surface-dark">{t('donate_form_title')}</h2>
           <form className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3" onSubmit={onSubmitDonation}>
             <input
+              id="donate-amount"
+              name="amount"
               type="number"
               min="1"
               step="0.01"
@@ -134,6 +136,8 @@ export function DonatePage() {
               required
             />
             <input
+              id="donate-campaignName"
+              name="campaignName"
               value={campaignName}
               onChange={(e) => setCampaignName(e.target.value)}
               placeholder={t('donate_campaign_placeholder')}
@@ -148,6 +152,8 @@ export function DonatePage() {
             </button>
 
             <textarea
+              id="donate-notes"
+              name="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder={t('donate_notes_placeholder')}

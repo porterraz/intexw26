@@ -11,19 +11,17 @@ Nova Path is a full-stack platform that supports survivor care operations with a
 
 These accounts are created by the backend seeder when `Seed:*` passwords are configured (see `intex-backend` configuration / Azure app settings).
 
-| Role | Email | Password (example dev seed) | MFA required |
+| Role | Email | Password | MFA required |
 | :--- | :--- | :--- | :--- |
-| Admin | admin@test.com | Admin@12345678! | No |
-| MFA Admin | mfa_admin@test.com | MfaAdmin@12345678! | Yes |
-| Donor | donor@test.com | Donor@12345678! | No |
+| Admin | admin@test.com | Set via `Seed:AdminPassword` | No |
+| MFA Admin | mfa_admin@test.com | Set via `Seed:MfaAdminPassword` | Yes |
+| Donor | donor@test.com | Set via `Seed:DonorPassword` | No |
 
-In deployed environments, passwords come from **Azure environment variables** (`Seed:AdminPassword`, `Seed:DonorPassword`, `Seed:MfaAdminPassword`), not necessarily the values above.
+In deployed environments, passwords come from **Azure environment variables** (`Seed:AdminPassword`, `Seed:DonorPassword`, `Seed:MfaAdminPassword`).
 
 ## Multi-factor authentication (MFA) — manual setup
 
-If the in-app MFA setup flow does not appear or a manual fallback is needed, graders may use this secret in Google Authenticator or Authy:
-
-**Manual secret key:** `JBSWY3DPEHPK3PXP`
+If the in-app MFA setup flow does not appear or a manual fallback is needed, use the MFA secret configured in environment settings rather than committing it to source control.
 
 ## Machine learning integration (IS 455)
 

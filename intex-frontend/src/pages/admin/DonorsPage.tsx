@@ -196,6 +196,8 @@ export function DonorsPage() {
         <section className="mt-6 rounded-2xl border border-brand-100 bg-surface p-4 shadow-sm">
           <div className="grid gap-3 md:grid-cols-3">
             <select
+              id="donors-supporter-type"
+              name="supporterType"
               value={supporterType}
               onChange={(e) => {
                 setPage(1)
@@ -211,6 +213,8 @@ export function DonorsPage() {
               ))}
             </select>
             <select
+              id="donors-status"
+              name="status"
               value={status}
               onChange={(e) => {
                 setPage(1)
@@ -226,6 +230,8 @@ export function DonorsPage() {
               ))}
             </select>
             <input
+              id="donors-search"
+              name="search"
               value={search}
               onChange={(e) => {
                 setPage(1)

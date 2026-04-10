@@ -223,8 +223,12 @@ export function VisitationPage() {
               </div>
               <form className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2" onSubmit={onSubmit}>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-surface-text">Entry Type</label>
+                  <label htmlFor="visitation-entry-type" className="mb-1 block text-sm font-medium text-surface-text">
+                    Entry Type
+                  </label>
                   <select
+                    id="visitation-entry-type"
+                    name="entryType"
                     value={entryType}
                     onChange={(e) => {
                       setEntryType(e.target.value as 'Home Visitation' | 'Case Conference')
@@ -237,16 +241,24 @@ export function VisitationPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-surface-text">ResidentId</label>
+                  <label htmlFor="visitation-residentId" className="mb-1 block text-sm font-medium text-surface-text">
+                    ResidentId
+                  </label>
                   <input
+                    id="visitation-residentId"
+                    name="residentId"
                     value={Number.isFinite(parsedResidentId) ? parsedResidentId : ''}
                     disabled
                     className="w-full rounded-md border border-slate-200 bg-brand-50 px-3 py-2 text-sm text-surface-dark"
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-surface-text">Date</label>
+                  <label htmlFor="visitation-date" className="mb-1 block text-sm font-medium text-surface-text">
+                    Date
+                  </label>
                   <input
+                    id="visitation-date"
+                    name="date"
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
@@ -254,11 +266,13 @@ export function VisitationPage() {
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="mb-1 block text-sm font-medium text-surface-text">
+                  <label htmlFor="visitation-assessment" className="mb-1 block text-sm font-medium text-surface-text">
                     {entryType === 'Case Conference' ? 'Conference Notes' : 'Assessment'}
                   </label>
                   {pastAssessmentChoices.length > 0 ? (
                     <select
+                      id="visitation-assessment"
+                      name="assessment"
                       value={assessment}
                       onChange={(e) => setAssessment(e.target.value)}
                       required
@@ -282,6 +296,8 @@ export function VisitationPage() {
                         yet. Enter text for this first record; later entries can be chosen from the dropdown.
                       </p>
                       <textarea
+                        id="visitation-assessment"
+                        name="assessment"
                         value={assessment}
                         onChange={(e) => setAssessment(e.target.value)}
                         rows={4}
@@ -361,18 +377,24 @@ export function VisitationPage() {
                             <td className="px-3 py-2" colSpan={3}>
                               <div className="grid gap-3 md:grid-cols-2">
                                 <input
+                                  id={`visitation-edit-date-${row.visitationId}`}
+                                  name="editVisitDate"
                                   type="date"
                                   value={editVisitDate}
                                   onChange={(e) => setEditVisitDate(e.target.value)}
                                   className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-surface-dark"
                                 />
                                 <input
+                                  id={`visitation-edit-outcome-${row.visitationId}`}
+                                  name="editVisitOutcome"
                                   value={editVisitOutcome}
                                   onChange={(e) => setEditVisitOutcome(e.target.value)}
                                   placeholder="Outcome"
                                   className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-surface-dark"
                                 />
                                 <textarea
+                                  id={`visitation-edit-observations-${row.visitationId}`}
+                                  name="editObservations"
                                   value={editObservations}
                                   onChange={(e) => setEditObservations(e.target.value)}
                                   rows={3}
@@ -463,18 +485,24 @@ export function VisitationPage() {
                             <td className="px-3 py-2" colSpan={3}>
                               <div className="grid gap-3 md:grid-cols-2">
                                 <input
+                                  id={`conference-edit-date-${row.visitationId}`}
+                                  name="editVisitDate"
                                   type="date"
                                   value={editVisitDate}
                                   onChange={(e) => setEditVisitDate(e.target.value)}
                                   className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-surface-dark"
                                 />
                                 <input
+                                  id={`conference-edit-outcome-${row.visitationId}`}
+                                  name="editVisitOutcome"
                                   value={editVisitOutcome}
                                   onChange={(e) => setEditVisitOutcome(e.target.value)}
                                   placeholder="Outcome"
                                   className="w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-surface-dark"
                                 />
                                 <textarea
+                                  id={`conference-edit-observations-${row.visitationId}`}
+                                  name="editObservations"
                                   value={editObservations}
                                   onChange={(e) => setEditObservations(e.target.value)}
                                   rows={3}
