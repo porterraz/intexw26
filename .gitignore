@@ -30,6 +30,9 @@ yarn-error.log*
 # Azure CLI local auth cache
 .azure/
 
+# Python
+**/__pycache__/
+
 # ML artifacts
 ml-pipelines/*.pkl
 ml-pipelines/*.png

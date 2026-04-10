@@ -36,7 +36,7 @@ interface Analytics {
 
 const COLORS = ['#0f172a', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316', '#6366f1']
 const PIE_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#94a3b8']
-const RISK_COLORS: Record<string, string> = { Low: '#10b981', Medium: '#f59e0b', Moderate: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
+const RISK_COLORS: Record<string, string> = { Low: '#10b981', Medium: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
 
 // ── tiny stat card ──
 

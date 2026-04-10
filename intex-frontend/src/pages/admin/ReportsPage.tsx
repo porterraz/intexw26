@@ -40,7 +40,7 @@ type Supporter = {
 type Paged<T> = { items: T[]; page: number; pageSize: number; totalCount: number }
 
 const PIE_COLORS = ['#0f766e', '#0891b2', '#2563eb', '#7c3aed', '#db2777', '#ea580c']
-const RISK_COLORS: Record<string, string> = { Low: '#10b981', Medium: '#f59e0b', Moderate: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
+const RISK_COLORS: Record<string, string> = { Low: '#10b981', Medium: '#f59e0b', High: '#ef4444', Critical: '#7f1d1d' }
 const REINTEGRATION_COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#94a3b8', '#8b5cf6', '#ec4899']
 
 function SectionCard({ title, children }: { title: string; children: React.ReactNode }) {

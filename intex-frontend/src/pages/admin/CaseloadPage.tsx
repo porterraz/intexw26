@@ -87,7 +87,7 @@ const SIMPLE_COLUMN_KEYS = new Set<CaseloadSortKey>(['name', 'risk', 'category',
 /** Sort keys still valid when simple columns only are visible */
 const SIMPLE_SORTABLE_KEYS = new Set<CaseloadSortKey>(['name', 'risk', 'category', 'socialWorker'])
 
-const RISK_LEVEL_OPTIONS = ['Low', 'Moderate', 'High', 'Critical']
+const RISK_LEVEL_OPTIONS = ['Low', 'Medium', 'High', 'Critical']
 
 const TABLE_PAGE_SIZE = 25
 
