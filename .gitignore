@@ -26,6 +26,9 @@ yarn-error.log*
 **/appsettings.Development.json
 **/appsettings.Local.json
 
+# Repo-specific build dumps (should not be committed)
+intex-backend/_build_check/
+intex-backend/_build_check2/
 
 # Azure CLI local auth cache
 .azure/
