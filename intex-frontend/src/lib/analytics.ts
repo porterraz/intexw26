@@ -1,3 +1,5 @@
+import { getCookie } from "./cookies";
+
 const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
 const CONSENT_KEY = "novapath_cookie_consent";
 
@@ -9,7 +11,8 @@ declare global {
 }
 
 export function initAnalytics() {
-  if (localStorage.getItem(CONSENT_KEY) === "accepted") {
+  const consent = getCookie(CONSENT_KEY) ?? localStorage.getItem(CONSENT_KEY);
+  if (consent === "accepted") {
     loadGA();
   }
 }

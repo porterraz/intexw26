@@ -41,7 +41,7 @@ public class PublicController : ControllerBase
 
         var totalClosed = await _db.Residents.AsNoTracking().CountAsync(r => r.DateClosed != null || r.CaseStatus == "Closed");
         var reintegrated = await _db.Residents.AsNoTracking()
-            .CountAsync(r => r.ReintegrationStatus == "Reintegrated");
+            .CountAsync(r => r.ReintegrationStatus == "Completed");
 
         var reintegrationRate = totalClosed == 0 ? 0 : (double)reintegrated / totalClosed;
 

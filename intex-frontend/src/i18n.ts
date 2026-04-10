@@ -3,9 +3,14 @@ import { initReactI18next } from "react-i18next";
 
 import en from "./locales/en.json";
 import pt from "./locales/pt.json";
+import { getCookie, setCookie } from "./lib/cookies";
+
+const LANG_COOKIE = "np_language";
 
 const savedLanguage =
-  typeof window !== "undefined" ? window.localStorage.getItem("np_language") : null;
+  typeof window !== "undefined"
+    ? getCookie(LANG_COOKIE) ?? window.localStorage.getItem(LANG_COOKIE)
+    : null;
 const browserLanguage =
   typeof navigator !== "undefined" ? navigator.language.toLowerCase() : "en";
 const initialLanguage =
@@ -34,7 +39,8 @@ void i18n.use(initReactI18next).init({
 i18n.on("languageChanged", (lng) => {
   const normalized = normalizeLanguage(lng);
   if (typeof window !== "undefined") {
-    window.localStorage.setItem("np_language", normalized);
+    setCookie(LANG_COOKIE, normalized);
+    window.localStorage.setItem(LANG_COOKIE, normalized);
     document.documentElement.lang = normalized === "pt" ? "pt-BR" : "en";
   }
 });
