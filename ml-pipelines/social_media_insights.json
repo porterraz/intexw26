@@ -16,29 +16,92 @@
   },
   "ols_r2": 0.266,
   "ols_coefficients": [
-    {"feature": "Resident story", "coef": 36.47, "p_value": 0.0, "significant": true},
-    {"feature": "Boosted post", "coef": 11.68, "p_value": 0.019, "significant": true},
-    {"feature": "Post hour (per hr)", "coef": 0.59, "p_value": 0.0, "significant": true},
-    {"feature": "Caption length (per char)", "coef": 0.15, "p_value": 0.0, "significant": true},
-    {"feature": "Call-to-action", "coef": 2.72, "p_value": 0.174, "significant": false},
-    {"feature": "Hashtag count", "coef": -1.04, "p_value": 0.128, "significant": false},
-    {"feature": "Boost budget (₱)", "coef": 0.001, "p_value": 0.693, "significant": false}
+    {
+      "feature": "Resident story",
+      "coef": 36.47,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "feature": "Boosted post",
+      "coef": 11.68,
+      "p_value": 0.019,
+      "significant": true
+    },
+    {
+      "feature": "Call-to-action",
+      "coef": 2.72,
+      "p_value": 0.174,
+      "significant": false
+    },
+    {
+      "feature": "Hashtag count",
+      "coef": -1.04,
+      "p_value": 0.128,
+      "significant": false
+    },
+    {
+      "feature": "Post hour (per hr)",
+      "coef": 0.59,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "feature": "Caption length (per char)",
+      "coef": 0.15,
+      "p_value": 0.0,
+      "significant": true
+    },
+    {
+      "feature": "Boost budget (\u20b1)",
+      "coef": 0.0,
+      "p_value": 0.693,
+      "significant": false
+    }
   ],
   "feature_importances": [
-    {"feature": "Resident story", "importance": 0.4015},
-    {"feature": "Profile visits", "importance": 0.1253},
-    {"feature": "Reach", "importance": 0.087},
-    {"feature": "Hashtag count", "importance": 0.0208},
-    {"feature": "Impressions", "importance": 0.009},
-    {"feature": "Follower count", "importance": 0.0039},
-    {"feature": "Post hour", "importance": 0.0033},
-    {"feature": "Boost budget", "importance": 0.0033}
+    {
+      "feature": "Resident story",
+      "importance": 0.4015
+    },
+    {
+      "feature": "Profile visits",
+      "importance": 0.1253
+    },
+    {
+      "feature": "Reach",
+      "importance": 0.087
+    },
+    {
+      "feature": "Engagement rate",
+      "importance": 0.073
+    },
+    {
+      "feature": "Hashtag count",
+      "importance": 0.0208
+    },
+    {
+      "feature": "Impressions",
+      "importance": 0.009
+    },
+    {
+      "feature": "Follower count",
+      "importance": 0.0039
+    },
+    {
+      "feature": "Post hour (per hr)",
+      "importance": 0.0033
+    },
+    {
+      "feature": "Boost budget (\u20b1)",
+      "importance": 0.0033
+    }
   ],
   "what_if_scenarios": [
     {
       "name": "Story + boosted + long caption",
-      "description": "Resident story, boosted ₱500, 10am, 250-char caption",
-      "predicted_referrals": 65.1
+      "description": "Resident story, boosted \u20b1500, 10am, 250-char caption",
+      "predicted_referrals": 64.0
     },
     {
       "name": "Story + organic",
@@ -47,7 +110,7 @@
     },
     {
       "name": "Campaign + boosted",
-      "description": "No story, boosted ₱300, noon, 80-char, with CTA",
+      "description": "No story, boosted \u20b1300, noon, 80-char, with CTA",
       "predicted_referrals": 4.4
     },
     {

@@ -1,722 +1,710 @@
 {
   "1": {
-    "riskScore": 0.4864,
+    "riskScore": 0.4948,
     "recommendedIntervention": "Safety",
-    "confidence": 0.509,
+    "confidence": 0.503,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.385,
+    "incidentRisk": 0.382,
     "reviewRequired": true
   },
-  "2": {
-    "riskScore": 0.5803,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.509,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.158,
-    "reviewRequired": false
-  },
   "3": {
-    "riskScore": 0.4868,
-    "recommendedIntervention": "Psychosocial",
+    "riskScore": 0.4839,
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.21,
+    "incidentRisk": 0.212,
     "reviewRequired": false
   },
   "4": {
-    "riskScore": 0.6182,
-    "recommendedIntervention": "Physical Health",
+    "riskScore": 0.6143,
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.225,
+    "incidentRisk": 0.243,
     "reviewRequired": true
   },
   "5": {
-    "riskScore": 0.5821,
+    "riskScore": 0.5801,
     "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.311,
+    "incidentRisk": 0.294,
     "reviewRequired": false
   },
   "6": {
-    "riskScore": 0.5914,
+    "riskScore": 0.6173,
     "recommendedIntervention": "Safety",
-    "confidence": 0.505,
+    "confidence": 0.518,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.206,
+    "incidentRisk": 0.251,
     "reviewRequired": true
   },
   "7": {
-    "riskScore": 0.5229,
-    "recommendedIntervention": "Physical Health",
+    "riskScore": 0.5231,
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.083,
+    "incidentRisk": 0.093,
     "reviewRequired": false
   },
   "8": {
-    "riskScore": 0.5371,
+    "riskScore": 0.5377,
     "recommendedIntervention": "Safety",
-    "confidence": 0.588,
+    "confidence": 0.57,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.588,
+    "incidentRisk": 0.57,
     "reviewRequired": true
   },
   "9": {
-    "riskScore": 0.5688,
-    "recommendedIntervention": "Education",
+    "riskScore": 0.5565,
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.319,
+    "incidentRisk": 0.284,
     "reviewRequired": false
   },
   "10": {
-    "riskScore": 0.4667,
+    "riskScore": 0.4675,
     "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.29,
+    "incidentRisk": 0.3,
     "reviewRequired": true
   },
   "11": {
-    "riskScore": 0.5838,
+    "riskScore": 0.6037,
     "recommendedIntervention": "Safety",
-    "confidence": 0.511,
+    "confidence": 0.518,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.15,
+    "incidentRisk": 0.105,
     "reviewRequired": false
   },
   "12": {
-    "riskScore": 0.5361,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
+    "riskScore": 0.5425,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.501,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.2,
+    "incidentRisk": 0.249,
     "reviewRequired": true
   },
   "13": {
-    "riskScore": 0.5272,
+    "riskScore": 0.5218,
     "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.216,
+    "incidentRisk": 0.215,
     "reviewRequired": false
   },
   "14": {
-    "riskScore": 0.5573,
+    "riskScore": 0.5579,
     "recommendedIntervention": "Education",
-    "confidence": 0.506,
+    "confidence": 0.502,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.277,
+    "incidentRisk": 0.363,
     "reviewRequired": true
   },
   "15": {
-    "riskScore": 0.5541,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.505,
+    "riskScore": 0.555,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.098,
+    "incidentRisk": 0.097,
     "reviewRequired": false
   },
   "16": {
-    "riskScore": 0.5152,
+    "riskScore": 0.5142,
     "recommendedIntervention": "Safety",
-    "confidence": 0.509,
+    "confidence": 0.507,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.113,
+    "incidentRisk": 0.097,
     "reviewRequired": false
   },
   "17": {
-    "riskScore": 0.5553,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.505,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.327,
-    "reviewRequired": true
-  },
-  "18": {
-    "riskScore": 0.5795,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.253,
-    "reviewRequired": false
-  },
-  "19": {
-    "riskScore": 0.41,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.189,
-    "reviewRequired": false
-  },
-  "20": {
-    "riskScore": 0.5183,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.233,
-    "reviewRequired": true
-  },
-  "21": {
-    "riskScore": 0.5749,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.281,
-    "reviewRequired": false
-  },
-  "22": {
-    "riskScore": 0.5053,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.209,
-    "reviewRequired": true
-  },
-  "23": {
-    "riskScore": 0.5521,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.259,
-    "reviewRequired": true
-  },
-  "24": {
-    "riskScore": 0.4743,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.504,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.275,
-    "reviewRequired": false
-  },
-  "25": {
-    "riskScore": 0.6435,
-    "recommendedIntervention": "Education",
-    "confidence": 0.512,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.348,
-    "reviewRequired": true
-  },
-  "26": {
-    "riskScore": 0.5454,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.416,
-    "reviewRequired": true
-  },
-  "27": {
-    "riskScore": 0.5881,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.508,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.291,
-    "reviewRequired": false
-  },
-  "28": {
-    "riskScore": 0.522,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.066,
-    "reviewRequired": false
-  },
-  "29": {
-    "riskScore": 0.6095,
-    "recommendedIntervention": "Education",
-    "confidence": 0.503,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.238,
-    "reviewRequired": false
-  },
-  "30": {
-    "riskScore": 0.5894,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.212,
-    "reviewRequired": true
-  },
-  "31": {
-    "riskScore": 0.554,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.506,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.126,
-    "reviewRequired": false
-  },
-  "32": {
-    "riskScore": 0.5305,
-    "recommendedIntervention": "Education",
-    "confidence": 0.503,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.3,
-    "reviewRequired": false
-  },
-  "33": {
-    "riskScore": 0.5692,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.503,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.16,
-    "reviewRequired": false
-  },
-  "34": {
-    "riskScore": 0.5431,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.505,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.117,
-    "reviewRequired": true
-  },
-  "35": {
-    "riskScore": 0.5071,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.504,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.266,
-    "reviewRequired": false
-  },
-  "36": {
-    "riskScore": 0.5328,
-    "recommendedIntervention": "Reintegration",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.339,
-    "reviewRequired": true
-  },
-  "37": {
-    "riskScore": 0.5072,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.248,
-    "reviewRequired": false
-  },
-  "38": {
-    "riskScore": 0.5654,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.504,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.064,
-    "reviewRequired": false
-  },
-  "39": {
-    "riskScore": 0.5189,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.099,
-    "reviewRequired": false
-  },
-  "40": {
-    "riskScore": 0.5645,
-    "recommendedIntervention": "Psychosocial",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.218,
-    "reviewRequired": false
-  },
-  "41": {
-    "riskScore": 0.5138,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.281,
-    "reviewRequired": true
-  },
-  "42": {
-    "riskScore": 0.6581,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.147,
-    "reviewRequired": false
-  },
-  "43": {
-    "riskScore": 0.5885,
+    "riskScore": 0.5467,
     "recommendedIntervention": "Safety",
     "confidence": 0.515,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.095,
-    "reviewRequired": false
-  },
-  "44": {
-    "riskScore": 0.5774,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.502,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.416,
-    "reviewRequired": false
-  },
-  "45": {
-    "riskScore": 0.6258,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.567,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.567,
+    "incidentRisk": 0.379,
     "reviewRequired": true
   },
-  "46": {
-    "riskScore": 0.5299,
+  "18": {
+    "riskScore": 0.5785,
     "recommendedIntervention": "Safety",
-    "confidence": 0.513,
+    "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.222,
+    "incidentRisk": 0.204,
+    "reviewRequired": false
+  },
+  "19": {
+    "riskScore": 0.4156,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.188,
+    "reviewRequired": false
+  },
+  "20": {
+    "riskScore": 0.5192,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.503,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.225,
     "reviewRequired": true
   },
-  "47": {
-    "riskScore": 0.5396,
+  "21": {
+    "riskScore": 0.5673,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.277,
+    "reviewRequired": false
+  },
+  "22": {
+    "riskScore": 0.4956,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.18,
+    "reviewRequired": true
+  },
+  "23": {
+    "riskScore": 0.5584,
+    "recommendedIntervention": "Education",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.241,
+    "reviewRequired": true
+  },
+  "24": {
+    "riskScore": 0.4991,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.509,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.27,
+    "reviewRequired": false
+  },
+  "25": {
+    "riskScore": 0.6506,
+    "recommendedIntervention": "Education",
+    "confidence": 0.504,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.359,
+    "reviewRequired": true
+  },
+  "26": {
+    "riskScore": 0.5477,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.42,
+    "reviewRequired": true
+  },
+  "27": {
+    "riskScore": 0.5721,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.504,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.3,
+    "reviewRequired": false
+  },
+  "28": {
+    "riskScore": 0.511,
     "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.153,
+    "incidentRisk": 0.068,
+    "reviewRequired": false
+  },
+  "29": {
+    "riskScore": 0.6121,
+    "recommendedIntervention": "Education",
+    "confidence": 0.502,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.2,
+    "reviewRequired": false
+  },
+  "30": {
+    "riskScore": 0.5723,
+    "recommendedIntervention": "Psychosocial",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.217,
+    "reviewRequired": true
+  },
+  "31": {
+    "riskScore": 0.5607,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.514,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.163,
+    "reviewRequired": false
+  },
+  "32": {
+    "riskScore": 0.5444,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.501,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.264,
+    "reviewRequired": false
+  },
+  "33": {
+    "riskScore": 0.5776,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.512,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.2,
+    "reviewRequired": false
+  },
+  "34": {
+    "riskScore": 0.5427,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.515,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.131,
+    "reviewRequired": true
+  },
+  "35": {
+    "riskScore": 0.5176,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.503,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.281,
+    "reviewRequired": false
+  },
+  "36": {
+    "riskScore": 0.5242,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.337,
+    "reviewRequired": true
+  },
+  "37": {
+    "riskScore": 0.5017,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.199,
+    "reviewRequired": false
+  },
+  "38": {
+    "riskScore": 0.5692,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.502,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.081,
+    "reviewRequired": false
+  },
+  "39": {
+    "riskScore": 0.526,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.506,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.098,
+    "reviewRequired": false
+  },
+  "40": {
+    "riskScore": 0.5503,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.158,
+    "reviewRequired": false
+  },
+  "41": {
+    "riskScore": 0.5158,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.271,
+    "reviewRequired": true
+  },
+  "42": {
+    "riskScore": 0.6844,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.118,
+    "reviewRequired": false
+  },
+  "43": {
+    "riskScore": 0.5899,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.534,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.105,
+    "reviewRequired": false
+  },
+  "44": {
+    "riskScore": 0.5673,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.506,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.372,
+    "reviewRequired": false
+  },
+  "45": {
+    "riskScore": 0.6257,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.56,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.56,
+    "reviewRequired": true
+  },
+  "46": {
+    "riskScore": 0.5231,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.509,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.23,
+    "reviewRequired": true
+  },
+  "47": {
+    "riskScore": 0.5437,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.501,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.182,
     "reviewRequired": false
   },
   "48": {
-    "riskScore": 0.473,
+    "riskScore": 0.464,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.504,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.3,
+    "reviewRequired": false
+  },
+  "49": {
+    "riskScore": 0.6366,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.508,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.157,
+    "reviewRequired": false
+  },
+  "50": {
+    "riskScore": 0.5946,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.288,
+    "reviewRequired": true
+  },
+  "51": {
+    "riskScore": 0.5571,
+    "recommendedIntervention": "Physical Health",
+    "confidence": 0.501,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.151,
+    "reviewRequired": false
+  },
+  "52": {
+    "riskScore": 0.5448,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.661,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.661,
+    "reviewRequired": true
+  },
+  "53": {
+    "riskScore": 0.6321,
+    "recommendedIntervention": "Psychosocial",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.183,
+    "reviewRequired": false
+  },
+  "54": {
+    "riskScore": 0.6361,
     "recommendedIntervention": "Reintegration",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.326,
+    "incidentRisk": 0.487,
     "reviewRequired": false
   },
-  "49": {
-    "riskScore": 0.6304,
+  "55": {
+    "riskScore": 0.5277,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.509,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.233,
+    "reviewRequired": false
+  },
+  "56": {
+    "riskScore": 0.5717,
+    "recommendedIntervention": "Safety",
+    "confidence": 0.5,
+    "topDrivers": [
+      "general_health_score",
+      "pct_safety_concerns",
+      "progress_percent"
+    ],
+    "incidentRisk": 0.208,
+    "reviewRequired": true
+  },
+  "57": {
+    "riskScore": 0.5727,
     "recommendedIntervention": "Education",
     "confidence": 0.51,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.149,
-    "reviewRequired": false
-  },
-  "50": {
-    "riskScore": 0.5982,
-    "recommendedIntervention": "Education",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.26,
-    "reviewRequired": true
-  },
-  "51": {
-    "riskScore": 0.5412,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.504,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.11,
-    "reviewRequired": false
-  },
-  "52": {
-    "riskScore": 0.5326,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.623,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.623,
-    "reviewRequired": true
-  },
-  "53": {
-    "riskScore": 0.637,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.121,
-    "reviewRequired": false
-  },
-  "54": {
-    "riskScore": 0.6353,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.505,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.505,
-    "reviewRequired": true
-  },
-  "55": {
-    "riskScore": 0.5191,
-    "recommendedIntervention": "Safety",
-    "confidence": 0.507,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.258,
-    "reviewRequired": false
-  },
-  "56": {
-    "riskScore": 0.5871,
-    "recommendedIntervention": "Physical Health",
-    "confidence": 0.5,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.152,
-    "reviewRequired": true
-  },
-  "57": {
-    "riskScore": 0.5627,
-    "recommendedIntervention": "Education",
-    "confidence": 0.507,
-    "topDrivers": [
-      "general_health_score",
-      "bmi",
-      "sleep_quality_score"
-    ],
-    "incidentRisk": 0.18,
+    "incidentRisk": 0.197,
     "reviewRequired": false
   },
   "58": {
-    "riskScore": 0.5585,
+    "riskScore": 0.5349,
     "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.16,
+    "incidentRisk": 0.222,
     "reviewRequired": true
   },
   "59": {
-    "riskScore": 0.5983,
-    "recommendedIntervention": "Education",
+    "riskScore": 0.6025,
+    "recommendedIntervention": "Reintegration",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.29,
+    "incidentRisk": 0.347,
     "reviewRequired": false
   },
   "60": {
-    "riskScore": 0.5328,
+    "riskScore": 0.5518,
     "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
-      "bmi",
-      "sleep_quality_score"
+      "pct_safety_concerns",
+      "progress_percent"
     ],
-    "incidentRisk": 0.202,
+    "incidentRisk": 0.181,
     "reviewRequired": false
   }
 }
