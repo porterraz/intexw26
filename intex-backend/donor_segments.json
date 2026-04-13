@@ -1,3992 +1,3999 @@
 {
   "1": {
     "persona": "Champions",
-    "recency": 51,
+    "recency": 53,
     "frequency": 12,
     "monetary": 9000.03,
-    "cluster": 2
+    "cluster": 0
   },
   "2": {
     "persona": "Light Givers",
-    "recency": 338,
+    "recency": 340,
     "frequency": 4,
     "monetary": 3877.36,
-    "cluster": 0
+    "cluster": 2
   },
   "3": {
     "persona": "Champions",
-    "recency": 210,
+    "recency": 212,
     "frequency": 16,
     "monetary": 12448.13,
-    "cluster": 2
+    "cluster": 0
   },
   "4": {
     "persona": "Champions",
-    "recency": 41,
+    "recency": 43,
     "frequency": 11,
     "monetary": 9934.62,
-    "cluster": 2
+    "cluster": 0
   },
   "5": {
     "persona": "Light Givers",
-    "recency": 191,
+    "recency": 193,
     "frequency": 5,
     "monetary": 4751.17,
-    "cluster": 0
+    "cluster": 2
   },
   "6": {
     "persona": "Champions",
-    "recency": 139,
+    "recency": 141,
     "frequency": 9,
     "monetary": 9574.27,
-    "cluster": 2
+    "cluster": 0
   },
   "7": {
     "persona": "Champions",
-    "recency": 104,
+    "recency": 106,
     "frequency": 11,
     "monetary": 6003.96,
-    "cluster": 2
+    "cluster": 0
   },
   "8": {
     "persona": "Champions",
-    "recency": 110,
+    "recency": 112,
     "frequency": 13,
     "monetary": 9064.84,
-    "cluster": 2
+    "cluster": 0
   },
   "9": {
     "persona": "Champions",
-    "recency": 67,
+    "recency": 69,
     "frequency": 9,
     "monetary": 10315.75,
-    "cluster": 2
+    "cluster": 0
   },
   "10": {
     "persona": "Light Givers",
-    "recency": 153,
+    "recency": 155,
     "frequency": 6,
     "monetary": 3458.54,
-    "cluster": 0
+    "cluster": 2
   },
   "11": {
     "persona": "Light Givers",
-    "recency": 116,
+    "recency": 118,
     "frequency": 4,
     "monetary": 4395.62,
-    "cluster": 0
+    "cluster": 2
   },
   "12": {
     "persona": "Light Givers",
-    "recency": 180,
+    "recency": 182,
     "frequency": 7,
     "monetary": 5002.38,
-    "cluster": 0
+    "cluster": 2
   },
   "13": {
     "persona": "Light Givers",
-    "recency": 100,
+    "recency": 102,
     "frequency": 7,
     "monetary": 3256.82,
-    "cluster": 0
+    "cluster": 2
   },
   "14": {
     "persona": "Light Givers",
-    "recency": 838,
+    "recency": 840,
     "frequency": 1,
     "monetary": 27.12,
-    "cluster": 0
+    "cluster": 2
   },
   "15": {
     "persona": "Light Givers",
-    "recency": 573,
+    "recency": 575,
     "frequency": 2,
     "monetary": 925.66,
-    "cluster": 0
+    "cluster": 2
   },
   "16": {
     "persona": "Light Givers",
-    "recency": 159,
+    "recency": 161,
     "frequency": 5,
     "monetary": 2668.23,
-    "cluster": 0
+    "cluster": 2
   },
   "17": {
     "persona": "Light Givers",
-    "recency": 392,
+    "recency": 394,
     "frequency": 4,
     "monetary": 1406.67,
-    "cluster": 0
+    "cluster": 2
   },
   "18": {
     "persona": "Light Givers",
-    "recency": 81,
+    "recency": 83,
     "frequency": 5,
     "monetary": 3419.58,
-    "cluster": 0
+    "cluster": 2
   },
   "19": {
     "persona": "Steady Supporters",
-    "recency": 150,
+    "recency": 152,
     "frequency": 8,
     "monetary": 3765.27,
     "cluster": 1
   },
   "20": {
     "persona": "Champions",
-    "recency": 335,
+    "recency": 337,
     "frequency": 17,
     "monetary": 14240.29,
-    "cluster": 2
+    "cluster": 0
   },
   "21": {
     "persona": "Steady Supporters",
-    "recency": 102,
+    "recency": 104,
     "frequency": 7,
     "monetary": 2955.69,
     "cluster": 1
   },
   "22": {
     "persona": "Light Givers",
-    "recency": 59,
+    "recency": 61,
     "frequency": 5,
     "monetary": 4326.73,
-    "cluster": 0
+    "cluster": 2
   },
   "23": {
     "persona": "Light Givers",
-    "recency": 381,
+    "recency": 383,
     "frequency": 3,
     "monetary": 636.53,
-    "cluster": 0
+    "cluster": 2
   },
   "24": {
     "persona": "Champions",
-    "recency": 179,
+    "recency": 181,
     "frequency": 9,
     "monetary": 4168.88,
-    "cluster": 2
+    "cluster": 0
   },
   "25": {
     "persona": "Champions",
-    "recency": 56,
+    "recency": 58,
     "frequency": 17,
     "monetary": 11540.99,
-    "cluster": 2
+    "cluster": 0
   },
   "26": {
     "persona": "Champions",
-    "recency": 46,
+    "recency": 48,
     "frequency": 12,
     "monetary": 7109.62,
-    "cluster": 2
+    "cluster": 0
   },
   "27": {
     "persona": "Light Givers",
-    "recency": 52,
+    "recency": 54,
     "frequency": 6,
     "monetary": 4653.04,
-    "cluster": 0
+    "cluster": 2
   },
   "29": {
     "persona": "Light Givers",
-    "recency": 185,
+    "recency": 187,
     "frequency": 6,
     "monetary": 4837.31,
-    "cluster": 0
+    "cluster": 2
   },
   "30": {
     "persona": "Light Givers",
-    "recency": 256,
+    "recency": 258,
     "frequency": 2,
     "monetary": 4713.84,
-    "cluster": 0
+    "cluster": 2
   },
   "31": {
     "persona": "Champions",
-    "recency": 59,
+    "recency": 61,
     "frequency": 20,
     "monetary": 10003.36,
-    "cluster": 2
+    "cluster": 0
   },
   "32": {
     "persona": "Steady Supporters",
-    "recency": 83,
+    "recency": 85,
     "frequency": 8,
     "monetary": 5685.9,
     "cluster": 1
   },
   "33": {
     "persona": "Light Givers",
-    "recency": 375,
+    "recency": 377,
     "frequency": 7,
     "monetary": 3794.98,
-    "cluster": 0
+    "cluster": 2
   },
   "34": {
-    "persona": "Light Givers",
-    "recency": 339,
+    "persona": "Champions",
+    "recency": 341,
     "frequency": 7,
     "monetary": 2428.81,
     "cluster": 0
   },
   "35": {
     "persona": "Champions",
-    "recency": 111,
+    "recency": 113,
     "frequency": 10,
     "monetary": 8547.74,
-    "cluster": 2
+    "cluster": 0
   },
   "36": {
     "persona": "Light Givers",
-    "recency": 665,
+    "recency": 667,
     "frequency": 6,
     "monetary": 4060.64,
-    "cluster": 0
+    "cluster": 2
   },
   "37": {
     "persona": "Light Givers",
-    "recency": 454,
+    "recency": 456,
     "frequency": 5,
     "monetary": 1992.44,
-    "cluster": 0
+    "cluster": 2
   },
   "38": {
     "persona": "Champions",
-    "recency": 89,
+    "recency": 91,
     "frequency": 9,
     "monetary": 6792.7,
-    "cluster": 2
+    "cluster": 0
   },
   "39": {
     "persona": "Light Givers",
-    "recency": 300,
+    "recency": 302,
     "frequency": 5,
     "monetary": 1943.22,
-    "cluster": 0
+    "cluster": 2
   },
   "40": {
     "persona": "Light Givers",
-    "recency": 263,
+    "recency": 265,
     "frequency": 2,
     "monetary": 1646.05,
-    "cluster": 0
+    "cluster": 2
   },
   "41": {
     "persona": "Light Givers",
-    "recency": 443,
+    "recency": 445,
     "frequency": 4,
     "monetary": 2166.7,
-    "cluster": 0
+    "cluster": 2
   },
   "42": {
     "persona": "Light Givers",
-    "recency": 101,
+    "recency": 103,
     "frequency": 5,
     "monetary": 2146.77,
-    "cluster": 0
+    "cluster": 2
   },
   "43": {
     "persona": "Light Givers",
-    "recency": 170,
+    "recency": 172,
     "frequency": 6,
     "monetary": 3280.16,
-    "cluster": 0
+    "cluster": 2
   },
   "44": {
     "persona": "Champions",
-    "recency": 115,
+    "recency": 117,
     "frequency": 7,
     "monetary": 6064.91,
-    "cluster": 2
+    "cluster": 0
   },
   "45": {
     "persona": "Champions",
-    "recency": 135,
+    "recency": 137,
     "frequency": 11,
     "monetary": 11184.74,
-    "cluster": 2
+    "cluster": 0
   },
   "46": {
     "persona": "Light Givers",
-    "recency": 221,
+    "recency": 223,
     "frequency": 5,
     "monetary": 2048.05,
-    "cluster": 0
+    "cluster": 2
   },
   "47": {
     "persona": "Champions",
-    "recency": 186,
+    "recency": 188,
     "frequency": 6,
     "monetary": 7264.21,
-    "cluster": 2
+    "cluster": 0
   },
   "48": {
     "persona": "Champions",
-    "recency": 142,
+    "recency": 144,
     "frequency": 4,
     "monetary": 2257.28,
-    "cluster": 2
+    "cluster": 0
   },
   "49": {
     "persona": "Light Givers",
-    "recency": 79,
+    "recency": 81,
     "frequency": 4,
     "monetary": 1952.98,
-    "cluster": 0
+    "cluster": 2
   },
   "50": {
     "persona": "Light Givers",
-    "recency": 277,
+    "recency": 279,
     "frequency": 4,
     "monetary": 3201.4,
-    "cluster": 0
+    "cluster": 2
   },
   "51": {
     "persona": "Steady Supporters",
-    "recency": 43,
+    "recency": 45,
     "frequency": 6,
     "monetary": 2653.68,
     "cluster": 1
   },
   "52": {
     "persona": "Champions",
-    "recency": 571,
+    "recency": 573,
     "frequency": 6,
     "monetary": 4305.91,
-    "cluster": 2
+    "cluster": 0
   },
   "53": {
     "persona": "Light Givers",
-    "recency": 518,
+    "recency": 520,
     "frequency": 2,
     "monetary": 2271.28,
-    "cluster": 0
+    "cluster": 2
   },
   "54": {
     "persona": "Champions",
-    "recency": 139,
+    "recency": 141,
     "frequency": 23,
     "monetary": 11932.35,
-    "cluster": 2
+    "cluster": 0
   },
   "55": {
     "persona": "Champions",
-    "recency": 299,
+    "recency": 301,
     "frequency": 6,
     "monetary": 12074.79,
-    "cluster": 2
+    "cluster": 0
   },
   "56": {
     "persona": "Light Givers",
-    "recency": 96,
+    "recency": 98,
     "frequency": 4,
     "monetary": 1581.93,
-    "cluster": 0
+    "cluster": 2
   },
   "57": {
     "persona": "Light Givers",
-    "recency": 126,
+    "recency": 128,
     "frequency": 2,
     "monetary": 1731.43,
-    "cluster": 0
+    "cluster": 2
   },
   "58": {
     "persona": "Light Givers",
-    "recency": 815,
+    "recency": 817,
     "frequency": 3,
     "monetary": 870.43,
-    "cluster": 0
+    "cluster": 2
   },
   "59": {
     "persona": "Light Givers",
-    "recency": 191,
+    "recency": 193,
     "frequency": 4,
     "monetary": 1368.02,
-    "cluster": 0
+    "cluster": 2
   },
   "60": {
     "persona": "Champions",
-    "recency": 317,
+    "recency": 319,
     "frequency": 6,
     "monetary": 3976.01,
-    "cluster": 2
+    "cluster": 0
   },
   "61": {
     "persona": "Light Givers",
-    "recency": 2,
+    "recency": 4,
     "frequency": 1,
     "monetary": 15.75,
-    "cluster": 0
+    "cluster": 2
   },
   "62": {
     "persona": "Light Givers",
-    "recency": 2,
+    "recency": 4,
     "frequency": 1,
     "monetary": 22.5,
-    "cluster": 0
+    "cluster": 2
   },
   "63": {
     "persona": "Light Givers",
-    "recency": 2,
+    "recency": 4,
     "frequency": 1,
     "monetary": 11.5,
-    "cluster": 0
+    "cluster": 2
   },
   "64": {
     "persona": "Light Givers",
-    "recency": 2,
+    "recency": 4,
     "frequency": 1,
     "monetary": 9.99,
-    "cluster": 0
+    "cluster": 2
   },
   "65": {
     "persona": "Light Givers",
-    "recency": 2,
+    "recency": 4,
     "frequency": 1,
     "monetary": 6.66,
-    "cluster": 0
+    "cluster": 2
   },
   "66": {
     "persona": "Light Givers",
-    "recency": 1,
+    "recency": 3,
     "frequency": 2,
     "monetary": 62.0,
-    "cluster": 0
+    "cluster": 2
   },
   "67": {
     "persona": "Light Givers",
-    "recency": 1,
+    "recency": 2,
     "frequency": 1,
     "monetary": 20.0,
-    "cluster": 0
+    "cluster": 2
   },
   "68": {
     "persona": "Light Givers",
-    "recency": 1,
+    "recency": 2,
     "frequency": 3,
     "monetary": 150.0,
-    "cluster": 0
+    "cluster": 2
   },
   "69": {
     "persona": "Steady Supporters",
-    "recency": 0,
+    "recency": 1,
     "frequency": 10,
     "monetary": 1170.0,
     "cluster": 1
   },
   "70": {
     "persona": "Light Givers",
-    "recency": 1,
+    "recency": 3,
     "frequency": 1,
     "monetary": 10.0,
-    "cluster": 0
+    "cluster": 2
   },
   "71": {
-    "persona": "Light Givers",
-    "recency": 204,
+    "persona": "Champions",
+    "recency": 205,
     "frequency": 5,
     "monetary": 1481.61,
     "cluster": 0
   },
   "72": {
-    "persona": "Light Givers",
-    "recency": 51,
+    "persona": "Champions",
+    "recency": 52,
     "frequency": 4,
     "monetary": 1495.73,
     "cluster": 0
   },
   "73": {
     "persona": "Steady Supporters",
-    "recency": 66,
+    "recency": 67,
     "frequency": 8,
     "monetary": 2361.15,
     "cluster": 1
   },
   "74": {
     "persona": "Champions",
-    "recency": 75,
+    "recency": 76,
     "frequency": 3,
     "monetary": 1447.19,
-    "cluster": 2
+    "cluster": 0
   },
   "75": {
     "persona": "Steady Supporters",
-    "recency": 19,
+    "recency": 21,
     "frequency": 7,
     "monetary": 1645.17,
     "cluster": 1
   },
   "76": {
     "persona": "Steady Supporters",
-    "recency": 20,
+    "recency": 22,
     "frequency": 8,
     "monetary": 2679.49,
     "cluster": 1
   },
   "77": {
     "persona": "Champions",
-    "recency": 17,
+    "recency": 18,
     "frequency": 7,
     "monetary": 2929.41,
-    "cluster": 2
+    "cluster": 0
   },
   "78": {
     "persona": "Steady Supporters",
-    "recency": 61,
+    "recency": 62,
     "frequency": 8,
     "monetary": 1873.42,
     "cluster": 1
   },
   "79": {
     "persona": "Champions",
-    "recency": 322,
+    "recency": 323,
     "frequency": 6,
     "monetary": 2011.08,
-    "cluster": 2
+    "cluster": 0
   },
   "80": {
     "persona": "Steady Supporters",
-    "recency": 22,
+    "recency": 23,
     "frequency": 7,
     "monetary": 958.82,
     "cluster": 1
   },
   "81": {
     "persona": "Steady Supporters",
-    "recency": 23,
+    "recency": 24,
     "frequency": 9,
     "monetary": 1576.11,
     "cluster": 1
   },
   "82": {
     "persona": "Light Givers",
-    "recency": 445,
+    "recency": 446,
     "frequency": 2,
     "monetary": 310.92,
-    "cluster": 0
+    "cluster": 2
   },
   "83": {
     "persona": "Champions",
-    "recency": 30,
+    "recency": 31,
     "frequency": 12,
     "monetary": 2354.0,
-    "cluster": 2
+    "cluster": 0
   },
   "84": {
     "persona": "Steady Supporters",
-    "recency": 27,
+    "recency": 29,
     "frequency": 5,
     "monetary": 1141.55,
     "cluster": 1
   },
   "85": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 7,
     "monetary": 2282.81,
     "cluster": 1
   },
   "86": {
     "persona": "Steady Supporters",
-    "recency": 72,
+    "recency": 73,
     "frequency": 8,
     "monetary": 1281.45,
     "cluster": 1
   },
   "87": {
     "persona": "Champions",
-    "recency": 14,
+    "recency": 15,
     "frequency": 10,
     "monetary": 3802.51,
-    "cluster": 2
+    "cluster": 0
   },
   "88": {
     "persona": "Light Givers",
-    "recency": 218,
+    "recency": 219,
     "frequency": 2,
     "monetary": 349.94,
-    "cluster": 0
+    "cluster": 2
   },
   "89": {
     "persona": "Steady Supporters",
-    "recency": 54,
+    "recency": 56,
     "frequency": 10,
     "monetary": 1686.67,
     "cluster": 1
   },
   "90": {
     "persona": "Light Givers",
-    "recency": 22,
+    "recency": 23,
     "frequency": 3,
     "monetary": 353.76,
-    "cluster": 0
+    "cluster": 2
   },
   "91": {
     "persona": "Steady Supporters",
-    "recency": 130,
+    "recency": 132,
     "frequency": 5,
     "monetary": 1083.43,
     "cluster": 1
   },
   "92": {
     "persona": "Champions",
-    "recency": 66,
+    "recency": 67,
     "frequency": 8,
     "monetary": 2389.46,
-    "cluster": 2
+    "cluster": 0
   },
   "93": {
     "persona": "Steady Supporters",
-    "recency": 223,
+    "recency": 224,
     "frequency": 11,
     "monetary": 2043.87,
     "cluster": 1
   },
   "94": {
     "persona": "Light Givers",
-    "recency": 78,
+    "recency": 79,
     "frequency": 3,
     "monetary": 733.92,
-    "cluster": 0
+    "cluster": 2
   },
   "95": {
     "persona": "Light Givers",
-    "recency": 49,
+    "recency": 50,
     "frequency": 3,
     "monetary": 290.01,
-    "cluster": 0
+    "cluster": 2
   },
   "96": {
     "persona": "Champions",
-    "recency": 34,
+    "recency": 36,
     "frequency": 8,
     "monetary": 2993.83,
-    "cluster": 2
+    "cluster": 0
   },
   "97": {
     "persona": "Light Givers",
-    "recency": 197,
+    "recency": 199,
     "frequency": 3,
     "monetary": 633.56,
-    "cluster": 0
+    "cluster": 2
   },
   "98": {
     "persona": "Steady Supporters",
-    "recency": 30,
+    "recency": 32,
     "frequency": 10,
     "monetary": 2402.96,
     "cluster": 1
   },
   "99": {
     "persona": "Steady Supporters",
-    "recency": 36,
+    "recency": 37,
     "frequency": 11,
     "monetary": 2407.08,
     "cluster": 1
   },
   "100": {
     "persona": "Light Givers",
-    "recency": 210,
+    "recency": 211,
     "frequency": 3,
     "monetary": 1017.7,
-    "cluster": 0
+    "cluster": 2
   },
   "101": {
     "persona": "Light Givers",
-    "recency": 335,
+    "recency": 336,
     "frequency": 2,
     "monetary": 574.18,
-    "cluster": 0
+    "cluster": 2
   },
   "102": {
-    "persona": "Light Givers",
-    "recency": 150,
+    "persona": "Champions",
+    "recency": 151,
     "frequency": 3,
     "monetary": 521.13,
     "cluster": 0
   },
   "103": {
     "persona": "Light Givers",
-    "recency": 59,
+    "recency": 60,
     "frequency": 3,
     "monetary": 759.22,
-    "cluster": 0
+    "cluster": 2
   },
   "104": {
     "persona": "Steady Supporters",
-    "recency": 95,
+    "recency": 96,
     "frequency": 6,
     "monetary": 1171.27,
     "cluster": 1
   },
   "105": {
     "persona": "Steady Supporters",
-    "recency": 28,
+    "recency": 30,
     "frequency": 5,
     "monetary": 818.62,
     "cluster": 1
   },
   "106": {
     "persona": "Steady Supporters",
-    "recency": 7,
+    "recency": 8,
     "frequency": 13,
     "monetary": 1862.82,
     "cluster": 1
   },
   "107": {
-    "persona": "Light Givers",
-    "recency": 198,
+    "persona": "Champions",
+    "recency": 199,
     "frequency": 5,
     "monetary": 845.49,
     "cluster": 0
   },
   "108": {
     "persona": "Steady Supporters",
-    "recency": 11,
+    "recency": 12,
     "frequency": 11,
     "monetary": 2509.01,
     "cluster": 1
   },
   "109": {
     "persona": "Light Givers",
-    "recency": 251,
+    "recency": 252,
     "frequency": 4,
     "monetary": 550.04,
-    "cluster": 0
+    "cluster": 2
   },
   "110": {
     "persona": "Steady Supporters",
-    "recency": 55,
+    "recency": 56,
     "frequency": 6,
     "monetary": 1580.04,
     "cluster": 1
   },
   "111": {
     "persona": "Steady Supporters",
-    "recency": 36,
+    "recency": 37,
     "frequency": 7,
     "monetary": 1304.8,
     "cluster": 1
   },
   "112": {
     "persona": "Champions",
-    "recency": 4,
+    "recency": 6,
     "frequency": 15,
     "monetary": 3539.5,
-    "cluster": 2
+    "cluster": 0
   },
   "113": {
     "persona": "Champions",
-    "recency": 26,
+    "recency": 27,
     "frequency": 9,
     "monetary": 2352.53,
-    "cluster": 2
+    "cluster": 0
   },
   "114": {
     "persona": "Light Givers",
-    "recency": 749,
+    "recency": 751,
     "frequency": 4,
     "monetary": 671.85,
-    "cluster": 0
+    "cluster": 2
   },
   "115": {
     "persona": "Steady Supporters",
-    "recency": 71,
+    "recency": 73,
     "frequency": 6,
     "monetary": 1897.21,
     "cluster": 1
   },
   "116": {
     "persona": "Steady Supporters",
-    "recency": 40,
+    "recency": 42,
     "frequency": 8,
     "monetary": 2376.95,
     "cluster": 1
   },
   "117": {
     "persona": "Light Givers",
-    "recency": 283,
+    "recency": 284,
     "frequency": 4,
     "monetary": 710.98,
-    "cluster": 0
+    "cluster": 2
   },
   "118": {
     "persona": "Champions",
-    "recency": 218,
+    "recency": 219,
     "frequency": 4,
     "monetary": 1729.28,
-    "cluster": 2
+    "cluster": 0
   },
   "119": {
     "persona": "Steady Supporters",
-    "recency": 19,
+    "recency": 20,
     "frequency": 9,
     "monetary": 1955.71,
     "cluster": 1
   },
   "120": {
     "persona": "Champions",
-    "recency": 33,
+    "recency": 34,
     "frequency": 5,
     "monetary": 1897.31,
-    "cluster": 2
+    "cluster": 0
   },
   "121": {
     "persona": "Light Givers",
-    "recency": 104,
+    "recency": 106,
     "frequency": 1,
     "monetary": 87.36,
-    "cluster": 0
+    "cluster": 2
   },
   "122": {
     "persona": "Steady Supporters",
-    "recency": 143,
+    "recency": 144,
     "frequency": 6,
     "monetary": 1225.25,
     "cluster": 1
   },
   "123": {
     "persona": "Steady Supporters",
-    "recency": 20,
+    "recency": 21,
     "frequency": 6,
     "monetary": 2379.43,
     "cluster": 1
   },
   "124": {
     "persona": "Steady Supporters",
-    "recency": 120,
+    "recency": 122,
     "frequency": 5,
     "monetary": 733.27,
     "cluster": 1
   },
   "125": {
     "persona": "Steady Supporters",
-    "recency": 62,
+    "recency": 64,
     "frequency": 5,
     "monetary": 779.37,
     "cluster": 1
   },
   "126": {
     "persona": "Steady Supporters",
-    "recency": 57,
+    "recency": 59,
     "frequency": 8,
     "monetary": 1368.43,
     "cluster": 1
   },
   "127": {
     "persona": "Light Givers",
-    "recency": 281,
+    "recency": 282,
     "frequency": 2,
     "monetary": 364.52,
-    "cluster": 0
+    "cluster": 2
   },
   "128": {
     "persona": "Light Givers",
-    "recency": 297,
+    "recency": 298,
     "frequency": 2,
     "monetary": 562.23,
-    "cluster": 0
+    "cluster": 2
   },
   "129": {
     "persona": "Light Givers",
-    "recency": 164,
+    "recency": 165,
     "frequency": 4,
     "monetary": 585.54,
-    "cluster": 0
+    "cluster": 2
   },
   "130": {
     "persona": "Steady Supporters",
-    "recency": 95,
+    "recency": 96,
     "frequency": 13,
     "monetary": 2542.04,
     "cluster": 1
   },
   "131": {
     "persona": "Steady Supporters",
-    "recency": 51,
+    "recency": 52,
     "frequency": 12,
     "monetary": 2076.21,
     "cluster": 1
   },
   "132": {
     "persona": "Champions",
-    "recency": 181,
+    "recency": 182,
     "frequency": 10,
     "monetary": 2793.87,
-    "cluster": 2
+    "cluster": 0
   },
   "133": {
     "persona": "Champions",
-    "recency": 56,
+    "recency": 58,
     "frequency": 5,
     "monetary": 697.61,
-    "cluster": 2
+    "cluster": 0
   },
   "134": {
     "persona": "Champions",
-    "recency": 12,
+    "recency": 14,
     "frequency": 10,
     "monetary": 4279.83,
-    "cluster": 2
+    "cluster": 0
   },
   "135": {
     "persona": "Steady Supporters",
-    "recency": 49,
+    "recency": 51,
     "frequency": 6,
     "monetary": 1438.88,
     "cluster": 1
   },
   "136": {
     "persona": "Light Givers",
-    "recency": 50,
+    "recency": 51,
     "frequency": 2,
     "monetary": 929.56,
-    "cluster": 0
+    "cluster": 2
   },
   "137": {
     "persona": "Light Givers",
-    "recency": 57,
+    "recency": 58,
     "frequency": 3,
     "monetary": 489.56,
-    "cluster": 0
+    "cluster": 2
   },
   "138": {
     "persona": "Steady Supporters",
-    "recency": 85,
+    "recency": 86,
     "frequency": 8,
     "monetary": 1691.63,
     "cluster": 1
   },
   "139": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 5,
     "frequency": 4,
     "monetary": 1097.83,
     "cluster": 1
   },
   "140": {
     "persona": "Light Givers",
-    "recency": 326,
+    "recency": 328,
     "frequency": 1,
     "monetary": 14.1,
-    "cluster": 0
+    "cluster": 2
   },
   "141": {
     "persona": "Light Givers",
-    "recency": 734,
+    "recency": 735,
     "frequency": 1,
     "monetary": 25.05,
-    "cluster": 0
+    "cluster": 2
   },
   "142": {
     "persona": "Steady Supporters",
-    "recency": 31,
+    "recency": 32,
     "frequency": 4,
     "monetary": 1215.11,
     "cluster": 1
   },
   "143": {
     "persona": "Steady Supporters",
-    "recency": 90,
+    "recency": 91,
     "frequency": 6,
     "monetary": 466.05,
     "cluster": 1
   },
   "144": {
     "persona": "Light Givers",
-    "recency": 348,
+    "recency": 349,
     "frequency": 1,
     "monetary": 361.16,
-    "cluster": 0
+    "cluster": 2
   },
   "145": {
     "persona": "Steady Supporters",
-    "recency": 297,
+    "recency": 298,
     "frequency": 7,
     "monetary": 1098.76,
     "cluster": 1
   },
   "146": {
     "persona": "Champions",
-    "recency": 8,
+    "recency": 9,
     "frequency": 12,
     "monetary": 2805.9,
-    "cluster": 2
+    "cluster": 0
   },
   "147": {
     "persona": "Steady Supporters",
-    "recency": 31,
+    "recency": 32,
     "frequency": 4,
     "monetary": 731.29,
     "cluster": 1
   },
   "148": {
     "persona": "Steady Supporters",
-    "recency": 77,
+    "recency": 78,
     "frequency": 6,
     "monetary": 1141.97,
     "cluster": 1
   },
   "149": {
     "persona": "Champions",
-    "recency": 25,
+    "recency": 26,
     "frequency": 6,
     "monetary": 1127.05,
-    "cluster": 2
+    "cluster": 0
   },
   "150": {
     "persona": "Champions",
-    "recency": 21,
+    "recency": 22,
     "frequency": 12,
     "monetary": 4048.29,
-    "cluster": 2
+    "cluster": 0
   },
   "151": {
     "persona": "Light Givers",
-    "recency": 141,
+    "recency": 143,
     "frequency": 4,
     "monetary": 807.35,
-    "cluster": 0
+    "cluster": 2
   },
   "152": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 4,
     "frequency": 8,
     "monetary": 1047.39,
     "cluster": 1
   },
   "153": {
     "persona": "Champions",
-    "recency": 14,
+    "recency": 15,
     "frequency": 10,
     "monetary": 2623.81,
-    "cluster": 2
+    "cluster": 0
   },
   "154": {
     "persona": "Steady Supporters",
-    "recency": 10,
+    "recency": 12,
     "frequency": 17,
     "monetary": 2699.52,
     "cluster": 1
   },
   "155": {
     "persona": "Steady Supporters",
-    "recency": 5,
+    "recency": 6,
     "frequency": 10,
     "monetary": 2295.74,
     "cluster": 1
   },
   "156": {
     "persona": "Steady Supporters",
-    "recency": 32,
+    "recency": 33,
     "frequency": 7,
     "monetary": 934.61,
     "cluster": 1
   },
   "157": {
     "persona": "Light Givers",
-    "recency": 34,
+    "recency": 35,
     "frequency": 3,
     "monetary": 534.18,
-    "cluster": 0
+    "cluster": 2
   },
   "158": {
     "persona": "Steady Supporters",
-    "recency": 13,
+    "recency": 14,
     "frequency": 13,
     "monetary": 2205.45,
     "cluster": 1
   },
   "159": {
     "persona": "Steady Supporters",
-    "recency": 108,
+    "recency": 109,
     "frequency": 7,
     "monetary": 1800.49,
     "cluster": 1
   },
   "160": {
     "persona": "Champions",
-    "recency": 243,
+    "recency": 244,
     "frequency": 4,
     "monetary": 1579.92,
-    "cluster": 2
+    "cluster": 0
   },
   "161": {
-    "persona": "Light Givers",
-    "recency": 117,
+    "persona": "Champions",
+    "recency": 118,
     "frequency": 5,
     "monetary": 1307.11,
     "cluster": 0
   },
   "162": {
     "persona": "Light Givers",
-    "recency": 7,
+    "recency": 8,
     "frequency": 4,
     "monetary": 384.48,
-    "cluster": 0
+    "cluster": 2
   },
   "163": {
     "persona": "Light Givers",
-    "recency": 400,
+    "recency": 401,
     "frequency": 1,
     "monetary": 154.33,
-    "cluster": 0
+    "cluster": 2
   },
   "164": {
     "persona": "Steady Supporters",
-    "recency": 14,
+    "recency": 15,
     "frequency": 7,
     "monetary": 1324.28,
     "cluster": 1
   },
   "165": {
     "persona": "Steady Supporters",
-    "recency": 167,
+    "recency": 168,
     "frequency": 7,
     "monetary": 2639.37,
     "cluster": 1
   },
   "166": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 7,
     "monetary": 1738.59,
     "cluster": 1
   },
   "167": {
     "persona": "Steady Supporters",
-    "recency": 33,
+    "recency": 35,
     "frequency": 8,
     "monetary": 2033.5,
     "cluster": 1
   },
   "168": {
     "persona": "Light Givers",
-    "recency": 878,
+    "recency": 879,
     "frequency": 2,
     "monetary": 555.62,
-    "cluster": 0
+    "cluster": 2
   },
   "169": {
     "persona": "Steady Supporters",
-    "recency": 199,
+    "recency": 200,
     "frequency": 9,
     "monetary": 2514.1,
     "cluster": 1
   },
   "170": {
     "persona": "Champions",
-    "recency": 137,
+    "recency": 138,
     "frequency": 10,
     "monetary": 3099.11,
-    "cluster": 2
+    "cluster": 0
   },
   "171": {
     "persona": "Light Givers",
-    "recency": 119,
+    "recency": 120,
     "frequency": 2,
     "monetary": 352.11,
-    "cluster": 0
+    "cluster": 2
   },
   "172": {
     "persona": "Steady Supporters",
-    "recency": 99,
+    "recency": 101,
     "frequency": 8,
     "monetary": 1613.8,
     "cluster": 1
   },
   "173": {
     "persona": "Light Givers",
-    "recency": 372,
+    "recency": 373,
     "frequency": 2,
     "monetary": 487.46,
-    "cluster": 0
+    "cluster": 2
   },
   "174": {
-    "persona": "Steady Supporters",
-    "recency": 243,
+    "persona": "Light Givers",
+    "recency": 244,
     "frequency": 4,
     "monetary": 1108.16,
-    "cluster": 1
+    "cluster": 2
   },
   "175": {
     "persona": "Champions",
-    "recency": 2,
+    "recency": 4,
     "frequency": 9,
     "monetary": 3124.27,
-    "cluster": 2
+    "cluster": 0
   },
   "176": {
     "persona": "Steady Supporters",
-    "recency": 18,
+    "recency": 20,
     "frequency": 10,
     "monetary": 2358.52,
     "cluster": 1
   },
   "177": {
     "persona": "Light Givers",
-    "recency": 124,
+    "recency": 125,
     "frequency": 3,
     "monetary": 729.94,
-    "cluster": 0
+    "cluster": 2
   },
   "178": {
     "persona": "Champions",
-    "recency": 136,
+    "recency": 137,
     "frequency": 6,
     "monetary": 1713.71,
-    "cluster": 2
+    "cluster": 0
   },
   "179": {
     "persona": "Light Givers",
-    "recency": 203,
+    "recency": 204,
     "frequency": 4,
     "monetary": 1048.46,
-    "cluster": 0
+    "cluster": 2
   },
   "180": {
     "persona": "Champions",
-    "recency": 76,
+    "recency": 77,
     "frequency": 13,
     "monetary": 3122.67,
-    "cluster": 2
+    "cluster": 0
   },
   "181": {
     "persona": "Light Givers",
-    "recency": 47,
+    "recency": 48,
     "frequency": 4,
     "monetary": 1388.26,
-    "cluster": 0
+    "cluster": 2
   },
   "182": {
     "persona": "Light Givers",
-    "recency": 344,
+    "recency": 345,
     "frequency": 4,
     "monetary": 1416.2,
-    "cluster": 0
+    "cluster": 2
   },
   "183": {
     "persona": "Steady Supporters",
-    "recency": 52,
+    "recency": 53,
     "frequency": 10,
     "monetary": 1462.92,
     "cluster": 1
   },
   "184": {
     "persona": "Steady Supporters",
-    "recency": 26,
+    "recency": 27,
     "frequency": 10,
     "monetary": 2319.36,
     "cluster": 1
   },
   "185": {
     "persona": "Light Givers",
-    "recency": 254,
+    "recency": 255,
     "frequency": 5,
     "monetary": 1158.53,
-    "cluster": 0
+    "cluster": 2
   },
   "186": {
     "persona": "Steady Supporters",
-    "recency": 100,
+    "recency": 101,
     "frequency": 7,
     "monetary": 1007.71,
     "cluster": 1
   },
   "187": {
     "persona": "Steady Supporters",
-    "recency": 158,
+    "recency": 160,
     "frequency": 5,
     "monetary": 911.1,
     "cluster": 1
   },
   "188": {
     "persona": "Champions",
-    "recency": 12,
+    "recency": 13,
     "frequency": 9,
     "monetary": 2963.24,
-    "cluster": 2
+    "cluster": 0
   },
   "189": {
     "persona": "Steady Supporters",
-    "recency": 142,
+    "recency": 143,
     "frequency": 6,
     "monetary": 921.79,
     "cluster": 1
   },
   "190": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 8,
     "frequency": 6,
     "monetary": 1466.23,
     "cluster": 1
   },
   "191": {
     "persona": "Steady Supporters",
-    "recency": 10,
+    "recency": 11,
     "frequency": 14,
     "monetary": 2049.85,
     "cluster": 1
   },
   "192": {
     "persona": "Steady Supporters",
-    "recency": 59,
+    "recency": 60,
     "frequency": 9,
     "monetary": 2583.72,
     "cluster": 1
   },
   "193": {
     "persona": "Steady Supporters",
-    "recency": 9,
+    "recency": 11,
     "frequency": 4,
     "monetary": 1194.55,
     "cluster": 1
   },
   "194": {
     "persona": "Light Givers",
-    "recency": 82,
+    "recency": 83,
     "frequency": 5,
     "monetary": 1479.07,
-    "cluster": 0
+    "cluster": 2
   },
   "195": {
     "persona": "Light Givers",
-    "recency": 12,
+    "recency": 14,
     "frequency": 3,
     "monetary": 675.69,
-    "cluster": 0
+    "cluster": 2
   },
   "196": {
     "persona": "Steady Supporters",
-    "recency": 140,
+    "recency": 141,
     "frequency": 7,
     "monetary": 1804.78,
     "cluster": 1
   },
   "197": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 4,
     "frequency": 6,
     "monetary": 1026.25,
     "cluster": 1
   },
   "198": {
     "persona": "Champions",
-    "recency": 26,
+    "recency": 27,
     "frequency": 6,
     "monetary": 2477.12,
-    "cluster": 2
+    "cluster": 0
   },
   "199": {
     "persona": "Light Givers",
-    "recency": 342,
+    "recency": 343,
     "frequency": 4,
     "monetary": 938.79,
-    "cluster": 0
+    "cluster": 2
   },
   "200": {
     "persona": "Steady Supporters",
-    "recency": 28,
+    "recency": 29,
     "frequency": 9,
     "monetary": 2348.28,
     "cluster": 1
   },
   "201": {
     "persona": "Champions",
-    "recency": 18,
+    "recency": 20,
     "frequency": 6,
     "monetary": 1662.56,
-    "cluster": 2
+    "cluster": 0
   },
   "202": {
     "persona": "Light Givers",
-    "recency": 239,
+    "recency": 240,
     "frequency": 3,
     "monetary": 575.61,
-    "cluster": 0
+    "cluster": 2
   },
   "203": {
     "persona": "Light Givers",
-    "recency": 267,
+    "recency": 268,
     "frequency": 4,
     "monetary": 1063.18,
-    "cluster": 0
+    "cluster": 2
   },
   "204": {
     "persona": "Light Givers",
-    "recency": 185,
+    "recency": 187,
     "frequency": 5,
     "monetary": 953.24,
-    "cluster": 0
+    "cluster": 2
   },
   "205": {
     "persona": "Steady Supporters",
-    "recency": 15,
+    "recency": 17,
     "frequency": 8,
     "monetary": 2000.44,
     "cluster": 1
   },
   "206": {
     "persona": "Light Givers",
-    "recency": 200,
+    "recency": 201,
     "frequency": 2,
     "monetary": 439.44,
-    "cluster": 0
+    "cluster": 2
   },
   "207": {
     "persona": "Steady Supporters",
-    "recency": 89,
+    "recency": 90,
     "frequency": 9,
     "monetary": 1518.83,
     "cluster": 1
   },
   "208": {
     "persona": "Steady Supporters",
-    "recency": 5,
+    "recency": 6,
     "frequency": 12,
     "monetary": 2736.94,
     "cluster": 1
   },
   "209": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 10,
     "monetary": 1234.69,
     "cluster": 1
   },
   "210": {
     "persona": "Light Givers",
-    "recency": 351,
+    "recency": 352,
     "frequency": 1,
     "monetary": 101.58,
-    "cluster": 0
+    "cluster": 2
   },
   "211": {
     "persona": "Steady Supporters",
-    "recency": 35,
+    "recency": 36,
     "frequency": 7,
     "monetary": 1699.45,
     "cluster": 1
   },
   "212": {
     "persona": "Steady Supporters",
-    "recency": 43,
+    "recency": 44,
     "frequency": 6,
     "monetary": 1099.78,
     "cluster": 1
   },
   "213": {
     "persona": "Light Givers",
-    "recency": 453,
+    "recency": 455,
     "frequency": 6,
     "monetary": 1112.55,
-    "cluster": 0
+    "cluster": 2
   },
   "214": {
     "persona": "Champions",
-    "recency": 15,
+    "recency": 17,
     "frequency": 4,
     "monetary": 1209.34,
-    "cluster": 2
+    "cluster": 0
   },
   "215": {
     "persona": "Light Givers",
-    "recency": 332,
+    "recency": 333,
     "frequency": 3,
     "monetary": 465.38,
-    "cluster": 0
+    "cluster": 2
   },
   "216": {
     "persona": "Light Givers",
-    "recency": 25,
+    "recency": 26,
     "frequency": 3,
     "monetary": 683.01,
-    "cluster": 0
+    "cluster": 2
   },
   "217": {
     "persona": "Steady Supporters",
-    "recency": 153,
+    "recency": 155,
     "frequency": 8,
     "monetary": 1992.74,
     "cluster": 1
   },
   "218": {
     "persona": "Light Givers",
-    "recency": 462,
+    "recency": 463,
     "frequency": 4,
     "monetary": 517.11,
-    "cluster": 0
+    "cluster": 2
   },
   "219": {
     "persona": "Light Givers",
-    "recency": 25,
+    "recency": 26,
     "frequency": 3,
     "monetary": 670.27,
-    "cluster": 0
+    "cluster": 2
   },
   "220": {
     "persona": "Champions",
-    "recency": 4,
+    "recency": 5,
     "frequency": 9,
     "monetary": 1969.27,
-    "cluster": 2
+    "cluster": 0
   },
   "221": {
     "persona": "Steady Supporters",
-    "recency": 81,
+    "recency": 82,
     "frequency": 5,
     "monetary": 887.79,
     "cluster": 1
   },
   "222": {
     "persona": "Champions",
-    "recency": 62,
+    "recency": 63,
     "frequency": 8,
     "monetary": 2213.83,
-    "cluster": 2
+    "cluster": 0
   },
   "223": {
-    "persona": "Light Givers",
-    "recency": 250,
+    "persona": "Champions",
+    "recency": 251,
     "frequency": 4,
     "monetary": 1214.55,
     "cluster": 0
   },
   "224": {
     "persona": "Steady Supporters",
-    "recency": 35,
+    "recency": 36,
     "frequency": 5,
     "monetary": 1228.42,
     "cluster": 1
   },
   "225": {
     "persona": "Steady Supporters",
-    "recency": 10,
+    "recency": 11,
     "frequency": 12,
     "monetary": 2495.47,
     "cluster": 1
   },
   "226": {
     "persona": "Light Givers",
-    "recency": 14,
+    "recency": 15,
     "frequency": 2,
     "monetary": 328.38,
-    "cluster": 0
+    "cluster": 2
   },
   "227": {
     "persona": "Steady Supporters",
-    "recency": 41,
+    "recency": 43,
     "frequency": 9,
     "monetary": 1508.25,
     "cluster": 1
   },
   "228": {
     "persona": "Light Givers",
-    "recency": 6,
+    "recency": 7,
     "frequency": 3,
     "monetary": 368.25,
-    "cluster": 0
+    "cluster": 2
   },
   "229": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 13,
     "monetary": 2922.49,
     "cluster": 1
   },
   "230": {
     "persona": "Light Givers",
-    "recency": 560,
+    "recency": 562,
     "frequency": 3,
     "monetary": 449.22,
-    "cluster": 0
+    "cluster": 2
   },
   "231": {
     "persona": "Steady Supporters",
-    "recency": 71,
+    "recency": 72,
     "frequency": 4,
     "monetary": 779.74,
     "cluster": 1
   },
   "232": {
     "persona": "Steady Supporters",
-    "recency": 70,
+    "recency": 71,
     "frequency": 7,
     "monetary": 1566.33,
     "cluster": 1
   },
   "233": {
     "persona": "Champions",
-    "recency": 425,
+    "recency": 426,
     "frequency": 9,
     "monetary": 2826.5,
-    "cluster": 2
+    "cluster": 0
   },
   "234": {
     "persona": "Steady Supporters",
-    "recency": 23,
+    "recency": 25,
     "frequency": 5,
     "monetary": 1322.24,
     "cluster": 1
   },
   "235": {
     "persona": "Light Givers",
-    "recency": 210,
+    "recency": 212,
     "frequency": 3,
     "monetary": 926.79,
-    "cluster": 0
+    "cluster": 2
   },
   "236": {
     "persona": "Champions",
-    "recency": 33,
+    "recency": 34,
     "frequency": 11,
     "monetary": 2892.73,
-    "cluster": 2
+    "cluster": 0
   },
   "237": {
     "persona": "Steady Supporters",
-    "recency": 24,
+    "recency": 25,
     "frequency": 5,
     "monetary": 1118.91,
     "cluster": 1
   },
   "238": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 4,
     "frequency": 7,
     "monetary": 1412.0,
     "cluster": 1
   },
   "239": {
     "persona": "Light Givers",
-    "recency": 272,
+    "recency": 273,
     "frequency": 4,
     "monetary": 909.75,
-    "cluster": 0
+    "cluster": 2
   },
   "240": {
     "persona": "Steady Supporters",
-    "recency": 17,
+    "recency": 18,
     "frequency": 6,
     "monetary": 1733.91,
     "cluster": 1
   },
   "241": {
     "persona": "Champions",
-    "recency": 30,
+    "recency": 32,
     "frequency": 17,
     "monetary": 4913.2,
-    "cluster": 2
+    "cluster": 0
   },
   "242": {
     "persona": "Light Givers",
-    "recency": 44,
+    "recency": 46,
     "frequency": 2,
     "monetary": 193.89,
-    "cluster": 0
+    "cluster": 2
   },
   "243": {
     "persona": "Steady Supporters",
-    "recency": 8,
+    "recency": 9,
     "frequency": 8,
     "monetary": 1032.14,
     "cluster": 1
   },
   "244": {
     "persona": "Steady Supporters",
-    "recency": 57,
+    "recency": 58,
     "frequency": 8,
     "monetary": 1436.85,
     "cluster": 1
   },
   "245": {
     "persona": "Light Givers",
-    "recency": 326,
+    "recency": 327,
     "frequency": 6,
     "monetary": 1211.45,
-    "cluster": 0
+    "cluster": 2
   },
   "246": {
     "persona": "Steady Supporters",
-    "recency": 45,
+    "recency": 46,
     "frequency": 5,
     "monetary": 849.24,
     "cluster": 1
   },
   "247": {
     "persona": "Light Givers",
-    "recency": 255,
+    "recency": 256,
     "frequency": 3,
     "monetary": 345.0,
-    "cluster": 0
+    "cluster": 2
   },
   "248": {
     "persona": "Steady Supporters",
-    "recency": 40,
+    "recency": 41,
     "frequency": 7,
     "monetary": 1622.85,
     "cluster": 1
   },
   "249": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 5,
     "monetary": 682.99,
     "cluster": 1
   },
   "250": {
     "persona": "Light Givers",
-    "recency": 44,
+    "recency": 45,
     "frequency": 6,
     "monetary": 1416.64,
-    "cluster": 0
+    "cluster": 2
   },
   "251": {
     "persona": "Champions",
-    "recency": 7,
+    "recency": 8,
     "frequency": 8,
     "monetary": 2400.83,
-    "cluster": 2
+    "cluster": 0
   },
   "252": {
     "persona": "Steady Supporters",
-    "recency": 284,
+    "recency": 285,
     "frequency": 8,
     "monetary": 923.24,
     "cluster": 1
   },
   "253": {
     "persona": "Steady Supporters",
-    "recency": 15,
+    "recency": 16,
     "frequency": 13,
     "monetary": 1689.14,
     "cluster": 1
   },
   "254": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 5,
     "monetary": 1395.7,
     "cluster": 1
   },
   "255": {
     "persona": "Light Givers",
-    "recency": 531,
+    "recency": 533,
     "frequency": 4,
     "monetary": 548.78,
-    "cluster": 0
+    "cluster": 2
   },
   "256": {
     "persona": "Light Givers",
-    "recency": 176,
+    "recency": 177,
     "frequency": 5,
     "monetary": 1311.0,
-    "cluster": 0
+    "cluster": 2
   },
   "257": {
     "persona": "Light Givers",
-    "recency": 12,
+    "recency": 14,
     "frequency": 4,
     "monetary": 236.97,
-    "cluster": 0
+    "cluster": 2
   },
   "258": {
     "persona": "Champions",
-    "recency": 22,
+    "recency": 23,
     "frequency": 5,
     "monetary": 1316.27,
-    "cluster": 2
+    "cluster": 0
   },
   "259": {
     "persona": "Steady Supporters",
-    "recency": 24,
+    "recency": 25,
     "frequency": 7,
     "monetary": 1643.73,
     "cluster": 1
   },
   "260": {
     "persona": "Light Givers",
-    "recency": 120,
+    "recency": 121,
     "frequency": 2,
     "monetary": 374.71,
-    "cluster": 0
+    "cluster": 2
   },
   "261": {
     "persona": "Light Givers",
-    "recency": 127,
+    "recency": 128,
     "frequency": 2,
     "monetary": 419.48,
-    "cluster": 0
+    "cluster": 2
   },
   "262": {
     "persona": "Steady Supporters",
-    "recency": 114,
+    "recency": 115,
     "frequency": 6,
     "monetary": 1601.97,
     "cluster": 1
   },
   "263": {
     "persona": "Light Givers",
-    "recency": 117,
+    "recency": 119,
     "frequency": 3,
     "monetary": 563.21,
-    "cluster": 0
+    "cluster": 2
   },
   "264": {
     "persona": "Light Givers",
-    "recency": 621,
+    "recency": 622,
     "frequency": 1,
     "monetary": 123.53,
-    "cluster": 0
+    "cluster": 2
   },
   "265": {
     "persona": "Steady Supporters",
-    "recency": 104,
+    "recency": 106,
     "frequency": 13,
     "monetary": 3446.69,
     "cluster": 1
   },
   "266": {
     "persona": "Light Givers",
-    "recency": 168,
+    "recency": 170,
     "frequency": 2,
     "monetary": 418.14,
-    "cluster": 0
+    "cluster": 2
   },
   "267": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 5,
     "monetary": 1535.62,
     "cluster": 1
   },
   "268": {
     "persona": "Steady Supporters",
-    "recency": 243,
+    "recency": 245,
     "frequency": 6,
     "monetary": 1482.46,
     "cluster": 1
   },
   "269": {
     "persona": "Champions",
-    "recency": 339,
+    "recency": 340,
     "frequency": 5,
     "monetary": 1570.56,
-    "cluster": 2
+    "cluster": 0
   },
   "270": {
     "persona": "Steady Supporters",
-    "recency": 10,
+    "recency": 11,
     "frequency": 7,
     "monetary": 2228.56,
     "cluster": 1
   },
   "271": {
     "persona": "Champions",
-    "recency": 19,
+    "recency": 20,
     "frequency": 11,
     "monetary": 2472.85,
-    "cluster": 2
+    "cluster": 0
   },
   "272": {
     "persona": "Steady Supporters",
-    "recency": 17,
+    "recency": 18,
     "frequency": 9,
     "monetary": 1430.63,
     "cluster": 1
   },
   "273": {
     "persona": "Light Givers",
-    "recency": 248,
+    "recency": 249,
     "frequency": 2,
     "monetary": 376.59,
-    "cluster": 0
+    "cluster": 2
   },
   "274": {
     "persona": "Steady Supporters",
-    "recency": 82,
+    "recency": 83,
     "frequency": 14,
     "monetary": 2251.85,
     "cluster": 1
   },
   "275": {
     "persona": "Steady Supporters",
-    "recency": 13,
+    "recency": 14,
     "frequency": 6,
     "monetary": 1110.57,
     "cluster": 1
   },
   "276": {
     "persona": "Steady Supporters",
-    "recency": 11,
+    "recency": 13,
     "frequency": 6,
     "monetary": 1081.01,
     "cluster": 1
   },
   "277": {
     "persona": "Champions",
-    "recency": 129,
+    "recency": 130,
     "frequency": 6,
     "monetary": 1434.66,
-    "cluster": 2
+    "cluster": 0
   },
   "278": {
     "persona": "Steady Supporters",
-    "recency": 13,
+    "recency": 15,
     "frequency": 7,
     "monetary": 1897.29,
     "cluster": 1
   },
   "279": {
     "persona": "Steady Supporters",
-    "recency": 79,
+    "recency": 80,
     "frequency": 10,
     "monetary": 1635.16,
     "cluster": 1
   },
   "280": {
     "persona": "Light Givers",
-    "recency": 494,
+    "recency": 495,
     "frequency": 3,
     "monetary": 824.94,
-    "cluster": 0
+    "cluster": 2
   },
   "281": {
-    "persona": "Light Givers",
-    "recency": 128,
+    "persona": "Champions",
+    "recency": 129,
     "frequency": 4,
     "monetary": 1219.8,
     "cluster": 0
   },
   "282": {
     "persona": "Champions",
-    "recency": 214,
+    "recency": 215,
     "frequency": 7,
     "monetary": 2672.55,
-    "cluster": 2
+    "cluster": 0
   },
   "283": {
     "persona": "Light Givers",
-    "recency": 61,
+    "recency": 62,
     "frequency": 3,
     "monetary": 738.97,
-    "cluster": 0
+    "cluster": 2
   },
   "284": {
     "persona": "Light Givers",
-    "recency": 354,
+    "recency": 355,
     "frequency": 3,
     "monetary": 625.08,
-    "cluster": 0
+    "cluster": 2
   },
   "285": {
     "persona": "Light Givers",
-    "recency": 191,
+    "recency": 192,
     "frequency": 3,
     "monetary": 1145.43,
-    "cluster": 0
+    "cluster": 2
   },
   "286": {
     "persona": "Steady Supporters",
-    "recency": 48,
+    "recency": 49,
     "frequency": 11,
     "monetary": 2300.61,
     "cluster": 1
   },
   "287": {
     "persona": "Steady Supporters",
-    "recency": 244,
+    "recency": 245,
     "frequency": 10,
     "monetary": 1434.24,
     "cluster": 1
   },
   "288": {
     "persona": "Steady Supporters",
-    "recency": 26,
+    "recency": 27,
     "frequency": 15,
     "monetary": 3051.41,
     "cluster": 1
   },
   "289": {
     "persona": "Light Givers",
-    "recency": 303,
+    "recency": 304,
     "frequency": 1,
     "monetary": 121.89,
-    "cluster": 0
+    "cluster": 2
   },
   "290": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 8,
     "monetary": 1707.39,
     "cluster": 1
   },
   "291": {
     "persona": "Steady Supporters",
-    "recency": 20,
+    "recency": 21,
     "frequency": 9,
     "monetary": 1975.07,
     "cluster": 1
   },
   "292": {
     "persona": "Light Givers",
-    "recency": 161,
+    "recency": 162,
     "frequency": 3,
     "monetary": 674.6,
-    "cluster": 0
+    "cluster": 2
   },
   "293": {
     "persona": "Steady Supporters",
-    "recency": 61,
+    "recency": 62,
     "frequency": 6,
     "monetary": 780.74,
     "cluster": 1
   },
   "294": {
     "persona": "Light Givers",
-    "recency": 63,
+    "recency": 64,
     "frequency": 1,
     "monetary": 61.06,
-    "cluster": 0
+    "cluster": 2
   },
   "295": {
     "persona": "Champions",
-    "recency": 73,
+    "recency": 74,
     "frequency": 7,
     "monetary": 1871.58,
-    "cluster": 2
+    "cluster": 0
   },
   "296": {
     "persona": "Champions",
-    "recency": 50,
+    "recency": 51,
     "frequency": 5,
     "monetary": 937.51,
-    "cluster": 2
+    "cluster": 0
   },
   "297": {
     "persona": "Light Givers",
-    "recency": 226,
+    "recency": 227,
     "frequency": 3,
     "monetary": 664.2,
-    "cluster": 0
+    "cluster": 2
   },
   "298": {
     "persona": "Light Givers",
-    "recency": 270,
+    "recency": 272,
     "frequency": 2,
     "monetary": 307.38,
-    "cluster": 0
+    "cluster": 2
   },
   "299": {
-    "persona": "Light Givers",
-    "recency": 139,
+    "persona": "Champions",
+    "recency": 140,
     "frequency": 4,
     "monetary": 550.82,
     "cluster": 0
   },
   "300": {
     "persona": "Steady Supporters",
-    "recency": 201,
+    "recency": 202,
     "frequency": 6,
     "monetary": 904.58,
     "cluster": 1
   },
   "301": {
     "persona": "Champions",
-    "recency": 49,
+    "recency": 50,
     "frequency": 12,
     "monetary": 2703.32,
-    "cluster": 2
+    "cluster": 0
   },
   "302": {
     "persona": "Steady Supporters",
-    "recency": 32,
+    "recency": 33,
     "frequency": 13,
     "monetary": 1865.94,
     "cluster": 1
   },
   "303": {
     "persona": "Light Givers",
-    "recency": 249,
+    "recency": 250,
     "frequency": 3,
     "monetary": 887.21,
-    "cluster": 0
+    "cluster": 2
   },
   "304": {
     "persona": "Light Givers",
-    "recency": 149,
+    "recency": 150,
     "frequency": 3,
     "monetary": 1273.41,
-    "cluster": 0
+    "cluster": 2
   },
   "305": {
-    "persona": "Light Givers",
-    "recency": 117,
+    "persona": "Champions",
+    "recency": 118,
     "frequency": 3,
     "monetary": 925.17,
     "cluster": 0
   },
   "306": {
     "persona": "Steady Supporters",
-    "recency": 19,
+    "recency": 20,
     "frequency": 4,
     "monetary": 653.81,
     "cluster": 1
   },
   "307": {
     "persona": "Steady Supporters",
-    "recency": 94,
+    "recency": 95,
     "frequency": 6,
     "monetary": 835.51,
     "cluster": 1
   },
   "308": {
     "persona": "Steady Supporters",
-    "recency": 55,
+    "recency": 56,
     "frequency": 8,
     "monetary": 1614.36,
     "cluster": 1
   },
   "309": {
     "persona": "Light Givers",
-    "recency": 84,
+    "recency": 85,
     "frequency": 4,
     "monetary": 740.3,
-    "cluster": 0
+    "cluster": 2
   },
   "310": {
     "persona": "Light Givers",
-    "recency": 51,
+    "recency": 52,
     "frequency": 3,
     "monetary": 568.66,
-    "cluster": 0
+    "cluster": 2
   },
   "311": {
     "persona": "Champions",
-    "recency": 27,
+    "recency": 28,
     "frequency": 5,
     "monetary": 1321.1,
-    "cluster": 2
+    "cluster": 0
   },
   "312": {
     "persona": "Steady Supporters",
-    "recency": 12,
+    "recency": 13,
     "frequency": 9,
     "monetary": 1300.96,
     "cluster": 1
   },
   "313": {
     "persona": "Light Givers",
-    "recency": 152,
+    "recency": 153,
     "frequency": 2,
     "monetary": 781.29,
-    "cluster": 0
+    "cluster": 2
   },
   "314": {
     "persona": "Steady Supporters",
-    "recency": 347,
+    "recency": 348,
     "frequency": 7,
     "monetary": 1655.01,
     "cluster": 1
   },
   "315": {
     "persona": "Steady Supporters",
-    "recency": 31,
+    "recency": 32,
     "frequency": 13,
     "monetary": 2564.48,
     "cluster": 1
   },
   "316": {
     "persona": "Light Givers",
-    "recency": 162,
+    "recency": 163,
     "frequency": 5,
     "monetary": 1095.7,
-    "cluster": 0
+    "cluster": 2
   },
   "317": {
     "persona": "Steady Supporters",
-    "recency": 7,
+    "recency": 8,
     "frequency": 6,
     "monetary": 1473.44,
     "cluster": 1
   },
   "318": {
     "persona": "Light Givers",
-    "recency": 51,
+    "recency": 52,
     "frequency": 1,
     "monetary": 95.0,
-    "cluster": 0
+    "cluster": 2
   },
   "319": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 4,
     "frequency": 5,
     "monetary": 500.58,
     "cluster": 1
   },
   "320": {
     "persona": "Steady Supporters",
-    "recency": 17,
+    "recency": 18,
     "frequency": 14,
     "monetary": 2510.87,
     "cluster": 1
   },
   "321": {
     "persona": "Steady Supporters",
-    "recency": 29,
+    "recency": 30,
     "frequency": 7,
     "monetary": 814.39,
     "cluster": 1
   },
   "322": {
     "persona": "Steady Supporters",
-    "recency": 24,
+    "recency": 25,
     "frequency": 8,
     "monetary": 2203.25,
     "cluster": 1
   },
   "323": {
     "persona": "Champions",
-    "recency": 21,
+    "recency": 22,
     "frequency": 7,
     "monetary": 2226.11,
-    "cluster": 2
+    "cluster": 0
   },
   "324": {
     "persona": "Steady Supporters",
-    "recency": 212,
+    "recency": 213,
     "frequency": 10,
     "monetary": 2345.9,
     "cluster": 1
   },
   "325": {
     "persona": "Light Givers",
-    "recency": 817,
+    "recency": 818,
     "frequency": 1,
     "monetary": 72.29,
-    "cluster": 0
+    "cluster": 2
   },
   "326": {
     "persona": "Steady Supporters",
-    "recency": 85,
+    "recency": 87,
     "frequency": 7,
     "monetary": 1693.62,
     "cluster": 1
   },
   "327": {
     "persona": "Champions",
-    "recency": 493,
+    "recency": 495,
     "frequency": 7,
     "monetary": 2830.69,
-    "cluster": 2
+    "cluster": 0
   },
   "328": {
     "persona": "Steady Supporters",
-    "recency": 83,
+    "recency": 84,
     "frequency": 6,
     "monetary": 831.53,
     "cluster": 1
   },
   "329": {
     "persona": "Light Givers",
-    "recency": 38,
+    "recency": 39,
     "frequency": 2,
     "monetary": 77.95,
-    "cluster": 0
+    "cluster": 2
   },
   "330": {
     "persona": "Champions",
-    "recency": 73,
+    "recency": 74,
     "frequency": 10,
     "monetary": 3530.29,
-    "cluster": 2
+    "cluster": 0
   },
   "331": {
     "persona": "Steady Supporters",
-    "recency": 84,
+    "recency": 85,
     "frequency": 8,
     "monetary": 1835.92,
     "cluster": 1
   },
   "332": {
     "persona": "Light Givers",
-    "recency": 506,
+    "recency": 507,
     "frequency": 2,
     "monetary": 576.35,
-    "cluster": 0
+    "cluster": 2
   },
   "333": {
     "persona": "Steady Supporters",
-    "recency": 81,
+    "recency": 82,
     "frequency": 5,
     "monetary": 1294.52,
     "cluster": 1
   },
   "334": {
     "persona": "Steady Supporters",
-    "recency": 138,
+    "recency": 140,
     "frequency": 5,
     "monetary": 627.84,
     "cluster": 1
   },
   "335": {
     "persona": "Steady Supporters",
-    "recency": 151,
+    "recency": 153,
     "frequency": 8,
     "monetary": 1401.11,
     "cluster": 1
   },
   "336": {
     "persona": "Champions",
-    "recency": 59,
+    "recency": 60,
     "frequency": 9,
     "monetary": 1763.77,
-    "cluster": 2
+    "cluster": 0
   },
   "337": {
     "persona": "Light Givers",
-    "recency": 310,
+    "recency": 311,
     "frequency": 2,
     "monetary": 194.28,
-    "cluster": 0
+    "cluster": 2
   },
   "338": {
     "persona": "Steady Supporters",
-    "recency": 200,
+    "recency": 201,
     "frequency": 8,
     "monetary": 1501.15,
     "cluster": 1
   },
   "339": {
     "persona": "Light Givers",
-    "recency": 308,
+    "recency": 309,
     "frequency": 4,
     "monetary": 1053.76,
-    "cluster": 0
+    "cluster": 2
   },
   "340": {
     "persona": "Light Givers",
-    "recency": 400,
+    "recency": 401,
     "frequency": 3,
     "monetary": 504.38,
-    "cluster": 0
+    "cluster": 2
   },
   "341": {
     "persona": "Light Givers",
-    "recency": 146,
+    "recency": 147,
     "frequency": 1,
     "monetary": 165.71,
-    "cluster": 0
+    "cluster": 2
   },
   "342": {
     "persona": "Champions",
-    "recency": 316,
+    "recency": 318,
     "frequency": 7,
     "monetary": 1381.14,
-    "cluster": 2
+    "cluster": 0
   },
   "343": {
     "persona": "Champions",
-    "recency": 62,
+    "recency": 63,
     "frequency": 5,
     "monetary": 1267.62,
-    "cluster": 2
+    "cluster": 0
   },
   "344": {
     "persona": "Light Givers",
-    "recency": 230,
+    "recency": 231,
     "frequency": 2,
     "monetary": 361.51,
-    "cluster": 0
+    "cluster": 2
   },
   "345": {
     "persona": "Light Givers",
-    "recency": 200,
+    "recency": 202,
     "frequency": 4,
     "monetary": 369.77,
-    "cluster": 0
+    "cluster": 2
   },
   "346": {
     "persona": "Steady Supporters",
-    "recency": 14,
+    "recency": 15,
     "frequency": 12,
     "monetary": 2100.65,
     "cluster": 1
   },
   "347": {
     "persona": "Light Givers",
-    "recency": 35,
+    "recency": 36,
     "frequency": 2,
     "monetary": 252.75,
-    "cluster": 0
+    "cluster": 2
   },
   "348": {
     "persona": "Steady Supporters",
-    "recency": 71,
+    "recency": 73,
     "frequency": 7,
     "monetary": 2019.81,
     "cluster": 1
   },
   "349": {
     "persona": "Light Givers",
-    "recency": 891,
+    "recency": 892,
     "frequency": 1,
     "monetary": 199.35,
-    "cluster": 0
+    "cluster": 2
   },
   "350": {
     "persona": "Steady Supporters",
-    "recency": 14,
+    "recency": 15,
     "frequency": 14,
     "monetary": 2428.79,
     "cluster": 1
   },
   "351": {
     "persona": "Steady Supporters",
-    "recency": 106,
+    "recency": 108,
     "frequency": 10,
     "monetary": 1677.78,
     "cluster": 1
   },
   "352": {
     "persona": "Champions",
-    "recency": 34,
+    "recency": 36,
     "frequency": 5,
     "monetary": 932.02,
-    "cluster": 2
+    "cluster": 0
   },
   "353": {
     "persona": "Steady Supporters",
-    "recency": 29,
+    "recency": 30,
     "frequency": 5,
     "monetary": 847.4,
     "cluster": 1
   },
   "354": {
     "persona": "Steady Supporters",
-    "recency": 52,
+    "recency": 53,
     "frequency": 13,
     "monetary": 2938.75,
     "cluster": 1
   },
   "355": {
     "persona": "Steady Supporters",
-    "recency": 48,
+    "recency": 49,
     "frequency": 6,
     "monetary": 577.09,
     "cluster": 1
   },
   "356": {
     "persona": "Steady Supporters",
-    "recency": 129,
+    "recency": 131,
     "frequency": 7,
     "monetary": 2234.73,
     "cluster": 1
   },
   "357": {
     "persona": "Champions",
-    "recency": 276,
+    "recency": 278,
     "frequency": 13,
     "monetary": 2063.55,
-    "cluster": 2
+    "cluster": 0
   },
   "358": {
     "persona": "Steady Supporters",
-    "recency": 46,
+    "recency": 47,
     "frequency": 9,
     "monetary": 1485.99,
     "cluster": 1
   },
   "359": {
     "persona": "Steady Supporters",
-    "recency": 103,
+    "recency": 104,
     "frequency": 9,
     "monetary": 2291.04,
     "cluster": 1
   },
   "360": {
     "persona": "Champions",
-    "recency": 31,
+    "recency": 33,
     "frequency": 14,
     "monetary": 3419.5,
-    "cluster": 2
+    "cluster": 0
   },
   "361": {
     "persona": "Light Givers",
-    "recency": 90,
+    "recency": 91,
     "frequency": 3,
     "monetary": 604.47,
-    "cluster": 0
+    "cluster": 2
   },
   "362": {
     "persona": "Light Givers",
-    "recency": 23,
+    "recency": 25,
     "frequency": 5,
     "monetary": 1260.94,
-    "cluster": 0
+    "cluster": 2
   },
   "363": {
     "persona": "Light Givers",
-    "recency": 1024,
+    "recency": 1025,
     "frequency": 1,
     "monetary": 263.56,
-    "cluster": 0
+    "cluster": 2
   },
   "364": {
     "persona": "Steady Supporters",
-    "recency": 23,
+    "recency": 24,
     "frequency": 8,
     "monetary": 1665.83,
     "cluster": 1
   },
   "365": {
     "persona": "Light Givers",
-    "recency": 886,
+    "recency": 888,
     "frequency": 1,
     "monetary": 124.35,
-    "cluster": 0
+    "cluster": 2
   },
   "366": {
     "persona": "Steady Supporters",
-    "recency": 75,
+    "recency": 76,
     "frequency": 9,
     "monetary": 1604.93,
     "cluster": 1
   },
   "367": {
     "persona": "Steady Supporters",
-    "recency": 136,
+    "recency": 137,
     "frequency": 9,
     "monetary": 1265.34,
     "cluster": 1
   },
   "368": {
     "persona": "Steady Supporters",
-    "recency": 207,
+    "recency": 209,
     "frequency": 8,
     "monetary": 1732.98,
     "cluster": 1
   },
   "369": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 8,
     "monetary": 1661.43,
     "cluster": 1
   },
   "370": {
     "persona": "Steady Supporters",
-    "recency": 68,
+    "recency": 69,
     "frequency": 10,
     "monetary": 2965.27,
     "cluster": 1
   },
   "371": {
     "persona": "Steady Supporters",
-    "recency": 5,
+    "recency": 7,
     "frequency": 8,
     "monetary": 1407.31,
     "cluster": 1
   },
   "372": {
     "persona": "Steady Supporters",
-    "recency": 18,
+    "recency": 19,
     "frequency": 4,
     "monetary": 172.24,
     "cluster": 1
   },
   "373": {
     "persona": "Steady Supporters",
-    "recency": 48,
+    "recency": 49,
     "frequency": 8,
     "monetary": 1704.21,
     "cluster": 1
   },
   "374": {
     "persona": "Light Givers",
-    "recency": 375,
+    "recency": 376,
     "frequency": 3,
     "monetary": 877.16,
-    "cluster": 0
+    "cluster": 2
   },
   "375": {
     "persona": "Steady Supporters",
-    "recency": 12,
+    "recency": 13,
     "frequency": 6,
     "monetary": 1534.31,
     "cluster": 1
   },
   "376": {
     "persona": "Steady Supporters",
-    "recency": 42,
+    "recency": 43,
     "frequency": 10,
     "monetary": 2333.7,
     "cluster": 1
   },
   "377": {
     "persona": "Light Givers",
-    "recency": 151,
+    "recency": 152,
     "frequency": 4,
     "monetary": 1383.5,
-    "cluster": 0
+    "cluster": 2
   },
   "378": {
     "persona": "Steady Supporters",
-    "recency": 79,
+    "recency": 80,
     "frequency": 5,
     "monetary": 543.85,
     "cluster": 1
   },
   "379": {
     "persona": "Light Givers",
-    "recency": 1014,
+    "recency": 1015,
     "frequency": 2,
     "monetary": 538.6,
-    "cluster": 0
+    "cluster": 2
   },
   "380": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 5,
     "monetary": 993.59,
     "cluster": 1
   },
   "381": {
     "persona": "Steady Supporters",
-    "recency": 41,
+    "recency": 43,
     "frequency": 10,
     "monetary": 2316.06,
     "cluster": 1
   },
   "382": {
     "persona": "Champions",
-    "recency": 129,
+    "recency": 130,
     "frequency": 5,
     "monetary": 1228.15,
-    "cluster": 2
+    "cluster": 0
   },
   "383": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 9,
     "monetary": 2518.99,
     "cluster": 1
   },
   "384": {
     "persona": "Light Givers",
-    "recency": 125,
+    "recency": 127,
     "frequency": 4,
     "monetary": 1021.1,
-    "cluster": 0
+    "cluster": 2
   },
   "385": {
     "persona": "Light Givers",
-    "recency": 196,
+    "recency": 197,
     "frequency": 4,
     "monetary": 1094.19,
-    "cluster": 0
+    "cluster": 2
   },
   "386": {
     "persona": "Steady Supporters",
-    "recency": 34,
+    "recency": 36,
     "frequency": 14,
     "monetary": 3204.75,
     "cluster": 1
   },
   "387": {
     "persona": "Steady Supporters",
-    "recency": 2,
+    "recency": 3,
     "frequency": 6,
     "monetary": 586.51,
     "cluster": 1
   },
   "388": {
     "persona": "Steady Supporters",
-    "recency": 18,
+    "recency": 19,
     "frequency": 7,
     "monetary": 1418.53,
     "cluster": 1
   },
   "389": {
     "persona": "Champions",
-    "recency": 142,
+    "recency": 143,
     "frequency": 10,
     "monetary": 2541.82,
-    "cluster": 2
+    "cluster": 0
   },
   "390": {
-    "persona": "Light Givers",
-    "recency": 221,
+    "persona": "Champions",
+    "recency": 222,
     "frequency": 3,
     "monetary": 1024.58,
     "cluster": 0
   },
   "391": {
     "persona": "Steady Supporters",
-    "recency": 113,
+    "recency": 114,
     "frequency": 6,
     "monetary": 1654.46,
     "cluster": 1
   },
   "392": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 10,
     "monetary": 1061.08,
     "cluster": 1
   },
   "393": {
     "persona": "Steady Supporters",
-    "recency": 130,
+    "recency": 131,
     "frequency": 10,
     "monetary": 1888.72,
     "cluster": 1
   },
   "394": {
     "persona": "Light Givers",
-    "recency": 102,
+    "recency": 103,
     "frequency": 1,
     "monetary": 33.54,
-    "cluster": 0
+    "cluster": 2
   },
   "395": {
     "persona": "Steady Supporters",
-    "recency": 10,
+    "recency": 11,
     "frequency": 11,
     "monetary": 3054.57,
     "cluster": 1
   },
   "396": {
     "persona": "Light Givers",
-    "recency": 77,
+    "recency": 78,
     "frequency": 3,
     "monetary": 923.75,
-    "cluster": 0
+    "cluster": 2
   },
   "397": {
     "persona": "Champions",
-    "recency": 11,
+    "recency": 12,
     "frequency": 5,
     "monetary": 1910.71,
-    "cluster": 2
+    "cluster": 0
   },
   "398": {
     "persona": "Light Givers",
-    "recency": 62,
+    "recency": 63,
     "frequency": 4,
     "monetary": 753.17,
-    "cluster": 0
+    "cluster": 2
   },
   "399": {
     "persona": "Steady Supporters",
-    "recency": 17,
+    "recency": 19,
     "frequency": 10,
     "monetary": 1708.96,
     "cluster": 1
   },
   "400": {
     "persona": "Steady Supporters",
-    "recency": 26,
+    "recency": 27,
     "frequency": 8,
     "monetary": 2155.21,
     "cluster": 1
   },
   "401": {
     "persona": "Steady Supporters",
-    "recency": 9,
+    "recency": 10,
     "frequency": 9,
     "monetary": 2730.09,
     "cluster": 1
   },
   "402": {
     "persona": "Champions",
-    "recency": 142,
+    "recency": 144,
     "frequency": 6,
     "monetary": 1660.79,
-    "cluster": 2
+    "cluster": 0
   },
   "403": {
-    "persona": "Light Givers",
-    "recency": 166,
+    "persona": "Champions",
+    "recency": 167,
     "frequency": 4,
     "monetary": 969.65,
     "cluster": 0
   },
   "404": {
     "persona": "Steady Supporters",
-    "recency": 11,
+    "recency": 12,
     "frequency": 5,
     "monetary": 1202.88,
     "cluster": 1
   },
   "405": {
     "persona": "Steady Supporters",
-    "recency": 112,
+    "recency": 113,
     "frequency": 6,
     "monetary": 1233.91,
     "cluster": 1
   },
   "406": {
     "persona": "Light Givers",
-    "recency": 342,
+    "recency": 344,
     "frequency": 2,
     "monetary": 504.57,
-    "cluster": 0
+    "cluster": 2
   },
   "407": {
     "persona": "Steady Supporters",
-    "recency": 189,
+    "recency": 190,
     "frequency": 7,
     "monetary": 1610.14,
     "cluster": 1
   },
   "408": {
     "persona": "Champions",
-    "recency": 49,
+    "recency": 50,
     "frequency": 7,
     "monetary": 1212.41,
-    "cluster": 2
+    "cluster": 0
   },
   "409": {
     "persona": "Steady Supporters",
-    "recency": 63,
+    "recency": 64,
     "frequency": 9,
     "monetary": 1295.31,
     "cluster": 1
   },
   "410": {
     "persona": "Champions",
-    "recency": 114,
+    "recency": 115,
     "frequency": 5,
     "monetary": 584.83,
-    "cluster": 2
+    "cluster": 0
   },
   "411": {
     "persona": "Light Givers",
-    "recency": 82,
+    "recency": 84,
     "frequency": 6,
     "monetary": 666.82,
-    "cluster": 0
+    "cluster": 2
   },
   "412": {
     "persona": "Light Givers",
-    "recency": 713,
+    "recency": 715,
     "frequency": 3,
     "monetary": 380.46,
-    "cluster": 0
+    "cluster": 2
   },
   "413": {
     "persona": "Champions",
-    "recency": 22,
+    "recency": 24,
     "frequency": 7,
     "monetary": 1713.87,
-    "cluster": 2
+    "cluster": 0
   },
   "414": {
     "persona": "Light Givers",
-    "recency": 205,
+    "recency": 206,
     "frequency": 2,
     "monetary": 520.84,
-    "cluster": 0
+    "cluster": 2
   },
   "415": {
     "persona": "Light Givers",
-    "recency": 284,
+    "recency": 286,
     "frequency": 2,
     "monetary": 855.94,
-    "cluster": 0
+    "cluster": 2
   },
   "416": {
     "persona": "Steady Supporters",
-    "recency": 26,
+    "recency": 27,
     "frequency": 5,
     "monetary": 596.87,
     "cluster": 1
   },
   "417": {
     "persona": "Steady Supporters",
-    "recency": 118,
+    "recency": 119,
     "frequency": 8,
     "monetary": 822.91,
     "cluster": 1
   },
   "418": {
     "persona": "Steady Supporters",
-    "recency": 53,
+    "recency": 55,
     "frequency": 5,
     "monetary": 1019.23,
     "cluster": 1
   },
   "419": {
     "persona": "Champions",
-    "recency": 28,
+    "recency": 29,
     "frequency": 8,
     "monetary": 2677.84,
-    "cluster": 2
+    "cluster": 0
   },
   "420": {
     "persona": "Steady Supporters",
-    "recency": 38,
+    "recency": 39,
     "frequency": 4,
     "monetary": 1255.37,
     "cluster": 1
   },
   "421": {
     "persona": "Light Givers",
-    "recency": 314,
+    "recency": 316,
     "frequency": 6,
     "monetary": 1883.8,
-    "cluster": 0
+    "cluster": 2
   },
   "422": {
     "persona": "Light Givers",
-    "recency": 422,
+    "recency": 423,
     "frequency": 2,
     "monetary": 607.9,
-    "cluster": 0
+    "cluster": 2
   },
   "423": {
     "persona": "Champions",
-    "recency": 120,
+    "recency": 121,
     "frequency": 6,
     "monetary": 2600.44,
-    "cluster": 2
+    "cluster": 0
   },
   "424": {
     "persona": "Light Givers",
-    "recency": 174,
+    "recency": 176,
     "frequency": 5,
     "monetary": 925.58,
-    "cluster": 0
+    "cluster": 2
   },
   "425": {
     "persona": "Light Givers",
-    "recency": 114,
+    "recency": 115,
     "frequency": 3,
     "monetary": 856.66,
-    "cluster": 0
+    "cluster": 2
   },
   "426": {
     "persona": "Light Givers",
-    "recency": 723,
+    "recency": 725,
     "frequency": 1,
     "monetary": 207.44,
-    "cluster": 0
+    "cluster": 2
   },
   "427": {
     "persona": "Light Givers",
-    "recency": 335,
+    "recency": 337,
     "frequency": 3,
     "monetary": 766.33,
-    "cluster": 0
+    "cluster": 2
   },
   "428": {
     "persona": "Light Givers",
-    "recency": 207,
+    "recency": 208,
     "frequency": 3,
     "monetary": 1100.33,
-    "cluster": 0
+    "cluster": 2
   },
   "429": {
     "persona": "Champions",
-    "recency": 225,
+    "recency": 226,
     "frequency": 6,
     "monetary": 1472.73,
-    "cluster": 2
+    "cluster": 0
   },
   "430": {
     "persona": "Steady Supporters",
-    "recency": 258,
+    "recency": 260,
     "frequency": 9,
     "monetary": 1969.62,
     "cluster": 1
   },
   "431": {
     "persona": "Light Givers",
-    "recency": 233,
+    "recency": 234,
     "frequency": 4,
     "monetary": 911.75,
-    "cluster": 0
+    "cluster": 2
   },
   "432": {
     "persona": "Champions",
-    "recency": 172,
+    "recency": 173,
     "frequency": 5,
     "monetary": 1415.87,
-    "cluster": 2
+    "cluster": 0
   },
   "433": {
     "persona": "Steady Supporters",
-    "recency": 36,
+    "recency": 38,
     "frequency": 8,
     "monetary": 972.63,
     "cluster": 1
   },
   "434": {
     "persona": "Light Givers",
-    "recency": 346,
+    "recency": 348,
     "frequency": 4,
     "monetary": 596.86,
-    "cluster": 0
+    "cluster": 2
   },
   "435": {
     "persona": "Light Givers",
-    "recency": 719,
+    "recency": 720,
     "frequency": 3,
     "monetary": 703.75,
-    "cluster": 0
+    "cluster": 2
   },
   "436": {
     "persona": "Light Givers",
-    "recency": 151,
+    "recency": 152,
     "frequency": 2,
     "monetary": 154.67,
-    "cluster": 0
+    "cluster": 2
   },
   "437": {
     "persona": "Steady Supporters",
-    "recency": 70,
+    "recency": 71,
     "frequency": 5,
     "monetary": 1012.1,
     "cluster": 1
   },
   "438": {
     "persona": "Champions",
-    "recency": 27,
+    "recency": 28,
     "frequency": 12,
     "monetary": 3459.27,
-    "cluster": 2
+    "cluster": 0
   },
   "439": {
     "persona": "Light Givers",
-    "recency": 11,
+    "recency": 12,
     "frequency": 5,
     "monetary": 745.06,
-    "cluster": 0
+    "cluster": 2
   },
   "440": {
     "persona": "Light Givers",
-    "recency": 124,
+    "recency": 126,
     "frequency": 5,
     "monetary": 1377.36,
-    "cluster": 0
+    "cluster": 2
   },
   "441": {
     "persona": "Steady Supporters",
-    "recency": 234,
+    "recency": 236,
     "frequency": 9,
     "monetary": 1858.11,
     "cluster": 1
   },
   "442": {
     "persona": "Champions",
-    "recency": 119,
+    "recency": 121,
     "frequency": 7,
     "monetary": 2149.35,
-    "cluster": 2
+    "cluster": 0
   },
   "443": {
     "persona": "Steady Supporters",
-    "recency": 19,
+    "recency": 21,
     "frequency": 10,
     "monetary": 1758.3,
     "cluster": 1
   },
   "444": {
     "persona": "Steady Supporters",
-    "recency": 59,
+    "recency": 60,
     "frequency": 7,
     "monetary": 982.67,
     "cluster": 1
   },
   "445": {
     "persona": "Steady Supporters",
-    "recency": 15,
+    "recency": 16,
     "frequency": 12,
     "monetary": 3350.82,
     "cluster": 1
   },
   "446": {
     "persona": "Steady Supporters",
-    "recency": 18,
+    "recency": 19,
     "frequency": 10,
     "monetary": 1333.11,
     "cluster": 1
   },
   "447": {
     "persona": "Champions",
-    "recency": 91,
+    "recency": 92,
     "frequency": 10,
     "monetary": 2342.26,
-    "cluster": 2
+    "cluster": 0
   },
   "448": {
     "persona": "Light Givers",
-    "recency": 80,
+    "recency": 81,
     "frequency": 4,
     "monetary": 1112.2,
-    "cluster": 0
+    "cluster": 2
   },
   "449": {
     "persona": "Light Givers",
-    "recency": 671,
+    "recency": 672,
     "frequency": 3,
     "monetary": 771.15,
-    "cluster": 0
+    "cluster": 2
   },
   "450": {
     "persona": "Light Givers",
-    "recency": 174,
+    "recency": 175,
     "frequency": 2,
     "monetary": 239.49,
-    "cluster": 0
+    "cluster": 2
   },
   "451": {
     "persona": "Steady Supporters",
-    "recency": 268,
+    "recency": 270,
     "frequency": 8,
     "monetary": 1110.5,
     "cluster": 1
   },
   "452": {
     "persona": "Light Givers",
-    "recency": 6,
+    "recency": 7,
     "frequency": 3,
     "monetary": 311.12,
-    "cluster": 0
+    "cluster": 2
   },
   "453": {
     "persona": "Steady Supporters",
-    "recency": 62,
+    "recency": 63,
     "frequency": 6,
     "monetary": 1194.04,
     "cluster": 1
   },
   "454": {
     "persona": "Steady Supporters",
-    "recency": 26,
+    "recency": 27,
     "frequency": 4,
     "monetary": 1324.43,
     "cluster": 1
   },
   "455": {
     "persona": "Champions",
-    "recency": 64,
+    "recency": 66,
     "frequency": 6,
     "monetary": 1346.76,
-    "cluster": 2
+    "cluster": 0
   },
   "456": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 11,
     "monetary": 2646.87,
     "cluster": 1
   },
   "457": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 8,
     "monetary": 1853.21,
     "cluster": 1
   },
   "458": {
     "persona": "Steady Supporters",
-    "recency": 38,
+    "recency": 39,
     "frequency": 7,
     "monetary": 1355.32,
     "cluster": 1
   },
   "459": {
-    "persona": "Light Givers",
-    "recency": 356,
+    "persona": "Champions",
+    "recency": 357,
     "frequency": 3,
     "monetary": 1589.76,
     "cluster": 0
   },
   "460": {
     "persona": "Light Givers",
-    "recency": 537,
+    "recency": 538,
     "frequency": 2,
     "monetary": 628.14,
-    "cluster": 0
+    "cluster": 2
   },
   "461": {
     "persona": "Light Givers",
-    "recency": 94,
+    "recency": 95,
     "frequency": 2,
     "monetary": 535.99,
-    "cluster": 0
+    "cluster": 2
   },
   "462": {
     "persona": "Light Givers",
-    "recency": 49,
+    "recency": 51,
     "frequency": 1,
     "monetary": 24.18,
-    "cluster": 0
+    "cluster": 2
   },
   "463": {
     "persona": "Steady Supporters",
-    "recency": 67,
+    "recency": 68,
     "frequency": 4,
     "monetary": 330.98,
     "cluster": 1
   },
   "464": {
     "persona": "Steady Supporters",
-    "recency": 365,
+    "recency": 367,
     "frequency": 7,
     "monetary": 1351.75,
     "cluster": 1
   },
   "465": {
     "persona": "Steady Supporters",
-    "recency": 92,
+    "recency": 93,
     "frequency": 6,
     "monetary": 1429.99,
     "cluster": 1
   },
   "466": {
     "persona": "Champions",
-    "recency": 50,
+    "recency": 51,
     "frequency": 5,
     "monetary": 1749.36,
-    "cluster": 2
+    "cluster": 0
   },
   "467": {
     "persona": "Steady Supporters",
-    "recency": 117,
+    "recency": 118,
     "frequency": 11,
     "monetary": 1872.56,
     "cluster": 1
   },
   "468": {
     "persona": "Light Givers",
-    "recency": 412,
+    "recency": 413,
     "frequency": 5,
     "monetary": 731.95,
-    "cluster": 0
+    "cluster": 2
   },
   "469": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 5,
     "frequency": 8,
     "monetary": 1427.52,
     "cluster": 1
   },
   "470": {
     "persona": "Steady Supporters",
-    "recency": 98,
+    "recency": 99,
     "frequency": 10,
     "monetary": 1629.64,
     "cluster": 1
   },
   "471": {
     "persona": "Light Givers",
-    "recency": 288,
+    "recency": 289,
     "frequency": 4,
     "monetary": 995.77,
-    "cluster": 0
+    "cluster": 2
   },
   "472": {
     "persona": "Steady Supporters",
-    "recency": 53,
+    "recency": 54,
     "frequency": 11,
     "monetary": 1523.42,
     "cluster": 1
   },
   "473": {
     "persona": "Steady Supporters",
-    "recency": 43,
+    "recency": 44,
     "frequency": 6,
     "monetary": 1467.86,
     "cluster": 1
   },
   "474": {
     "persona": "Light Givers",
-    "recency": 335,
+    "recency": 336,
     "frequency": 2,
     "monetary": 663.81,
-    "cluster": 0
+    "cluster": 2
   },
   "475": {
     "persona": "Champions",
-    "recency": 51,
+    "recency": 52,
     "frequency": 10,
     "monetary": 2923.58,
-    "cluster": 2
+    "cluster": 0
   },
   "476": {
     "persona": "Champions",
-    "recency": 63,
+    "recency": 65,
     "frequency": 4,
     "monetary": 1482.53,
-    "cluster": 2
+    "cluster": 0
   },
   "477": {
     "persona": "Light Givers",
-    "recency": 761,
+    "recency": 763,
     "frequency": 2,
     "monetary": 345.97,
-    "cluster": 0
+    "cluster": 2
   },
   "478": {
     "persona": "Light Givers",
-    "recency": 391,
+    "recency": 392,
     "frequency": 3,
     "monetary": 241.59,
-    "cluster": 0
+    "cluster": 2
   },
   "479": {
     "persona": "Steady Supporters",
-    "recency": 112,
+    "recency": 113,
     "frequency": 10,
     "monetary": 1831.36,
     "cluster": 1
   },
   "480": {
     "persona": "Steady Supporters",
-    "recency": 222,
+    "recency": 223,
     "frequency": 4,
     "monetary": 754.18,
     "cluster": 1
   },
   "481": {
     "persona": "Steady Supporters",
-    "recency": 41,
+    "recency": 42,
     "frequency": 8,
     "monetary": 1684.95,
     "cluster": 1
   },
   "482": {
     "persona": "Light Givers",
-    "recency": 91,
+    "recency": 92,
     "frequency": 3,
     "monetary": 392.98,
-    "cluster": 0
+    "cluster": 2
   },
   "483": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 10,
     "monetary": 2764.24,
     "cluster": 1
   },
   "484": {
     "persona": "Steady Supporters",
-    "recency": 49,
+    "recency": 51,
     "frequency": 6,
     "monetary": 964.47,
     "cluster": 1
   },
   "485": {
     "persona": "Champions",
-    "recency": 158,
+    "recency": 159,
     "frequency": 10,
     "monetary": 2289.17,
-    "cluster": 2
+    "cluster": 0
   },
   "486": {
     "persona": "Light Givers",
-    "recency": 292,
+    "recency": 293,
     "frequency": 3,
     "monetary": 730.58,
-    "cluster": 0
+    "cluster": 2
   },
   "487": {
-    "persona": "Steady Supporters",
-    "recency": 233,
+    "persona": "Light Givers",
+    "recency": 234,
     "frequency": 4,
     "monetary": 781.62,
-    "cluster": 1
+    "cluster": 2
   },
   "488": {
     "persona": "Steady Supporters",
-    "recency": 107,
+    "recency": 108,
     "frequency": 6,
     "monetary": 1154.2,
     "cluster": 1
   },
   "489": {
     "persona": "Light Givers",
-    "recency": 96,
+    "recency": 97,
     "frequency": 3,
     "monetary": 756.12,
-    "cluster": 0
+    "cluster": 2
   },
   "490": {
     "persona": "Steady Supporters",
-    "recency": 76,
+    "recency": 77,
     "frequency": 5,
     "monetary": 673.06,
     "cluster": 1
   },
   "491": {
     "persona": "Light Givers",
-    "recency": 83,
+    "recency": 84,
     "frequency": 2,
     "monetary": 487.46,
-    "cluster": 0
+    "cluster": 2
   },
   "492": {
     "persona": "Champions",
-    "recency": 124,
+    "recency": 125,
     "frequency": 10,
     "monetary": 1701.9,
-    "cluster": 2
+    "cluster": 0
   },
   "493": {
     "persona": "Champions",
-    "recency": 218,
+    "recency": 220,
     "frequency": 4,
     "monetary": 1307.03,
-    "cluster": 2
+    "cluster": 0
   },
   "494": {
     "persona": "Steady Supporters",
-    "recency": 80,
+    "recency": 82,
     "frequency": 13,
     "monetary": 3267.01,
     "cluster": 1
   },
   "495": {
     "persona": "Steady Supporters",
-    "recency": 23,
+    "recency": 24,
     "frequency": 13,
     "monetary": 2053.21,
     "cluster": 1
   },
   "496": {
     "persona": "Champions",
-    "recency": 5,
+    "recency": 6,
     "frequency": 8,
     "monetary": 1684.56,
-    "cluster": 2
+    "cluster": 0
   },
   "497": {
     "persona": "Light Givers",
-    "recency": 295,
+    "recency": 296,
     "frequency": 1,
     "monetary": 654.86,
-    "cluster": 0
+    "cluster": 2
   },
   "498": {
     "persona": "Steady Supporters",
-    "recency": 54,
+    "recency": 55,
     "frequency": 8,
     "monetary": 1924.98,
     "cluster": 1
   },
   "499": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 5,
     "frequency": 9,
     "monetary": 2091.36,
     "cluster": 1
   },
   "500": {
     "persona": "Steady Supporters",
-    "recency": 30,
+    "recency": 31,
     "frequency": 7,
     "monetary": 974.67,
     "cluster": 1
   },
   "501": {
     "persona": "Steady Supporters",
-    "recency": 134,
+    "recency": 135,
     "frequency": 13,
     "monetary": 3104.04,
     "cluster": 1
   },
   "502": {
     "persona": "Steady Supporters",
-    "recency": 64,
+    "recency": 65,
     "frequency": 5,
     "monetary": 962.57,
     "cluster": 1
   },
   "503": {
     "persona": "Light Givers",
-    "recency": 23,
+    "recency": 24,
     "frequency": 3,
     "monetary": 1076.86,
-    "cluster": 0
+    "cluster": 2
   },
   "504": {
     "persona": "Steady Supporters",
-    "recency": 27,
+    "recency": 28,
     "frequency": 14,
     "monetary": 3705.57,
     "cluster": 1
   },
   "505": {
     "persona": "Champions",
-    "recency": 34,
+    "recency": 35,
     "frequency": 3,
     "monetary": 919.21,
-    "cluster": 2
+    "cluster": 0
   },
   "506": {
     "persona": "Champions",
-    "recency": 69,
+    "recency": 70,
     "frequency": 6,
     "monetary": 1811.08,
-    "cluster": 2
+    "cluster": 0
   },
   "507": {
     "persona": "Steady Supporters",
-    "recency": 84,
+    "recency": 85,
     "frequency": 8,
     "monetary": 1795.34,
     "cluster": 1
   },
   "508": {
     "persona": "Light Givers",
-    "recency": 40,
+    "recency": 41,
     "frequency": 2,
     "monetary": 725.91,
-    "cluster": 0
+    "cluster": 2
   },
   "509": {
     "persona": "Light Givers",
-    "recency": 342,
+    "recency": 343,
     "frequency": 2,
     "monetary": 570.37,
-    "cluster": 0
+    "cluster": 2
   },
   "510": {
     "persona": "Steady Supporters",
-    "recency": 16,
+    "recency": 17,
     "frequency": 6,
     "monetary": 841.57,
     "cluster": 1
   },
   "511": {
     "persona": "Light Givers",
-    "recency": 185,
+    "recency": 186,
     "frequency": 1,
     "monetary": 193.69,
-    "cluster": 0
+    "cluster": 2
   },
   "512": {
     "persona": "Steady Supporters",
-    "recency": 65,
+    "recency": 67,
     "frequency": 6,
     "monetary": 1219.25,
     "cluster": 1
   },
   "513": {
     "persona": "Light Givers",
-    "recency": 489,
+    "recency": 490,
     "frequency": 4,
     "monetary": 1096.27,
-    "cluster": 0
+    "cluster": 2
   },
   "514": {
     "persona": "Steady Supporters",
-    "recency": 396,
+    "recency": 397,
     "frequency": 11,
     "monetary": 2324.36,
     "cluster": 1
   },
   "515": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 4,
     "monetary": 670.85,
     "cluster": 1
   },
   "516": {
     "persona": "Steady Supporters",
-    "recency": 94,
+    "recency": 95,
     "frequency": 11,
     "monetary": 2682.29,
     "cluster": 1
   },
   "517": {
-    "persona": "Steady Supporters",
-    "recency": 49,
+    "persona": "Light Givers",
+    "recency": 50,
     "frequency": 4,
     "monetary": 519.4,
-    "cluster": 1
+    "cluster": 2
   },
   "518": {
     "persona": "Champions",
-    "recency": 25,
+    "recency": 27,
     "frequency": 7,
     "monetary": 1473.39,
-    "cluster": 2
+    "cluster": 0
   },
   "519": {
     "persona": "Light Givers",
-    "recency": 234,
+    "recency": 235,
     "frequency": 6,
     "monetary": 1212.02,
-    "cluster": 0
+    "cluster": 2
   },
   "520": {
     "persona": "Champions",
-    "recency": 56,
+    "recency": 57,
     "frequency": 11,
     "monetary": 1922.63,
-    "cluster": 2
+    "cluster": 0
   },
   "521": {
     "persona": "Steady Supporters",
-    "recency": 24,
+    "recency": 25,
     "frequency": 19,
     "monetary": 4455.38,
     "cluster": 1
   },
   "522": {
     "persona": "Steady Supporters",
-    "recency": 31,
+    "recency": 33,
     "frequency": 5,
     "monetary": 602.72,
     "cluster": 1
   },
   "523": {
     "persona": "Steady Supporters",
-    "recency": 200,
+    "recency": 202,
     "frequency": 7,
     "monetary": 1210.37,
     "cluster": 1
   },
   "524": {
     "persona": "Champions",
-    "recency": 130,
+    "recency": 131,
     "frequency": 12,
     "monetary": 4001.5,
-    "cluster": 2
+    "cluster": 0
   },
   "525": {
-    "persona": "Light Givers",
-    "recency": 284,
+    "persona": "Champions",
+    "recency": 285,
     "frequency": 3,
     "monetary": 870.46,
     "cluster": 0
   },
   "526": {
     "persona": "Steady Supporters",
-    "recency": 8,
+    "recency": 9,
     "frequency": 8,
     "monetary": 1636.05,
     "cluster": 1
   },
   "527": {
     "persona": "Light Givers",
-    "recency": 90,
+    "recency": 91,
     "frequency": 3,
     "monetary": 509.5,
-    "cluster": 0
+    "cluster": 2
   },
   "528": {
     "persona": "Champions",
-    "recency": 132,
+    "recency": 134,
     "frequency": 5,
     "monetary": 941.02,
-    "cluster": 2
+    "cluster": 0
   },
   "529": {
     "persona": "Light Givers",
-    "recency": 15,
+    "recency": 16,
     "frequency": 4,
     "monetary": 448.63,
-    "cluster": 0
+    "cluster": 2
   },
   "530": {
     "persona": "Champions",
-    "recency": 112,
+    "recency": 113,
     "frequency": 4,
     "monetary": 1318.2,
-    "cluster": 2
+    "cluster": 0
   },
   "531": {
     "persona": "Light Givers",
-    "recency": 371,
+    "recency": 372,
     "frequency": 6,
     "monetary": 1439.86,
-    "cluster": 0
+    "cluster": 2
   },
   "532": {
     "persona": "Steady Supporters",
-    "recency": 72,
+    "recency": 73,
     "frequency": 8,
     "monetary": 1347.59,
     "cluster": 1
   },
   "533": {
     "persona": "Light Givers",
-    "recency": 690,
+    "recency": 691,
     "frequency": 1,
     "monetary": 389.19,
-    "cluster": 0
+    "cluster": 2
   },
   "534": {
     "persona": "Light Givers",
-    "recency": 229,
+    "recency": 230,
     "frequency": 3,
     "monetary": 393.87,
-    "cluster": 0
+    "cluster": 2
   },
   "535": {
     "persona": "Steady Supporters",
-    "recency": 106,
+    "recency": 108,
     "frequency": 11,
     "monetary": 2864.83,
     "cluster": 1
   },
   "536": {
     "persona": "Steady Supporters",
-    "recency": 17,
+    "recency": 18,
     "frequency": 6,
     "monetary": 1138.64,
     "cluster": 1
   },
   "537": {
     "persona": "Steady Supporters",
-    "recency": 28,
+    "recency": 29,
     "frequency": 5,
     "monetary": 759.0,
     "cluster": 1
   },
   "538": {
     "persona": "Champions",
-    "recency": 81,
+    "recency": 82,
     "frequency": 9,
     "monetary": 3854.68,
-    "cluster": 2
+    "cluster": 0
   },
   "539": {
     "persona": "Champions",
-    "recency": 12,
+    "recency": 14,
     "frequency": 9,
     "monetary": 2708.77,
-    "cluster": 2
+    "cluster": 0
   },
   "540": {
     "persona": "Steady Supporters",
-    "recency": 9,
+    "recency": 10,
     "frequency": 5,
     "monetary": 1007.65,
     "cluster": 1
   },
   "541": {
     "persona": "Light Givers",
-    "recency": 82,
+    "recency": 83,
     "frequency": 5,
     "monetary": 1015.16,
-    "cluster": 0
+    "cluster": 2
   },
   "542": {
     "persona": "Steady Supporters",
-    "recency": 63,
+    "recency": 65,
     "frequency": 5,
     "monetary": 1227.97,
     "cluster": 1
   },
   "543": {
     "persona": "Light Givers",
-    "recency": 484,
+    "recency": 485,
     "frequency": 3,
     "monetary": 384.33,
-    "cluster": 0
+    "cluster": 2
   },
   "544": {
     "persona": "Light Givers",
-    "recency": 641,
+    "recency": 642,
     "frequency": 4,
     "monetary": 1755.42,
-    "cluster": 0
+    "cluster": 2
   },
   "545": {
-    "persona": "Light Givers",
-    "recency": 27,
+    "persona": "Champions",
+    "recency": 29,
     "frequency": 4,
     "monetary": 598.92,
     "cluster": 0
   },
   "546": {
     "persona": "Steady Supporters",
-    "recency": 5,
+    "recency": 6,
     "frequency": 12,
     "monetary": 2035.49,
     "cluster": 1
   },
   "547": {
     "persona": "Champions",
-    "recency": 40,
+    "recency": 41,
     "frequency": 8,
     "monetary": 2754.88,
-    "cluster": 2
+    "cluster": 0
   },
   "548": {
     "persona": "Steady Supporters",
-    "recency": 36,
+    "recency": 37,
     "frequency": 9,
     "monetary": 1255.0,
     "cluster": 1
   },
   "549": {
     "persona": "Light Givers",
-    "recency": 364,
+    "recency": 365,
     "frequency": 1,
     "monetary": 508.36,
-    "cluster": 0
+    "cluster": 2
   },
   "550": {
     "persona": "Light Givers",
-    "recency": 522,
+    "recency": 523,
     "frequency": 5,
     "monetary": 784.46,
-    "cluster": 0
+    "cluster": 2
   },
   "551": {
     "persona": "Steady Supporters",
-    "recency": 57,
+    "recency": 58,
     "frequency": 6,
     "monetary": 1292.39,
     "cluster": 1
   },
   "552": {
     "persona": "Champions",
-    "recency": 17,
+    "recency": 18,
     "frequency": 8,
     "monetary": 3120.89,
-    "cluster": 2
+    "cluster": 0
   },
   "553": {
     "persona": "Champions",
-    "recency": 63,
+    "recency": 64,
     "frequency": 13,
     "monetary": 2242.56,
-    "cluster": 2
+    "cluster": 0
   },
   "554": {
     "persona": "Steady Supporters",
-    "recency": 13,
+    "recency": 14,
     "frequency": 10,
     "monetary": 1443.02,
     "cluster": 1
   },
   "555": {
     "persona": "Light Givers",
-    "recency": 169,
+    "recency": 170,
     "frequency": 3,
     "monetary": 665.73,
-    "cluster": 0
+    "cluster": 2
   },
   "556": {
     "persona": "Light Givers",
-    "recency": 8,
+    "recency": 9,
     "frequency": 3,
     "monetary": 638.85,
-    "cluster": 0
+    "cluster": 2
   },
   "557": {
     "persona": "Light Givers",
-    "recency": 56,
+    "recency": 57,
     "frequency": 1,
     "monetary": 206.1,
-    "cluster": 0
+    "cluster": 2
   },
   "558": {
     "persona": "Light Givers",
-    "recency": 928,
+    "recency": 929,
     "frequency": 5,
     "monetary": 1068.81,
-    "cluster": 0
+    "cluster": 2
   },
   "559": {
     "persona": "Steady Supporters",
-    "recency": 11,
+    "recency": 12,
     "frequency": 5,
     "monetary": 1338.72,
     "cluster": 1
   },
   "560": {
-    "persona": "Light Givers",
-    "recency": 6,
+    "persona": "Champions",
+    "recency": 7,
     "frequency": 3,
     "monetary": 784.69,
     "cluster": 0
   },
   "561": {
     "persona": "Light Givers",
-    "recency": 260,
+    "recency": 261,
     "frequency": 4,
     "monetary": 1000.87,
-    "cluster": 0
+    "cluster": 2
   },
   "562": {
     "persona": "Steady Supporters",
-    "recency": 3,
+    "recency": 5,
     "frequency": 6,
     "monetary": 965.53,
     "cluster": 1
   },
   "563": {
     "persona": "Champions",
-    "recency": 26,
+    "recency": 27,
     "frequency": 8,
     "monetary": 3388.77,
-    "cluster": 2
+    "cluster": 0
   },
   "564": {
     "persona": "Steady Supporters",
-    "recency": 9,
+    "recency": 10,
     "frequency": 7,
     "monetary": 1338.32,
     "cluster": 1
   },
   "565": {
     "persona": "Light Givers",
-    "recency": 344,
+    "recency": 345,
     "frequency": 4,
     "monetary": 686.2,
-    "cluster": 0
+    "cluster": 2
   },
   "566": {
     "persona": "Steady Supporters",
-    "recency": 167,
+    "recency": 168,
     "frequency": 7,
     "monetary": 1294.0,
     "cluster": 1
   },
   "567": {
     "persona": "Steady Supporters",
-    "recency": 27,
+    "recency": 29,
     "frequency": 9,
     "monetary": 1844.36,
     "cluster": 1
   },
   "568": {
     "persona": "Steady Supporters",
-    "recency": 4,
+    "recency": 5,
     "frequency": 9,
     "monetary": 1485.4,
     "cluster": 1
   },
   "569": {
-    "persona": "Light Givers",
-    "recency": 543,
+    "persona": "Champions",
+    "recency": 544,
     "frequency": 4,
     "monetary": 1586.41,
     "cluster": 0
   },
   "570": {
     "persona": "Steady Supporters",
-    "recency": 6,
+    "recency": 7,
     "frequency": 6,
     "monetary": 1090.81,
     "cluster": 1
   },
   "571": {
     "persona": "Light Givers",
-    "recency": 0,
+    "recency": 2,
     "frequency": 1,
     "monetary": 100.0,
-    "cluster": 0
+    "cluster": 2
+  },
+  "572": {
+    "persona": "Light Givers",
+    "recency": 0,
+    "frequency": 1,
+    "monetary": 20.0,
+    "cluster": 2
   }
 }
