@@ -25,7 +25,7 @@
   },
   "4": {
     "riskScore": 0.6217,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -61,7 +61,7 @@
   },
   "7": {
     "riskScore": 0.5273,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -85,7 +85,7 @@
   },
   "9": {
     "riskScore": 0.5544,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -157,7 +157,7 @@
   },
   "15": {
     "riskScore": 0.5604,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Physical Health",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -409,7 +409,7 @@
   },
   "36": {
     "riskScore": 0.5351,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -457,7 +457,7 @@
   },
   "40": {
     "riskScore": 0.5717,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -577,7 +577,7 @@
   },
   "50": {
     "riskScore": 0.5975,
-    "recommendedIntervention": "Reintegration",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -613,7 +613,7 @@
   },
   "53": {
     "riskScore": 0.6381,
-    "recommendedIntervention": "Physical Health",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -685,7 +685,7 @@
   },
   "59": {
     "riskScore": 0.5991,
-    "recommendedIntervention": "Education",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -697,7 +697,7 @@
   },
   "60": {
     "riskScore": 0.5354,
-    "recommendedIntervention": "Reintegration",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
