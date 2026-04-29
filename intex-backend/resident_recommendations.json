@@ -13,7 +13,7 @@
   },
   "3": {
     "riskScore": 0.4825,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -85,7 +85,7 @@
   },
   "9": {
     "riskScore": 0.5544,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Physical Health",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -121,7 +121,7 @@
   },
   "12": {
     "riskScore": 0.5456,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -133,7 +133,7 @@
   },
   "13": {
     "riskScore": 0.5237,
-    "recommendedIntervention": "Education",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -241,7 +241,7 @@
   },
   "22": {
     "riskScore": 0.5001,
-    "recommendedIntervention": "Physical Health",
+    "recommendedIntervention": "Education",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -337,7 +337,7 @@
   },
   "30": {
     "riskScore": 0.5876,
-    "recommendedIntervention": "Psychosocial",
+    "recommendedIntervention": "Safety",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -409,7 +409,7 @@
   },
   "36": {
     "riskScore": 0.5351,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Physical Health",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -421,7 +421,7 @@
   },
   "37": {
     "riskScore": 0.4972,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -673,7 +673,7 @@
   },
   "58": {
     "riskScore": 0.5447,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
@@ -697,7 +697,7 @@
   },
   "60": {
     "riskScore": 0.5354,
-    "recommendedIntervention": "Safety",
+    "recommendedIntervention": "Psychosocial",
     "confidence": 0.5,
     "topDrivers": [
       "general_health_score",
